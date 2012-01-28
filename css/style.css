@@ -23,5 +23,8 @@ body {
 h1 { 
   font-weight: bold;
   font-size: 200%;
+}*/
+
+body {
+  padding-top: 60px;
 }
-*/
