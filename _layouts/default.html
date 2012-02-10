@@ -3,9 +3,63 @@
   <head>
     <title>{{ page.title }}</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-      {{ content }}
+    <header class="page-header">
+      <a href="/">alberto<span>grespan</span>.com</a>
+    </header>
+    <section class="body-container">
+      <div id="main" class="clearfix">
+      <div class="spacer"><a name="ho"></a></div>
+        <h2>#Blog</h2>
+        <div class="page-break">
+          <a name="blog"></a>
+        </div>
+        <h2>#About</h2>
+        <div class="page-break">
+          <a name="about"></a>
+        </div>
+        <div class="about-me">
+          <div class="first-row">
+            
+          </div>
+          <div class="second-row">
+            
+          </div>
+        </div>
+        <h2>#Contact</h2>
+        <div class="page-break">
+          <a name="contact"></a>
+        </div>
+        <form action="mailto:" class="contact-form">
+          <fieldset>
+            <legend>Your Contact Details</legend>
+              <div>
+                  <label for="author">Name: <span>*</span></label>
+                  <input name="author" id="author" type="text" required="true" />
+              </div>
+              <div>
+                  <label for="email">Email Address: <span>*</span></label>
+                  <input name="form[email]" id="email" type="text" required="true" />
+              </div>
+              <div>
+                  <label for="text">Message: <span>*</span></label>
+                  <textarea name="text" type="text" required="true" placeholder="Hi, try to keep it under 140 characters!"></textarea>
+              </div>
+              <div class="different">
+                <button type="submit" class="btn"><span>Send</span></button>
+              </div>
+              <div class="reddit">
+                <p>* All fields are required.</p>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <footer class="page-footer">
+      <div class="footer-container">
+        <p> Copyright 2012, albertogrespan.com </p>
+      </div>
+    </footer>
   </body>
   </html>
