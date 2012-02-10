@@ -1,5 +1,10 @@
 html, body, .body-container{
   height: 100%;
+  color: #666;
+}
+
+h3, h2 {
+  color: #666;
 }
 
 header.page-header {
@@ -52,8 +57,52 @@ section.body-container {
 section.body-container h2 {
   color: #666;
 }
+
+.about-me {
+  display: inline;
+}
+
+.second-row {
+    float: right;
+    text-align: left;
+    width: 50%;
+}
+
+.second-row p {
+  padding-top: 0.8em;
+}
+
+.first-row {
+  width: 50%;
+}
+
 .page-break {
   border-top: solid 1.5px #C5C9C9;
+}
+
+.spacer-block {
+  height: 2em;
+}
+
+.fontz {
+  color: #666;
+  padding-left: 1em;
+}
+.fontz a {
+  font-weight: bold;
+}
+
+.fontz a:hover {
+  text-decoration: none;
+  color: #0088CC;
+}
+
+.fontz a:visited {
+  color: #0088CC;
+}
+
+.first-row .fontz {
+  padding-left: 0.3em;
 }
 
 .contact-form legend {
@@ -97,7 +146,7 @@ section.body-container h2 {
   display: inline;
 }
 
-.contact-form .different button {
+.contact-form .different input {
   width: 8em;
   float: right;
 }

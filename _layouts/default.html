@@ -16,23 +16,45 @@
         <div class="page-break">
           <a name="blog"></a>
         </div>
+        <div class="spacer-block">
+          <a name="space"></a>
+        </div>
         <h2>#About</h2>
         <div class="page-break">
           <a name="about"></a>
         </div>
+        <div class="spacer-block">
+          <a name="space"></a>
+        </div>
         <div class="about-me">
-          <div class="first-row">
-            
-          </div>
           <div class="second-row">
-            
+            <h3>Hello, strager!</h3>
+            <p> My name is Alberto Grespan, I'm a Computer Engineer from Caracas, Venezuela.</p>
+          </div>
+          <div class="first-row">
+            <ul class="thumbnails">
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                  <img src="http://placehold.it/260x180" alt="My-pic">
+                </a>
+              </li>
+              <li class="fontz"> Download my <a href="#" title="resume">curriculum vitae (CV)</a></li>
+            </ul>
           </div>
         </div>
         <h2>#Contact</h2>
         <div class="page-break">
           <a name="contact"></a>
         </div>
-        <form action="mailto:" class="contact-form">
+        <div class="spacer-block">
+          <a name="space"></a>
+        </div>
+        <div class="fontz">
+          <p>Feel free to contact me at: 
+            <a href="mailto:ailto:support@albertogrespan.com">support@albertogrespan.com</a>
+          </p>
+        </div>
+        <form id="myform" action="mailto:support@albertogrespan.com" class="contact-form">
           <fieldset>
             <legend>Your Contact Details</legend>
               <div>
@@ -41,14 +63,14 @@
               </div>
               <div>
                   <label for="email">Email Address: <span>*</span></label>
-                  <input name="form[email]" id="email" type="text" required="true" />
+                  <input name="form[email]" id="email" type="email" required="true" />
               </div>
               <div>
                   <label for="text">Message: <span>*</span></label>
-                  <textarea name="text" type="text" required="true" placeholder="Hi, try to keep it under 140 characters!"></textarea>
+                  <textarea name="text" type="text" required="true" placeholder="Hi, try to keep it short!"></textarea>
               </div>
               <div class="different">
-                <button type="submit" class="btn"><span>Send</span></button>
+                <input type="submit" class="btn" value="Send" />
               </div>
               <div class="reddit">
                 <p>* All fields are required.</p>
