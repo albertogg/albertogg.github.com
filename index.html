@@ -3,4 +3,56 @@ layout:   default
 title:    albertogg | home
 ---
 
-<h1>albertogrespan.com</h1>
+<h2>#Blog</h2>
+<div class="page-break">
+  <a name="blog"></a>
+</div>
+<div class="spacer-block">
+  <a name="space"></a>
+</div>
+<div class="post-block fontz">
+    <ul>
+      {% for post in site.posts %}
+      <li>
+        <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+</div>
+<h2>#About</h2>
+<div class="page-break">
+  <a name="about"></a>
+</div>
+<div class="spacer-block">
+  <a name="space"></a>
+</div>
+<div class="about-me">
+  <div class="second-row">
+    <h3>Hello, strager!</h3>
+    <p> My name is Alberto Grespan, I'm a Computer Engineer from Caracas, Venezuela, who loves the Internets, gadgets, code and playing video games.</p>
+  </div>
+  <div class="first-row">
+    <ul class="thumbnails">
+      <li class="span3">
+        <a href="#" class="thumbnail">
+          <img src="http://placehold.it/260x180" alt="My-pic">
+        </a>
+      </li>
+      <li class="fontz"> Download my <a href="#" title="resume">curriculum vitae (CV)</a></li>
+    </ul>
+  </div>
+</div>
+<h2>#Contact</h2>
+<div class="page-break">
+  <a name="contact"></a>
+</div>
+<div class="spacer-block">
+  <a name="space"></a>
+</div>
+<div class="fontz">
+  <p>Feel free to contact me at: 
+    <a href="mailto:support@albertogrespan.com">support@albertogrespan.com</a>
+  </p>
+  <p>Follow me at twitter: <a href="twitter.albertogrespan.com">@albertogg</a> add me on Google+: <a href="gplus.to/albertogg">+albertogg </a> or check out my repo at: <a href="github.com/albertogg">github.com</a>
+  </p>
+</div>

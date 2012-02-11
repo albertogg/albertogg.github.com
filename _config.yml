@@ -1,4 +1,5 @@
 server: true
+permalink: /posts/:title
 auto:   true
 pygments: true
 markdown: rdiscount

@@ -90,6 +90,7 @@ section.body-container h2 {
 }
 .fontz a {
   font-weight: bold;
+  color: #0088CC;
 }
 
 .fontz a:hover {
@@ -103,6 +104,37 @@ section.body-container h2 {
 
 .first-row .fontz {
   padding-left: 0.3em;
+}
+
+------------------------------------------------- post
+
+.post-block ul {
+  list-style-type: none;
+
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  padding-bottom: 0.5em;
+  margin:0;
+}
+
+.blue {
+  color: #0088CC;
+}
+
+.blue a {
+  color: #0088CC;
+}
+
+.blue a:hover {
+  text-decoration: none;
+  color: #0088CC;
+}
+
+.blue a:visited {
+  color: #0088CC;
 }
 
 .contact-form legend {
@@ -177,7 +209,8 @@ section.body-container h2 {
   width: 38em;
   margin: 0em auto;
   padding: 1em 2em 2em 2em;
-  color: #fff;
+  color: #000;
+  font-weight: bold;
 }
 
 /* CLEAR FIX*/
