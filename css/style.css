@@ -3,12 +3,12 @@ html, body, .body-container{
   color: #666;
 }
 
-h2 {
-  text-shadow: 1px 1px 1px #777;
-}
-
 h3, h2 {
   color: #666;
+}
+
+h2.drop {
+  text-shadow: 1px 1px 1px #777;
 }
 
 header.page-header {
