@@ -1,2 +1,4 @@
 _site/
-_drafts/
+drafts
+Rakefile
+atom.xml

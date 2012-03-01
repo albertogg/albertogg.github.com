@@ -3,6 +3,10 @@ html, body, .body-container{
   color: #666;
 }
 
+h2 {
+  text-shadow: 1px 1px 1px #777;
+}
+
 h3, h2 {
   color: #666;
 }
@@ -25,6 +29,7 @@ header.page-header {
   filter:alpha(opacity=5);
   z-index: 1;
   text-align: left;
+  text-shadow: 1px 1px 1px #777;
 }
 
 header.page-header a {
@@ -137,6 +142,26 @@ ul {
   color: #0088CC;
 }
 
+.post h2, h3 {
+  padding-bottom: 0.5em;
+}
+
+.highlight .bash {
+  color: black;
+}
+
+.highlight .nv {
+  color: #0088CC;
+}
+
+.highlight .html {
+  color: black;
+}
+
+.highlight .nt, .cp {
+  color: #0088CC;
+}
+
 .contact-form legend {
   font-size: 1.2em;
   color: #666;
@@ -211,6 +236,16 @@ ul {
   padding: 1em 2em 2em 2em;
   color: #000;
   font-weight: bold;
+}
+
+.sider p{
+  width: 75%;
+  display: inline;
+  text-shadow: 1px 1px 1px #777;
+}
+
+.padd {
+  padding-left: 1em;
 }
 
 /* CLEAR FIX*/
