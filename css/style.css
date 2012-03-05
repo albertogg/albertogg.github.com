@@ -41,6 +41,12 @@ header.page-header span {
 }
 header.page-header a:hover {
   text-decoration: none;
+  color: #000;
+}
+
+header.page-header a:hover span {
+  text-decoration: none;
+  color: #444;
 }
 
 body > .body-container {
@@ -252,6 +258,16 @@ ul {
   border: 0; 
   display: block; 
   overflow: hidden; 
+}
+
+.popover-inner {
+  width:70px;
+}
+
+.popover-content {
+  text-align: center;
+  font-weight: bold;
+  background-color: #333;
 }
 
 .padd {
