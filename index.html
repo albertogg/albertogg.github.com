@@ -3,22 +3,6 @@ layout:   default
 title:    albertogg | home
 ---
 
-<h2 class="drop">#Blog</h2>
-<div class="page-break">
-  <a name="blog"></a>
-</div>
-<div class="spacer-block">
-  <a name="space"></a>
-</div>
-<div class="post-block fontz">
-    <ul>
-      {% for post in site.posts %}
-      <li>
-        <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-</div>
 <h2 class="drop">#About</h2>
 <div class="page-break">
   <a name="about"></a>
@@ -41,6 +25,22 @@ title:    albertogg | home
       <li class="fontz"> Download my <a href="/images/CV.AlbertoGrespanv2.pdf" title="resume" name="cv">curriculum vitae (CV)</a></li>
     </ul>
   </div>
+</div>
+<h2 class="drop">#Blog</h2>
+<div class="page-break">
+  <a name="blog"></a>
+</div>
+<div class="spacer-block">
+  <a name="space"></a>
+</div>
+<div class="post-block fontz">
+    <ul>
+      {% for post in site.posts %}
+      <li>
+        <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
 </div>
 <h2 class="drop">#Contact</h2>
 <div class="page-break">
