@@ -41,12 +41,10 @@ header.page-header span {
 }
 header.page-header a:hover {
   text-decoration: none;
-  color: #000;
 }
 
 header.page-header a:hover span {
   text-decoration: none;
-  color: #444;
 }
 
 body > .body-container {
