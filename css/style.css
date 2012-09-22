@@ -1,14 +1,18 @@
 html, body, .body-container{
   height: 100%;
   color: #666;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
 }
 
-h3, h2 {
+h3 {
+  font-size: 26px;
+  margin-bottom: -16px;
   color: #666;
 }
 
-h2.drop {
-  text-shadow: 1px 1px 1px #777;
+h4 {
+  color: #666;
 }
 
 header.page-header {
@@ -47,15 +51,6 @@ header.page-header a:hover span {
   text-decoration: none;
 }
 
-body > .body-container {
-  height: auto;
-  min-height: 100%
-}
-
-#main {
-  padding-bottom: 120px;
-}
-
 section.body-container {
   width: 38em;
   min-height: 100%;
@@ -63,6 +58,7 @@ section.body-container {
   overflow: auto;
   padding: 0em 2em 0em 2em;
 }
+
 section.body-container h2 {
   color: #666;
 }
@@ -78,7 +74,7 @@ section.body-container h2 {
 }
 
 .second-row p {
-  padding-top: 0.8em;
+  /*padding-top: 0.8em;*/
 }
 
 .first-row {
@@ -90,7 +86,7 @@ section.body-container h2 {
 }
 
 .spacer-block {
-  height: 2em;
+  height: 1.6em;
 }
 
 .fontz {
@@ -247,13 +243,13 @@ ul {
 }
 
 .sider a {
-  background: url(/images/icons_sprite.png) left top no-repeat; 
-  width: 18px; 
-  height: 18px; 
-  padding: 0; 
-  border: 0; 
-  display: block; 
-  overflow: hidden; 
+  background: url(/images/icons_sprite.png) left top no-repeat;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  display: block;
+  overflow: hidden;
 }
 
 .popover-inner {
@@ -270,7 +266,7 @@ ul {
   padding-left: 1em;
 }
 
-#twittel {
+#twitter {
   background-position: -18px top;
   float: right;
 }
@@ -287,17 +283,51 @@ ul {
   margin-left: 0.5em;
 }
 
-/* CLEAR FIX*/
-.clearfix:after {content: ".";
-  display: block;
-  height: 0;
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -66px;
+}
+.push {
+    height: 63px;
+}
+/* not required for sticky footer; just pushes hero down a bit */
+.wrapper > .container {
+    /*padding-top: 60px;*/
+}
+
+footer {
+  padding: 17px 0 18px 0;
+  border-top: 1px solid #333;
+  background-color: #333333;
+  width: 100%;
   clear: both;
-  visibility: hidden;}
-.clearfix {display: inline-block;}
-/* Hides from IE-mac */
-* html .clearfix { height: 1%;}
-.clearfix {display: block;}
-/* End hide from IE-mac */
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=8);
+}
+
+footer p {
+  color: #000;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #777;
+}
+
+footer a {
+  color: #999;
+  background: url(/images/icons_sprite.png) left top no-repeat;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  display: block;
+  overflow: hidden;
+  float: right;
+}
+footer a:hover {
+    color: #efefef;
+}
 
 
 
