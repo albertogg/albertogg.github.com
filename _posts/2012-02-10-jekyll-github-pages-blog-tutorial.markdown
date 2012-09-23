@@ -5,7 +5,7 @@ title:   How I did this site using jekyll and github pages.
 
 ## So, How I did this jekyll site?
 
-This site is runing on [Github Pages][github] and is using [Jekyll][jekyll] for the layouts and blog posts. In this post I will guide you through the steps for you to start your on site using jekyll.
+This site is runing on [Github Pages][github] and is using [Jekyll][jekyll] for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using jekyll.
 
 ### Let's start from the beginning what's Jekyll?
 
