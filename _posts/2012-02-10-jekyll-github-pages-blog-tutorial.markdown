@@ -243,6 +243,10 @@ permalink: /blog/:title --> /blog/slap-chop.html
 
 I hope you got the hang of jekyll and be able to work your own site with it, because it's pretty cool. Feel free to fork my site or copy everything, except the content of the _posts folder.
 
+To host the site with [Github Pages][github] just follow the [tutorial][instructions] and you will be setup with your new site.
+
+###### *last modification: 2012-09-22*
+
 [github]: http://pages.github.com/
 [jekyll]: http://github.com/mojombo/jekyll/
 [rbenv]: https://github.com/sstephenson/rbenv
@@ -252,3 +256,4 @@ I hope you got the hang of jekyll and be able to work your own site with it, bec
 [perma]: https://github.com/mojombo/jekyll/wiki/Permalinks
 [usage]: https://github.com/mojombo/jekyll/wiki/usage
 [gcc]: https://github.com/kennethreitz/osx-gcc-installer
+[instructions]: https://help.github.com/articles/creating-project-pages-manually
