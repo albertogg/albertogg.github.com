@@ -9,7 +9,7 @@ This site is runing on [Github Pages][github] and is using [Jekyll][jekyll] for 
 
 ### Let's start from the beginning what's Jekyll?
 
-"Jekyll is a simple, blog aware, static site generator. It takes a template directory (representing the raw form of a website), runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server" and it was made by By Tom Preston-Werner, Nick Quaranto, and many awesome contributors! THANKS!
+"Jekyll is a simple, blog aware, static site generator. It takes a template directory (representing the raw form of a website), runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server" and it was made by Tom Preston-Werner, Nick Quaranto, and many awesome contributors! THANKS!
 
 For this post if you are on a MacBook *(like me)* I will assume you have Xcode4.x, Apple "Command line tools" or [osx-gcc-installer][gcc] as we are going compile some things that are needed *(ruby 1.9.3 for example)*. We'll be using the Terminal a lot for this tutorial, so every time you see code starting with a dollar sign ($) it's a terminal command.
 
