@@ -329,7 +329,27 @@ footer a:hover {
     color: #efefef;
 }
 
+.thumbnail {
 
+  border: 0px solid #fff;
+    -webkit-border-radius: none;
+     -moz-border-radius: none;
+          border-radius: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+a.thumbnail:hover {
+  border-color: #fff;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
 
 
 
