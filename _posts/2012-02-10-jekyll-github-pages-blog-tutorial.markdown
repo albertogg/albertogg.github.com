@@ -241,7 +241,7 @@ permalink: /blog/:title --> /blog/slap-chop.html
 
 {% endhighlight %}
 
-I hope you got the hang of jekyll and be able to work your own site with it, because it's pretty cool. Feel free to fork my site or copy everything, except the content of the _posts folder.
+I hope you got the hang of jekyll and be able to work your own site with it, because it's pretty cool. Feel free to fork my site but please don't use the content of the _posts folder without my permission.
 
 To host the site with [Github Pages][github] just follow the [tutorial][instructions] and you will be setup with your new site.
 
