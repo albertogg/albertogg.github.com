@@ -4,7 +4,7 @@ title: Running multiple domains or subdomains in Nginx using Server Blocks in Ub
 ---
 
 
-Have you ever wonder how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well...
+Have you ever wonder; how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well...
 
 This will be a very simple tutorial for doing that, with Nginx.
 
