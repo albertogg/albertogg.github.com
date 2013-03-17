@@ -6,6 +6,6 @@
 <FeedFlare>
     <Text>Subscribe with Feedly</Text>
     <Image src="http://visuex.com/images/projects/feedlyflare.jpg"/>
-    <Link href="http://www.feedly.com/home#subscription/feed/${feedUrl}[action.subscribe"/>
+    <Link href="http://www.feedly.com/home#subscription/feed/${feedUrl}"/>
 </FeedFlare>
 </FeedFlareUnit>
