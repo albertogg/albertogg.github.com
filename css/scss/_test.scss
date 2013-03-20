@@ -1,0 +1,275 @@
+.bottoms {
+  margin-bottom: -32px
+}
+
+.about-me {
+  display: inline;
+}
+
+.second-row {
+    float: right;
+    text-align: left;
+    width: 50%;
+}
+
+.second-row p {
+  /*padding-top: 0.8em;*/
+}
+
+.first-row {
+  width: 50%;
+}
+
+.page-break {
+  border-top: solid 1.5px #C5C9C9;
+}
+
+.spacer-block {
+  margin-bottom: 30px;
+}
+
+.fontz {
+  color: $darkgrayfont;
+  padding-left: 1em;
+}
+.fontz a {
+  font-weight: bold;
+  color: $orangefont;
+}
+
+.fontz a:hover {
+  text-decoration: none;
+  color: $orangefont;
+}
+
+.fontz a:visited {
+  color: $orangefont;
+}
+
+.first-row .fontz {
+  padding-left: 0.3em;
+}
+
+.post-block ul {
+  list-style-type: none;
+
+}
+
+.blue {
+  color: $orangefont;
+}
+
+.blue a {
+  color: $orangefont;
+}
+
+.blue a:hover {
+  text-decoration: none;
+  color: $orangefont;
+}
+
+.blue a:visited {
+  color: $orangefont;
+}
+
+.post h2, h3 {
+  padding-bottom: 0.5em;
+}
+
+.highlight .bash {
+  color: black;
+}
+
+.highlight .nv {
+  color: $orangefont;
+}
+
+.highlight .html {
+  color: black;
+}
+
+.highlight .nt, .cp {
+  color: $orangefont;
+}
+
+.contact-form legend {
+  font-size: 1.2em;
+  color: $darkgrayfont;
+}
+
+.contact-form {
+  text-align: left;
+  color: #ccc;
+}
+
+.contact-form fieldset {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.contact-form label {
+  display: block;
+  cursor: pointer;
+  color: $darkgrayfont;
+}
+
+.contact-form label span {
+  color: #cc0000;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.contact-form .reddit p {
+  color: #cc0000;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: -1em;
+}
+
+.contact-form input {
+  width: 20em;
+  display: inline;
+}
+
+.contact-form .different input {
+  width: 8em;
+  float: right;
+}
+
+.contact-form textarea {
+  width: 20em;
+  height: 8em;
+  resize: none;
+}
+
+.spacer {
+  height: 5.5em;
+}
+
+.page-footer {
+  background-color: #333333;
+  position: relative;
+  width: 100%;
+  margin-top: -120px;
+  height: 120px;
+  clear: both;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=8);
+}
+
+.footer-container {
+  width: 38em;
+  margin: 0em auto;
+  padding: 1em 2em 2em 2em;
+  color: #000;
+  font-weight: bold;
+}
+
+.sider p{
+  width: 75%;
+  display: inline;
+  text-shadow: 1px 1px 1px #777;
+}
+
+.sider a {
+  background: url(/images/icons_sprite.png) left top no-repeat;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.popover-inner {
+  width:70px;
+}
+
+.popover-content {
+  text-align: center;
+  font-weight: bold;
+  background-color: #333;
+}
+
+.padd {
+  padding-left: 1em;
+}
+
+#twitter {
+  background-position: -18px top;
+  float: right;
+}
+
+#github {
+  background-position: -414px top;
+  float: right;
+  margin-left: 0.5em;
+}
+
+#google {
+  background-position: -180px top;
+  float: right;
+  margin-left: 0.5em;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -66px;
+}
+.push {
+    height: 63px;
+}
+/* not required for sticky footer; just pushes hero down a bit */
+.wrapper > .container {
+    /*padding-top: 60px;*/
+}
+
+.thumbnail {
+
+  border: 0px solid #fff;
+    -webkit-border-radius: none;
+     -moz-border-radius: none;
+          border-radius: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+a.thumbnail:hover {
+  border-color: #fff;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
+.left-padding {
+  padding-left: 40px;
+}
+
+
+.left-padding5 {
+  padding-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
