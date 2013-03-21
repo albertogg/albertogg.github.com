@@ -55,8 +55,8 @@ task :server do
   ]
 
   trap "INT" do
-    Process.kill "INT", *pids
-    exit 1
+    Process.kill 0, *pids
+    exit 0
   end
 
   loop do
