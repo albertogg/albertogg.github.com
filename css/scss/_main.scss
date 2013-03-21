@@ -1,0 +1,146 @@
+.bottoms {
+  margin-bottom: -32px
+}
+
+.about-me {
+  display: inline;
+}
+
+.second-row {
+    float: right;
+    text-align: left;
+    width: 50%;
+}
+
+.first-row {
+  width: 50%;
+  .fontz {
+    padding-left: 0.3em;
+  }
+}
+
+.page-break {
+  border-top: solid 1.5px #C5C9C9;
+}
+
+.spacer-block {
+  margin-bottom: 30px;
+}
+
+.fontz {
+  color: $darkgrayfont;
+  padding-left: 1em;
+  a {
+    font-weight: bold;
+    color: $orangefont;
+    &:hover {
+      text-decoration: none;
+      color: $orangefont;
+    }
+    &:visited {
+      color: $orangefont;
+    }
+  }
+}
+
+.post-block ul {
+  list-style-type: none;
+}
+
+.blue {
+  color: $orangefont;
+  a {
+    color: $orangefont;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $orangefont;
+  }
+  &:visited {
+    color: $orangefont;
+  }
+}
+
+.post h2, h3 {
+  padding-bottom: 0.5em;
+}
+
+.highlight {
+  .bash, .html {
+    color: black;
+  }
+  .nv, .nt, .cp {
+    color: $orangefont;
+  }
+}
+
+.spacer {
+  height: 5.5em;
+}
+
+.page-footer {
+  background-color: #333333;
+  position: relative;
+  width: 100%;
+  margin-top: -120px;
+  height: 120px;
+  clear: both;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter:alpha(opacity=8);
+}
+
+.footer-container {
+  width: 38em;
+  margin: 0em auto;
+  padding: 1em 2em 2em 2em;
+  color: #000;
+  font-weight: bold;
+}
+
+.padd {
+  padding-left: 1em;
+}
+
+.left-padding {
+  padding-left: 40px;
+}
+
+.left-padding5 {
+  padding-left: 5px;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -66px;
+}
+.push {
+    height: 63px;
+}
+/* not required for sticky footer; just pushes hero down a bit */
+.wrapper > .container {
+    /*padding-top: 60px;*/
+}
+
+.thumbnail {
+  border: 0px solid #fff;
+    -webkit-border-radius: none;
+     -moz-border-radius: none;
+          border-radius: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+a.thumbnail:hover {
+  border-color: #fff;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
