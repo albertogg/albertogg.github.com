@@ -2,8 +2,10 @@ html, body, .body-container{
   height: 100%;
   background: url(/images/cream_dust.png) repeat 0 0;
   color: $darkgrayfont;
-  font-family: $better-helvetica;
-  font-weight: 300;
+  font: {
+    family: $better-helvetica;
+    weight: 300;
+  }
 }
 
 h3 {
@@ -41,11 +43,11 @@ ul {
 header.page-header {
   width: 100%;
   margin: 0;
-  padding-top: 0.8em;
-  padding-bottom: 0.95em;
-  padding-left: 0.6em;
-  font-weight: bold;
-  font-size: 2.2em;
+  padding: 0.8em 0 0.95em 0.6em;
+  font: {
+    weight: bold;
+    size: 2.2em;
+  }
   letter-spacing: -0.05em;
   background-color: #CCC;
   position: fixed;
@@ -55,8 +57,10 @@ header.page-header {
   -moz-opacity: 0.5;
   filter:alpha(opacity=5);
   z-index: 1;
-  text-align: left;
-  text-shadow: 1px 1px 1px #777;
+  text: {
+    align: left;
+    shadow: 1px 1px 1px #777;
+  }
   a {
     text-decoration: none;
     color: #6B6B6B;
