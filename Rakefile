@@ -3,7 +3,6 @@
 
 require 'fileutils'
 
-
 desc "Creating a new draft for post/entry"
 task :new do
   puts "what's the name for your next post? (YYYY-MM-DD-name-of-post)"
@@ -45,4 +44,22 @@ task :copy do
   @poster = STDIN.gets.chomp
   sh "cp drafts/_posts/#{@poster}.md _posts/#{@poster}.md"
   puts "COPIED SIR!"
+end
+
+# Rubygems compile rake task.
+desc "compile and run the site"
+task :server do
+  pids = [
+    spawn("jekyll --server 3000"),
+    spawn("scss --watch css/scss:css")
+  ]
+
+  trap "INT" do
+    Process.kill "INT", *pids
+    exit 1
+  end
+
+  loop do
+    sleep 1
+  end
 end
