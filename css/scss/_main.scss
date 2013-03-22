@@ -126,21 +126,12 @@
 
 .thumbnail {
   border: 0px solid #fff;
-    -webkit-border-radius: none;
-     -moz-border-radius: none;
-          border-radius: none;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition: none;
-     -moz-transition: none;
-       -o-transition: none;
-          transition: none;
+  @include prefixer(border-radius, $none, webkit moz spec);
+  @include prefixer(box-shadow, $none, webkit moz spec);
+  @include prefixer(transition, $none, webkit moz o spec);
 }
 
 a.thumbnail:hover {
   border-color: #fff;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  @include prefixer(box-shadow, $none, webkit moz spec);
 }
