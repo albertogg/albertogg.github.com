@@ -125,13 +125,13 @@
 }
 
 .thumbnail {
-  border: 0px solid #fff;
+  border: 0px solid $white;
   @include prefixer(border-radius, $none, webkit moz spec);
   @include prefixer(box-shadow, $none, webkit moz spec);
   @include prefixer(transition, $none, webkit moz o spec);
 }
 
 a.thumbnail:hover {
-  border-color: #fff;
+  border-color: $white;
   @include prefixer(box-shadow, $none, webkit moz spec);
 }

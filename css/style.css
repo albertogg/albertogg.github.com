@@ -200,7 +200,7 @@ footer {
   transition: none; }
 
 a.thumbnail:hover {
-  border-color: #fff;
+  border-color: white;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; }
