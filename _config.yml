@@ -1,5 +1,5 @@
-server: true
-permalink: /blog/:title
-auto:   true
+permalink: pretty
 pygments: true
 markdown: rdiscount
+safe: true
+lsi: false

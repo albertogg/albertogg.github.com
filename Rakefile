@@ -50,7 +50,7 @@ end
 desc "compile and run the site"
 task :server do
   pids = [
-    spawn("jekyll --server 3000"),
+    spawn("jekyll serve --watch --port 3000 --drafts"),
     spawn("scss --watch css/scss:css")
   ]
 
