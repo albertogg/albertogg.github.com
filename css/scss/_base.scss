@@ -1,128 +1,21 @@
-html, body, .body-container{
-  height: 100%;
-  background: url(/images/cream_dust.png) repeat 0 0;
-  color: $darkgrayfont;
-  font: {
-    family: $better-helvetica;
-    weight: 300;
-  }
+body {
+  color: $azul;
+  font-family: 'Noto Sans', sans-serif;
 }
 
-h3 {
-  font-size: 26px;
-  margin-bottom: -16px;
-  color: $darkgrayfont;
-}
-
-h4 {
-  color: $darkgrayfont;
+h1 {
+  font-size: 42px;
+  font-weight: bold;
 }
 
 a {
-  color: $orangefont;
-
-  &:hover {
-    color: $orangefont;
-    text-decoration: none;
-  }
-
+  text-transform: lowercase;
+  text-decoration: none;
+  padding: 6px;
   &:visited {
-    color: $orangefont;
+    color: $azul;
   }
-}
-
-ul {
-  list-style-type: none;
-  padding: {
-    left: 0;
-    bottom: 0.5em;
-  }
-  margin:0;
-}
-
-header.page-header {
-  width: 100%;
-  margin: 0;
-  padding: 0.8em 0 0.95em 0.6em;
-  font: {
-    weight: bold;
-    size: 2.2em;
-  }
-  letter-spacing: -0.05em;
-  background-color: #CCC;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-  -moz-opacity: 0.5;
-  filter:alpha(opacity=5);
-  z-index: 1;
-  text: {
-    align: left;
-    shadow: 1px 1px 1px #777;
-  }
-  a {
-    text-decoration: none;
-    color: #6B6B6B;
-    &:hover {
-      text-decoration: none;
-      span {
-        text-decoration: none;
-      }
-    }
-  }
-  span {
-    color: #000;
-  }
-}
-
-section.body-container {
-  width: 38em;
-  min-height: 100%;
-  margin: 0em auto;
-  overflow: auto;
-  padding: 0em 2em 0em 2em;
-  h2 {
-    color: #666;
-  }
-}
-
-footer {
-  padding: 17px 0 18px 0;
-  border-top: 1px solid #333;
-  background-color: #333333;
-  width: 100%;
-  clear: both;
-  opacity: 0.8;
-  -moz-opacity: 0.8;
-  filter:alpha(opacity=8);
-  p {
-    color: #000;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #777;
-  }
-  a {
-    color: #999;
-    background: url(/images/icons_sprite.png) left top no-repeat;
-    width: 18px;
-    height: 18px;
-    padding: 0;
-    border: 0;
-    display: block;
-    overflow: hidden;
-    float: right;
-
-    &:hover {
-      color: #efefef;
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
+  &:link {
+    color: $azul;
   }
 }

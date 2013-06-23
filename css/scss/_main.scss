@@ -1,137 +1,46 @@
-.bottoms {
-  margin-bottom: -32px
+.container {
+  @include outer-container;
 }
 
-.about-me {
-  display: inline;
+.header {
+  margin: 100px 0 0 0;
+  padding-bottom: 36px;
+  border-bottom: 1px solid $azul;
 }
 
-.second-row {
-    float: right;
-    text-align: left;
-    width: 50%;
+.name {
+  font-size: 68px;
 }
 
-.first-row {
-  width: 50%;
-  .fontz {
-    padding-left: 0.3em;
-  }
-}
-
-.page-break {
-  border-top: solid 1.5px #C5C9C9;
-}
-
-.spacer-block {
-  margin-bottom: 30px;
-}
-
-.fontz {
-  color: $darkgrayfont;
-  padding-left: 1em;
-  a {
-    font-weight: bold;
-    color: $orangefont;
-    &:hover {
-      text-decoration: none;
-      color: $orangefont;
-    }
-    &:visited {
-      color: $orangefont;
+.menu {
+  display: block;
+  padding: 0;
+  margin: 20px 0;
+  float: left;
+  li {
+    display: inline;
+    a {
+      font-size: 30px;
+      margin-right: 20px;
+      &:hover {
+        color: $white;
+        background-color: $azul;
+        border-radius: 0.25rem;
+      }
     }
   }
 }
 
-.post-block ul {
-  list-style-type: none;
-}
-
-.blue {
-  color: $orangefont;
-  a {
-    color: $orangefont;
+.social {
+  display: block;
+  padding: 0;
+  float: right;
+  margin: 26px 0;
+  li {
+    display: inline;
+    a {
+      font-size: 24px;
+      margin-right: -6px;
+    }
   }
-  &:hover {
-    text-decoration: none;
-    color: $orangefont;
-  }
-  &:visited {
-    color: $orangefont;
-  }
-}
-
-.post h2, h3 {
-  padding-bottom: 0.5em;
-}
-
-.highlight {
-  .bash, .html {
-    color: black;
-  }
-  .nv, .nt, .cp {
-    color: $orangefont;
-  }
-}
-
-.spacer {
-  height: 5.5em;
-}
-
-.page-footer {
-  background-color: #333333;
-  position: relative;
-  width: 100%;
-  margin-top: -120px;
-  height: 120px;
-  clear: both;
-  opacity: 0.8;
-  -moz-opacity: 0.8;
-  filter:alpha(opacity=8);
-}
-
-.footer-container {
-  width: 38em;
-  margin: 0em auto;
-  padding: 1em 2em 2em 2em;
-  color: #000;
-  font-weight: bold;
-}
-
-.padd {
-  padding-left: 1em;
-}
-
-.left-padding {
-  padding-left: 40px;
-}
-
-.left-padding5 {
-  padding-left: 5px;
-}
-
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -66px;
-}
-.push {
-    height: 63px;
-}
-/* not required for sticky footer; just pushes hero down a bit */
-.wrapper > .container {
-    /*padding-top: 60px;*/
-}
-
-.thumbnail {
-  border: 0px solid $white;
-  @include prefixer(border-radius, $none, webkit moz spec);
-  @include prefixer(box-shadow, $none, webkit moz spec);
-  @include prefixer(transition, $none, webkit moz o spec);
-}
-
-a.thumbnail:hover {
-  border-color: $white;
-  @include prefixer(box-shadow, $none, webkit moz spec);
 }
