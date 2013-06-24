@@ -20,9 +20,19 @@ html, body {
 
 #footer {
   height: $sticky-height;
-  padding: 40px 0;
+  padding: 46px 0;
   color: $white;
   background-color: $azul-pargo;
+  a {
+    text-transform: none;
+    color: $white;
+    &:visited {
+      color: $white;
+    }
+    &:link {
+      color: $white;
+    }
+  }
 }
 
 body {

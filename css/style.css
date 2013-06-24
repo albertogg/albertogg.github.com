@@ -354,9 +354,16 @@ html, body {
 
 #footer {
   height: 120px;
-  padding: 40px 0;
+  padding: 46px 0;
   color: white;
   background-color: #3498db; }
+  #footer a {
+    text-transform: none;
+    color: white; }
+    #footer a:visited {
+      color: white; }
+    #footer a:link {
+      color: white; }
 
 body {
   color: #34495e;
