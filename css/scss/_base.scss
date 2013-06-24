@@ -66,6 +66,7 @@ h1 {
 
 h2 {
   font-size: 36px;
+  margin: 16px 0 16px 0;
 }
 
 h3 {
@@ -82,4 +83,22 @@ h5 {
 
 h6 {
   font-size: 12px;
+}
+
+ul {
+  list-style-type: square;
+  display: block;
+  margin: 0 0 20px 20px;
+  li a {
+    text-decoration: underline;
+    text-transform: none;
+  }
+}
+
+p {
+  margin: 14px 0 14px 0;
+  a {
+    text-transform: none;
+    text-decoration: underline;
+  }
 }

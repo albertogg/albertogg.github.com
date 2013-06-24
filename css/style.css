@@ -389,7 +389,8 @@ h1 {
     padding: 0; }
 
 h2 {
-  font-size: 36px; }
+  font-size: 36px;
+  margin: 16px 0 16px 0; }
 
 h3 {
   font-size: 30px; }
@@ -402,6 +403,20 @@ h5 {
 
 h6 {
   font-size: 12px; }
+
+ul {
+  list-style-type: square;
+  display: block;
+  margin: 0 0 20px 20px; }
+  ul li a {
+    text-decoration: underline;
+    text-transform: none; }
+
+p {
+  margin: 14px 0 14px 0; }
+  p a {
+    text-transform: none;
+    text-decoration: underline; }
 
 /* Header code */
 .container {
@@ -424,13 +439,13 @@ h6 {
   font-size: 68px; }
 
 .menu {
-  display: block;
   padding: 0;
   margin: 20px 0;
   float: left; }
   .menu li {
     display: inline; }
     .menu li a {
+      text-decoration: none;
       font-size: 30px;
       margin-right: 20px; }
       .menu li a:hover {
@@ -439,25 +454,27 @@ h6 {
         border-radius: 0.25rem; }
 
 .social {
-  display: block;
   padding: 0;
   float: right;
   margin: 26px 0; }
   .social li {
     display: inline; }
     .social li a {
+      text-decoration: none;
       font-size: 24px;
       margin-right: -6px; }
 
 /* index.html post style */
 .posts {
   display: block;
-  padding: 0; }
+  padding: 0;
+  margin: 0; }
   .posts li {
     display: block;
     border-bottom: 2px solid white;
     line-height: 40px; }
     .posts li a {
+      text-decoration: none;
       color: #e74c3c;
       text-transform: none; }
       .posts li a:hover {
@@ -481,7 +498,6 @@ h6 {
 .post > h2 {
   color: white;
   background-color: #34495e;
-  margin: 16px 0 16px 0;
   padding: 6px;
   border-radius: 0.25rem; }
 
@@ -497,9 +513,6 @@ h6 {
 
 .post {
   border-bottom: 2px solid white; }
-
-p {
-  margin: 14px 0 14px 0; }
 
 pre {
   padding: 9.5px;
