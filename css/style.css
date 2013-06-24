@@ -388,6 +388,21 @@ h1 {
     text-transform: none;
     padding: 0; }
 
+h2 {
+  font-size: 36px; }
+
+h3 {
+  font-size: 30px; }
+
+h4 {
+  font-size: 24px; }
+
+h5 {
+  font-size: 18px; }
+
+h6 {
+  font-size: 12px; }
+
 /* Header code */
 .container {
   zoom: 1;
@@ -463,10 +478,22 @@ h1 {
   word-spacing: 8px;
   line-height: 66px; }
 
+.post > h2 {
+  color: white;
+  background-color: #34495e;
+  margin: 16px 0 16px 0;
+  padding: 6px;
+  border-radius: 0.25rem; }
+
 .post > h3 {
   color: #e74c3c;
-  font-size: 30px;
   margin: 16px 0 16px 0; }
+
+.post > h5 {
+  margin: 10px 0 10px 0; }
+
+.post > h6 {
+  margin: 8px 0 8px 0; }
 
 .post {
   border-bottom: 2px solid white; }

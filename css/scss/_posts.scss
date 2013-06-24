@@ -8,10 +8,25 @@
   line-height: 66px;
 }
 
+.post > h2 {
+  color: $white;
+  background-color: $azul;
+  margin: 16px 0 16px 0;
+  padding: 6px;
+  border-radius: 0.25rem;
+}
+
 .post > h3 {
   color: $red;
-  font-size: 30px;
   margin: 16px 0 16px 0;
+}
+
+.post > h5 {
+  margin: 10px 0 10px 0;
+}
+
+.post > h6 {
+  margin: 8px 0 8px 0;
 }
 
 .post {
