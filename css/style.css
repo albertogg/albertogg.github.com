@@ -468,6 +468,9 @@ h1 {
   font-size: 30px;
   margin: 16px 0 16px 0; }
 
+.post {
+  border-bottom: 2px solid white; }
+
 p {
   margin: 14px 0 14px 0; }
 
@@ -484,3 +487,6 @@ pre {
   text-transform: uppercase;
   padding-bottom: 12px;
   border-bottom: 2px solid white; }
+
+#disqus_thread {
+  margin: 20px 0 12px 0; }
