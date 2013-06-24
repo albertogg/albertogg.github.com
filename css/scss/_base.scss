@@ -43,11 +43,6 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-h1 {
-  font-size: 42px;
-  font-weight: bold;
-}
-
 a {
   text-transform: lowercase;
   text-decoration: none;
@@ -57,5 +52,14 @@ a {
   }
   &:link {
     color: $azul;
+  }
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: bold;
+  a {
+    text-transform: none;
+    padding: 0;
   }
 }

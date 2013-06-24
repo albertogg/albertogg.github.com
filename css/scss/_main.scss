@@ -1,3 +1,4 @@
+/* Header code */
 .container {
   @include outer-container;
 }
@@ -45,6 +46,7 @@
   }
 }
 
+/* index.html post style */
 .posts {
   display: block;
   padding: 0;

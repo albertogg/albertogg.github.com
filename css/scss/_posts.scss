@@ -1,0 +1,36 @@
+.post > h1 a {
+  color: $white;
+  background-color: $red;
+  padding: 6px;
+  border-radius: 0.25rem;
+  letter-spacing: -1px;
+  word-spacing: 8px;
+  line-height: 66px;
+}
+
+.post > h3 {
+  color: $red;
+  font-size: 30px;
+  margin: 16px 0 16px 0;
+}
+
+p {
+  margin: 14px 0 14px 0;
+}
+
+pre {
+  padding: 9.5px;
+  color: rgb(127, 140, 141);
+  background-color: rgb(189, 195, 199);
+  border: 2px solid $white;
+  border-radius: 0.25rem;
+  span {
+    color: $white;
+  }
+}
+
+.date {
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 2px solid $white;
+}
