@@ -446,6 +446,7 @@ p {
     display: inline; }
     .menu li a {
       text-decoration: none;
+      text-transform: lowercase;
       font-size: 30px;
       margin-right: 20px; }
       .menu li a:hover {

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: The UNIX Operating System
+category: blog
+tag: blog
 ---
 
 ## "The UNIX System: Making Computers More Productive"

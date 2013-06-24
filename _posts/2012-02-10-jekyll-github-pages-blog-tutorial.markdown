@@ -1,6 +1,8 @@
 ---
 layout:   post
 title:   How I did this site using jekyll and github pages.
+category: blog
+tag: blog
 ---
 
 ## So, How I did this jekyll site?

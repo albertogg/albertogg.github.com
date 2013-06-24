@@ -21,6 +21,7 @@
     display: inline;
     a {
       text-decoration: none;
+      text-transform: lowercase;
       font-size: 30px;
       margin-right: 20px;
       &:hover {
