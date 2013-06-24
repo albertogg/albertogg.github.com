@@ -3,9 +3,9 @@
 }
 
 .header {
-  margin: 100px 0 0 0;
+  background-color: $white;
+  padding: 100px 0 0 0;
   padding-bottom: 36px;
-  border-bottom: 1px solid $azul;
 }
 
 .name {
@@ -24,7 +24,7 @@
       margin-right: 20px;
       &:hover {
         color: $white;
-        background-color: $azul;
+        background-color: $red;
         border-radius: 0.25rem;
       }
     }
@@ -41,6 +41,30 @@
     a {
       font-size: 24px;
       margin-right: -6px;
+    }
+  }
+}
+
+.posts {
+  display: block;
+  padding: 0;
+  li {
+    display: block;
+    border-bottom: 2px solid $white;
+    line-height: 40px;
+    a {
+      color: $red;
+      text-transform: none;
+      &:hover {
+        color: $white;
+        background-color: $red;
+        border-radius: 0.25rem;
+      }
+    }
+    span {
+      float: right;
+      text-transform: uppercase;
+      font-size: 12px;
     }
   }
 }

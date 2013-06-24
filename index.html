@@ -3,44 +3,13 @@ layout:   default
 title:    albertogg | home
 ---
 
-<h3 class="bottoms">About</h3>
-<hr>
-<div class="about-me">
-  <div class="second-row">
-    <h4>Hello, there!</h4>
-    <p> My name is Alberto Grespan, I'm a Computer Scientist from Caracas, Venezuela, I love the Internet, Open Source Software, gadgets and playing video games.</p>
-  </div>
-  <div class="first-row">
-    <ul class="thumbnails">
-      <li class="span3">
-        <a href="#" class="thumbnail">
-          <img height="220" src="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png" width="220"alt="My-pic">
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
-<h3 class="bottoms">Blog
-  <a class="left-padding5" href="http://feeds.feedburner.com/albertogg">
-    <img src="/images/rss24.png" alt="rss">
-  </a>
-</h3>
-<hr>
-<div class="post-block fontz">
-    <ul>
+<h1>Blog</h1>
+<div>
+    <ul class="posts">
       {% for post in site.posts %}
       <li>
         <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
       </li>
       {% endfor %}
     </ul>
-</div>
-<h3 class="bottoms">Contact</h3>
-<hr>
-<div class="fontz">
-  <p>Feel free to contact me at:
-    <a href="mailto:support@albertogrespan.com">support@albertogrespan.com</a>
-  </p>
-  <p class="spacer-block">Follow me at twitter: <a href="http://twitter.albertogrespan.com">@albertogg</a> add me on Google+: <a href="http://gplus.to/albertogg">+albertogg </a> or check out my repo at: <a href="http://github.com/albertogg">github.com</a>
-  </p>
 </div>

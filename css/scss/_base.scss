@@ -1,5 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#content-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -120px; /* the bottom margin is the negative value of the footer's height */
+}
+
+#push {
+  height: $sticky-height;
+}
+
+#footer {
+  height: $sticky-height;
+  padding: 40px 0;
+  color: $white;
+  background-color: $azul-pargo;
+}
+
 body {
   color: $azul;
+  background-color: $cloud;
   font-family: 'Noto Sans', sans-serif;
 }
 
