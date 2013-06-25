@@ -9,3 +9,5 @@ title: about - alberto grespan dot com
 ### Hello, there!
 
 My name is Alberto Grespan, I'm a Computer Scientist from Caracas, Venezuela, I love the Internet, Open Source Software, gadgets and playing video games.
+
+Follow me on [Twitter](http://twitter.com/albertogg) and [Github](http://github.com/albertogg) *or* contact me by [email](mailto:support@albertogrespan.com).
