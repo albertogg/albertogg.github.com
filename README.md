@@ -4,7 +4,7 @@ Hi. this is a Jekyll site/blog hosted on [Github][github] with [Github-Pages][pa
 
 ## License
 
-This blog works with Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license
+This blog works with [Creative Commons Attribution-NonCommercial-ShareAlike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode) license
 
 
 [github]: http://github.com/
