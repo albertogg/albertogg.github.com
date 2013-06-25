@@ -516,13 +516,15 @@ p {
   border-radius: 0.25rem; }
 
 .post > h3 {
-  color: #e74c3c;
+  color: #2c3e50;
   margin: 16px 0 16px 0; }
 
 .post > h5 {
+  color: #2c3e50;
   margin: 10px 0 10px 0; }
 
 .post > h6 {
+  color: #2c3e50;
   margin: 8px 0 8px 0; }
 
 .post {
