@@ -102,3 +102,14 @@ p {
     text-decoration: underline;
   }
 }
+
+.about {
+  img {
+    float: left;
+    height: 160px;
+    width: 160px;
+    margin: 0 20px 8px 0px;
+    border-radius: 150px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  }
+}
