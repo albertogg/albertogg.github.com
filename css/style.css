@@ -466,6 +466,10 @@ p {
         color: white;
         background-color: #e74c3c;
         border-radius: 0.25rem; }
+  .menu .active a {
+    color: white;
+    background-color: #e74c3c;
+    border-radius: 0.25rem; }
 
 .social {
   padding: 0;
