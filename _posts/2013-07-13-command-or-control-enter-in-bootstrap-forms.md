@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: wiki
 title: Command or control enter in bootstrap forms
 category: wiki
 tag: wiki
@@ -14,4 +14,4 @@ $(document).on('keydown', '.controls > .text, .controls > .string', function(eve
 {% endhighlight %}
 
 - Add a helper class to your submit button to identify it.
-- If you want to target normal inputs use .text and to target textareas use .string or use both. 
+- If you want to target normal inputs use .text and to target textareas use .string or use both.
