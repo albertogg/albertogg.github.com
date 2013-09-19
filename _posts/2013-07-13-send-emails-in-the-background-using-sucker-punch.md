@@ -36,7 +36,7 @@ $ bundle install
 Generate the mailer.
 
 {% highlight bash %}
-$ rails g mailer ContacMailer
+$ rails g mailer ContactMailer
 {% endhighlight %}
 
 This command will create all the files necessary to send emails within the rails application.
