@@ -411,13 +411,13 @@ h6 {
 ul {
   list-style-type: square;
   display: block;
-  margin: 0 0 20px 20px; }
+  margin-left: 20px; }
   ul li a {
     text-decoration: underline;
     text-transform: none; }
 
 p {
-  margin: 14px 0 14px 0; }
+  margin: 10px 0 10px 0; }
   p a {
     text-transform: none;
     text-decoration: underline;
@@ -450,6 +450,9 @@ p {
 
 .name {
   font-size: 68px; }
+
+.bottom-spacer {
+  margin-bottom: 56px; }
 
 .menu {
   padding: 0;
