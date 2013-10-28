@@ -1,6 +1,6 @@
 permalink: /:categories/:title
 excerpt_separator: ""
 pygments: true
-markdown: rdiscount
+markdown: redcarpet
 safe: true
 lsi: false
