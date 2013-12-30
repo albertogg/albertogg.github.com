@@ -6,13 +6,6 @@ permalink: resume.html
 
 # Résumé
 
-## Table of content
-
-- [Biography.](#biography)
-- [Education.](#education)
-- [Skills.](#skills)
-- [Work Experience.](#work-experience)
-
 ## Biography
 
 I am a Computer Scientist and Web Developer from Caracas, Venezuela. I'm really passionate about Open Source Software, learning new things and sharing them afterwards (if possible). My main interest when woking is web development. I've been working for the past two years and remotely for the last 6 months to avoid spending 3 hours a day commuting. In the past I had spend lot's of my time playing video games and Paintball (which I consider the best sport in the entire world).
