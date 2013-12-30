@@ -545,6 +545,9 @@ p {
 #disqus_thread {
   margin: 20px 0 12px 0; }
 
+.resume > h1, h2, h3, h4, h5, h6 {
+  text-decoration: underline; }
+
 .highlight {
   background-color: #073642;
   color: #93a1a1;
