@@ -1,7 +1,6 @@
 ---
 layout: resume
 title: Resume - english
-permalink: resume.html
 ---
 
 # Résumé
