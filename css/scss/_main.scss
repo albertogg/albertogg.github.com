@@ -82,3 +82,15 @@
     }
   }
 }
+
+.wiki {
+  li {
+    &:first-child {
+       padding-top: 16px;
+    }
+
+    &:last-child {
+      padding-bottom: 16px;
+    }
+  }
+}
