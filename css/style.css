@@ -352,6 +352,40 @@ td,
 th {
   padding: 0; }
 
+body {
+  background-color: transparent;
+  color: #444444;
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+  font-weight: 300; }
+
+a {
+  text-decoration: none; }
+  a:visited {
+    color: #444444; }
+
+.header {
+  text-align: center; }
+  .header .name {
+    display: block; }
+    .header .name a {
+      font-weight: normal;
+      text-decoration: none; }
+  .header .menu {
+    list-style: none;
+    padding-left: 0; }
+    .header .menu a {
+      color: #444444; }
+    .header .menu li {
+      display: inline;
+      text-decoration: underline;
+      margin-right: 0.8em; }
+      .header .menu li:last-child {
+        margin-right: 0; }
+
 .highlight {
   background-color: #073642;
   color: #93a1a1;

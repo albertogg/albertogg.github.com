@@ -1,0 +1,31 @@
+.header {
+  text-align: center;
+
+  .name {
+    display: block;
+
+    a {
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+
+  .menu {
+    list-style: none;
+    padding-left: 0;
+
+    a {
+      color: $dark-font;
+    }
+
+    li {
+      display: inline;
+      text-decoration: underline;
+      margin-right: 0.8em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+body {
+  background-color: transparent;
+  color: $dark-font;
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: $dark-font;
+  }
+}
