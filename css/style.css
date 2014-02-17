@@ -377,7 +377,8 @@ a {
       text-decoration: none; }
   .header .menu {
     list-style: none;
-    padding-left: 0; }
+    padding-left: 0;
+    margin-bottom: 3em; }
     .header .menu a {
       color: #444444; }
     .header .menu li {
@@ -392,7 +393,7 @@ a {
   line-height: 1.4em;
   list-style: none; }
   .posts a {
-    color: #286b8f; }
+    color: #428bca; }
   .posts li {
     text-align: left;
     padding: 0.315em;
