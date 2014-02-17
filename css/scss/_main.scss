@@ -3,6 +3,7 @@
 
   .name {
     display: block;
+    font-size: 2.2em;
 
     a {
       font-weight: normal;
@@ -26,6 +27,29 @@
       &:last-child {
         margin-right: 0;
       }
+    }
+  }
+}
+
+.posts {
+  padding-left: 0;
+  line-height: 1.4em;
+  list-style: none;
+
+  a {
+    color: rgba(40, 107, 143, 1);
+  }
+
+  li {
+    text-align: left;
+    padding: 0.315em;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+
+    span {
+      color: rgba(99, 99, 99, 1);
+      float: right;
+      font-size: 0.8em;
+      margin-left: 1.4em;
     }
   }
 }

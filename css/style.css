@@ -370,7 +370,8 @@ a {
 .header {
   text-align: center; }
   .header .name {
-    display: block; }
+    display: block;
+    font-size: 2.2em; }
     .header .name a {
       font-weight: normal;
       text-decoration: none; }
@@ -385,6 +386,22 @@ a {
       margin-right: 0.8em; }
       .header .menu li:last-child {
         margin-right: 0; }
+
+.posts {
+  padding-left: 0;
+  line-height: 1.4em;
+  list-style: none; }
+  .posts a {
+    color: #286b8f; }
+  .posts li {
+    text-align: left;
+    padding: 0.315em;
+    border-bottom: 1px solid #ebebeb; }
+    .posts li span {
+      color: #636363;
+      float: right;
+      font-size: 0.8em;
+      margin-left: 1.4em; }
 
 .highlight {
   background-color: #073642;
