@@ -2,7 +2,6 @@ body {
   background-color: transparent;
   color: $dark-font;
   font-family: 'Roboto', sans-serif;
-  text-align: justify;
   max-width: 650px;
   margin: 0 auto;
   padding: 20px;
@@ -11,6 +10,7 @@ body {
 
 a {
   text-decoration: none;
+  color: rgba(66, 139, 202, 1);
 
   &:visited {
     color: $dark-font;

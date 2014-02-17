@@ -356,14 +356,14 @@ body {
   background-color: transparent;
   color: #444444;
   font-family: 'Roboto', sans-serif;
-  text-align: justify;
   max-width: 650px;
   margin: 0 auto;
   padding: 20px;
   font-weight: 300; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #428bca; }
   a:visited {
     color: #444444; }
 
@@ -395,9 +395,10 @@ a {
   .posts a {
     color: #428bca; }
   .posts li {
-    text-align: left;
     padding: 0.315em;
     border-bottom: 1px solid #ebebeb; }
+    .posts li:last-child {
+      margin-bottom: 3em; }
     .posts li span {
       color: #636363;
       float: right;
