@@ -46,7 +46,7 @@
     border-bottom: 1px solid rgba(235, 235, 235, 1);
 
     &:last-child {
-      margin-bottom: 3em;
+      margin-bottom: 2em;
     }
 
     span {
@@ -54,6 +54,26 @@
       float: right;
       font-size: 0.8em;
       margin-left: 1.4em;
+    }
+  }
+}
+
+.social-icons {
+  text-align: center;
+  padding-left: 0;
+  list-style: none;
+  font-size: 1.6em;
+
+  a {
+    color: $dark-font;
+  }
+
+  li {
+    display: inline;
+    margin-right: 0.4em;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

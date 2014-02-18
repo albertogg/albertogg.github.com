@@ -398,12 +398,25 @@ a {
     padding: 0.315em;
     border-bottom: 1px solid #ebebeb; }
     .posts li:last-child {
-      margin-bottom: 3em; }
+      margin-bottom: 2em; }
     .posts li span {
       color: #636363;
       float: right;
       font-size: 0.8em;
       margin-left: 1.4em; }
+
+.social-icons {
+  text-align: center;
+  padding-left: 0;
+  list-style: none;
+  font-size: 1.6em; }
+  .social-icons a {
+    color: #444444; }
+  .social-icons li {
+    display: inline;
+    margin-right: 0.4em; }
+    .social-icons li:last-child {
+      margin-right: 0; }
 
 .highlight {
   background-color: #073642;
