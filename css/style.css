@@ -369,6 +369,9 @@ a {
   a:visited {
     color: #444444; }
 
+footer {
+  text-align: center; }
+
 .header {
   text-align: center; }
   .header .name {
@@ -412,7 +415,6 @@ a {
       margin-left: 1.4em; }
 
 .social-icons {
-  text-align: center;
   padding-left: 0;
   list-style: none;
   font-size: 1.6em; }
@@ -425,6 +427,11 @@ a {
     margin-right: 0.4em; }
     .social-icons li:last-child {
       margin-right: 0; }
+
+.center-element {
+  display: block;
+  text-align: center;
+  margin: 0 auto; }
 
 .highlight {
   background-color: #073642;
