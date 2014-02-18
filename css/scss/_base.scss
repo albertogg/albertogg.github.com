@@ -10,7 +10,11 @@ body {
 
 a {
   text-decoration: none;
-  color: rgba(66, 139, 202, 1);
+  color: $links-font-color;
+
+  &:hover {
+    color: rgba( $links-font-color , .85);
+  }
 
   &:visited {
     color: $dark-font;

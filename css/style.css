@@ -364,6 +364,8 @@ body {
 a {
   text-decoration: none;
   color: #428bca; }
+  a:hover {
+    color: rgba(66, 139, 202, 0.85); }
   a:visited {
     color: #444444; }
 
@@ -381,6 +383,8 @@ a {
     margin-bottom: 3em; }
     .header .menu a {
       color: #444444; }
+      .header .menu a:hover {
+        color: rgba(68, 68, 68, 0.9); }
     .header .menu li {
       display: inline;
       text-decoration: underline;
@@ -394,6 +398,8 @@ a {
   list-style: none; }
   .posts a {
     color: #428bca; }
+    .posts a:hover {
+      color: rgba(66, 139, 202, 0.85); }
   .posts li {
     padding: 0.315em;
     border-bottom: 1px solid #ebebeb; }
@@ -412,6 +418,8 @@ a {
   font-size: 1.6em; }
   .social-icons a {
     color: #444444; }
+    .social-icons a:hover {
+      color: rgba(68, 68, 68, 0.9); }
   .social-icons li {
     display: inline;
     margin-right: 0.4em; }
