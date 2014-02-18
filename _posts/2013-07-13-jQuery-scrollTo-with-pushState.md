@@ -1,6 +1,7 @@
 ---
 layout: wiki
 title: jQuery scrollTo with pushState
+description: How to add scrollTo with pushState to your site using jQuery.
 category: wiki
 tag: wiki
 ---

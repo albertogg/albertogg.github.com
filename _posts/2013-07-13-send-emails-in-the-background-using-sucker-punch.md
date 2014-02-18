@@ -1,13 +1,14 @@
 ---
 layout: post
 title: Send emails in the background using sucker punch
+description: Send emails in the backgroung using the sucker_punch gem within a Rails application.
 category: blog
 tag: blog
 ---
 
 ## Sucker punch gem
 
-This gem was created by [@brandonhilkert](https://twitter.com/brandonhilkert) with a very specific use case in mind. I'm not sure what the use case was, but, I believe it's something like; taking advantage of [Heroku](http://heroku.com) web dynos, without needing to pay extra for a worker dyno (this is what I'm using it for). If It's not; I'm leaning towards simplicity. At this point with [sucker_punch](https://github.com/brandonhilkert/sucker_punch) in it's **version 1.0.1** became dead simple to install and use, no configuration needed. I'm really grateful that this gem was created.  
+This gem was created by [@brandonhilkert](https://twitter.com/brandonhilkert) with a very specific use case in mind. I'm not sure what the use case was, but, I believe it's something like; taking advantage of [Heroku](http://heroku.com) web dynos, without needing to pay extra for a worker dyno (this is what I'm using it for). If It's not; I'm leaning towards simplicity. At this point with [sucker_punch](https://github.com/brandonhilkert/sucker_punch) in it's **version 1.0.1** became dead simple to install and use, no configuration needed. I'm really grateful that this gem was created.
 
 **note:** If you are looking for a massive background processing gem with persistence, etc. go with something like [Sidekiq](https://github.com/mperham/sidekiq) instead.
 
@@ -95,7 +96,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
 
     if @contact.valid?
-    
+
       # We call our sucker punch job asynchronously using "async"
       ContactsEmailJob.new.async.perform(@contact)
       flash[:success] = Your email has been send!

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The UNIX Operating System
+description: Video of the Unix System in 1982, recorded on the Bell Labs.
 category: blog
 tag: blog
 ---
