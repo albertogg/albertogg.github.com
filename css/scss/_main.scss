@@ -51,7 +51,7 @@
 
   li {
     padding: 0.315em;
-    border-bottom: 1px solid rgba(235, 235, 235, 1);
+    border-bottom: 1px solid $light-gray;
 
     &:last-child {
       margin-bottom: 2em;
@@ -87,6 +87,11 @@
       margin-right: 0;
     }
   }
+}
+
+.gravatar {
+  margin: 0.3em 1.2em 1em 0;
+  border-radius: 0.3rem;
 }
 
 .center-element {

@@ -428,6 +428,10 @@ footer {
     .social-icons li:last-child {
       margin-right: 0; }
 
+.gravatar {
+  margin: 0.3em 1.2em 1em 0;
+  border-radius: 0.3rem; }
+
 .center-element {
   display: block;
   text-align: center;
