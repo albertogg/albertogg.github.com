@@ -73,6 +73,11 @@ footer {
     .social-icons li:last-child {
       margin-right: 0; }
 
+.active {
+  text-decoration: underline; }
+  .active a {
+    color: rgba(68, 68, 68, 0.9) !important; }
+
 .gravatar {
   margin: 0.3em 1.2em 1em 0;
   border-radius: 0.3rem; }

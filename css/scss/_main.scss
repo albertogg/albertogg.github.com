@@ -88,6 +88,14 @@
   }
 }
 
+.active {
+  text-decoration: underline;
+
+  a {
+    color: rgba( $dark-font, 0.9 ) !important;
+  }
+}
+
 .gravatar {
   margin: 0.3em 1.2em 1em 0;
   border-radius: 0.3rem;
