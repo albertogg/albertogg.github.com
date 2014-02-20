@@ -36,7 +36,6 @@ footer {
         color: rgba(68, 68, 68, 0.9); }
     .header .menu li {
       display: inline;
-      text-decoration: underline;
       margin-right: 0.8em; }
       .header .menu li:last-child {
         margin-right: 0; }
