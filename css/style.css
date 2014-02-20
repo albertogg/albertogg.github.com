@@ -83,6 +83,12 @@ footer {
   text-align: center;
   margin: 0 auto; }
 
+@media (min-width: 768px) {
+  .header .name {
+    font-size: 3em; } }
+@media (min-width: 1024px) {
+  .header .name {
+    font-size: 3.6em; } }
 .highlight {
   background-color: #073642;
   color: #93a1a1;

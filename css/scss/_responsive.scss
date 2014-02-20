@@ -1,1 +1,16 @@
 // media queries
+@media (min-width: 768px) {
+  .header {
+    .name {
+      font-size: 3em;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    .name {
+      font-size: 3.6em;
+    }
+  }
+}
