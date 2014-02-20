@@ -33,7 +33,7 @@ namespace :draft do
     puts "what's the name of the draft to post?"
     @post_name = STDIN.gets.chomp
     @post_date = Time.now.strftime("%F")
-    FileUtils.mv("_drafts/#{@post_name} _posts/#{@post_name}")
+    FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_name}")
     FileUtils.mv("_posts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
     puts "Post copied and ready to deploy!"
   end
