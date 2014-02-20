@@ -3,47 +3,40 @@
 
 require 'fileutils'
 
-desc "Creating a new draft for post/entry"
-task :new do
-  puts "what's the name for your next post? (YYYY-MM-DD-name-of-post)"
-  @name = STDIN.gets.chomp
-  FileUtils.touch("drafts/_posts/#{@name}.md")
-  open("drafts/_posts/#{@name}.md", 'a' ) do |file|
-    file.puts "---"
-    file.puts "layout: post"
-    file.puts "title: #{@name}"
-    file.puts "---"
+namespace :draft do
+  desc "Creating a new draft for post/entry"
+  task :new do
+    puts "What's the name for your next post?"
+    @name = STDIN.gets.chomp
+    @slug = "#{@name}"
+    @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
+    @slug = @slug.downcase.strip.gsub(' ', '-')
+    FileUtils.touch("_drafts/#{@slug}.md")
+    open("_drafts/#{@slug}.md", 'a' ) do |file|
+      file.puts "---"
+      file.puts "layout: post"
+      file.puts "title: #{@name}"
+      file.puts "description: 155 char description"
+      file.puts "category: blog or wiki"
+      file.puts "tag: blog or wiki"
+      file.puts "---"
+    end
   end
-end
 
-desc "start Mou (a markdown editor)"
-task :default => [:new] do
-  begin
-    puts "it's done :D "
-    sh "open -a Mou drafts/_posts/#{@name}.md"
-  rescue => e
-    rollback
-    puts e.message
+  desc "copy draft to production post!"
+  task :ready do
+    puts "Posts in _drafts:"
+    Dir.foreach("_drafts") do |fname|
+      next if fname == '.' or fname == '..' or fname == '.keep'
+      puts fname
+    end
+    puts "what's the name of the draft to post?"
+    @post_name = STDIN.gets.chomp
+    @post_date = Time.now.strftime("%F")
+    FileUtils.mv("_drafts/#{@post_name} _posts/#{@post_name}")
+    FileUtils.mv("_posts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
+    puts "Post copied and ready to deploy!"
   end
-end
-
-def rollback
-  puts "removing post"
-  begin
-    FileUtils.rm("drafts/_posts/#{@name}.md")
-    puts "post removed!"
-  rescue => e
-    puts "Error removing post, it may not exist!"
-    puts e.message
-  end
-end
-
-desc "copy draft to production post!"
-task :copy do
-  puts "what's the name of the draft to post?"
-  @poster = STDIN.gets.chomp
-  sh "cp drafts/_posts/#{@poster}.md _posts/#{@poster}.md"
-  puts "COPIED SIR!"
 end
 
 # Rubygems compile rake task.
