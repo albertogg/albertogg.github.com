@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: ScrollTo Top using jQuery and Font Awesome icon
 description: Add a scrollTo Top with fixed button to your site using jQuery and Font Awesome.
 category: wiki

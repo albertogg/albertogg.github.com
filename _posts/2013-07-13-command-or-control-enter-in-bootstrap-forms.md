@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: Command or control enter in bootstrap forms
 description: How to add command or control enter action to your forms using jQuey and twitter Boostrap.
 category: wiki

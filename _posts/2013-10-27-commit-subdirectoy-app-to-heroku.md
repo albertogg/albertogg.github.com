@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: post
 title: Commit subdirectoy application to Heroku
 description: How push a git subdirectory application to Heroku.
 categoy: wiki
