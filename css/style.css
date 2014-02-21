@@ -90,11 +90,11 @@ footer {
   background: transparent;
   max-width: 100%;
   height: auto;
-  width: 15em;
-  height: 11.25em;
+  width: 16em;
+  height: 9em;
   margin: 0 auto;
   border: 0.0625em solid #ebebeb;
-  padding: 0.5em 0.625em; }
+  padding: 0.1875em 0.1875em; }
 
 .center-element {
   display: block;
@@ -103,10 +103,18 @@ footer {
 
 @media (min-width: 768px) {
   .header .name {
-    font-size: 3em; } }
+    font-size: 3em; }
+
+  .video {
+    width: 26.625em;
+    height: 15em; } }
 @media (min-width: 1024px) {
   .header .name {
-    font-size: 3.6em; } }
+    font-size: 3.6em; }
+
+  .video {
+    width: 40em;
+    height: 22.5em; } }
 .highlight {
   background-color: #073642;
   color: #93a1a1;
