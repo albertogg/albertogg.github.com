@@ -10,6 +10,6 @@ tag: blog
 
 **If you work on a Unix-like operating system this video is a must watch! no excuses!**
 
-<iframe class="left-padding" width="480" height="360" src="http://www.youtube.com/embed/tc4ROCJYbm0" frameborder="0" allowfullscreen></iframe>
+<iframe class="video" src="http://www.youtube.com/embed/tc4ROCJYbm0" frameborder="0" allowfullscreen></iframe>
 
 "This film "The UNIX System: Making Computers More Productive", is one of two that Bell Labs made in 1982 about UNIX's significance, impact and usability. Even 10 years after its first installation, it's still an introduction to the system. The other film, "The UNIX System: Making Computers Easier to Use", is roughly the same, only a little shorter. The former film was geared towards software developers and computer science students, the latter towards programmers specifically."
