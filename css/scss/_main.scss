@@ -105,6 +105,22 @@
   border-radius: 0.3rem;
 }
 
+@mixin img-responsive($display: block) {
+  display: $display;
+  background: transparent;
+  max-width: 100%;
+  height: auto;
+}
+
+.video {
+  @include img-responsive();
+  width: 15em;
+  height: 11.25em;
+  margin: 0 auto;
+  border: 0.0625em solid $light-gray;
+  padding: 0.5em 0.625em;
+}
+
 .center-element {
   display: block;
   text-align: center;
