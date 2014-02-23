@@ -85,6 +85,15 @@ footer {
   margin: 0.3em 1.2em 1em 0;
   border-radius: 0.3rem; }
 
+.post img {
+  display: block;
+  background: transparent;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 0.0625em solid #ebebeb;
+  padding: 0.1875em 0.1875em; }
+
 .video {
   display: block;
   background: transparent;
