@@ -12,9 +12,11 @@ $ rake server
 
 ## License
 
-This blog works with [Creative Commons Attribution-NonCommercial-ShareAlike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode) license
+This project runs with two licenses one for the content and one for the code.
 
+- All the code is under the [MIT][mit] license.
+- All the blog posts are under [Creative Commons Attribution-NonCommercial-ShareAlike 3.0][cc] license.
 
-[github]: http://github.com/
 [pages]: http://pages.github.com/
-[alberto]: http://albertogrespan.com/
+[mit]: http://choosealicense.com/licenses/mit/
+[cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
