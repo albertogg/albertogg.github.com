@@ -1,6 +1,7 @@
 # albertogg.github.com
 
-Hi. this is a Jekyll site/blog hosted on [Github][github] with [Github-Pages][pages] for [albertogrespan.com][alberto], feel free to ask any questions.
+Hi. This is my Jekyll personal site, it's hosted using [github gages][pages]. Feel free to ask me any questions.
+
 ## Start the server
 
 There are is a rake task to accomplish this:
