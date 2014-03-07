@@ -20,25 +20,14 @@
   .name {
     display: block;
     font-size: 2.2em;
-
-    a {
-      font-weight: normal;
-      text-decoration: none;
-    }
+    @extend .dark-links;
   }
 
   .menu {
     list-style: none;
     padding-left: 0;
     margin-bottom: 3em;
-
-    a {
-      color: $dark-font;
-
-      &:hover {
-        color: rgba( $dark-font, 0.9 );
-      }
-    }
+    @extend .dark-links;
 
     li {
       display: inline;
@@ -85,14 +74,7 @@
   padding-left: 0;
   list-style: none;
   font-size: 1.6em;
-
-  a {
-    color: $dark-font;
-
-    &:hover {
-      color: rgba( $dark-font, 0.9 );
-    }
-  }
+  @extend .dark-links;
 
   li {
     display: inline;
