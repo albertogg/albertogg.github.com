@@ -68,7 +68,7 @@ in our task and they must be exported to heroku and locally (testing):
 $ heroku config:set URL=http://xxx.herokuapp.com/ #replace xxx with your heroku appmane
 ```
 
-> to test the task locally you can either use `export URL=http://xxx.herokuapp.com/`,
+> to test the task locally you can either use `export URL=http://xxx.herokuapp.com/`
 > or the [dotenv gem](https://github.com/bkeepers/dotenv) and run `rake ping:start`.
 
 ### Testing the task
