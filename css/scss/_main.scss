@@ -129,6 +129,12 @@
     padding: 0.1875em 0.1875em;
   }
 
+  blockquote {
+    border-left: 0.25em solid $light-gray;
+    padding: 0 1em;
+    margin: 1em 0;
+    color: rgb(119, 119, 119);
+  }
 
   .video {
     @include img-responsive();
