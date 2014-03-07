@@ -6,9 +6,11 @@
     }
   }
 
-  .video {
-    width: 26.625em;
-    height: 15em;
+  .post {
+    .video {
+      width: 26.625em;
+      height: 15em;
+    }
   }
 }
 
@@ -19,8 +21,10 @@
     }
   }
 
-  .video {
-    width: 40em;
-    height: 22.5em;
+  .post {
+    .video {
+      width: 40em;
+      height: 22.5em;
+    }
   }
 }
