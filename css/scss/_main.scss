@@ -1,3 +1,19 @@
+.dark-links {
+  a {
+    color: $dark-font;
+    font-weight: 300;
+    text-decoration: none;
+
+    &:hover {
+      color: rgba( $dark-font, 0.9 );
+    }
+
+    &:visited {
+      color: $dark-font;
+    }
+  }
+}
+
 .header {
   text-align: center;
 
