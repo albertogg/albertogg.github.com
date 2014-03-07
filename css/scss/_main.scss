@@ -134,6 +134,11 @@
     padding: 0 1em;
     margin: 1em 0;
     color: rgb(119, 119, 119);
+    @extend .inline-code;
+  }
+
+  p {
+    @extend .inline-code;
   }
 
   .video {
