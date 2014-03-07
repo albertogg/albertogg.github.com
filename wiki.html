@@ -5,7 +5,7 @@ description: My small space of code snippets.
 ---
 <h2>Wiki</h2>
 <div>
-    <ul class="posts">
+    <ul class="posts-list">
       {% for wiki in site.tags.wiki %}
       <li>
         <span>{{ wiki.date | date: "%B %e, %Y" }}</span> <a href="{{ wiki.url }}">{{ wiki.title }}</a>
