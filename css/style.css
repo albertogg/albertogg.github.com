@@ -12,48 +12,56 @@ a {
   color: #428bca; }
   a:hover {
     color: rgba(66, 139, 202, 0.85); }
-  a:visited {
-    color: #444444; }
 
 footer {
   text-align: center; }
+
+.dark-links a, .header .name a, .header .menu a, .social-icons a {
+  color: #444444;
+  font-weight: 300;
+  text-decoration: none; }
+  .dark-links a:hover, .header .name a:hover, .header .menu a:hover, .social-icons a:hover {
+    color: rgba(68, 68, 68, 0.9); }
+  .dark-links a:visited, .header .name a:visited, .header .menu a:visited, .social-icons a:visited {
+    color: #444444; }
+
+.inline-code code, .post blockquote code, .post p code {
+  background-color: #f8f8f8;
+  border: 0.1em solid #dddddd;
+  border-radius: 0.3rem;
+  color: #444444;
+  font-size: 0.9em;
+  padding: 0.08em 0.2em; }
 
 .header {
   text-align: center; }
   .header .name {
     display: block;
     font-size: 2.2em; }
-    .header .name a {
-      font-weight: normal;
-      text-decoration: none; }
   .header .menu {
     list-style: none;
     padding-left: 0;
     margin-bottom: 3em; }
-    .header .menu a {
-      color: #444444; }
-      .header .menu a:hover {
-        color: rgba(68, 68, 68, 0.9); }
     .header .menu li {
       display: inline;
       margin-right: 0.8em; }
       .header .menu li:last-child {
         margin-right: 0; }
 
-.posts {
+.posts-list {
   padding-left: 0;
   line-height: 1.4em;
   list-style: none; }
-  .posts a {
+  .posts-list a {
     color: #428bca; }
-    .posts a:hover {
+    .posts-list a:hover {
       color: rgba(66, 139, 202, 0.85); }
-  .posts li {
+  .posts-list li {
     padding: 0.315em;
     border-bottom: 1px solid #ebebeb; }
-    .posts li:last-child {
+    .posts-list li:last-child {
       margin-bottom: 2em; }
-    .posts li span {
+    .posts-list li span {
       color: #636363;
       float: right;
       font-size: 0.8em;
@@ -63,10 +71,6 @@ footer {
   padding-left: 0;
   list-style: none;
   font-size: 1.6em; }
-  .social-icons a {
-    color: #444444; }
-    .social-icons a:hover {
-      color: rgba(68, 68, 68, 0.9); }
   .social-icons li {
     display: inline;
     margin-right: 0.4em; }
@@ -93,8 +97,12 @@ footer {
   margin: 0 auto;
   border: 0.0625em solid #ebebeb;
   padding: 0.1875em 0.1875em; }
-
-.video {
+.post blockquote {
+  border-left: 0.25em solid #ebebeb;
+  padding: 0 1em;
+  margin: 1em 0;
+  color: #777777; }
+.post .video {
   display: block;
   background: transparent;
   max-width: 100%;
@@ -114,14 +122,14 @@ footer {
   .header .name {
     font-size: 3em; }
 
-  .video {
+  .post .video {
     width: 26.625em;
     height: 15em; } }
 @media (min-width: 1024px) {
   .header .name {
     font-size: 3.6em; }
 
-  .video {
+  .post .video {
     width: 40em;
     height: 22.5em; } }
 .highlight {
