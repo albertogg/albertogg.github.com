@@ -6,8 +6,10 @@ Hi. This is my Jekyll personal site, it's hosted using [github gages][pages]. Fe
 
 There are is a rake task to accomplish this:
 
+> remember to `bundle install` first.
+
 ```sh
-$ rake server
+$ foreman start
 ```
 
 ## License
