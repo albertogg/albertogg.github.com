@@ -1,5 +1,4 @@
 # Rakefile for my site.. albertogrespan.com
-# Rakefile from @holman https://github.com/holman/holman.github.com.
 
 require 'fileutils'
 
@@ -36,23 +35,5 @@ namespace :draft do
     FileUtils.mv("_drafts/#{@post_name}", "_posts/#{@post_name}")
     FileUtils.mv("_posts/#{@post_name}", "_posts/#{@post_date}-#{@post_name}")
     puts "Post copied and ready to deploy!"
-  end
-end
-
-# Rubygems compile rake task.
-desc "compile and run the site"
-task :server do
-  pids = [
-    spawn("jekyll serve --watch --port 3000 --drafts"),
-    spawn("scss --watch css/scss:css")
-  ]
-
-  trap "INT" do
-    Process.kill 0, *pids
-    exit 0
-  end
-
-  loop do
-    sleep 1
   end
 end
