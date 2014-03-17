@@ -52,10 +52,6 @@ footer {
   padding-left: 0;
   line-height: 1.4em;
   list-style: none; }
-  .posts-list a {
-    color: #428bca; }
-    .posts-list a:hover {
-      color: rgba(66, 139, 202, 0.85); }
   .posts-list li {
     padding: 0.315em;
     border-bottom: 1px solid #ebebeb; }
