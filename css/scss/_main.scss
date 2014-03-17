@@ -56,14 +56,6 @@
   line-height: 1.4em;
   list-style: none;
 
-  a {
-    color: $links-font-color;
-
-    &:hover {
-      color: $links-font-color-hover;
-    }
-  }
-
   li {
     padding: 0.315em;
     border-bottom: 1px solid $light-gray;
