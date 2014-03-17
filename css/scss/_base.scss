@@ -13,7 +13,7 @@ a {
   color: $links-font-color;
 
   &:hover {
-    color: rgba( $links-font-color , .85);
+    color: $links-font-color-hover;
   }
 }
 
