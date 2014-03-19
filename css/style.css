@@ -114,6 +114,9 @@ footer {
   text-align: center;
   margin: 0 auto; }
 
+.highlight {
+  margin: 1em 0; }
+
 @media (min-width: 768px) {
   .header .name {
     font-size: 3em; }
