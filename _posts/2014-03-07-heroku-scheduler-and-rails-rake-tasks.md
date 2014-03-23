@@ -6,7 +6,7 @@ category: blog
 tag: blog
 ---
 
-> tlrd; we are using the heroku scheduler with Rails and Rake to keep our dyno
+> tl;rd we are using the heroku scheduler with Rails and Rake to keep our dyno
 > awake; this will also work for any custom short periodical task.
 
 ## Heroku scheduler
