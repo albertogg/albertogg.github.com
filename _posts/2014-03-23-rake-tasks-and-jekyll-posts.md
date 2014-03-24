@@ -40,7 +40,7 @@ When draft is ready:
 
 ## The code
 
-To use these tasks, create a `Rakefile` file, drop the code and save the file.
+To use these tasks: you must create a `Rakefile` file; drop the code, and save the file. If you already have a `Rakefile` and you plan to use them, I hope that the namespace will prevent a collision with any of you existing tasks.
 
 ```ruby
 require 'fileutils'
