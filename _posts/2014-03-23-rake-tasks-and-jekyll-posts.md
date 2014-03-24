@@ -10,7 +10,11 @@ tag: blog
 
 Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don't, you can use this and start forgetting.
 
-For the last 2 years that I almost didn't blog at all, I was using two Rake tasks *stolen* from [Zack Holman](http://zachholman.com/) to create blog posts within Jekyll. At that time Jekyll was a bit different and both *stolen* tasks needed an update. A few weeks ago I revamped my blog completely including the Rake tasks. This was the end result.
+In this post I'll be talking about some Rake tasks I use that help me create and publish drafts for my Jekyll blog.
+
+## Story
+
+For the last 2 years that I almost didn't blog at all, I was using two Rake tasks *stolen* from [Zack Holman](http://zachholman.com/) to create blog posts within Jekyll. At that time Jekyll was a bit different and both the *stolen* tasks and blog needed an update. A few weeks ago (february 2014) I revamped my blog completely including the Rake tasks. This was the end result:
 
 ## New tasks *"tasks"*
 
@@ -23,6 +27,7 @@ Creating a new draft:
 - Downcase the slug and change spaces with dashes.
 - Remove any accents of words from the slug.
 - Create a new `.md` file in the `_drafts` directory and use the new slug as file name.
+- Add the front-matter to the file with: layout, title, description, category and tag.
 
 When draft is ready:
 
@@ -83,4 +88,6 @@ $ rake draft:new    # Creating a new draft for post/entry
 $ rake draft:ready  # copy draft to production post!
 ```
 
-As you can see, both tasks are pretty straight forward, they do simple things and work of the box. I know they can be vastly improved but I hope this works at least for some of you!
+As you can see, both tasks are pretty straight forward, they do simple things and work of the box. With these tasks you'll no longer have to remember anything about the front-matter or how the file should be named within the drafts and posts directory, just run the tasks and start dumping ideas onto the freshly created markdown file.
+
+*PS* I know the tasks can be vastly improved but I hope this works at least for some of you!
