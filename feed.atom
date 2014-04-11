@@ -2,10 +2,10 @@
 layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 
  <title>Alberto Grespan</title>
- <link href="http://albertogrespan.com/atom.xml"/>
+ <link href="http://albertogrespan.com/feed.atom"/>
  <link href="http://albertogrespan.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://albertogrespan.com/</id>
