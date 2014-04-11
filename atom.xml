@@ -5,10 +5,10 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Alberto Grespan</title>
- <link href="http://albertogrespan.com/atom.xml" rel="self"/>
+ <link href="http://albertogrespan.com/atom.xml"/>
  <link href="http://albertogrespan.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://albertogrespan.com</id>
+ <id>http://albertogrespan.com/</id>
  <author>
    <name>Alberto Grespan</name>
    <email>support@albertogrespan.com</email>
@@ -16,7 +16,7 @@ layout: nil
 
  {% for post in site.posts %}
  <entry>
-   <title>{{ post.title }}</title>
+   <title>{{ post.title | xml_escape }}</title>
    <link href="http://albertogrespan.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://albertogrespan.com{{ post.id }}</id>
