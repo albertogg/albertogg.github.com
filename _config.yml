@@ -1,9 +1,9 @@
 url: http://albertogrespan.com
 
-networks:
-  twitter: albertogg
-  github: albertogg
-  feed: feed.atom
+connect:
+  twitter: https://twitter.com/albertogg
+  github: https://github.com/albertogg
+  feed: http://albertogrespan.com/feed.atom
 
 permalink: /:categories/:title
 excerpt_separator: ""
