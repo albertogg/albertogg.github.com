@@ -5,6 +5,7 @@ connect:
   twitter: https://twitter.com/albertogg
   github: https://github.com/albertogg
   feed: http://albertogrespan.com/feed.atom
+  disqus: albertogrespan
 
 permalink: /:categories/:title
 excerpt_separator: ""
