@@ -7,6 +7,16 @@ connect:
   feed: http://albertogrespan.com/feed.atom
   disqus: albertogrespan
 
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - CC-LICENSE
+  - MIT-LICENSE
+  - Procfile
+  - Rakefile
+  - CNAME
+
 permalink: /:categories/:title
 excerpt_separator: ""
 pygments: true
