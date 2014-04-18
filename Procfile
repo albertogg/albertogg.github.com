@@ -1,2 +1,2 @@
-web: bundle exec jekyll serve --watch --port 3000 --drafts
+web: bundle exec jekyll serve --watch --drafts
 scss: bundle exec scss --watch css/scss:css --style compressed
