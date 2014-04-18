@@ -18,4 +18,12 @@ layout: nil
     <priority>0.5</priority>
   </url>
   {% endfor %}
+  {% for page in site.html_pages %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  {% endfor %}
 </urlset>
