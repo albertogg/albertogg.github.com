@@ -6,6 +6,11 @@ connect:
   feed: http://albertogrespan.com/feed.atom
   disqus: albertogrespan
 
+analytics:
+  google:
+    id: UA-29129831-1
+    domain: albertogrespan.com
+
 exclude:
   - README.md
   - Gemfile
