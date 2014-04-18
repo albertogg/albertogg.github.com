@@ -1,4 +1,3 @@
-url: http://albertogrespan.com
 email: alberto@albertogrespan.com
 
 connect:
@@ -18,8 +17,15 @@ exclude:
   - CNAME
 
 permalink: /:categories/:title
-excerpt_separator: ""
+
 pygments: true
 markdown: redcarpet
+
+excerpt_separator: ""
+
 safe: true
+host: 0.0.0.0
+port: 3000
+baseurl: /
+url: http://albertogrespan.com
 lsi: false
