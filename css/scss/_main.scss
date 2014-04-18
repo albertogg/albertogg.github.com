@@ -30,6 +30,7 @@
 
   .name {
     display: block;
+    text-transform: lowercase;
     font-size: 2.2em;
     @extend .dark-links;
   }
