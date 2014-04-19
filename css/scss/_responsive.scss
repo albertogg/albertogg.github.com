@@ -1,5 +1,5 @@
 // media queries
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .header {
     .name {
       font-size: 3em;
@@ -14,7 +14,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   .header {
     .name {
       font-size: 3.6em;
