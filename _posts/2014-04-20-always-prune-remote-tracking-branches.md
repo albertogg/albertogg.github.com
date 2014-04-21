@@ -16,7 +16,7 @@ There are two new configuration commands that will help you achieve this behavio
 $ git config fetch.prune true
 ```
 
-This command will set in your configuration file the prune flag true, so it will prune automatically with every fetch. The default git behavior of this flag is false. Yes, if you where wondering using `pull` will implicitly use this flag.
+This command will set in your configuration file the prune flag true, so it will prune automatically with every fetch. The default git behavior of this flag is false. Yes, if you were wondering using `pull` will implicitly use this flag.
 
 For the last couple of weeks I've been giving this a try and it has been a dream come true, it's a perfect addition to my workflow (I'm also using the `rebase` flag with every pull).
 
