@@ -1,12 +1,10 @@
 # albertogg.github.com
 
-Hi. This is my Jekyll personal site, it's hosted using [github gages][pages]. Feel free to ask me any questions.
+Hi. This is my Jekyll personal site, it's hosted using [github pages][pages]. Feel free to ask me any questions.
 
 ## Start the server
 
-There are is a rake task to accomplish this:
-
-> remember to `bundle install` first.
+I use the foreman gem to do this. Remember to `bundle` before running.
 
 ```sh
 $ foreman start
