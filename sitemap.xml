@@ -4,7 +4,7 @@ layout: nil
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>{{ site.url }}/</loc>
+    <loc>{{ site.url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -22,8 +22,8 @@ layout: nil
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>{% if page.url == "/" or page.url == "/index.html" %}daily{% else %}weekly{% endif %}</changefreq>
+    <priority>{% if page.url == "/" or page.url == "/index.html" %}1.0{% else %}0.7{% endif %}</priority>
   </url>
   {% endfor %}
 </urlset>
