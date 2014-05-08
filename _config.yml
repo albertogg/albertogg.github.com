@@ -28,7 +28,7 @@ exclude:
 
 permalink: /:categories/:title
 
-pygments: true
+highlighter: rouge
 markdown: redcarpet
 
 excerpt_separator: ""
