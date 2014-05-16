@@ -1,20 +1,22 @@
 ---
 layout: post
 title: Installing Ruby the right way in OS X using rbenv
-description: Installing Ruby the right way in OS X using rbenv and its dependencies. We will also use hombrew to make this task even easier.
+description: Installing Ruby the right way in OS X using rbenv and some interesting plugins. We will also use hombrew to make this task even easier.
 category: blog
 tag: blog
 ---
 
 > tl;dr there are millions of posts about installing Ruby using rbenv in OS X. Most of them miss the point about installing LibYAML and Readline on your system, but they also miss some of the best rbenv plugins that will help your workflow tremendously. In this post I'll handle it.
 
-I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it. I believe everyone has the same questions at some point e.g. Is RVM better than rbenv, or chruby? Do I install Ruby directly without a version manager? and so on... I do believe the answers to those questions are a personal decision, a bit of research will be implied, but you will find your answers. For me there is no "perfect" tool, so, if you are currently using RVM or chruby and you like them and they work well for you, just keep using them until you find something you dislike.
+I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it. I believe everyone has the same questions at some point *e.g.* Is RVM better than rbenv, or chruby? Do I install Ruby directly without a version manager? and so on... I do believe the answers to those questions are a personal decision, a bit of research will be implied, but you will find your answers. For me there is no "perfect" tool, so, if you are currently using RVM or chruby and you like them and they work well for you, just keep using them until you find something you dislike.
 
 In this post I will show you why I'm using rbenv to handle my Rubies and I'll include some really great plugins that had made my life easier.
 
 ## Installing rbenv
 
 On a Mac as on a Linux machine you can install rbenv using git. To install it for a user just `$ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv` and afterwards [export the bin and enable shims and autocompletion](git clone https://github.com/sstephenson/rbenv.git ~/.rbenv). I use [Homebrew](http://brew.sh/) to handle all my installations and this will not be the exception.
+
+> In order to compile you need to have installed *Xcode Command Line Tools*.
 
 This line will install rbenv and all the plugins I normally use:
 
@@ -79,7 +81,7 @@ If you want to compile Ruby with your preferred versions of OpenSSL, Readline an
 $ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`" rbenv install 2.1.2
 ```
 
-**Remember that our libraries must be installed via homebrew for that command to work**. You can change the `brew --prefix libyaml` to `/usr/local/opt/libyaml` to make it work in any enviroment.
+**Remember that our libraries must be installed via homebrew for that command to work**. You can change *e.g.* `brew --prefix libyaml` to `/usr/local/opt/libyaml` to make it work in any enviroment.
 
 ## Conclusion
 
