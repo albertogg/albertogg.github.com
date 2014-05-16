@@ -14,7 +14,7 @@ In this post I will show you why I'm using rbenv to handle my Rubies and I'll in
 
 ## Installing rbenv
 
-On a Mac as on a Linux machine you can install rbenv using git. To install it for a user just `$ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv` and afterwards [export the bin and enable shims and autocompletion](git clone https://github.com/sstephenson/rbenv.git ~/.rbenv). I use [Homebrew](http://brew.sh/) to handle all my installations and this will not be the exception.
+On a Mac as on a Linux machine you can install rbenv using git. To install it for a user just `$ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv` and afterwards [export the bin and enable shims and autocompletion](https://github.com/sstephenson/rbenv#basic-github-checkout). I use [Homebrew](http://brew.sh/) to handle all my installations and this will not be the exception.
 
 > In order to compile you need to have installed *Xcode Command Line Tools*.
 
