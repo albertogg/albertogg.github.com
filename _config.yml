@@ -40,4 +40,5 @@ url: http://albertogrespan.com
 lsi: false
 
 gems:
+  - jekyll-sitemap
   - jekyll-redirect-from
