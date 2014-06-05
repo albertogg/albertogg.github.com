@@ -26,6 +26,10 @@ exclude:
   - Rakefile
   - CNAME
 
+sass:
+  sass_dir: css/scss
+  style: compressed
+
 permalink: /:categories/:title
 
 highlighter: rouge
