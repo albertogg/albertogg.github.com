@@ -26,6 +26,10 @@ exclude:
   - Rakefile
   - CNAME
 
+sass:
+  sass_dir: css/scss
+  style: compressed
+
 permalink: /:categories/:title
 
 highlighter: rouge
@@ -35,7 +39,7 @@ excerpt_separator: ""
 
 host: 0.0.0.0
 port: 3000
-baseurl: /
+baseurl: ""
 url: http://albertogrespan.com
 lsi: false
 
