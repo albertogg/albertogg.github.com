@@ -32,7 +32,7 @@ sass:
 
 permalink: /:categories/:title
 
-highlighter: rouge
+highlighter: pygments
 markdown: redcarpet
 
 excerpt_separator: ""
