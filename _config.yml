@@ -46,3 +46,4 @@ lsi: false
 gems:
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jemoji
