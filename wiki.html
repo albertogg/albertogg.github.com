@@ -8,7 +8,7 @@ description: My small space of code snippets.
     <ul class="posts-list">
       {% for wiki in site.tags.wiki %}
       <li>
-        <span>{{ wiki.date | date: "%B %e, %Y" }}</span> <a href="{{ wiki.url }}">{{ wiki.title }}</a>
+        <span>{{ wiki.date | date: "%B %e, %Y" }}</span> <a href="{{ wiki.url | prepend: site.baseurl }}">{{ wiki.title }}</a>
       </li>
       {% endfor %}
     </ul>
