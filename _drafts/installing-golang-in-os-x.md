@@ -35,10 +35,11 @@ You can check the existing flags using `brew info go`.
 ## Setting the GOPATH
 
 For the go path, I prefer to use a single one for all my projects and I like to
-have all packages in the `~/go` directory. You can use any other directory, but,
-I found this is a common one, so, lets stick with the "convention". If you feel
-like a single GOPATH is not good, this is a [great article][article] that
-explains why is a good idea and probably will convince you.
+have all packages in the `~/go` directory. I'll have to admit that I haven't
+done anything complex in go that warrants more than a single GOPATH and maybe
+I'll bite my tongue later but you know... This is my current opinion and if you
+feel like a single GOPATH is not good for you, this is a [great article][article]
+that explains why is a good idea and probably will convince you.
 
 Lets create the GOPATH directory and export it:
 
@@ -48,8 +49,9 @@ $ export GOPATH=$HOME/go
 $ export PATH="$GOPATH/bin:$PATH"
 ```
 
-Here we are exporting the GOPATH and adding the Go generated binaries to the
-path.
+You can use any other directory, but, I found this is a common one, so, lets
+stick with the "convention". Here we are exporting the GOPATH and adding the Go
+generated binaries to the path.
 
 ## Set completions ZSH
 
