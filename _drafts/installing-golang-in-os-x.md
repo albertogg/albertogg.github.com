@@ -11,15 +11,15 @@ adding command completions in ZSH, a single GOPATH and all around clean install.
 
 ## Installing Go
 
-The Golang project as far as I know is versioned using Mercurial so it may be
-convenient to install [hg](http://mercurial.selenic.com/) prior installing Go
-because there are some things that need it, like some specific commands like
-godoc.
+Today we'll install the Go programming language and dependencies using OS X
+[Homebrew][brew]. Keep in mind that this an specific OS X installation, but the
+core concept will be almost the same for all Unix like Operating Systems.
 
-> It seems that hg is not a Go dependency any more in Homebrew but I still
-> recommend installing it.
+Our first and only step in the Homebrew installation department will be
+installing Mercurial [(hg)][hg] version control along with go.
 
-For this installation process we'll start with this command:
+> Mercurial is not a Go dependency within Homebrew, but, there are some specific
+> packages/tools like `go get` that use it, so keep that in mind.
 
 ```bash
 $ brew install hg go
@@ -28,20 +28,23 @@ $ brew install hg go
 This will install hg and Go with the `--cross-compile-common` flag. The cross
 compile common flag will build the language with cross-compilers and runtime
 support for darwin, linux and windows. If you want cross-compilers and runtime
-support for all Go supported platforms use the `--cross-compile-all` flag.
+support for all Go supported platforms append `--cross-compile-all` flag to the
+installation command.
 
 You can check the existing flags using `brew info go`.
 
 ## Setting the GOPATH
 
-For the go path, I prefer to use a single one for all my projects and I like to
-have all packages in the `~/go` directory. I'll have to admit that I haven't
-done anything complex in go that warrants more than a single GOPATH and maybe
-I'll bite my tongue later but you know... This is my current opinion and if you
-feel like a single GOPATH is not good for you, this is a [great article][article]
-that explains why is a good idea and probably will convince you.
+For the go path, I prefer to use a unique/single one for all my projects and I
+like to have all packages within the `~/go` directory. I'll have to admit that
+I haven't done anything complex in Go that deserves more than a single GOPATH;
+maybe I'll have to bite my tongue later on, but, you know... It's my current
+opinion and if you feel like a single GOPATH is not good for you it's OK too.
 
-Lets create the GOPATH directory and export it:
+I'll recommend you read this [article][article] that explains why it's a good
+idea to have a single GOPATH and when it's not.
+
+Enough talking, lets create our GOPATH directory and export to the environment:
 
 ```bash
 $ mkdir ~/go
@@ -49,8 +52,8 @@ $ export GOPATH=$HOME/go
 $ export PATH="$GOPATH/bin:$PATH"
 ```
 
-You can use any other directory, but, I found this is a common one, so, lets
-stick with the "convention". Here we are exporting the GOPATH and adding the Go
+You can use any other directory, but, I found this is a common one, so lets
+stick with the "convention". Here we are exporting the GOPATH and adding any Go
 generated binaries to the path.
 
 ## Set completions ZSH
@@ -78,3 +81,5 @@ If you are using Vim as your text editor I blindly recommend you install
 it's a fantastic plugin, really really complete and well crafted.
 
 [article]: http://arslan.io/ten-useful-techniques-in-go
+[brew]: http://brew.sh/
+[hg]: http://mercurial.selenic.com/
