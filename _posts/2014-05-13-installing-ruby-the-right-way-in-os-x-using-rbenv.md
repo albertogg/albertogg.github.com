@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Installing Ruby the right way in OS X using rbenv
-description: Installing Ruby the right way in OS X using rbenv and some interesting plugins. We will also use hombrew to make this task even easier.
+title: Installing Ruby the right way on OS X using rbenv
+description: Installing Ruby the right way on OS X using rbenv and some interesting plugins. We will also use Homebrew to make this task even easier.
+redirect_from:
+  - /blog/installing-ruby-the-right-way-in-os-x-using-rbenv/
 category: blog
 tag: blog
 ---
@@ -42,13 +44,13 @@ Rbenv was invented under the Unix philosophy of doing one thing well. That's why
 - [rbenv-gem-rehash](https://github.com/sstephenson/rbenv-gem-rehash): "Never run `rbenv rehash` again. This rbenv plugin automatically runs rbenv rehash every time you install or uninstall a gem."
 - [rbenv-vars](https://github.com/sstephenson/rbenv-vars): "This is a plugin for rbenv that lets you set global and project-specific environment variables before spawning Ruby processes."
 
-There are a buch of plugins you can look up by doing `brew search rbenv`, Googling or using Github search. **Remember that all the plugins where meant to be installed using git**.
+There are a bunch of plugins you can look up by doing `brew search rbenv`, Googling or using Github search. **Remember that all the plugins where meant to be installed using git**.
 
 ## Before the Ruby installation
 
 Before installing any Rubies ask yourself if you want support for LibYAML, Readline and OpenSSL outside of rbenv. Rbenv and its plugins are a mature ecosystem that can solve common caveats in the Ruby installation by downloading, installing and compiling your rubies with the latest OpenSSL, LibYAML and if available on your system, Readline.
 
-I like to install LibYAML apart from rbenv because if there's an update I can just upgrade it without having to recompile my Rubies again. I also like to Install Readline to use it instead of editline just to keep development and production Rubies the same and don't break things. Lets install those libraries with hombrew and see what happens:
+I like to install LibYAML apart from rbenv because if there's an update I can just upgrade it without having to recompile my Rubies again. I also like to Install Readline to use it instead of editline just to keep development and production Rubies the same and don't break things. Lets install those libraries with Homebrew and see what happens:
 
 ```bash
 $ brew install libyaml readline openssl
@@ -81,7 +83,7 @@ If you want to compile Ruby with your preferred versions of OpenSSL, Readline an
 $ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`" rbenv install 2.1.2
 ```
 
-**Remember that our libraries must be installed via homebrew for that command to work**. You can change *e.g.* `brew --prefix libyaml` to `/usr/local/opt/libyaml` to make it work in any enviroment.
+**Remember that our libraries must be installed via homebrew for that command to work**. You can change *e.g.* `brew --prefix libyaml` to `/usr/local/opt/libyaml` to make it work in any environment.
 
 ## Conclusion
 
