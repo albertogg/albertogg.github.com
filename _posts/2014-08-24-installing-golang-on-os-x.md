@@ -9,12 +9,12 @@ tag: blog
 > tl;dr this are my notes for installing Go (Golang) on OS X using hombrew,
 adding command completions on ZSH, a single GOPATH and all around clean install.
 
-## Installing Go
-
 Today we'll install the Go programming language and dependencies using OS X
 [Homebrew][brew]. Keep in mind that this is an specific OS X installation. If
 you need to install Go on Ubuntu you can follow [this guide][ubuntu], after
 that you can just go on with this tutorial.
+
+## Installing Go
 
 Our first and only step in the Homebrew installation department will be
 installing Mercurial [(hg)][hg] version control along with go.
