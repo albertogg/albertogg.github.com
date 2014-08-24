@@ -1,19 +1,20 @@
 ---
 layout: post
-title: Installing Golang in OS X
-description: Installing Golang in OS X using Homebrew and a single GOPATH
+title: Installing Golang on OS X
+description: Installing Golang on OS X using Homebrew and a single GOPATH
 category: blog
 tag: blog
 ---
 
-> tl;dr this are my notes for installing Go (Golang) in OS X using hombrew,
-adding command completions in ZSH, a single GOPATH and all around clean install.
+> tl;dr this are my notes for installing Go (Golang) on OS X using hombrew,
+adding command completions on ZSH, a single GOPATH and all around clean install.
 
 ## Installing Go
 
 Today we'll install the Go programming language and dependencies using OS X
-[Homebrew][brew]. Keep in mind that this an specific OS X installation, but the
-core concept will be almost the same for all Unix like Operating Systems.
+[Homebrew][brew]. Keep in mind that this is an specific OS X installation. If
+you need to install Go on Ubuntu you can follow [this guide][ubuntu], after
+that you can just go on with this tutorial.
 
 Our first and only step in the Homebrew installation department will be
 installing Mercurial [(hg)][hg] version control along with go.
@@ -39,7 +40,7 @@ For the go path, I prefer to use a unique/single one for all my projects and I
 like to have all packages within the `~/go` directory. I'll have to admit that
 I haven't done anything complex in Go that deserves more than a single GOPATH;
 maybe I'll have to bite my tongue later on, but, you know... It's my current
-opinion and if you feel like a single GOPATH is not good for you it's OK too.
+opinion. If you feel like a single GOPATH is not good for you it's OK too.
 
 I'll recommend you read this [article][article] that explains why it's a good
 idea to have a single GOPATH and when it's not.
@@ -52,15 +53,18 @@ $ export GOPATH=$HOME/go
 $ export PATH="$GOPATH/bin:$PATH"
 ```
 
-You can use any other directory, but, I found this is a common one, so lets
-stick with the "convention". Here we are exporting the GOPATH and adding any Go
-generated binaries to the path.
+You can use any other directory for the GOPATH, but I found this is a common
+one within the community, so lets stick with this "convention".
+
+We are exporting the `GOPATH` and the `$GOPATH/bin` directory to the `$PATH` to
+add any existing Go generated binaries automatically to it.
 
 ## Set completions ZSH
 
-When installing Go with Homebrew all ZSH completions are thrown at
-`/usr/local/share/zsh/site-functions` if we want to use them you can add this
-simple ZSH plugin.
+When installing Go with Homebrew all ZSH completions are thrown to the
+`/usr/local/share/zsh/site-functions` directory. If we have ZSH completions
+configured to grab [completion.zsh][completions] files, we can just create a
+new `completion.zsh` file for Go and add this snippet:
 
 ```bash
 completion="$(brew --prefix)/share/zsh/site-functions/go"
@@ -72,14 +76,24 @@ fi
 ```
 
 After restarting or reloading your shell session you'll be able to `tab`
-complete the different go CLI commands.
+complete the different Go CLI commands.
+
+> If you are a Bash user, there's a Homebrew package that's called
+> `bash-completion` that will easily enable this functionality. You can check
+> this comment on [stackoverflow][so] that shows how to install and configure
+> the package.
 
 ## If using Vim
 
-If you are using Vim as your text editor I blindly recommend you install
-[vim-go](https://github.com/fatih/vim-go) from [fatih](https://github.com/fatih)
-it's a fantastic plugin, really really complete and well crafted.
+If you are using Vim as your text editor I blindly recommend [vim-go][vim-go]
+from [fatih][fatih] it's a fantastic plugin, really really complete and well
+crafted, give it a *Go*, you will not regret it.
 
 [article]: http://arslan.io/ten-useful-techniques-in-go
 [brew]: http://brew.sh/
 [hg]: http://mercurial.selenic.com/
+[completions]: https://github.com/albertogg/dotfiles/blob/master/zsh/zshrc.symlink#L23-31
+[so]: http://stackoverflow.com/a/14970926
+[vim-go]: http://stackoverflow.com/a/14970926
+[fatih]: http://stackoverflow.com/a/14970926
+[ubuntu]: https://code.google.com/p/go-wiki/wiki/Ubuntu
