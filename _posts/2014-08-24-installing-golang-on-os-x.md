@@ -51,13 +51,15 @@ Enough talking, lets create our GOPATH directory and export to the environment:
 $ mkdir ~/go
 $ export GOPATH=$HOME/go
 $ export PATH="$GOPATH/bin:$PATH"
+$ export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 ```
 
 You can use any other directory for the GOPATH, but I found this is a common
 one within the community, so lets stick with this "convention".
 
-We are exporting the `GOPATH` and the `$GOPATH/bin` directory to the `$PATH` to
-add any existing Go generated binaries automatically to it.
+We are exporting the `GOPATH`, `$GOPATH/bin` and
+`/usr/local/opt/go/libexec/bin` directory to the `$PATH` to add any existing Go
+binaries and generated binaries automatically to our `$PATH`.
 
 ## Set completions ZSH
 
@@ -87,7 +89,10 @@ complete the different Go CLI commands.
 
 If you are using Vim as your text editor I blindly recommend [vim-go][vim-go]
 from [fatih][fatih] it's a fantastic plugin, really really complete and well
-crafted, give it a *Go*, you will not regret it.
+crafted, give it a *Go*, you'll not regret it.
+
+These are two resources that will shows you how to set Vim for Go development.
+[Setting up Vim as your Go IDE][gist], and [Setup VIM for Go development][post]
 
 [article]: http://arslan.io/ten-useful-techniques-in-go
 [brew]: http://brew.sh/
@@ -97,3 +102,5 @@ crafted, give it a *Go*, you will not regret it.
 [vim-go]: http://stackoverflow.com/a/14970926
 [fatih]: http://stackoverflow.com/a/14970926
 [ubuntu]: https://code.google.com/p/go-wiki/wiki/Ubuntu
+[post]: http://obahua.com/setup-vim-for-go-development/
+[gist]: https://gist.github.com/cridenour/74e7635275331d5afa6b
