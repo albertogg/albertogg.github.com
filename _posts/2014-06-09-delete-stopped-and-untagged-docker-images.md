@@ -6,7 +6,14 @@ category: wiki
 tag: wiki
 ---
 
-Delete all stopped containers (because running this containers will error out)
+
+If you want or need first stop the containers
+
+```bash
+$ docker stop $(docker ps -a -q)
+```
+
+Delete all stopped containers
 
 ```bash
 $ docker rm $(docker ps -a -q)
