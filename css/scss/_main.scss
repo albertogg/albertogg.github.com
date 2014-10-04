@@ -109,7 +109,8 @@
 }
 
 .date {
-  font-size: 0.85em;
+  color: $date-font;
+  text-transform: uppercase;
 }
 
 .gravatar {
@@ -136,7 +137,7 @@
     border-left: 0.25em solid $light-gray;
     padding: 0 1em;
     margin: 1em 0;
-    color: rgb(119, 119, 119);
+    color: $lighter-font;
     @extend .inline-code;
   }
 
