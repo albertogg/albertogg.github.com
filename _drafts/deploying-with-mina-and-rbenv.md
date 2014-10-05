@@ -1,32 +1,32 @@
 ---
 layout: post
-title: Deploying Jekyll with mina and rbenv
-description: Deploying a Jekyll with mina and rbenv
+title: Deploying Jekyll with Mina and rbenv
+description: Deploying a Jekyll site with Mina and rbenv
 category: blog
 tag: blog
 ---
 
-The purpose of this post is to show you how to deploy your jekyll blog using
-mina. I'm not going to show how to serve the blog with nginx or apache or
-install any dependencies in the server.
+The purpose of this post is to show how to deploy a [Jekyll][jekyll] site using
+[Mina][mina] and it will not show how to serve the site with Nginx or Apache or
+install any dependencies like Ruby or rbenv on the server.
 
 We'll need to have a running machine with the following things installed:
 
-- Ruby installed through rbenv
+- Ruby installed and managed from rbenv
 - Nginx or Apache
 - If deploying from a private repo a new ssh keypair
 
-## Installing mina
+## Installing Mina
 
-As mina is just a gem we will use [rubygems.org][rubygems] to install it or just add it to
-your gem file.
+As Mina is just a gem we will use the `gem` command to install it or just add
+it to your Gemfile.
 
 ```bash
 $ gem install mina
 ```
 
-After mina is installed we need to run the `init` command, this will create a
-`config/deploy.rb` with some default instructions, is very complete and a very
+After Mina is installed we need to run the `init` command, this will create a
+`config/deploy.rb` with the default instructions which are very complete and a
 good base to work with.
 
 ```bash
@@ -35,7 +35,7 @@ $ mina init
 
 ## Getting everything ready
 
-The first thing after installing mina will be to exclude _vendor_ folder from
+The first thing after installing Mina will be to exclude _vendor_ folder from
 our Jekyll project build.
 
 ```ruby
@@ -46,13 +46,13 @@ exclude: ['vendor']
 After you've done that let's move onto the `config/deploy.rb` file and modify
 a couple of things.
 
-As we'll be using rbenv to do our deployment the first thing we need to `require 'mina/rbenv'` module, then `invoke :'rbenv:load'`
-in the `:environment` task.
+As we'll be using rbenv to do our deployment the first thing we need to
+`require 'mina/rbenv'` module, then load rbenv in the `:environment` task.
 
-> for some weird reason `invoke :'rbenv:load'` was not working correctly for me
-> and the `RBENV_ROOT` variable was not getting exported. My solution was to
-> explicitly `set :rbenv_path, "/usr/local/rbenv"` variable and add `queue
-> %{export RBENV_ROOT=#{rbenv_path}}` to the `:environment` task to fix this.
+> for some weird reason rbenv was not getting loaded in the terminal session
+> because the `RBENV_ROOT` variable was not getting exported and the rbenv
+> command was giving me errors. My solution was to explicitly export that
+> variable in the `:environment` task.
 
 We use the `:environment` task to do this because this task will be invoked
 before our `:deploy` task helping us to get everything loaded prior needing
@@ -69,17 +69,18 @@ task :environment do
 end
 ```
 
-Now let's add the domain, deploy directory, repo, branch and deploy user. One
-important thing here is that we are deploy from a git repo so we need to
-`require 'mina/git'` to have this feature.
+Now let's add the domain, deploy directory, repo, branch and deploy user
+variables. One important thing here is that we are deploy from a git repo so we
+need to `require 'mina/git'` to have this feature.
 
 ```ruby
 set :term_mode, nil
 set :domain, example.com # can be an IP address
-set :deploy_to, '/var/www/bleh'
+set :deploy_to, '/home/deployer/jekyll'
+set :server_dir, '/var/www/site'
 set :repository, 'git@github.com:albertogg/bleh.git'
 set :branch, 'master'
-set :user, 'deployer'   # Username in the server to SSH to.
+set :user, 'deployer'   # Username in the server.
 ```
 
 Our final and most important thing will be the `:deploy` task, this task will
@@ -101,14 +102,16 @@ set :term_mode, nil
 set :domain, example.com
 
 # deploy directory
-set :deploy_to, '/var/www/bleh'
+set :deploy_to, '/home/deployer/jekyll'
+# apache or nginx serve directory
+set :server_dir, '/var/www/site'
 
 # repo and branch
-set :repository, 'git@github.com:albertogg/bleh.git'
+set :repository, 'git@github.com:albertogg/jekyll-site.git'
 set :branch, 'master'
 
 # Optional settings:
-set :user, 'deployer'   # Username in the server to SSH to.
+set :user, 'deployer'   # Username in the server.
 
 # Set rbenv path.
 set :rbenv_path, "/usr/local/rbenv"
@@ -121,8 +124,6 @@ task :environment do
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
-# For Rails apps, we'll make some of the shared paths that are shared between
-# all releases.
 desc "Deploys the current version to the server."
 task :deploy => :environment do
   deploy do
@@ -130,23 +131,30 @@ task :deploy => :environment do
     invoke :'git:clone'
     # install project dependencies
     invoke :'bundle:install'
-    # build the jekyll site
-    queue "bundle exec rake build"
+    # build the jekyll site and drop the _site into the server_dir
+    queue %{bundle exec jekyll build -s #{deploy_to} -d #{server_dir}}
   end
 end
 ```
 
+## Deploying
+
 It's pretty easy I think. We just need to do two more things and we are done.
-Let's setup mina on the server by running:
+Let's setup Mina on the server by running:
 
 ```bash
 $ mina setup
 ```
 
-After this if everything worked we are just left to deploy:
+After this if everything worked we are just left with the final task, deploy:
 
 ```bash
 $ mina deploy
 ```
 
+It indeed was very nice and easy setup, If there is something wrong or find an
+error or typo, write me a comment.
+
 [rubygems]: http://rubygems.org/
+[jekyll]: http://jekyllrb.com/
+[mina]: http://nadarei.co/mina/
