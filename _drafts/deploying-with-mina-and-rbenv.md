@@ -10,16 +10,17 @@ The purpose of this post is to show how to deploy a [Jekyll][jekyll] site using
 [Mina][mina] and it will not show how to serve the site with Nginx or Apache or
 install any dependencies like Ruby or rbenv on the server.
 
-We'll need to have a running machine with the following things installed:
+Even though we are not focusing in the things we mentioned above we'll need a
+running machine them installed:
 
-- Ruby installed and managed from rbenv
+- Ruby managed from rbenv
 - Nginx or Apache
 - If deploying from a private repo a new ssh keypair
 
 ## Installing Mina
 
 As Mina is just a gem we will use the `gem` command to install it or just add
-it to your Gemfile.
+it to your Gemfile and `bundle` it.
 
 ```bash
 $ gem install mina
@@ -152,8 +153,13 @@ After this if everything worked we are just left with the final task, deploy:
 $ mina deploy
 ```
 
-It indeed was very nice and easy setup, If there is something wrong or find an
-error or typo, write me a comment.
+That's it! very easy don't you think?
+
+Mina is very nice and easy to setup, I hope you find it a good light solution
+for deploying your site, I did, It also works great for bigger sites done with
+Rails and Sinatra.
+
+Thanks for reading!
 
 [rubygems]: http://rubygems.org/
 [jekyll]: http://jekyllrb.com/
