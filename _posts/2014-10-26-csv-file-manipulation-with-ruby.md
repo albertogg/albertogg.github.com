@@ -1,7 +1,7 @@
 ---
 layout: post
-title: CSV manipulation with Ruby
-description: 155 char description
+title: CSV file manipulation with Ruby
+description: CSV file manipulation with Ruby using the read and foreach methods. We will also seed a Rails database with CSV.
 category: blog
 tag: blog
 ---
