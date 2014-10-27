@@ -162,8 +162,8 @@ irb(main):001:0> users = User.all
 
 Pretty easy, right?
 
-I believe this is a great way to seed a database for testing and development and
-using a CSV file can help us add, remove or modify data quickly, clean and easy.
+I believe this is a great way to seed a database for testing and development.
+Using a CSV file can help us add, remove or modify data quickly, clean and easy.
 
 Keep in mind that you can also use the `read` method for seeding the database
 and that will be fine for small amount of data, but if it's lots and lots of
