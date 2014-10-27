@@ -80,7 +80,7 @@ if RUBY_PLATFORM =~ /x86_64-linux/
 end
 ```
 
-As you can see we are using it to install some dependencies only on Linux. One
+As you see we are using it to install some dependencies only on Linux. One
 thing I've notice when using `RUBY_PLATFORM` is that it's a bit "unreliable". I
 haven't test it in all possible platforms but when using this constant an JRuby
 the output will be "Java" and not the current OS, this may be the intended
