@@ -118,7 +118,7 @@ end
 Now that we now how to read and print the CSV file in Ruby we can use this to
 seed a database, for example within Rails.
 
-### Seeding a Rails database
+## Seeding a Rails database
 
 Seeding the database through a CSV file is in no way any different from what
 we've been doing. For this example let's try seeding a Users table that has the
@@ -162,7 +162,7 @@ irb(main):001:0> users = User.all
 
 Pretty easy, right?
 
-I believe this is a great way seed a database for testing and development and
+I believe this is a great way to seed a database for testing and development and
 using a CSV file can help us add, remove or modify data quickly, clean and easy.
 
 Keep in mind that you can also use the `read` method for seeding the database
