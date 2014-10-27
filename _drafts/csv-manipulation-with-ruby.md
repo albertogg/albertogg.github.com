@@ -16,10 +16,10 @@ Array of Hashes. It will also show how to seed a Rails database.
 
 ## Reading a CSV file
 
-Ruby provides CSV support in the std-lib and it will help us do most of the job
-very quickly, although there are various ways to achieve the same results we
-will be focusing in just 2 of the possible ways, read the file entirely with
-read or line by line with foreach.
+Ruby provides CSV support in the Standard Library and it will help us do most of
+the job very quickly; although there are various ways to achieve the same
+results we will be focusing in just 2 of the possible ways, read the file
+entirely with the `read` method or line by line with the `foreach` method.
 
 ### CSV File
 
@@ -34,10 +34,13 @@ José,González,jg@gmail.com,16/10/1984,Madrid
 Andrés,Márquez,,18/3/1987,Caracas
 ```
 
-As you see from the data above the first line is the Header line which gives
-meaning to the rest of the data, also there are some missing values, we don't
-have the birth date of John Doe and the email of Andrés Márquez. I will expect
-that after reading that file I get this output which is easy manageable in Ruby:
+As you see from the data above the first line is the Header line, which gives
+meaning to the rest of the data and the rest of the file is just the plain data.
+There are some missing values, e.g. we don't have the birth date of John Doe or
+the email of Andrés Márquez.
+
+Our goal here is to have an Array of hashes after reading the CSV file. It must
+contains all headers as keys for their values e.g:
 
 ```ruby
 [
@@ -51,16 +54,18 @@ that after reading that file I get this output which is easy manageable in Ruby:
 
 ### Reading all the file at once
 
-How do we manage to get from the CSV file to an Array of hashes? Well pretty
-easily, we just need to open irb, require the csv library from the std-lib and
-use the read method with the right options. That's it!
+How do we go from the CSV file to an Array of hashes?
+
+Well pretty easily, we just need to open *irb*, require the CSV library from the
+Standard Library and use the `read` method passing it the right options and
+that's it!
 
 ```ruby
 require 'csv'
 
 > data = CSV.read("csv_data.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all})
 
-> data.map { |d| d.to_hash }
+> hashed_data = data.map { |d| d.to_hash }
 => [
 {:name=>"Alberto", :lastname=>"Grespan", :email=>"ag@gmail.com", :birth_date=>"30/11/1986", :hometown=>"Mérida"},
 {:name=>"Pedro", :lastname=>"Perez", :email=>"pp@gmail.com", :birth_date=>"4/4/1984", :hometown=>"Caracas"},
@@ -70,10 +75,24 @@ require 'csv'
 ]
 ```
 
+We are passing a couple of options to the `read` method:
+
+- `encoding` we want our data to be in UTF-8
+- `headers` we want a key, value hash with the headers
+- `header_converters` we want headers to be symbols
+- `converters` we want all of our data in the right format, integers, strings
+  etc...
+
+As we first converted the CSV file into an Array of `CSV::Row's` we need to
+iterate through and convert each line to a hash, saving it in a new
+`hashed_data` variable that will achieve our desired format.
+
+How about doing this but line by line?
+
 ### Reading line by line
 
-In the same way we read the file before we are going to do it now. But this time
-we'll use the `foreach` method.
+In a similar way as before, we are going to read the file, only that this time
+using the `foreach` method.
 
 ```ruby
 require 'csv'
@@ -81,7 +100,7 @@ require 'csv'
 data = Array.new
 
 > CSV.foreach("csv_data.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) do |row|
-  data row.to_hash
+  data << row.to_hash
 end
 
 > data
@@ -97,11 +116,11 @@ end
 Now that we now how to read and print the CSV file in Ruby we can use this to
 seed a database, for example within Rails.
 
-### Seeding a Rails DB
+### Seeding a Rails database
 
 Seeding the database through a CSV file is in no way any different from what
 we've been doing. For this example let's try seeding a Users table that has the
-same structure as de above CSV file (name, lastname, email, birth_date and
+same structure as the above CSV file (name, lastname, email, birth_date and
 hometown).
 
 Let's open the `db/seeds.rb` file and use the read line by line `foreach` method
@@ -116,13 +135,19 @@ CSV.foreach("db/csv/csv_data.csv", { encoding: "UTF-8", headers: true, header_co
 end
 ```
 
-Now we can check in the Rails console to check if all the users in the CSV file
-where inserted correctly:
+Let's run the seeding:
+
+```bash
+$ bin/rake db:seed
+```
+
+And if there are no errors we can go and check in the Rails console to check if
+all the users in the CSV file where inserted correctly:
 
 ```ruby
 $ bin/rails c
 Loading development environment (Rails 4.1.5)
-irb(main):001:0> u = User.all
+irb(main):001:0> users = User.all
   User Load (1.4ms)  SELECT "users".* FROM "users"
 => #<ActiveRecord::Relation [
 #<User id: 1, name: "Alberto", lastname: "Grespan", email: "ag@gmail.com", birth_date: "1986-11-30", hometown: "Mérida", created_at: "2014-10-27 00:54:44", updated_at: "2014-10-27 00:54:44">,
@@ -136,6 +161,12 @@ irb(main):001:0> u = User.all
 Pretty easy, right?
 
 I believe this is a great way seed a database for testing and development and
-using a CSV file can help us to add or remove data easily.
+using a CSV file can help us add, remove or modify data quickly, clean and easy.
+
+Keep in mind that you can also use the `read` method for seeding the database
+and that will be fine for small amount of data, but if it's lots and lots of
+data it will probably be a slower process that using `foreach` because it's
+keeping all in memory and then reading and inserting it into the db instead of
+doing it all at once.
 
 Thanks for reading!
