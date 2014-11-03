@@ -31,10 +31,10 @@ Let me explain it briefly:
 deactivates the latter half or part of the `.vimrc` file to detect if the
 problem is in the first half or the second half of that file. After `:finish` is
 added to the middle or any part of the `.vimrc` file open Vim and test if the
-problem has vanished, if it doesn't we need to put the `:finish` instruction on
-the first or second half of the half (the first 25% or the last 25% of it)
-depending on where the problem was initially located and keep doing this until
-the error "vanishes" by deactivation. With that hint the bug should be between
+problem vanished, if it doesn't we need to put the `:finish` instruction on the
+first or second half of the half (the first 25% or the last 25% of it) depending
+on where the problem was initially located. Keep doing this until the error
+"vanishes" by deactivation. With that hint in mind the "bug" should be between
 the last two sections bisected. Repeat this procedure between that section until
 the "bug" is completely localized, remove that setting or do whatever you want
 and that's it...
