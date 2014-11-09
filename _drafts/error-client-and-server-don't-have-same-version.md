@@ -8,9 +8,6 @@ category: blog
 tag: blog
 ---
 
-If you are a Mac and a Boot2docker user you'll probably had this issue where
-there's an error that says the client and server are not in the same version.
-
 This error occurs because the version of Docker installed on the Boot2docker
 image and the version of Docker installed on the host machine (your mac) are not
 the same.
