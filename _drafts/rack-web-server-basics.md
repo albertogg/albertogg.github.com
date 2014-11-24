@@ -61,7 +61,7 @@ Rack::Handler::WEBrick.run app
 Or we can use `Rack::Response`, a convenient interface to create a Rack
 response.
 
-```bash
+```ruby
 # app.rb
 require 'rack'
 
@@ -84,5 +84,52 @@ And test the response:
 
 ```bash
 $ curl -X GET localhost:8080
-#=> Hello World!
+Hello World!
 ```
+
+## Redirect
+
+In the same way that we did the "Hello World!" response we can set the
+appropriate HTTP status code and header we can redirect any response to a new
+page.
+
+```ruby
+require 'rack'
+
+app = Proc.new do |env|
+  ['302', { 'Content-Type' => 'text/html', 'Location' => "/redirected" }, ["302 you've redirected"]]
+end
+
+Rack::Handler::WEBrick.run app
+```
+
+Or we can use the `Rack::Response` interface.
+
+```ruby
+require 'rack'
+
+app = Proc.new do |env|
+  res = Rack::Response.new
+  res.redirect("/redirected")
+  res.write("302 you've redirected")
+  res.finish
+end
+
+Rack::Handler::WEBrick.run app
+```
+
+Run the application in the same way as before `ruby app.rb`
+
+```bash
+$ curl -i -X GET localhost:8080
+HTTP/1.1 302 Found
+Location: http://localhost:8080/redirected
+Content-Length: 21
+Server: WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+Date: Mon, 24 Nov 2014 03:28:35 GMT
+Connection: Keep-Alive
+
+302 you've redirected
+```
+
+Really straight forward. Let's go with some `.html.erb` views.
