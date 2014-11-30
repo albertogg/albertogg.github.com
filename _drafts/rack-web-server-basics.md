@@ -90,8 +90,7 @@ Hello World!
 ## Redirect
 
 In the same way that we did the "Hello World!" response we can set the
-appropriate HTTP status code and header we can redirect any response to a new
-page.
+appropriate HTTP status code and header to redirect any response to a new page.
 
 ```ruby
 require 'rack'
@@ -103,7 +102,7 @@ end
 Rack::Handler::WEBrick.run app
 ```
 
-Or we can use the `Rack::Response` interface.
+Likewise we can use the `Rack::Response` interface.
 
 ```ruby
 require 'rack'
@@ -132,4 +131,99 @@ Connection: Keep-Alive
 302 you've redirected
 ```
 
-Really straight forward. Let's go with some `.html.erb` views.
+**note:** one thing to keep in mind is that there is no other route/endpoint,
+therefore we'll have a redirect loop.
+
+Anyways, it's really straight forward. Let's go with some views.
+
+## ERB views
+
+Views are a really important part of the Web and adding ERB template views to a
+Rack application is pretty easy. We can use plain HTML views in the same way we
+will with ERB, but using a template system allow us to manipulate/show data in
+the views.
+
+Following the Rails convention we can create a view with `.html.erb` file
+extension in the root of our application directory and create a simple function
+that we'll call from inside the application Proc. Let's take a look:
+
+```ruby
+def erb(template)
+  path = File.expand_path("#{template}")
+  ERB.new(File.read(path)).result(binding)
+end
+```
+
+This function will accept a template name, parse and return the resulting value
+of an HTML template.
+
+Let's try this all together:
+
+Create an `index.html.erb` file in the root of the project
+
+```html
+<h1>Hello World <%= @var %>!</h1>
+```
+
+Now add the `erb` method to the current `app.rb`
+
+```ruby
+require 'rack'
+require 'erb'
+
+def erb(template)
+  path = File.expand_path("#{template}")
+  ERB.new(File.read(path)).result(binding)
+end
+
+app = Proc.new do |env|
+  @var = "Alberto"
+  ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
+end
+
+Rack::Handler::WEBrick.run app
+```
+
+Run the `app.rb` and you'll see:
+
+```bash
+$ curl -X GET localhost:8080
+<h1>Hello World Alberto!</h1>
+```
+
+Now let's do a simple *Hello Name* by catching the URL path, use it as a
+"parameter" and print its value in the template.
+
+Using the same `index.html.erb` as before we are going to read the request path
+using `Rack::Request` and append the name of that path in the template as it was
+the name of the person.
+
+```ruby
+require 'rack'
+require 'erb'
+
+def erb(template)
+  path = File.expand_path("#{template}")
+  ERB.new(File.read(path)).result(binding)
+end
+
+app = Proc.new do |env|
+  req = Rack::Request.new(env)
+  @var = req.path.tr("/", "")
+  ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
+end
+
+Rack::Handler::WEBrick.run app
+```
+
+Run the `app.rb`:
+
+```bash
+$ curl -X GET localhost:8080/Alberto
+<h1>Hello World Alberto!</h1>
+
+$ curl -X GET localhost:8080/John
+<h1>Hello World John!</h1>
+```
+
+The result is the expected.
