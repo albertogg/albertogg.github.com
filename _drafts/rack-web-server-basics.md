@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rack Web server basics
-description: "A little summary of Ruby Rack Web server."
+description: "A little summary of Ruby Rack Web server, installation, responses, redirects, Rack::Response, Rack::Request, ERB views, rackup and more"
 category: blog
 tag: blog
 ---
@@ -13,9 +13,11 @@ frameworks.
 
 ## What's Rack and how does it work
 
-> Rack provides a minimal, modular and adaptable interface for developing web
+According to [Wikipedia][wiki]:
+
+> Rack provides a minimal, modular and adaptable interface for developing Web
 > applications in Ruby. By wrapping HTTP requests and responses in the simplest
-> way possible, it unifies and distills the API for web servers, web frameworks,
+> way possible, it unifies and distills the API for Web servers, Web frameworks,
 > and software in between (the so-called middleware) into a single method call.
 
 > A Rack application is a Ruby object (not a class) that responds to call. It
@@ -283,6 +285,7 @@ I hope this very basic post on Rack helps...
 
 Thanks for reading!
 
+[wiki]: http://en.wikipedia.org/wiki/Rack_%28web_server_interface%29
 [rack]: https://github.com/rack/rack#rackup
 [rack-response]: http://www.rubydoc.info/github/rack/rack/Rack/Response
 [rack-request]: http://www.rubydoc.info/github/rack/rack/Rack/Request
