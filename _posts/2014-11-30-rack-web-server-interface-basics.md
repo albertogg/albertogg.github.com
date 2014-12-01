@@ -8,7 +8,7 @@ tag: blog
 
 If you like programming in Ruby it's plausible that you've used or heard about
 the Rack Web server... After all Sinatra, Grape and Rails sit on top of Rack and
-by that, I mean that Rack receives the requests and passes them to those
+by that I mean, Rack receives the requests and passes them to those
 frameworks.
 
 ## What's Rack and how does it work
