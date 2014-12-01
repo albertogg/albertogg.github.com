@@ -59,7 +59,7 @@ Rack::Handler::WEBrick.run app
 ```
 
 Or we can use `Rack::Response`, a convenient interface to create a Rack
-response.
+response. You can read more about it [here][rack-response].
 
 ```ruby
 # app.rb
@@ -134,8 +134,6 @@ Connection: Keep-Alive
 **note:** one thing to keep in mind is that there is no other route/endpoint,
 therefore we'll have a redirect loop.
 
-Anyways, it's really straight forward. Let's go with some views.
-
 ## ERB views
 
 Views are a really important part of the Web and adding ERB template views to a
@@ -196,7 +194,8 @@ Now let's do a simple *Hello Name* by catching the URL path, use it as a
 
 Using the same `index.html.erb` as before we are going to read the request path
 using `Rack::Request` and append the name of that path in the template as it was
-the name of the person.
+the name of the person. You can read more about Rack::Request
+[here][rack-request].
 
 ```ruby
 require 'rack'
@@ -209,7 +208,7 @@ end
 
 app = Proc.new do |env|
   req = Rack::Request.new(env)
-  @var = req.path.tr("/", "")
+  @var = req.path.tr("/", "") # remove the slash
   ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
 end
 
@@ -226,4 +225,64 @@ $ curl -X GET localhost:8080/John
 <h1>Hello World John!</h1>
 ```
 
-The result is the expected.
+## Rackup the application
+
+According to Rack's GitHub [README file][rack] Rackup is:
+
+> rackup is a useful tool for running Rack applications, which uses the
+> Rack::Builder DSL to configure middleware and build up applications easily.
+
+> rackup automatically figures out the environment it is run in, and runs your
+> application as FastCGI, CGI, or standalone with Mongrel or WEBrick—all from
+> the same configuration.
+
+To rackup the application we need need to create a file with `.ru` file
+extension, then drop our app inside it and use the `rackup` command line tool to
+start it.
+
+Let's start creating a `config.ru` file, adding the app contents, removing the
+`Rack::Handler` and change the `do end` syntax to curly braces.
+
+```ruby
+require 'rack'
+require 'erb'
+
+def erb(template)
+  path = File.expand_path("#{template}")
+  ERB.new(File.read(path)).result(binding)
+end
+
+run Proc.new { |env|
+  req = Rack::Request.new(env)
+  @var = req.path.tr("/", "") # remove the slash
+  ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
+}
+```
+
+To then start the same app using the rackup command:
+
+```bash
+$ rackup
+```
+
+The application should run and behave exactly the same.
+
+There are many options to `rackup` command that you can check with the `-h`
+option. e.g to change the port where our application listens and the server to
+puma by doing:
+
+```bash
+$ rackup -s puma -p 4000
+Puma 2.9.1 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://0.0.0.0:4000
+```
+
+I hope this very basic post on Rack helps...
+
+Thanks for reading!
+
+[rack]: https://github.com/rack/rack#rackup
+[rack-response]: http://www.rubydoc.info/github/rack/rack/Rack/Response
+[rack-request]: http://www.rubydoc.info/github/rack/rack/Rack/Request
