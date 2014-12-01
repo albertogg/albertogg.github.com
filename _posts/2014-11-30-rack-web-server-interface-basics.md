@@ -210,7 +210,7 @@ end
 
 app = Proc.new do |env|
   req = Rack::Request.new(env)
-  @var = req.path.tr("/", "") # remove the slash
+  @var = req.path.tr("/", "") # removing the route slash
   ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
 end
 
@@ -256,7 +256,7 @@ end
 
 run Proc.new { |env|
   req = Rack::Request.new(env)
-  @var = req.path.tr("/", "") # remove the slash
+  @var = req.path.tr("/", "") # removing the route slash
   ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
 }
 ```
