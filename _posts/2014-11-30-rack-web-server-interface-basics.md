@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rack Web server basics
+title: Rack Web server interface basics
 description: "A little summary of Ruby Rack Web server, installation, responses, redirects, Rack::Response, Rack::Request, ERB views, rackup and more"
 category: blog
 tag: blog
