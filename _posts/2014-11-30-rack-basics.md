@@ -22,12 +22,12 @@ According to [Wikipedia][wiki]:
 > takes exactly one argument, the environment and returns an Array of exactly
 > three values: The status, the headers, and the body.
 
-Now that we got what it is and how it works a bit clearer let's jump into the
+Now that we got what it is and how it works (kind of), let's jump into the
 installation and some basic stuff.
 
 ## Installation
 
-The installation it's pretty normal as any other gem:
+Installation it's pretty normal:
 
 ```bash
 $ gem install rack
@@ -45,7 +45,8 @@ gem 'rack', '~> 1.5'
 There are two ways we can build a response for a request and return a "Hello
 World!".
 
-We can use the "normal" way adding the response body inside the array:
+We can use the "normal" way, that involves adding the response body inside the
+array:
 
 ```ruby
 # app.rb
@@ -58,8 +59,8 @@ end
 Rack::Handler::WEBrick.run app
 ```
 
-Or we can use `Rack::Response`, a convenient interface to create a Rack
-response. You can read more about it [here][rack-response].
+Or to use `Rack::Response`, a convenient interface to create a Rack response.
+You can read more about it [here][rack-response].
 
 ```ruby
 # app.rb
@@ -74,7 +75,7 @@ end
 Rack::Handler::WEBrick.run app
 ```
 
-To run any of the applications type:
+To run any of these applications, type:
 
 ```bash
 $ ruby app.rb
@@ -117,7 +118,7 @@ end
 Rack::Handler::WEBrick.run app
 ```
 
-Run the application in the same way as before `ruby app.rb`
+Run the application in the same way as before using `ruby app.rb`
 
 ```bash
 $ curl -i -X GET localhost:8080
@@ -142,7 +143,7 @@ will with ERB, but using a template system allow us to manipulate/show data in
 the views.
 
 Following the Rails convention we can create a view with `.html.erb` file
-extension in the root of our application directory and create a simple function
+extension in the root of our application directory and create a simple method
 that we'll call from inside the application Proc. Let's take a look:
 
 ```ruby
@@ -152,8 +153,8 @@ def erb(template)
 end
 ```
 
-This function will accept a template name, parse and return the resulting value
-of an HTML template.
+This method will accept a template name, expand its path, parse that file and
+then return the resulting value as a plain HTML file.
 
 Let's try this all together:
 
@@ -189,12 +190,12 @@ $ curl -X GET localhost:8080
 <h1>Hello World Alberto!</h1>
 ```
 
-Now let's do a simple *Hello Name* by catching the URL path, use it as a
-"parameter" and print its value in the template.
+Now let's do a simple *Hello Name* by catching the path URL, use it as a
+"parameter" and print its value inside the template.
 
 Using the same `index.html.erb` as before we are going to read the request path
-using `Rack::Request` and append the name of that path in the template as it was
-the name of the person. You can read more about Rack::Request
+with some `Rack::Request` help and append the name of that path in the template
+as it was the name of the person. You can read more about Rack::Request
 [here][rack-request].
 
 ```ruby
@@ -237,11 +238,11 @@ According to Rack's GitHub [README file][rack] Rackup is:
 > the same configuration.
 
 To rackup the application we need need to create a file with `.ru` file
-extension, then drop our app inside it and use the `rackup` command line tool to
-start it.
+extension, then drop our simple application inside it and use the `rackup`
+command line tool to start it.
 
-Let's start creating a `config.ru` file, adding the app contents, removing the
-`Rack::Handler` and change the `do end` syntax to curly braces.
+Let's start creating a `config.ru` file, adding the application contents,
+removing the `Rack::Handler` and change the `do end` syntax to curly braces.
 
 ```ruby
 require 'rack'
@@ -259,17 +260,17 @@ run Proc.new { |env|
 }
 ```
 
-To then start the same app using the rackup command:
+Start the application using the rackup command:
 
 ```bash
 $ rackup
 ```
 
-The application should run and behave exactly the same.
+The application should run and behave exactly the same as it did before.
 
 There are many options to `rackup` command that you can check with the `-h`
-option. e.g to change the port where our application listens and the server to
-puma by doing:
+option. e.g we can change the port where our application listens and the server
+to [puma][puma] by doing:
 
 ```bash
 $ rackup -s puma -p 4000
@@ -287,3 +288,4 @@ Thanks for reading!
 [rack]: https://github.com/rack/rack#rackup
 [rack-response]: http://www.rubydoc.info/github/rack/rack/Rack/Response
 [rack-request]: http://www.rubydoc.info/github/rack/rack/Rack/Request
+[puma]: http://puma.io/
