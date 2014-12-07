@@ -6,6 +6,9 @@ category: blog
 tag: blog
 ---
 
+> **note**: This post is deprecated by newer versions of Jekyll. You can
+> probably summarize all this post with the `jekyll new` command.
+
 ## So, How I did this jekyll site?
 
 This site is runing on [Github Pages][github] and is using [Jekyll][jekyll] for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using jekyll.
