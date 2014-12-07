@@ -59,19 +59,20 @@ $ brew install libyaml readline openssl
 That was fast, now we are ready to install our first Ruby!
 
 ```bash
-$ rbenv install 2.1.2
+$ rbenv install 2.1.5
 ```
 
 When it's done, you just have to set this Ruby as the global Ruby for your system (if you want to).
 
 ```bash
-$ rbenv global 2.1.2
+$ rbenv global 2.1.5
 ```
 
 Now you are done. I'll recommend refreshing your session by `exec $SHELL -l` or just closing and reopening your terminal. If you try to run `ruby -v` you should see the output of the new installed Ruby!
 
 ```bash
-$ ruby -v  # ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
+$ ruby -v
+ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin13.0]
 ```
 That was really easy... but what if you want to use a custom version of OpenSSL or LibYAML?
 
@@ -80,7 +81,7 @@ That was really easy... but what if you want to use a custom version of OpenSSL 
 If you want to compile Ruby with your preferred versions of OpenSSL, Readline and LibYAML you just need to export or append `RUBY_CONFIGURE_OPTS` to your installation command.
 
 ```bash
-$ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`" rbenv install 2.1.2
+$ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`" rbenv install 2.1.5
 ```
 
 **Remember that our libraries must be installed via homebrew for that command to work**. You can change *e.g.* `brew --prefix libyaml` to `/usr/local/opt/libyaml` to make it work in any environment.
