@@ -11,7 +11,7 @@ particular type of problem. That said, it's not a general purpose language like
 Ruby. Writing a DSL can help us improve the code base by making it more
 readable.
 
-If you've used Rails you've used tons of DSLs. e.g inside migrations,
+If you've used Rails, you've used tons of DSLs. e.g inside migrations,
 configuration files etc... DSLs in Ruby are a common thing and we are making a
 simple but useful example in this post.
 
@@ -88,6 +88,73 @@ end
 ```
 
 Now we need to wrap the `Contact` class functionality inside an `AdressBook` to
-match our desired functionality.
+match our desired goal.
 
 ## AddressBook
+
+The `AddressBook` class is pretty straight forward. It should be able to manage
+an array of contacts and have a method named `add_contact` that receives a block
+and appends a new `Contact` to the contacts array. Let's give it a try:
+
+```ruby
+class AddressBook
+  attr_accessor :contacts
+
+  def initialize(&block)
+    @contacts = []
+    (block.arity < 1 ? (instance_eval &block) : block.call(self)) if block_given?
+  end
+
+  def add_contact(&block)
+    @contacts << Contact.new(&block)
+  end
+end
+```
+
+In the same way we did with the `Contact` class we are using the `block.arity`,
+`instance_eval` and `block.call(self)` on the `AddressBook` class. Now we can
+wrap the `Contact` class functionality inside the `add_contact` method and have
+our `AddressBook` object with contacts.
+
+Now we can require both classes within irb/pry and use our custom DSL:
+
+```ruby
+address_book = AddressBook.new do
+  add_contact do
+    full_name "Alberto Grespan"
+    email "alberto@example.com"
+  end
+
+  add_contact do
+    full_name "John Doe"
+    email "johndoe@example.com"
+  end
+end
+#=> #<AddressBook:0x007fa4eb10cee8 @contact=[
+    #<Contact:0x007fa4eb10cdd0 @email="alberto@example.com", @full_name="Alberto Grespan">,
+    #<Contact:0x007fa4eb10cce0 @email="johndoe@example.com", @full_name="John Doe">]>
+```
+
+Or with local block variable
+
+```ruby
+address_book = AddressBook.new do |contact|
+  contact.add_contact do
+    full_name "Alberto Grespan"
+    email "alberto@example.com"
+  end
+
+  contact.add_contact do
+    full_name "John Doe"
+    email "johndoe@example.com"
+  end
+end
+#=> #<AddressBook:0x007fa4ec8dcf50 @contact=[
+    #<Contact:0x007fa4ec8dce60 @email="alberto@example.com", @full_name="Alberto Grespan">,
+    #<Contact:0x007fa4ec8dcd70 @email="johndoe@example.com", @full_name="John Doe">]>
+```
+
+That's all, keep in mind that this code can be improved performance wise and
+it's just a way to make a DSL in Ruby.
+
+Thanks for reading!
