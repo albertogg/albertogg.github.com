@@ -11,9 +11,9 @@ particular type of problem. That said, it's not a general purpose language like
 Ruby. Writing a DSL can help us improve the code base by making it more
 readable.
 
-If you've used Rails, you've used tons of DSLs. e.g inside migrations,
-configuration files etc... DSLs in Ruby are a common thing and we are making a
-simple but useful example in this post.
+If you've used Rails, you've used and seen tons of DSLs. *e.g* inside
+migrations, configuration files etc... DSLs in Ruby are a common thing and we
+are making a simple but useful example in this post.
 
 ## What we want
 
@@ -34,12 +34,11 @@ address_book = AddressBook.new do
 end
 ```
 
-To get to the syntax displayed above let's start with the contacts class.
+Let's start with the contact class.
 
 ## Contact
 
 We want to save the contacts in our address book with their full name and email.
-Let's start with the `Contact` class.
 
 ```ruby
 class Contact
@@ -62,10 +61,10 @@ end
 What we did here is very minimal and simple, and it will work for the example
 used above and also with local block variables. Let me explain this a bit.
 
-When we instantiate a new `Contact` object and we pass it a block it checks the
+When we instantiate a new `Contact` object and pass it a block, it checks the
 `block.arity`, if it's less than one it evaluates the block using
-`instance_eval`, if it's is more than one it will use `block.call(self)` this
-allow us to use the block with either a local block variable or without it.
+`instance_eval`, if it's more than one it uses `block.call(self)` this allow us
+to use the block with either a local block variable or without it.
 
 Let's try it out:
 
@@ -94,7 +93,7 @@ match our desired goal.
 
 The `AddressBook` class is pretty straight forward. It should be able to manage
 an array of contacts and have a method named `add_contact` that receives a block
-and appends a new `Contact` to the contacts array. Let's give it a try:
+and appends a new `Contact` to the contacts array.
 
 ```ruby
 class AddressBook
@@ -116,7 +115,8 @@ In the same way we did with the `Contact` class we are using the `block.arity`,
 wrap the `Contact` class functionality inside the `add_contact` method and have
 our `AddressBook` object with contacts.
 
-Now we can require both classes within irb/pry and use our custom DSL:
+Inside **irb or pry**, require the two classes(`Contacts` and `AddressBook`) to
+use the DSL:
 
 ```ruby
 address_book = AddressBook.new do
@@ -155,6 +155,7 @@ end
 ```
 
 That's all, keep in mind that this code can be improved performance wise and
-it's just a way to make a DSL in Ruby.
+it's just a way to make a DSL in Ruby, I also hope this is useful and simple
+enough to understand.
 
-Thanks for reading!
+Thanks for reading and thanks to *Diorman Colmenares* for the help!
