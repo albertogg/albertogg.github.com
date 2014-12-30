@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Writing a DSL in Ruby
-description: Writing a simple Domain Specific Language in Ruby
+description: Writing a simple Domain Specific Language (DSL) in Ruby.
 category: blog
 tag: blog
 ---
