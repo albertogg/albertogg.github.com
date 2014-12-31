@@ -6,7 +6,7 @@ category: blog
 tag: blog
 ---
 
-A Domain Specific Language or DSL is a mini language focused in solving
+A Domain Specific Language or DSL is a mini language focused in solving a
 particular type of problem. That said, it's not a general purpose language like
 Ruby. Writing a DSL can help us improve the code base by making it more
 readable.
