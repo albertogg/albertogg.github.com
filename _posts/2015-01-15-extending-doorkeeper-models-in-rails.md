@@ -13,7 +13,7 @@ adding the possibility to either login with Google OAuth2 or with our own. With
 that we also did a role based level of authorization, nothing complex... but, as
 we are using Doorkeeper for the OAuth2 we needed new validations, associations
 and a couple of new methods in one of their models to fulfill our needs. To
-achieve these we used `class_eval` inside a Rails initializer that allowed us to
+achieve this we used `class_eval` inside a Rails initializer that allowed us to
 extend the model in runtime without touching the code inside the gem.
 
 Let's take a look at it.
