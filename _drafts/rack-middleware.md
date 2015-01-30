@@ -26,9 +26,17 @@ fully understand everything:
 - Responds with an array of integer of status code, hash of headers, array of strings
 - Each middleware is responsible of calling the next
 
+Now that we know this let's go and start writing the middleware.
+
 ## Adding a custom header
 
+For this first middleware we are going to add a custom header to all responses.
+This header will be following: `X-Custom-Header: customheader.v1`.
+
+Create a file in a `lib` directory named `custom_header.rb`.
+
 ```ruby
+# lib/custom_header.rb
 module Rack
   class CustomHeader
     def initialize(app)
@@ -45,6 +53,17 @@ module Rack
   end
 end
 ```
+
+As explained above, in the **Things to know about middleware** section, we are
+creating the `call(env)` method and passing it the environment variable, then
+picking up the status, headers, and body from the `@app.call(env)` adding our
+header to the current headers and responding with the array.
+
+## Adding a new route
+
+For this middleware we are adding a new route called `/ping` this route will
+respond with `pong` if the requested path is _of course_ `/ping` if not this
+middleware will pass the call to the rest of the stack.
 
 ```ruby
 module Rack
@@ -64,6 +83,15 @@ module Rack
   end
 end
 ```
+
+We create the `call(env)` method and pass it the environment and then pick up
+the request path. If this request path is ping we respond with `pong` else we
+call `@app.call(env)` and it will continue going to the stack of middlewares.
+
+We could also read the request path like this: `asdasd` but I find more readable
+using the `Rack::Request` interface.
+
+## Rack Builder
 
 ```ruby
 # config.ru
