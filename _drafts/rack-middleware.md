@@ -10,34 +10,33 @@ tag: blog
 > all responses and one that adds a new route with a custom response.
 
 As explained in a previous post about [Rack basics][rack-basics], Rack is found
-on the most popular Ruby web frameworks as it's an adaptable interface for
+on the most popular Ruby web frameworks, as it's an adaptable interface for
 developing web applications. In this post we are going to create two simple
-middlewares. The first one will add a custom header to all responses and the
-second one, will add a custom route that will respond to `/ping`. To glue all of
-this together we are using `Rack::Builder`.
+middlewares. The first one will add a custom header to all responses, the second
+one will add a custom route that responds to `/ping` and to glue it all together
+we are using `Rack::Builder`.
 
 ## Things to know about Rack middleware
 
 There are few things that we need to know about Rack middleware in order to
-fully understand how it works:
+fully understand how it works are:
 
 - Each middleware responds to a `call()` method.
 - Only receives one argument, the environment (`env`).
 - Responds with an array of: Integer as status code, hash of headers and array
-  of body strings.
+  of strings as the body.
 - Each middleware is responsible of calling the next.
 
-Now that we know this let's go and start writing the middleware.
+Now that we know this, let's start writing the middleware.
 
 ## Adding a custom header
 
 For this first middleware we are going to add a custom header to all responses.
-The header will be following: `X-Custom-Header: customheader.v1`, it doesn't
-mean anything but we could also use something like `Content-Type:
-application/json; charset=utf-8`.
+We'll be using the following header: `X-Custom-Header: customheader.v1`. We
+could also use something like `Content-Type: application/json; charset=utf-8` if
+we wanted to.
 
-Create a file in a `lib` directory named `custom_header.rb` where the middleware
-will live and use the following code.
+**note:** our middleware will live in a `lib` directory.
 
 ```ruby
 # lib/custom_header.rb
@@ -60,18 +59,18 @@ end
 
 As explained in the section above, we are creating the `call()` method and
 passing it the `env` argument. Inside this method we picking up the status,
-headers, and body from the `@app.call(env)`. Then append our custom header to
+headers and body from the `@app.call(env)`. Then appending our custom header to
 the existing response headers and finally return the array of status code,
 headers, and body.
 
-We have our first middleware, let's go to the second one.
+We have our first middleware ready, let's go with the second one.
 
 ## Adding a new route
 
 Inside this middleware we are adding a new route called `/ping`. This route will
-respond with a `pong` text to differentiate the application response. How will
-this middleware work? It will check the request path is `/ping` it will
-respond if doesn't the call will pass to the rest of the stack.
+respond with a `pong` text. How will this middleware work? It will check the
+request path, if it's `/ping` it will respond if it doesn't, the call will pass
+to the rest of the stack.
 
 ```ruby
 module Rack
@@ -92,10 +91,10 @@ module Rack
 end
 ```
 
-In the same way as with the `CustomHeader` middleware there will be a `call()`
-method with the `env` argument. Inside this method we'll check with use of
+In the same way as with the `CustomHeader` middleware, there will be a `call()`
+method with the `env` argument. Inside this method we'll check using
 `Rack::Request` the path of the current request and generate the desired
-response array with the status code, empty headers and a body of string. Note
+response array with the status code, empty headers and a body of strings. Note
 that if the route is not `/ping` we simply call `@app.call(env)` letting the
 call go through the stack.
 
@@ -155,9 +154,9 @@ Transfer-Encoding: chunked
 Say something to me!
 ```
 
-First we are trying is the `"/"` route but it will be the same with any route.
-The response is the expected, there is our custom header with the response from
-the application.
+First we are trying the `"/"` route but it will be the same with any route as
+our application responds to all routes. The response is the expected, as there
+is our custom header and the application body.
 
 But what happens if we use the `/ping` route:
 
@@ -171,9 +170,10 @@ pong
 ```
 
 One thing to notice is that this response apart from being from the Ping
-middleware it also has the custom header because that middleware is before. This
-will not happen if the order was different. That said, ordering correctly the
-middleware matters.
+middleware it also has our custom header, that's because the `CustomHeader`
+middleware is before the `Ping` middleware and with middleware the order
+matters. This will not happen if the order was different, so be careful when
+you are setting up new middleware in the stack.
 
 This is a very simple example that shows how middleware are created and work. I
 hope it's useful for some of you.
