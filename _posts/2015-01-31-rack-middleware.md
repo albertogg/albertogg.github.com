@@ -73,6 +73,7 @@ request path, if it's `/ping` it will respond if it doesn't, the call will pass
 to the rest of the stack.
 
 ```ruby
+# lib/ping.rb
 module Rack
   class Ping
     def initialize(app)
