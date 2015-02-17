@@ -1,13 +1,23 @@
 ---
 layout: post
 title: Creating DigitalOcean images with Packer
-description: Creating a reproducible and Docker provisioned Ubuntu 14.04 image with Packer for DigitalOcean.
+description: Creating a reproducible and Docker provisioned Ubuntu 14.04 image with Packer on DigitalOcean.
 category: blog
 tag: blog
 ---
 
-tl;dr we are going to create a simple DigitalOcean Ubuntu 14.04 image that uses
-shell a provisioner to install Docker.
+> tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a
+provisioner to install Docker.
+
+This post will guide you through the steps needed create a simple DigitalOcean
+Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way
+like creating our own [DigitalOcean Docker application][do-docker-app] image.
+We'll use a shell script as provisioner for this Packer template.
+
+**notes:** we assume that Packer is already installed on the system, refer to
+the installation docs [here][packer-install]. You could use CentOS or other
+distros available at DigitalOcean in the same way. The script will need some
+package manager adaptation and that's all.
 
 ## Packer template
 
@@ -18,6 +28,7 @@ Create a packer template for our installation called
 `docker-install-template.json` and drop this script in it.
 
 ```json
+{% raw %}
 {
   "variables": {
     "do_api_token": "{{env `DIGITALOCEAN_API_TOKEN`}}"
@@ -38,6 +49,7 @@ Create a packer template for our installation called
     "script": "install-script.sh"
   }]
 }
+{% endraw %}
 ```
 
 Let me explain what this does. We are setting a variable named `do_api_token`
@@ -79,7 +91,7 @@ sleep 30
 add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
 add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe"
 
-# update and install curl and linux kernel 3.16
+# update, install curl and linux kernel 3.16
 apt-get update --fix-missing
 apt-get install -y curl linux-headers-3.16.0-29 linux-headers-3.16.0-29-generic \
                    linux-image-3.16.0-29-generic linux-image-extra-3.16.0-29-generic
@@ -150,4 +162,6 @@ Thanks for reading...
 
 [packer-do]: https://packer.io/docs/builders/digitalocean.html
 [packer-shell]: https://packer.io/docs/provisioners/shell.html
+[packer-install]: https://packer.io/docs/installation.html
 [do-kernel]: https://www.digitalocean.com/community/questions/how-i-update-my-kernel
+[do-docker-app]: https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-docker-application
