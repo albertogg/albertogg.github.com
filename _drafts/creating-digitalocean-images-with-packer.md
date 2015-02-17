@@ -9,14 +9,15 @@ tag: blog
 > tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a
 provisioner to install Docker.
 
-This post will guide you through the steps needed create a simple DigitalOcean
-Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way
-like creating our own [DigitalOcean Docker application][do-docker-app] image.
-We'll use a shell script as provisioner for this Packer template.
+This post will guide you through the steps needed to create a simple
+DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed.
+This is in a way like creating our own [DigitalOcean Docker
+application][do-docker-app] image.  We'll use a shell script as provisioner for
+this Packer template.
 
 **notes:** we assume that Packer is already installed on the system, refer to
-the installation docs [here][packer-install]. You could use CentOS or other
-distros available at DigitalOcean in the same way. The script will need some
+the installation docs [here][packer-install]. You could use CentOS or any other
+distro available at DigitalOcean in the same way. The script will need some
 package manager adaptation and that's all.
 
 ## Packer template
@@ -25,7 +26,7 @@ This template will create a new droplet on DigitalOcean, run the provision
 script, create a snapshot from the final state and destroy the droplet.
 
 Create a packer template for our installation called
-`docker-install-template.json` and drop this script in it.
+`docker-install-template.json` and drop this JSON in it.
 
 ```json
 {% raw %}
@@ -53,25 +54,30 @@ Create a packer template for our installation called
 ```
 
 Let me explain what this does. We are setting a variable named `do_api_token`
-that will be read from the OS environment as `DIGITALOCEAN_API_TOKEN`. Then
-creating a builder that for our case will obviously be DigitalOcean, setting the
-builder token from our custom variable and setting what type of droplet we'll
-use to create this snapshot. You can read more about this builder in the [packer
-digitalocean][packer-do] docs.
+that reads from the OS environment a variable named `DIGITALOCEAN_API_TOKEN`.
+Then creating a builder that for our case will obviously be DigitalOcean,
+setting the builder token from our custom variable and setting what type of
+droplet we'll use to create this snapshot. You can read more about this builder
+in the [packer digitalocean][packer-do] docs.
 
-After the builder we use the "fun" stuff, provisioners. Packer has the ability
-to use various types of provisioners, like for example, shell scripts, Ansible,
-Chef, Puppet, etc... For our case we will only use the "Shell" provisioner; it
-will we install dependencies. You can read more about this provisioner
-[here][packer-shell].
+After the builder we have provisioners. Packer has the ability to use various
+types of provisioners, like for example, shell scripts, Ansible, Chef, Puppet,
+etc... For our case we will only use the "Shell" provisioner; it will install
+dependencies. You can read more about this provisioner [here][packer-shell].
 
-Once our template is done, like it is, we should validate it to see if there are
-no parsing errors. **note:** this will not guarantee that you did a fine job
-with your shell script.
+Notice that builders and provisioners are arrays. We can have multiple types of
+provisioners and multiple builders so the same image can be generated on various
+platforms.
+
+Once our template is ready, we should validate it to see if there are no parsing
+errors.
 
 ```bash
 packer validate docker-install-template.json
 ```
+**notes:** this will not guarantee that we've done a fine job with the shell
+script. If the required variables are not set up in our system this validation
+will output an error message.
 
 ## Script
 
@@ -93,6 +99,7 @@ add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-upda
 
 # update, install curl and linux kernel 3.16
 apt-get update --fix-missing
+apt-get upgrade -y
 apt-get install -y curl linux-headers-3.16.0-29 linux-headers-3.16.0-29-generic \
                    linux-image-3.16.0-29-generic linux-image-extra-3.16.0-29-generic
 
@@ -117,6 +124,12 @@ minutes.
 
 ```bash
 export DIGITALOCEAN_API_TOKEN="your_api_token"
+```
+
+Once the environment variable is set up we should be able to run the following
+command and wait till it's done.
+
+```bash
 packer build docker-install-template.json
 ```
 
@@ -145,16 +158,16 @@ Build 'digitalocean' finished.
 ```
 
 This final chunk shows the output from the `docker version` command and the name
-of the snapshot with the format we gave it `build-with-packer-{{timestamp}}`.
+of the snapshot with the format we gave it `{% raw %}
+build-with-packer-{{timestamp}}{% endraw %}`
 
 Now go to your DigitalOcean admin panel and create a new droplet using your
 newly created snapshot, remember that for the kernel update to work you must
 follow [this instructions][do-kernel].
 
-From my point of view Packer is a Fantastic tool, it really is. Being able to
-create a "base" image from a template that will be ready to put into a new
-droplet is a time saver and an assurance that everything will work exactly the
-same.
+From my point of view Packer is a Fantastic tool. Being able to create a
+reproducible image from a template that will be ready to put into a new droplet
+is a time saver and an assurance that everything will work as it's suppose to.
 
 Remember to update your snapshots periodically for patches, etc...
 
