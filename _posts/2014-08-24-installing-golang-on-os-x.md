@@ -63,6 +63,9 @@ binaries and generated binaries automatically to our `$PATH`.
 
 ## Set completions ZSH
 
+> As of Go 1.4, Google Removed the completions files for zsh and bash due to the
+> lack of maintenance. The following will no longer work.
+
 When installing Go with Homebrew all ZSH completions are thrown to the
 `/usr/local/share/zsh/site-functions` directory. If we have ZSH completions
 configured to grab [completion.zsh][completions] files, we can just create a

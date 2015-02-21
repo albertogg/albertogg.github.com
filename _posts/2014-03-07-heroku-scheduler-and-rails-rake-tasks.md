@@ -26,7 +26,7 @@ or the CLI.
 > To use the CLI you must have the [heroku toolbelt](https://toolbelt.heroku.com/) installed.
 
 ```bash
-$ heroku addons:add scheduler:standard
+$ heroku addons:add scheduler
 ```
 ### ping.rake
 
