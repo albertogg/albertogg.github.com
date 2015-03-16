@@ -98,12 +98,18 @@ This has been a really useful command for me. It tells you which files have
 conflicts after merging. I picked up this command from an
 [@indirect tweet][indirect-tweet] a few months back.
 
+Let's create a "conflict" in a file to recreate how this command works.
+
 ```bash
 git merge --no-ff hello2
 Auto-merging hello
 CONFLICT (content): Merge conflict in hello
 Automatic merge failed; fix conflicts and then commit the result.
+```
 
+Now that we have a conflict let's try the alias.
+
+```bash
 git conflicts
 hello
 ```
@@ -143,11 +149,16 @@ lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s
 
 ## Unstage files
 
+Remove file from the stage area or unstage files.
+
 ```bash
 git unstage _drafts/my-most-used-git-aliases.md
 Unstaged changes after reset:
 M       _drafts/my-most-used-git-aliases.md
 ```
+
+To setup the alias, copy the following into the `~/.gitconfig` or use `git
+config --global alias.unstage "reset HEAD --"`.
 
 ```bash
 unstage = reset HEAD --
@@ -161,12 +172,23 @@ dc = diff --cached
 
 ## Search for occurrences
 
+Searching for occurrences using `git grep` is a very common task for me.  I
+normally search for function names, class namespace, variable, etc... This alias
+came pretty handy a while a go because I added two flags `-Ii` to make the
+search broader and that makes the command a little bit better for my use case.
+
+Here is how to use it:
+
 ```bash
 git g openssl
-_posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:Before installing any Rubies ask yourself if you want support for LibYAML, Readline and OpenSSL outside of rbenv. Rbenv and its plugins are a mature ecosystem that can solve common caveats in the Ruby installation by downloading, installing and compiling your rubies with the latest OpenSSL, LibYAML and if available on your system, Readline.
-_posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:$ brew install libyaml readline openssl
-_posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:That was really easy... but what if you want to use a custom version of OpenSSL or LibYAML?
+_posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:Before installing any Rubies ask yourself if you want support for LibYAML, Readline and **OpenSSL** outside of rbenv. Rbenv and its plugins are a mature ecosystem that can solve common caveats in the Ruby installation by downloading, installing and compiling your rubies with the latest **OpenSSL**, LibYAML and if available on your system, Readline.
+_posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:$ brew install libyaml readline **openssl**
+_posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:That was really easy... but what if you want to use a custom version of **OpenSSL** or LibYAML?
+...
 ```
+
+To setup the alias, copy the following into the `~/.gitconfig` or use `git
+config --global alias.g "grep -Ii"`.
 
 ```bash
 g = grep -Ii
@@ -174,10 +196,17 @@ g = grep -Ii
 
 ## Count commits
 
+Count the commits between two commits. I often find myself wanting to know how
+much commits in a day or how much commits do I have in a long lived feature
+branch, this alias helps me with this. This is how this alias works:
+
 ```bash
 git count 452a5de 4d58be2
 5
 ```
+
+Given that this alias is a function that receives parameters the way I advice to
+setup this alias is to copy it directly into the `~/.gitconfig` file.
 
 ```bash
 count = "!f() { git log $1..$2 --pretty=oneline | wc -l; }; f"
@@ -185,13 +214,26 @@ count = "!f() { git log $1..$2 --pretty=oneline | wc -l; }; f"
 
 ## Check the parent branch of a branch
 
+Every now and then I found myself lost in a new project that has multiple
+branches. I sometimes want to merge a branch but I'm not sure where do the
+actual branch came from. This alias will tell you the parent of the current
+branch.
+
 ```bash
 git dad
 master
 ```
 
+Given the complexity of the alias and the escaping nightmare it can be to setup
+the alias by the command line I advice pasting it directly into the
+`~/.gitconfig` file.
+
 ```bash
 dad = !"git show-branch -a | ack '\\*' | ack -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
 ```
+
+I hope all these aliases are helpful, they are for me.
+
+Thanks for reading!
 
 [indirect-tweet]: https://twitter.com/indirect/status/539529691380469760
