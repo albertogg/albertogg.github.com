@@ -68,6 +68,18 @@ cob = checkout -b
 
 ## Review what changed
 
+To check the new state of your current work I use `git sts`. This is an alias
+for `status -s` that will only show in a simple way which files where modified,
+deleted, added, etc... with this simple command.
+
+```bash
+git sts
+ M _drafts/my-most-used-git-aliases.md
+```
+
+To setup the alias, copy the following into the `~/.gitconfig` or use `git
+config --global alias.sts "status -s"`.
+
 ```bash
 sts = status -s
 ```
@@ -123,13 +135,28 @@ conflicts = diff --name-only --diff-filter=U
 
 ## Diff by words
 
+Diff by highlighting inline word changes instead of whole lines.
+
+```bash
+git dw
+[-git-]{+got+} conflicts
+```
+
+To setup the alias, copy the following into the `~/.gitconfig` or use `git
+config --global alias.dw "diff --word-diff"`.
+
 ```bash
 dw = diff --word-diff
 ```
 
 ## Pretty graph log
 
+Show a pretty graph of commits with short inline message and custom colors.
+This is a really cool command to review the commit history one of the most
+useful things anyone could use.
+
 ```bash
+git lg
 *   4d58be2 - Merge branch 'packer' (4 weeks ago)<Alberto Grespan>
 |\
 | * 2a3b6ad - Publishing the Packer post (4 weeks ago)<Alberto Grespan>
@@ -142,6 +169,9 @@ dw = diff --word-diff
 * 6848854 - Missing file name rack-middleware post (6 weeks ago)<Alberto Grespan>
 ...
 ```
+
+To setup the alias, copy the following into the `~/.gitconfig` or use `git
+config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"`.
 
 ```
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
