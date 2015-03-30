@@ -251,7 +251,7 @@ count = "!f() { git log $1..$2 --pretty=oneline | wc -l; }; f"
 Every now and then I found myself lost in a new project that has multiple
 branches. I sometimes want to merge a branch but I'm not sure where do the
 actual branch came from. This alias will tell you the parent of the current
-branch.
+branch. I took this alias from this thread on [stackoverflow][stackoverflow].
 
 ```bash
 git dad
@@ -266,9 +266,10 @@ the alias by the command line I advice pasting it directly into the
 dad = !"git show-branch -a | ack '\\*' | ack -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
 ```
 
-I took this alias from this thread on [stackoverflow][stackoverflow].
-
-I hope all these aliases are helpful, they are for me.
+As I said before, some of my used aliases are for repetitive or long commands,
+not all of them may be really useful but are easier to remember that typing a
+series of options with a command. Over all I hope these aliases are helpful to
+you as they are for me.
 
 Thanks for reading!
 
