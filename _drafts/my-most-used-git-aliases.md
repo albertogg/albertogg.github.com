@@ -55,7 +55,7 @@ is an alias for `checkout -b <branch-name>` that creates a new branch and moves
 to it with a simple command.
 
 ```bash
-git co -b test-branch
+git cob test-branch
 Switched to a new branch 'test-branch'
 ```
 
@@ -142,6 +142,8 @@ git dw
 [-git-]{+got+} conflicts
 ```
 
+Here it shows that git was removed and got was added instead.
+
 To setup the alias, copy the following into the `~/.gitconfig` or use `git
 config --global alias.dw "diff --word-diff"`.
 
@@ -192,12 +194,6 @@ config --global alias.unstage "reset HEAD --"`.
 
 ```bash
 unstage = reset HEAD --
-```
-
-## Diff cached
-
-```bash
-dc = diff --cached
 ```
 
 ## Search for occurrences
