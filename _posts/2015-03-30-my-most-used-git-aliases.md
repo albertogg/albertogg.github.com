@@ -45,8 +45,13 @@ Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.co checkout`.
+To setup the alias use:
+
+```bash
+git config --global alias.co checkout
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 co = checkout
@@ -63,8 +68,13 @@ git cob test-branch
 Switched to a new branch 'test-branch'
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.cob "checkout -b"`.
+To setup the alias use:
+
+```bash
+git config --global alias.cob "checkout -b"
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 cob = checkout -b
@@ -81,8 +91,13 @@ git sts
  M _drafts/my-most-used-git-aliases.md
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.sts "status -s"`.
+To setup the alias use:
+
+```bash
+git config --global alias.sts "status -s"
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 sts = status -s
@@ -101,8 +116,13 @@ can just `git rename <branch-name>` but if we are not we have to use `git rename
 git rename git-alias
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.rename "branch -m"`.
+To setup the alias use:
+
+```bash
+git config --global alias.rename "branch -m"
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 rename = branch -m
@@ -130,8 +150,13 @@ git conflicts
 hello
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.conflicts "diff --name-only --diff-filter=U"`.
+To setup the alias use:
+
+```bash
+git config --global alias.conflicts "diff --name-only --diff-filter=U"
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 conflicts = diff --name-only --diff-filter=U
@@ -149,8 +174,13 @@ git dw
 [-git-]{+got+} conflicts
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.dw "diff --word-diff"`.
+To setup the alias use:
+
+```bash
+git config --global alias.dw "diff --word-diff"`
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 dw = diff --word-diff
@@ -178,8 +208,13 @@ git lg
 ...
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"`.
+To setup the alias use:
+
+```bash
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"`.
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
@@ -195,8 +230,13 @@ Unstaged changes after reset:
 M       _drafts/my-most-used-git-aliases.md
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.unstage "reset HEAD --"`.
+To setup the alias use:
+
+```bash
+git config --global alias.unstage "reset HEAD --"
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 unstage = reset HEAD --
@@ -219,8 +259,13 @@ _posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:That was 
 ...
 ```
 
-To setup the alias, copy the following into the `~/.gitconfig` or use `git
-config --global alias.g "grep -Ii"`.
+To setup the alias use:
+
+```bash
+git config --global alias.g "grep -Ii"
+```
+
+Or copy the following into the `~/.gitconfig` file
 
 ```bash
 g = grep -Ii
