@@ -11,8 +11,6 @@ tag: blog
 In this post I'll be talking about my most used git aliases in no particular
 order. I'm going to throw all of my `.gitconfig` in here and that's all.
 
-## Creating an alias
-
 I believe git is one of the greatest pieces of software ever made. It's a
 functional tool that _just works_. If you use git on daily basis I bet you type
 `git` at least a hundreds of times a day. Aliases are a way to mitigate some
@@ -30,8 +28,8 @@ the `~/.gitconfig` file in the same way `git config --global alias` does. All
 aliases live under `[alias]` section on the file.
 
 ```
-[alias]¬
-    st = status¬
+[alias]
+    st = status
 ```
 
 Let's start with the aliases...
@@ -265,6 +263,8 @@ the alias by the command line I advice pasting it directly into the
 ```bash
 dad = !"git show-branch -a | ack '\\*' | ack -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
 ```
+
+These are all of my current aliases...
 
 As I said before, some of my used aliases are for repetitive or long commands,
 not all of them may be really useful but are easier to remember that typing a
