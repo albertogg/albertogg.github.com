@@ -13,15 +13,21 @@ order. I'm going to throw all of my `.gitconfig` in here and that's all.
 
 ## Creating an alias
 
-Aliases can be added globally or locally, I'll use alias globally. To add a new
-alias you'll do something like this.
+I believe git is one of the greatest pieces of software ever made. It's a
+functional tool that _just works_. If you use git on daily basis I bet you type
+`git` at least a hundreds of times a day. Aliases are a way to mitigate some
+large, repeated or painful to type commands, they can be added globally (hole
+system) or locally (one repo only). I'll use alias globally on the post.
+
+To add a new alias via command line you'll do something like this:
 
 ```bash
 git config --global alias.st status
 ```
 
 The other way of adding them is by **carefully** placing the alias directly in
-the `~/.gitconfig` file in the same way `git config --global alias` does.
+the `~/.gitconfig` file in the same way `git config --global alias` does. All
+aliases live under `[alias]` section on the file.
 
 ```
 [alias]¬
@@ -88,9 +94,9 @@ sts = status -s
 
 Sometimes we name a branch poorly or maybe we thought the name was "good" but
 not meaningful to the work we are doing. To rename the branch locally I have a
-rename alias for `git branch -m`. One thing to keep in mind is that this command
-works in two different ways if we are on the branch we want to rename we can
-just `git rename <branch-name>` but if we are not we have to use `git rename
+_rename_ alias for `git branch -m`. One thing to keep in mind is that this
+command works in two different ways if we are on the branch we want to rename we
+can just `git rename <branch-name>` but if we are not we have to use `git rename
 <old-branch-name> <new-branch-name>`
 
 ```bash
@@ -135,14 +141,15 @@ conflicts = diff --name-only --diff-filter=U
 
 ## Diff by words
 
-Diff by highlighting inline word changes instead of whole lines.
+Diff by highlighting inline word changes instead of whole lines. It's just a
+super simple alias for `git diff --word-diff`.
+
+Here it shows that the word git was removed and changed by the word got.
 
 ```bash
 git dw
 [-git-]{+got+} conflicts
 ```
-
-Here it shows that git was removed and got was added instead.
 
 To setup the alias, copy the following into the `~/.gitconfig` or use `git
 config --global alias.dw "diff --word-diff"`.
@@ -155,7 +162,8 @@ dw = diff --word-diff
 
 Show a pretty graph of commits with short inline message and custom colors.
 This is a really cool command to review the commit history one of the most
-useful things anyone could use.
+useful things anyone could use. It's a long command that I bet no one could type
+each time. Color can be modified easily if you dislike them.
 
 ```bash
 git lg
@@ -258,8 +266,11 @@ the alias by the command line I advice pasting it directly into the
 dad = !"git show-branch -a | ack '\\*' | ack -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
 ```
 
+I took this alias from this thread on [stackoverflow][stackoverflow].
+
 I hope all these aliases are helpful, they are for me.
 
 Thanks for reading!
 
 [indirect-tweet]: https://twitter.com/indirect/status/539529691380469760
+[stackoverflow]: http://stackoverflow.com/a/17843908
