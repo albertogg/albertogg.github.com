@@ -43,8 +43,20 @@ Hello World!%
 
 ## Adding tests to our handler.
 
-The first thing to know about tests in Go is that each test function name needs
-to begin with `Test` otherwise they are not considered one.
+In my opinion are just three things we need to know in order to test a handler.
+The first one is that in order for Go to run tests with the `go test` command,
+all test files should have `_test.go` in their name. The second one to know that
+each test function name needs to begin with `Test` otherwise they are not
+considered one. The third one is that we use `net/http/httptest` package in
+order to "record" the request response.
+
+Overall it's pretty straight forward, import needed packages, create a function
+for our test handler which name starts with `Test`, create a request, record the
+response, and pass those to the handler. Last but not least, expect what you
+need using `if` statements, it everything is fine you should see an `ok` message
+in your terminal.
+
+Let's run our test file, for this use the `go test` command
 
 ```go
 package main
@@ -74,4 +86,12 @@ func TestHelloHandler(t *testing.T) {
 			"hello.v1", response.Header().Get("X-Hello-World-Type"))
 	}
 }
+```
+
+As tests run pretty fast we should see something like this if nothing is wrong:
+
+```bash
+go test
+PASS
+ok      github.com/albertogg/testest    0.006s
 ```
