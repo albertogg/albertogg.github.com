@@ -8,7 +8,17 @@ category: blog
 tag: blog
 ---
 
+This post will be focused on a very basic introduction to HTTP testing in Go.
+Our goal will be to test a handler named `helloHandler` that responds with a
+custom header, and a `Hello World!` body.
+
+## Creating the helloHandler
+
+Creating our simple HTTP handler for our desired endpoint should be something
+like this:
+
 ```go
+// main.go
 package main
 
 import (
@@ -28,7 +38,8 @@ func main() {
 }
 ```
 
-What our simple `helloHandler` looks like.
+Let's see how our simple `helloHandler` works by using [cURL][curl] on
+`localhost:3000/`:
 
 ```bash
 % curl -i localhost:3000/
@@ -41,24 +52,34 @@ Content-Type: text/plain; charset=utf-8
 Hello World!%
 ```
 
-## Adding tests to our handler.
+Checking the response we see that it has a 200 status code, our custom header
+and the Hello World! body.
 
-In my opinion are just three things we need to know in order to test a handler.
-The first one is that in order for Go to run tests with the `go test` command,
-all test files should have `_test.go` in their name. The second one to know that
-each test function name needs to begin with `Test` otherwise they are not
-considered one. The third one is that we use `net/http/httptest` package in
-order to "record" the request response.
+Now that we have our handler working we should go see how the tests for this
+looks like. The question is, what are we doing to test? Well... Those same
+things we just described, status code, header and body.
+
+## Tests to our handler
+
+In my opinion are four things we need to know before we start testing:
+
+- Test file should contain `_test.go` in its name and be in the same dir with
+  the file we are testing.
+- Each test function must must begin with the word `Test`.
+- Test functions receive only one parameter `t *testing.T`.
+- We need to use `net/http/httptest` package in oder to "record" the request
+  response.
 
 Overall it's pretty straight forward, import needed packages, create a function
-for our test handler which name starts with `Test`, create a request, record the
-response, and pass those to the handler. Last but not least, expect what you
-need using `if` statements, it everything is fine you should see an `ok` message
-in your terminal.
+for our test handler which name starts with `Test`, create a request and a
+recorder and pass those to the handler. Do your expectations using `if`
+statements.
 
-Let's run our test file, for this use the `go test` command
+Based on those four required/needed things let's do our test for the `main.go`
+file.
 
 ```go
+// main_test.go
 package main
 
 import (
@@ -88,10 +109,20 @@ func TestHelloHandler(t *testing.T) {
 }
 ```
 
-As tests run pretty fast we should see something like this if nothing is wrong:
+As you'll see our test file is called `main_test.go` we have a function that
+tests the `helloHandler` named `TestHelloHandler` that receives only a parameter
+and have three expectations. It should return `200`, the body should be `Hello
+World!` and must contain our custom header.
+
+If nothings wrong and by running `go test` in our command line we should be
+seeing something like this:
 
 ```bash
 go test
 PASS
 ok      github.com/albertogg/testest    0.006s
 ```
+
+That's all.
+
+[curl]: http://curl.haxx.se/
