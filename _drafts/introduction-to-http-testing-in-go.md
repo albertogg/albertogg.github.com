@@ -61,19 +61,17 @@ things we just described, status code, header and body.
 
 ## Tests to our handler
 
-In my opinion are four things we need to know before we start testing:
+In my opinion there are four things we need to know before we start testing:
 
-- Test file should contain `_test.go` in its name and be in the same dir with
-  the file we are testing.
+- Test file should contain `_test.go` in its name and be in the same directory
+  as the file we are testing.
 - Each test function must must begin with the word `Test`.
 - Test functions receive only one parameter `t *testing.T`.
-- We need to use `net/http/httptest` package in oder to "record" the request
-  response.
+- Use `net/http/httptest` package to "record" the request response.
 
 Overall it's pretty straight forward, import needed packages, create a function
 for our test handler which name starts with `Test`, create a request and a
-recorder and pass those to the handler. Do your expectations using `if`
-statements.
+recorder and pass those to the handler, do expectations using `if` statements.
 
 Based on those four required/needed things let's do our test for the `main.go`
 file.
@@ -109,13 +107,13 @@ func TestHelloHandler(t *testing.T) {
 }
 ```
 
-As you'll see our test file is called `main_test.go` we have a function that
-tests the `helloHandler` named `TestHelloHandler` that receives only a parameter
-and have three expectations. It should return `200`, the body should be `Hello
-World!` and must contain our custom header.
+Our test file is called `main_test.go` we have a function that tests the
+`helloHandler` named `TestHelloHandler` that receives only a parameter and have
+three expectations. It should return `200`, the body should be `Hello World!`
+and must contain our custom header.
 
-If nothings wrong and by running `go test` in our command line we should be
-seeing something like this:
+If nothings wrong, running `go test` in our command line should look something
+like this:
 
 ```bash
 go test
