@@ -1,10 +1,12 @@
 ---
 layout: post
 title: Commit subdirectoy application to Heroku
-redirect_from: /commit-subdirectoy-app-to-heroku/
 description: How push a git subdirectory application to Heroku.
-category: wiki
-tag: wiki
+redirect_from:
+  - /commit-subdirectoy-app-to-heroku/
+  - /wiki/commit-subdirectoy-app-to-heroku/
+category: blog
+tag: blog
 ---
 
 Directory structure:
