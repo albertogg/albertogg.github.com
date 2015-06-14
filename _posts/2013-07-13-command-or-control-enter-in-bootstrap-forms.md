@@ -6,7 +6,6 @@ description: >
   twitter Boostrap.
 redirect_from:
   - /wiki/command-or-control-enter-in-bootstrap-forms/
-  - /blob/command-or-control-enter-in-bootstrap-forms/
 category: blog
 tag: blog
 ---
