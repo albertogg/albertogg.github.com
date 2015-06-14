@@ -10,7 +10,7 @@ tag: blog
 
 This post will be focused on a very basic introduction to HTTP testing in Go.
 Our goal will be to test a handler named `helloHandler` that responds with a
-custom header, a `Hello World!` body and only use Go build in Packages.
+custom header and a `Hello World!` body using only Go build-in Packages.
 
 ## Creating the helloHandler
 
