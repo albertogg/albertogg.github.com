@@ -10,7 +10,7 @@ tag: blog
 
 This post will be focused on a very basic introduction to HTTP testing in Go.
 Our goal will be to test a handler named `helloHandler` that responds with a
-custom header, and a `Hello World!` body.
+custom header, a `Hello World!` body and only use Go build in Packages.
 
 ## Creating the helloHandler
 
@@ -52,8 +52,8 @@ Content-Type: text/plain; charset=utf-8
 Hello World!%
 ```
 
-Checking the response we see that it has a 200 status code, our custom header
-and the Hello World! body.
+Checking the response we see that it has a **200 status** code, our **custom
+header** and the **Hello World! body**.
 
 Now that we have our handler working we should go see how the tests for this
 looks like. The question is, what are we doing to test? Well... Those same
@@ -69,12 +69,12 @@ In my opinion there are four things we need to know before we start testing:
 - Test functions receive only one parameter `t *testing.T`.
 - Use `net/http/httptest` package to "record" the request response.
 
-Overall it's pretty straight forward, import needed packages, create a function
-for our test handler which name starts with `Test`, create a request and a
-recorder and pass those to the handler, do expectations using `if` statements.
+Overall it's pretty straightforward, import all needed libraries, create a
+function for handler which name starts with *"Test"*, create a request and a
+recorder and pass those to the handler, do expectations using if statements.
 
-Based on those four required/needed things let's do our test for the `main.go`
-file.
+Based on the above explanation our test for the `main.go` file should look
+something like this:
 
 ```go
 // main_test.go
@@ -121,6 +121,17 @@ PASS
 ok      github.com/albertogg/testest    0.006s
 ```
 
-That's all.
+If one of our test fails the result looks like the following:
+
+```go
+go test
+--- FAIL: TestHelloHandler (0.00s)
+        main_test.go:20: Expected body: Hello World!, but received: Hola Mundo!
+FAIL
+exit status 1
+FAIL    github.com/albertogg/testest    0.006s
+```
+
+That's all... Thanks for reading!
 
 [curl]: http://curl.haxx.se/
