@@ -16,8 +16,8 @@ namespace :draft do
       file.puts "layout: post"
       file.puts "title: #{@name}"
       file.puts "description: 155 char description"
-      file.puts "category: blog or wiki"
-      file.puts "tag: blog or wiki"
+      file.puts "category: blog"
+      file.puts "tag: blog"
       file.puts "---"
     end
   end
