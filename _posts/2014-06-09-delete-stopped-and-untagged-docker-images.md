@@ -1,9 +1,13 @@
 ---
 layout: post
 title: Delete stopped & untagged docker images
-description: Delete all stopped and untagged (none) Docker images generated from building multiple times images.
-category: wiki
-tag: wiki
+description: >
+  Delete all stopped and untagged (none) Docker images generated from building
+  multiple times images.
+redirect_from:
+  - /wiki/delete-stopped-and-untagged-docker-images/
+category: blog
+tag: blog
 ---
 
 

@@ -1,7 +1,9 @@
 ---
 layout: post
 title: CSV file reading in Ruby
-description: CSV file reading in Ruby using the read and foreach methods. We will also seed a Rails database with CSV.
+description: >
+  CSV file reading in Ruby using the read and foreach methods. We will also seed
+  a Rails database with CSV.
 redirect_from:
   - /blog/csv-file-manipulation-with-ruby/
 category: blog

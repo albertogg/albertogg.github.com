@@ -1,7 +1,8 @@
 ---
-layout:   post
-title:   How I did this site using jekyll and github pages.
-description: How to build your own blog using jekyll and host it in github pages.
+layout: post
+title: How I did this site using jekyll and github pages.
+description: >
+  How to build your own blog using jekyll and host it in github pages.
 category: blog
 tag: blog
 ---
