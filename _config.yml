@@ -1,4 +1,8 @@
-email: alberto@albertogrespan.com
+author:
+  name: Alberto Grespan
+  email: alberto@albertogrespan.com
+  uri: https://twitter.com/albertogg
+
 name: Alberto Grespan
 gravatar:
   title: albertogg
@@ -29,6 +33,9 @@ sass:
   sass_dir: css/scss
   style: compressed
 
+feed:
+  path: feed.atom
+
 permalink: /:categories/:title
 
 highlighter: pygments
@@ -44,5 +51,6 @@ lsi: false
 
 gems:
   - jekyll-sitemap
+  - jekyll-feed
   - jekyll-redirect-from
   - jemoji
