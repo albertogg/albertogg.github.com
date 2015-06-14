@@ -4,11 +4,14 @@ title: Alberto Grespan
 description: >
   Alberto Grespan is a Software Engineer and Web developer from
   Caracas, Venezuela.
+redirect_from:
+  - /projects.html
+  - /wiki.html
 ---
 
 <div>
   <ul class="posts-list">
-    {% for post in site.tags.blog %}
+    {% for post in site.posts %}
     <li>
       <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </li>
