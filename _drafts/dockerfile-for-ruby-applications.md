@@ -23,22 +23,23 @@ will not contain any database related packages on the base image. If there's a
 need to install a gem with native extensions requiring "extra" packages those
 should go into that specific image unless all of your apps require it.
 
-## Building the image
+## Building the base image
 
 ```bash
 FROM ubuntu:14.04.2
 MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
 
-# Ignore TTY warnings
-ENV DEBIAN_FRONTEND noninteractive
-
-# Set Locale to en_US.UTF-8
+# configure Locale to en_US.UTF-8
 RUN locale-gen en_US.UTF-8 &&\
     dpkg-reconfigure locales
 
-# export LANG
+# export LANG with en_US.UTF-8
 ENV LANG en_US.UTF-8
 
+# Ignore TTY warnings on install
+ENV DEBIAN_FRONTEND noninteractive
+
+# Quiet the update and install output
 RUN apt-get update -qq && \
     apt-get install -y -qq \
       git \
@@ -69,5 +70,13 @@ RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc &&\
 RUN gem update --system &&\
     gem install bundler
 ```
+
+If you need any database gem you can add any of the following packages:
+
+- `libpq-dev` for PostgreSQL
+- `libmysqlclient-dev` for MySQL
+- `libsqlite3-dev` for SQLite3
+
+You can also use `--no-install-recommends` to avoid installing extra packages.
 
 [docker-registry-ruby]: https://registry.hub.docker.com/search?q=ruby&searchfield=
