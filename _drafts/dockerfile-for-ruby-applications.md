@@ -11,7 +11,7 @@ tag: blog
 There are different ways you can deploy your Ruby applications in a Docker
 container. You can either choose one of the many existing Ruby images on the
 [public docker registry][docker-registry-ruby], use it as your base and adapt
-it to your needs or... build your own base Ruby image from scratch based on your
+it to your needs or... build your own Ruby base image from scratch based on your
 favorite OS and then build your application image on top of it.
 
 In this post we are going through the whole process of building the Ruby image
@@ -24,8 +24,9 @@ This image will set base for the rest of the post as we will use the resulting
 image to create our set of Ruby images.
 
 The image will contain all the things Ruby expects to compile and run properly
-on a Debian based OS. I will not going to talk about the packages that will be
-installed, as we are going to focus on the configuration of the set of images.
+on a Debian based OS. I'm not going to talk about the required packages, instead
+I'm going to focus on the separation of concerns and configuration of the set of
+images.
 
 One thing to keep in mind is that the image we'll build is only for Ruby and
 will not contain any database related packages. If there's a need to install a
@@ -87,18 +88,18 @@ For building this image run the following command:
 docker build -t dependency-image:14.04.2 .
 ```
 
-**note:** If you need any database gem you can add any of the following packages
-and installing the database itself if required:
+> **note:** If you need any database gem you can add any of the following
+> packages and installing the database itself if required:
 
-- `libpq-dev` for PostgreSQL
-- `libmysqlclient-dev` for MySQL
-- `libsqlite3-dev` for SQLite3
+> - `libpq-dev` for PostgreSQL
+> - `libmysqlclient-dev` for MySQL
+> - `libsqlite3-dev` for SQLite3
 
 ## Building the Ruby image
 
-The Ruby image will use our base dependency image container (the one we just
-build) and we'll install Ruby version 2.2.2 through [ruby-build][ruby-build]
-and we'll also install [bundler][bundler] by default.
+The Ruby image will use our base dependency image (the one we just build) and
+we'll install Ruby version 2.2.2 through [ruby-build][ruby-build] and we'll also
+install [bundler][bundler] by default.
 
 If you need another Ruby version just change it in the `RUBY_VERSION`
 environment variable.
@@ -119,8 +120,8 @@ RUN gem update --system &&\
     gem install bundler
 ```
 
-This image still straightforward. We just avoid gems installing documentation by
-setting the `--no-document`. You could also install any other gems if you'd like
+This image still straightforward. We avoid gems installing documentation by
+setting the `--no-document`. You could also install any other "default" gems
 here.
 
 For building this image run the following command:
@@ -136,10 +137,14 @@ again the same steps in each application Dockerfile.
 
 What this image does is execute all commands that exist in this image prior any
 commands on your application Dockerfile. For most ruby applications these
-commands shown here are almost always the same. We will set an application dir,
-copy the `Gemfile` and the `Gemfile.lock` to _cache_ them out and running
-`bundle install`, then copy the rest of the application files and remove the
-`.env` file if available.
+commands shown here are almost always the same.
+
+Commands will do:
+
+  - Set the app directory
+  - Copy the `Gemfile` and the `Gemfile.lock` to _cache_ them out
+  - Running `bundle install`
+  - Copy the rest of the app files and remove the `.env` file if available.
 
 ```bash
 FROM ruby:2.2.2
@@ -159,11 +164,26 @@ One thing to know about **onbuild** images is that they _always_ have a custom
 docker tag with `-onbuild` in it. For example if our Ruby 2.2.2 image is named
 `ruby` with a tag `2.2.2` the onbuild image should be tagged `2.2.2-onbuild`.
 
-## Recommendation
+For building this image run the following command:
 
-As a closing thought Docker images can be striped down as much as you'd like,
-the only issue with this is building all images when an image in the lower stage
-changes. I recommend using a Makefile of a script to do this.
+```bash
+docker build -t ruby:2.2.2-onbuild .
+```
+
+**How would an application look like while using onbuild image?**
+
+It would look something like this:
+
+```bash
+FROM ruby:2.2.2-onbuild
+
+EXPOSE 3000
+
+CMD ["foreman", "start"]
+```
+
+> **note:** The CMD can also be added to **onbuild** Dockerfile if it's always
+> the same.
 
 Thanks for reading!
 
