@@ -170,7 +170,7 @@ For building this image run the following command:
 docker build -t ruby:2.2.2-onbuild .
 ```
 
-**How would an application look like while using onbuild image?**
+**How would an application Dockerfile look like while using onbuild image?**
 
 It would look something like this:
 
