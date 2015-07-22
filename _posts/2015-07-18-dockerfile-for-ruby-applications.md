@@ -132,8 +132,8 @@ docker build -t ruby:2.2.2 .
 
 ## Building the onbuild image
 
-The **onbuild** image is a very practical if you are repeating over an over
-again the same steps in each application Dockerfile.
+The **onbuild** image is very practical if you are repeating over an over again
+the same steps in each application Dockerfile.
 
 What this image does is execute all commands that exist in this image prior any
 commands on your application Dockerfile. For most ruby applications these
