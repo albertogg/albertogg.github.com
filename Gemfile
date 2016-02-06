@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'github-pages', '38'
-gem 'rake', '~> 10.4', require: false
+gem 'github-pages', '45'
+gem 'rake', '~> 10.5', require: false
 gem 'foreman', '~> 0.78', require: false
