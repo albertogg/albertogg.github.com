@@ -38,8 +38,11 @@ feed:
 
 permalink: /:categories/:title
 
-highlighter: pygments
-markdown: redcarpet
+# Markdown Processors
+highlighter: rouge
+markdown: kramdown
+kramdown:
+    input: GFM
 
 excerpt_separator: ""
 
