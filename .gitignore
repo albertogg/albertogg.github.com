@@ -4,3 +4,4 @@ _site/
 .sass-cache/
 drafts
 ToDo.md
+.jekyll-metadata
