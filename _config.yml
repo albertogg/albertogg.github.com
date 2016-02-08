@@ -41,8 +41,6 @@ permalink: /:categories/:title
 # Markdown Processors
 highlighter: rouge
 markdown: kramdown
-kramdown:
-    input: GFM
 
 excerpt_separator: ""
 
