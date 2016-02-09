@@ -40,41 +40,43 @@ of the `noninteractive` flag we are using, all your applications will use
 `en_US.UTF-8` as the default encoding and most of the installation process will
 be silent do to the `-qq` flag.
 
-    FROM ubuntu:14.04.2
-    MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
+```bash
+FROM ubuntu:14.04.2
+MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
 
-    # Ignore TTY warnings on install
-    ENV DEBIAN_FRONTEND noninteractive
+# Ignore TTY warnings on install
+ENV DEBIAN_FRONTEND noninteractive
 
-    # configure Locale to en_US.UTF-8
-    RUN locale-gen en_US.UTF-8 &&\
-        dpkg-reconfigure locales
+# configure Locale to en_US.UTF-8
+RUN locale-gen en_US.UTF-8 &&\
+    dpkg-reconfigure locales
 
-    # export LANG with en_US.UTF-8
-    ENV LANG en_US.UTF-8
+# export LANG with en_US.UTF-8
+ENV LANG en_US.UTF-8
 
-    # Quiet the update and install output
-    RUN apt-get update -qq && \
-        apt-get install -y -qq \
-          git \
-          curl \
-          wget \
-          build-essential \
-          ca-certificates \
-          libyaml-dev \
-          libreadline-dev \
-          libcurl4-openssl-dev \
-          libffi-dev \
-          libgdbm-dev \
-          libssl-dev \
-          libxml2-dev \
-          libxslt1-dev \
-          libtool \
-          zlib1g-dev \
-          netbase
+# Quiet the update and install output
+RUN apt-get update -qq && \
+    apt-get install -y -qq \
+      git \
+      curl \
+      wget \
+      build-essential \
+      ca-certificates \
+      libyaml-dev \
+      libreadline-dev \
+      libcurl4-openssl-dev \
+      libffi-dev \
+      libgdbm-dev \
+      libssl-dev \
+      libxml2-dev \
+      libxslt1-dev \
+      libtool \
+      zlib1g-dev \
+      netbase
 
-    RUN rm -rf /var/lib/apt/lists/* &&\
-        truncate -s 0 /var/log/*log
+RUN rm -rf /var/lib/apt/lists/* &&\
+    truncate -s 0 /var/log/*log
+```
 
 It's a pretty straightforward image nothing rare so far. You can also use
 `--no-install-recommends` to avoid installing extra packages and save some
@@ -82,7 +84,9 @@ space.
 
 For building this image run the following command:
 
-    docker build -t dependency-image:14.04.2 .
+```bash
+docker build -t dependency-image:14.04.2 .
+```
 
 > **note:** If you need any database gem you can add any of the following
 > packages and installing the database itself if required:
@@ -100,19 +104,21 @@ install [bundler][bundler] by default.
 If you need another Ruby version just change it in the `RUBY_VERSION`
 environment variable.
 
-    FROM dependency-image:14.04.2
-    MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
+```bash
+FROM dependency-image:14.04.2
+MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
 
-    # Set the Ruby version of your preference
-    ENV RUBY_VERSION 2.2.2
+# Set the Ruby version of your preference
+ENV RUBY_VERSION 2.2.2
 
-    RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc &&\
-        mkdir /src && cd /src && git clone https://github.com/sstephenson/ruby-build.git &&\
-        cd /src/ruby-build && ./install.sh &&\
-        cd / && rm -rf /src/ruby-build && ruby-build $RUBY_VERSION /usr/local
+RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc &&\
+    mkdir /src && cd /src && git clone https://github.com/sstephenson/ruby-build.git &&\
+    cd /src/ruby-build && ./install.sh &&\
+    cd / && rm -rf /src/ruby-build && ruby-build $RUBY_VERSION /usr/local
 
-    RUN gem update --system &&\
-        gem install bundler
+RUN gem update --system &&\
+    gem install bundler
+```
 
 This image still straightforward. We avoid gems installing documentation by
 setting the `--no-document`. You could also install any other "default" gems
@@ -120,7 +126,9 @@ here.
 
 For building this image run the following command:
 
-    docker build -t ruby:2.2.2 .
+```bash
+docker build -t ruby:2.2.2 .
+```
 
 ## Building the onbuild image
 
@@ -138,17 +146,19 @@ Commands will do:
   - Running `bundle install`
   - Copy the rest of the app files and remove the `.env` file if available.
 
-    FROM ruby:2.2.2
-    MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
+```bash
+FROM ruby:2.2.2
+MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
 
-    WORKDIR /usr/src/app
+WORKDIR /usr/src/app
 
-    ONBUILD COPY Gemfile      /usr/src/app/
-    ONBUILD COPY Gemfile.lock /usr/src/app/
-    ONBUILD RUN bundle install --without test development
+ONBUILD COPY Gemfile      /usr/src/app/
+ONBUILD COPY Gemfile.lock /usr/src/app/
+ONBUILD RUN bundle install --without test development
 
-    ONBUILD COPY . /usr/src/app
-    ONBUILD RUN rm -f .env
+ONBUILD COPY . /usr/src/app
+ONBUILD RUN rm -f .env
+```
 
 One thing to know about **onbuild** images is that they _always_ have a custom
 docker tag with `-onbuild` in it. For example if our Ruby 2.2.2 image is named
@@ -156,17 +166,21 @@ docker tag with `-onbuild` in it. For example if our Ruby 2.2.2 image is named
 
 For building this image run the following command:
 
-    docker build -t ruby:2.2.2-onbuild .
+```bash
+docker build -t ruby:2.2.2-onbuild .
+```
 
 **How would an application Dockerfile look like while using onbuild image?**
 
 It would look something like this:
 
-    FROM ruby:2.2.2-onbuild
+```bash
+FROM ruby:2.2.2-onbuild
 
-    EXPOSE 3000
+EXPOSE 3000
 
-    CMD ["foreman", "start"]
+CMD ["foreman", "start"]
+```
 
 > **note:** The CMD can also be added to **onbuild** Dockerfile if it's always
 > the same.
