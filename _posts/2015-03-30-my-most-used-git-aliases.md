@@ -87,8 +87,8 @@ Sometimes we name a branch poorly or maybe we thought the name was "good" but
 not meaningful to the work we are doing. To rename the branch locally I have a
 _rename_ alias for `git branch -m`. One thing to keep in mind is that this
 command works in two different ways if we are on the branch we want to rename we
-can just `git rename <branch-name>` but if we are not we have to use `git rename
-<old-branch-name> <new-branch-name>`
+can just `git rename new-name`. If we are not on the branch have to use
+`git rename target-branch new-name`.
 
     git rename git-alias
 
