@@ -177,7 +177,7 @@ git dw
 To setup the alias use:
 
 ```bash
-git config --global alias.dw "diff --word-diff"`
+git config --global alias.dw "diff --word-diff"
 ```
 
 Or copy the following into the `~/.gitconfig` file
@@ -211,7 +211,7 @@ git lg
 To setup the alias use:
 
 ```bash
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"`.
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit".
 ```
 
 Or copy the following into the `~/.gitconfig` file
