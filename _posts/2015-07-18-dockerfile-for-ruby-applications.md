@@ -10,8 +10,8 @@ tag: blog
 
 There are different ways you can deploy your Ruby applications in a Docker
 container. You can either choose one of the many existing Ruby images on the
-[public docker registry][docker-registry-ruby], use it as your base and adapt
-it to your needs or... build your own Ruby base image from scratch based on your
+[public docker registry][docker-registry-ruby], use it as your base and adapt it
+to your needs or... build your own Ruby base image from scratch based on your
 favorite OS and then build your application image on top of it.
 
 In this post we are going through the whole process of building the Ruby image
@@ -90,7 +90,7 @@ docker build -t dependency-image:14.04.2 .
 
 > **note:** If you need any database gem you can add any of the following
 > packages and installing the database itself if required:
-
+>
 > - `libpq-dev` for PostgreSQL
 > - `libmysqlclient-dev` for MySQL
 > - `libsqlite3-dev` for SQLite3
