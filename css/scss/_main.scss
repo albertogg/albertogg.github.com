@@ -37,6 +37,7 @@
 
 .header {
   text-align: center;
+  margin-bottom: 4em;
 
   .name {
     display: block;
@@ -48,12 +49,15 @@
   .menu {
     list-style: none;
     padding-left: 0;
-    margin-bottom: 3em;
     @extend .dark-links;
 
     li {
       display: inline;
       margin-right: 0.8em;
+
+      a {
+        font-weight: 400;
+      }
 
       &:last-child {
         margin-right: 0;
@@ -75,7 +79,7 @@
 
     span {
       float: right;
-      font-size: 0.6em;
+      font-size: 0.65em;
       text-transform: uppercase;
       margin-top: 0.6em;
       margin-left: 1.4em;
