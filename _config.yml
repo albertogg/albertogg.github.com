@@ -43,6 +43,7 @@ highlighter: rouge
 markdown: kramdown
 kramdown:
     input: GFM
+    hard_wrap: false
 
 excerpt_separator: ""
 
