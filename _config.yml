@@ -36,7 +36,7 @@ sass:
 feed:
   path: feed.atom
 
-permalink: /:categories/:title
+permalink: /:categories/:title/
 
 # Markdown Processors
 highlighter: rouge
