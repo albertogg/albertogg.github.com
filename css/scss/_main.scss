@@ -87,22 +87,6 @@
   }
 }
 
-.social-icons {
-  padding-left: 0;
-  list-style: none;
-  font-size: 1.6em;
-  @extend .dark-links;
-
-  li {
-    display: inline;
-    margin-right: 0.4em;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
 .active {
   text-decoration: underline;
 
