@@ -1,12 +1,18 @@
 body {
   background-color: transparent;
   color: $dark-font;
-  font-family: "Avenir Next", sans-serif;
+  font-family: 'Lato', sans-serif;
   max-width: 38em;
   margin: 0 auto;
   padding: 1.25em;
   line-height: 1.6;
   font-size: 1.25rem;
+  font-weight: 300;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3em;
 }
 
 a {
@@ -16,11 +22,6 @@ a {
   &:hover {
     color: $links-font-color-hover;
   }
-}
-
-footer {
-  text-align: center;
-  margin-top: 3em;
 }
 
 p {

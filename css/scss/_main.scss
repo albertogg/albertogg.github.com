@@ -1,7 +1,6 @@
 .dark-links {
   a {
     color: $dark-font;
-    font-weight: 300;
     text-decoration: none;
 
     &:hover {
@@ -44,6 +43,10 @@
     text-transform: lowercase;
     font-size: 2.4em;
     @extend .dark-links;
+
+    a {
+      font-weight: 100;
+    }
   }
 
   .menu {
@@ -54,10 +57,6 @@
     li {
       display: inline;
       margin-right: 0.8em;
-
-      a {
-        font-weight: 400;
-      }
 
       &:last-child {
         margin-right: 0;
