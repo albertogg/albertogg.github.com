@@ -11,6 +11,13 @@ I use the foreman gem to do this. Remember to `bundle` before running.
 $ foreman start
 ```
 
+## Writing a new draft
+
+To create or publish a draft use the rake tasks that accept arguments to do so:
+
+    bundle exec rake draft:new\[draft_name\]
+    bundle exec rake draft:publish\[draft_name, draft_date (optional)\]
+
 ## License
 
 This project runs with two licenses one for the content and one for the code.
