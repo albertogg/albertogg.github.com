@@ -1,0 +1,54 @@
+// media queries
+@media (min-width: 48em) {
+  .header {
+    .name {
+      font-size: 3em;
+    }
+  }
+
+  .post {
+    .video {
+      width: 26.625em;
+      height: 15em;
+    }
+  }
+}
+
+@media (min-width: 64em) {
+  .header {
+    .name {
+      font-size: 3.6em;
+    }
+  }
+
+  .post {
+    .video {
+      width: 40em;
+      height: 22.5em;
+    }
+  }
+
+  h1 {
+    font-size: 2.6em;
+  }
+
+  h2 {
+    font-size: 2.0em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  h4 {
+    font-size: 1.125em;
+  }
+
+  h5 {
+    font-size: 0.85em;
+  }
+
+  h6 {
+    font-size: 0.64em;
+  }
+}
