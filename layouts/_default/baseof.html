@@ -7,19 +7,15 @@
     <meta name="author" content="{{ .Site.Author.Name }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
-    <title>{{ .Params.title }}</title>
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:100,300,400,700"> -->
-    <!-- <title>{{ block "title" . }} -->
-    <!--   <1!-- Blocks may include default content. --1> -->
-    <!--   {{ .Site.Title }} -->
-    <!-- {{ end }}</title> -->
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
     <div id="content-wrapper">
+      {{ partial "header.html" . }}
       {{ block "main" . }}
-        <!-- The part of the page that begins to differ between templates -->
       {{ end }}
     </div>
+    {{ partial "footer.html" . }}
   </body>
 </html>
