@@ -88,6 +88,15 @@
     @extend .inline-code;
   }
 
+  pre {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 0.18rem;
+    color: $dark-font;
+    padding: 0.4em 0.6em;
+    margin: 1.1em 0;
+    overflow: auto;
+  }
+
   .video {
     @include img-responsive();
     width: 16em;

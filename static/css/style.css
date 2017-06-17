@@ -471,6 +471,14 @@ h6 {
   margin: 1em 0;
   color: #999999; }
 
+.post pre {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 0.18rem;
+  color: #555555;
+  padding: 0.4em 0.6em;
+  margin: 1.1em 0;
+  overflow: auto; }
+
 .post .video {
   display: block;
   background: transparent;
