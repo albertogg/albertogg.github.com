@@ -3,7 +3,7 @@
     <ul class="posts-list">
       {{- range .Data.Pages -}}
       <li>
-        <span>{{ .Date }}</span> <a href="{{ .URL }}">{{ .Title }}</a>
+        <span>{{ .Date.Format "January 2, 2006" }}</span> <a href="{{ .URL }}">{{ .Title }}</a>
       </li>
       {{- end -}}
     </ul>
