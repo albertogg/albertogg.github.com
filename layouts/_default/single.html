@@ -1,12 +1,9 @@
-{{ define "title" }}
-  {{ .Title }} &ndash; {{ .Site.Title }}
-{{ end }}
 {{ define "main" }}
   <div id="post" class="post">
     <h1>{{ .Title }}</h1>
     <div class="date">
       <p>{{ .Date.Format "January 2, 2006" }}</p>
-    </div>
+    </div> <!-- class date -->
     {{ .Content }}
-  </div>
+  </div> <!-- id class post -->
 {{ end }}

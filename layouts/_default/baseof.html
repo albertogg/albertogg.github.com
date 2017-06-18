@@ -3,11 +3,18 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
-    <meta name="description" content="{{ .Params.description }}">
-    <meta name="author" content="{{ .Site.Author.Name }}">
+    <meta name="description" content="{{ .Params.Description }}">
+    <meta name="author" content="{{ .Site.Params.Author }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ .Site.Params.Connect.Twitter.Handle }}">
+    <meta name="twitter:title" content="{{ .Page.Title }}">
+    <meta name="twitter:description" content="{{ .Page.Description }}">
+    <meta name="twitter:creator" content="@{{ .Site.Params.Connect.Twitter.Handle }}">
+    <meta name="twitter:image:src" content="{{ .Site.Params.Gravatar.Url }}?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>{{ .Page.Title }} &ndash; {{ .Site.Params.Author }}</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
@@ -15,7 +22,7 @@
       {{ partial "header.html" . }}
       {{ block "main" . }}
       {{ end }}
-    </div>
+    </div> <!-- id content-wrapper -->
     {{ partial "footer.html" . }}
   </body>
 </html>
