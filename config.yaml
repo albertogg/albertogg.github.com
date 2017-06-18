@@ -1,10 +1,20 @@
 baseURL: http://albertogrespan.com
 disablePathToLower: true
 languageCode: en-us
-title: My New Hugo Site
+title: Blog
 
-author:
-  name: Alberto Grespan
-  handle: albertogg
-  email: alberto@albertogrespan.com
-  uri: https://twitter.com/albertogg
+params:
+  author: Alberto Grespan
+  googleAnalytics: UA-29129831-1
+  gravatar:
+    url: http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png
+    title: albertogg
+  connect:
+    email: alberto@albertogrespan.com
+    feed: http://albertogrespan.com/feed.atom
+    twitter:
+      url: https://twitter.com/albertogg
+      handle: albertogg
+    github:
+      url: https://github.com/albertogg
+      handle: albertogg
