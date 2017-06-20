@@ -1,12 +1,12 @@
 body {
   background-color: transparent;
   color: $dark-font;
-  font-family: 'Lato', sans-serif;
-  max-width: 38em;
+  font-family: 'Merriweather', serif;
+  max-width: 36em;
   margin: 0 auto;
   padding: 1.25em;
   line-height: 1.6;
-  font-size: 1.25rem;
+  font-size: 1.38rem;
   font-weight: 300;
 }
 
@@ -18,9 +18,11 @@ footer {
 a {
   text-decoration: none;
   color: $links-font-color;
+  border-bottom: 1px solid $links-border-color;
 
   &:hover {
-    color: $links-font-color-hover;
+    color: $links-font-color;
+    border-color: $links-font-color;
   }
 }
 
@@ -40,4 +42,5 @@ h4,
 h5,
 h6 {
   line-height: 1.1;
+  font-weight: bold;
 }

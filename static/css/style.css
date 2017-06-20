@@ -378,12 +378,12 @@ th {
 body {
   background-color: transparent;
   color: #555555;
-  font-family: 'Lato', sans-serif;
-  max-width: 38em;
+  font-family: 'Merriweather', serif;
+  max-width: 36em;
   margin: 0 auto;
   padding: 1.25em;
   line-height: 1.6;
-  font-size: 1.25rem;
+  font-size: 1.38rem;
   font-weight: 300; }
 
 footer {
@@ -392,9 +392,11 @@ footer {
 
 a {
   text-decoration: none;
-  color: #428bca; }
+  color: #357efc;
+  border-bottom: 1px solid #ececec; }
   a:hover {
-    color: rgba(66, 139, 202, 0.85); }
+    color: #357efc;
+    border-color: #357efc; }
 
 p {
   white-space: normal;
@@ -409,7 +411,8 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.1; }
+  line-height: 1.1;
+  font-weight: bold; }
 
 .header {
   text-align: center;
@@ -419,7 +422,8 @@ h6 {
     text-transform: lowercase;
     font-size: 2.4em; }
     .header .name a {
-      font-weight: 100; }
+      font-weight: 900;
+      border-bottom: none; }
   .header .menu {
     list-style: none;
     padding-left: 0; }
@@ -437,8 +441,9 @@ h6 {
     .posts-list li:last-child {
       margin-bottom: 2em; }
     .posts-list li span {
+      font-family: sans-serif;
       float: right;
-      font-size: 0.65em;
+      font-size: 0.70em;
       text-transform: uppercase;
       margin-top: 0.6em;
       margin-left: 1.4em; }
@@ -449,6 +454,7 @@ h6 {
     color: rgba(85, 85, 85, 0.8) !important; }
 
 .date {
+  font-family: sans-serif;
   color: #cccccc;
   text-transform: uppercase; }
 
@@ -462,16 +468,20 @@ h6 {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  border: 0.0625em solid #ebebeb;
+  border: 0.0625em solid #ececec;
   padding: 0.1875em 0.1875em; }
 
 .post blockquote {
-  border-left: 0.25em solid #ebebeb;
+  border-left: 0.25em solid #357efc;
   padding: 0 1em;
   margin: 1em 0;
-  color: #999999; }
+  color: #357efc; }
+
+.post li, .post p {
+  font-size: 1.25rem; }
 
 .post pre {
+  font-size: 1.125rem;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 0.18rem;
   color: #555555;
@@ -487,7 +497,7 @@ h6 {
   width: 16em;
   height: 9em;
   margin: 0 auto;
-  border: 0.0625em solid #ebebeb;
+  border: 0.0625em solid #ececec;
   padding: 0.1875em 0.1875em; }
 
 .post .closing {
@@ -503,9 +513,6 @@ h6 {
   display: block;
   text-align: center;
   margin: 0 auto; }
-
-.highlight {
-  margin: 1em 0; }
 
 @media (min-width: 48em) {
   .header .name {
