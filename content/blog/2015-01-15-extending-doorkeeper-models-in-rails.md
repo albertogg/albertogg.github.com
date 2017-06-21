@@ -3,10 +3,10 @@ categories:
 - blog
 date: 2015-01-15T00:00:00Z
 description: Extending Doorkeeper models in Ruby on Rails using class_eval. Associations,
-  validations, new functionality etc.
+  validations, new functionality, etc...
 tag: blog
 title: Extending Doorkeeper models in Rails
-url: /2015/01/15/extending-doorkeeper-models-in-rails/
+slug: /extending-doorkeeper-models-in-rails/
 ---
 
 > tl;dr use `class_eval` to extend Doorkeeper models functionality in runtime.
@@ -21,19 +21,17 @@ extend the model in runtime without touching the code inside the gem.
 
 Let's take a look at it.
 
-```ruby
-# config/initializers/doorkeeper_patch.rb
-# Log the Doorkeeper extension
-Rails.logger.info "Extending Doorkeeper from config/initializer/doorkeeper_patch.rb"
+    # config/initializers/doorkeeper_patch.rb
+    # Log the Doorkeeper extension
+    Rails.logger.info "Extending Doorkeeper from config/initializer/doorkeeper_patch.rb"
 
-Doorkeeper::Application.class_eval do
-  has_and_belongs_to_many :roles, foreign_key: "oauth_application_id"
+    Doorkeeper::Application.class_eval do
+      has_and_belongs_to_many :roles, foreign_key: "oauth_application_id"
 
-  validates_uniqueness_of :name
+      validates_uniqueness_of :name
 
-  # keep adding any other methods, validations, relations here...
-end
-```
+      # keep adding any other methods, validations, relations here...
+    end
 
 Note that there is a `Rails.logger` at the beginning of the file as a
 notification that there is a "monkey patch" in Doorkeeper, this may be helpful
@@ -41,6 +39,8 @@ when debugging latter, after that, we proceed to add whatever was needed to that
 model as if we were inside that Rails model.
 
 You can do the same thing to the other Doorkeeper models or libraries.
+
+---
 
 That's all, pretty easily we manage to accomplish what we needed by extending
 the models in runtime using `class_eval`.

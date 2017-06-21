@@ -5,11 +5,11 @@ date: 2015-01-31T00:00:00Z
 description: Introduction on how to build a Rack middleware
 tag: blog
 title: Rack middleware
-url: /2015/01/31/rack-middleware/
+slug: /rack-middleware/
 ---
 
 > tl;dr we are creating two Rack middlewares, one that adds a custom header to
-> all responses and one that adds a new route with a custom response.
+all responses and one that adds a new route with a custom response.
 
 As explained in a previous post about [Rack basics][rack-basics], Rack is found
 on the most popular Ruby web frameworks, as it's an adaptable interface for
@@ -40,24 +40,22 @@ we wanted to.
 
 **note:** our middleware will live in a `lib` directory.
 
-```ruby
-# lib/custom_header.rb
-module Rack
-  class CustomHeader
-    def initialize(app)
-      @app = app
+    # lib/custom_header.rb
+    module Rack
+      class CustomHeader
+        def initialize(app)
+          @app = app
+        end
+
+        def call(env)
+          status, headers, body = @app.call(env)
+
+          headers['X-Custom-Header'] = "customheader.v1"
+
+          [status, headers, body]
+        end
+      end
     end
-
-    def call(env)
-      status, headers, body = @app.call(env)
-
-      headers['X-Custom-Header'] = "customheader.v1"
-
-      [status, headers, body]
-    end
-  end
-end
-```
 
 As explained in the section above, we are creating the `call()` method and
 passing it the `env` argument. Inside this method we picking up the status,
@@ -74,25 +72,23 @@ respond with a `pong` text. How will this middleware work? It will check the
 request path, if it's `/ping` it will respond if it doesn't, the call will pass
 to the rest of the stack.
 
-```ruby
-# lib/ping.rb
-module Rack
-  class Ping
-    def initialize(app)
-      @app = app
-    end
+    # lib/ping.rb
+    module Rack
+      class Ping
+        def initialize(app)
+          @app = app
+        end
 
-    def call(env)
-      req = Rack::Request.new(env).path
-      if req == "/ping"
-        [200, {}, ["pong"]]
-      else
-        @app.call(env)
+        def call(env)
+          req = Rack::Request.new(env).path
+          if req == "/ping"
+            [200, {}, ["pong"]]
+          else
+            @app.call(env)
+          end
+        end
       end
     end
-  end
-end
-```
 
 In the same way as with the `CustomHeader` middleware, there will be a `call()`
 method with the `env` argument. Inside this method we'll check using
@@ -111,7 +107,7 @@ Now let's glue the middleware to an application.
 According to the documentation is:
 
 > Rack::Builder implements a small DSL to iteratively construct Rack
-> applications
+applications
 
 I can define this as the backbone that holds middlewares and applications
 together into a single Rack application. With that said, what we need to
@@ -122,21 +118,19 @@ application `app` that will allow us to run the whole thing.
 
 Let's give it a look...
 
-```ruby
-# config.ru
-$:.unshift File.expand_path('../lib', __FILE__)
+    # config.ru
+    $:.unshift File.expand_path('../lib', __FILE__)
 
-require 'custom_header'
-require 'ping'
+    require 'custom_header'
+    require 'ping'
 
-app = Rack::Builder.new do
-  use Rack::CustomHeader
-  use Rack::Ping
-  run Proc.new { |env| [200, {}, ["Say something to me!"]] }
-end
+    app = Rack::Builder.new do
+      use Rack::CustomHeader
+      use Rack::Ping
+      run Proc.new { |env| [200, {}, ["Say something to me!"]] }
+    end
 
-run app
-```
+    run app
 
 The first thing we do is loading the `lib` directory into the `$LOAD_PATH` and
 require the two files that contain our middleware. Now that we know that our
@@ -148,14 +142,12 @@ Let's try this running the `config.ru` and doing some requests with `cURL`.
 
 Start the application using the `rackup` command.
 
-```bash
-$ curl -i -X GET localhost:9292
-HTTP/1.1 200 OK
-X-Custom-Header: customheader.v1
-Transfer-Encoding: chunked
+    $ curl -i -X GET localhost:9292
+    HTTP/1.1 200 OK
+    X-Custom-Header: customheader.v1
+    Transfer-Encoding: chunked
 
-Say something to me!
-```
+    Say something to me!
 
 First we are trying the `"/"` route but it will be the same with any route as
 our application responds to all routes. The response is the expected, as there
@@ -163,20 +155,20 @@ is our custom header and the application body.
 
 But what happens if we use the `/ping` route:
 
-```bash
-$ curl -i -X GET localhost:9292/ping
-HTTP/1.1 200 OK
-X-Custom-Header: customheader.v1
-Transfer-Encoding: chunked
+    $ curl -i -X GET localhost:9292/ping
+    HTTP/1.1 200 OK
+    X-Custom-Header: customheader.v1
+    Transfer-Encoding: chunked
 
-pong
-```
+    pong
 
 One thing to notice is that this response apart from being from the Ping
 middleware it also has our custom header, that's because the `CustomHeader`
 middleware is before the `Ping` middleware and with middleware the order
 matters. This will not happen if the order was different, so be careful when
 you are setting up new middleware in the stack.
+
+---
 
 This is a very simple example that shows how middleware are created and work. I
 hope it's useful for some of you.

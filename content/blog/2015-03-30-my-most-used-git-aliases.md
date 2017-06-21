@@ -2,10 +2,10 @@
 categories:
 - blog
 date: 2015-03-30T00:00:00Z
-description: My most used git aliases and a brief explanation of what do they do.
+description: My most used git aliases and a brief explanation of what do they do
 tag: blog
 title: My most used git aliases
-url: /2015/03/30/my-most-used-git-aliases/
+slug: /my-most-used-git-aliases/
 ---
 
 > tl;dr short description of my most used git aliases.
@@ -228,6 +228,8 @@ setup this alias is to copy it directly into the `~/.gitconfig` file.
     count = "!f() { git log $1..$2 --pretty=oneline | wc -l; }; f"
 
 These are all of my current aliases...
+
+---
 
 As I said before, some of my used aliases are for repetitive or long commands,
 not all of them may be really useful but are easier to remember that typing a

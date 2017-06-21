@@ -32,16 +32,12 @@ installation and some basic stuff.
 
 Installation it's pretty normal:
 
-```bash
-$ gem install rack
-```
+    $ gem install rack
 
 With bundler
 
-```bash
-# Gemfile
-gem 'rack', '~> 1.5'
-```
+    # Gemfile
+    gem 'rack', '~> 1.5'
 
 ## Hello World Application
 
@@ -51,92 +47,78 @@ World!".
 We can use the "normal" way, that involves adding the response body inside the
 array:
 
-```ruby
-# app.rb
-require 'rack'
+    # app.rb
+    require 'rack'
 
-app = Proc.new do |env|
-  ['200', {'Content-Type' => 'text/html'}, ["Hello World!]]
-end
+    app = Proc.new do |env|
+      ['200', {'Content-Type' => 'text/html'}, ["Hello World!]]
+    end
 
-Rack::Handler::WEBrick.run app
-```
+    Rack::Handler::WEBrick.run app
 
 Or to use `Rack::Response`, a convenient interface to create a Rack response.
 You can read more about it [here][rack-response].
 
-```ruby
-# app.rb
-require 'rack'
+    # app.rb
+    require 'rack'
 
-app = Proc.new do |env|
-  res = Rack::Response.new
-  res.write("Hello World!")
-  res.finish
-end
+    app = Proc.new do |env|
+      res = Rack::Response.new
+      res.write("Hello World!")
+      res.finish
+    end
 
-Rack::Handler::WEBrick.run app
-```
+    Rack::Handler::WEBrick.run app
 
 To run any of these applications, type:
 
-```bash
-$ ruby app.rb
-```
+    $ ruby app.rb
 
 And test the response:
 
-```bash
-$ curl -X GET localhost:8080
-Hello World!
-```
+    $ curl -X GET localhost:8080
+    Hello World!
 
 ## Redirect
 
 In the same way that we did the "Hello World!" response we can set the
 appropriate HTTP status code and header to redirect any response to a new page.
 
-```ruby
-require 'rack'
+    require 'rack'
 
-app = Proc.new do |env|
-  ['302', { 'Content-Type' => 'text/html', 'Location' => "/redirected" }, ["302 you've redirected"]]
-end
+    app = Proc.new do |env|
+      ['302', { 'Content-Type' => 'text/html', 'Location' => "/redirected" }, ["302 you've redirected"]]
+    end
 
-Rack::Handler::WEBrick.run app
-```
+    Rack::Handler::WEBrick.run app
 
 Likewise we can use the `Rack::Response` interface.
 
-```ruby
-require 'rack'
+    require 'rack'
 
-app = Proc.new do |env|
-  res = Rack::Response.new
-  res.redirect("/redirected")
-  res.write("302 you've redirected")
-  res.finish
-end
+    app = Proc.new do |env|
+      res = Rack::Response.new
+      res.redirect("/redirected")
+      res.write("302 you've redirected")
+      res.finish
+    end
 
-Rack::Handler::WEBrick.run app
-```
+    Rack::Handler::WEBrick.run app
 
 Run the application in the same way as before using `ruby app.rb`
 
-```bash
-$ curl -i -X GET localhost:8080
-HTTP/1.1 302 Found
-Location: http://localhost:8080/redirected
-Content-Length: 21
-Server: WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
-Date: Mon, 24 Nov 2014 03:28:35 GMT
-Connection: Keep-Alive
+    $ curl -i -X GET localhost:8080
+    HTTP/1.1 302 Found
+    Location: http://localhost:8080/redirected
+    Content-Length: 21
+    Server: WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+    Date: Mon, 24 Nov 2014 03:28:35 GMT
+    Connection: Keep-Alive
 
-302 you've redirected
-```
+    302 you've redirected
 
-**note:** one thing to keep in mind is that there is no other route/endpoint,
-therefore we'll have a redirect loop.
+One thing to keep in mind is that there is no other route/endpoint, therefore
+we'll have a redirect loop.
 
 ## ERB views
 
@@ -149,12 +131,10 @@ Following the Rails convention we can create a view with `.html.erb` file
 extension in the root of our application directory and create a simple method
 that we'll call from inside the application Proc. Let's take a look:
 
-```ruby
-def erb(template)
-  path = File.expand_path("#{template}")
-  ERB.new(File.read(path)).result(binding)
-end
-```
+    def erb(template)
+      path = File.expand_path("#{template}")
+      ERB.new(File.read(path)).result(binding)
+    end
 
 This method will accept a template name, expand its path, parse that file and
 then return the resulting value as a plain HTML file.
@@ -163,35 +143,29 @@ Let's try this all together:
 
 Create an `index.html.erb` file in the root of the project
 
-```html
-<h1>Hello World <%= @var %>!</h1>
-```
+    <h1>Hello World <%= @var %>!</h1>
 
 Now add the `erb` method to the current `app.rb`
 
-```ruby
-require 'rack'
-require 'erb'
+    require 'rack'
+    require 'erb'
 
-def erb(template)
-  path = File.expand_path("#{template}")
-  ERB.new(File.read(path)).result(binding)
-end
+    def erb(template)
+      path = File.expand_path("#{template}")
+      ERB.new(File.read(path)).result(binding)
+    end
 
-app = Proc.new do |env|
-  @var = "Alberto"
-  ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
-end
+    app = Proc.new do |env|
+      @var = "Alberto"
+      ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
+    end
 
-Rack::Handler::WEBrick.run app
-```
+    Rack::Handler::WEBrick.run app
 
 Run the `app.rb` and you'll see:
 
-```bash
-$ curl -X GET localhost:8080
-<h1>Hello World Alberto!</h1>
-```
+    $ curl -X GET localhost:8080
+    <h1>Hello World Alberto!</h1>
 
 Now let's do a simple *Hello Name* by catching the path URL, use it as a
 "parameter" and print its value inside the template.
@@ -201,33 +175,29 @@ with some `Rack::Request` help and append the name of that path in the template
 as it was the name of the person. You can read more about Rack::Request
 [here][rack-request].
 
-```ruby
-require 'rack'
-require 'erb'
+    require 'rack'
+    require 'erb'
 
-def erb(template)
-  path = File.expand_path("#{template}")
-  ERB.new(File.read(path)).result(binding)
-end
+    def erb(template)
+      path = File.expand_path("#{template}")
+      ERB.new(File.read(path)).result(binding)
+    end
 
-app = Proc.new do |env|
-  req = Rack::Request.new(env)
-  @var = req.path.tr("/", "") # removing the route slash
-  ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
-end
+    app = Proc.new do |env|
+      req = Rack::Request.new(env)
+      @var = req.path.tr("/", "") # removing the route slash
+      ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
+    end
 
-Rack::Handler::WEBrick.run app
-```
+    Rack::Handler::WEBrick.run app
 
 Run the `app.rb`:
 
-```bash
-$ curl -X GET localhost:8080/Alberto
-<h1>Hello World Alberto!</h1>
+    $ curl -X GET localhost:8080/Alberto
+    <h1>Hello World Alberto!</h1>
 
-$ curl -X GET localhost:8080/John
-<h1>Hello World John!</h1>
-```
+    $ curl -X GET localhost:8080/John
+    <h1>Hello World John!</h1>
 
 ## Rackup the application
 
@@ -247,27 +217,23 @@ command line tool to start it.
 Let's start creating a `config.ru` file, adding the application contents,
 removing the `Rack::Handler` and change the `do end` syntax to curly braces.
 
-```ruby
-require 'rack'
-require 'erb'
+    require 'rack'
+    require 'erb'
 
-def erb(template)
-  path = File.expand_path("#{template}")
-  ERB.new(File.read(path)).result(binding)
-end
+    def erb(template)
+      path = File.expand_path("#{template}")
+      ERB.new(File.read(path)).result(binding)
+    end
 
-run Proc.new { |env|
-  req = Rack::Request.new(env)
-  @var = req.path.tr("/", "") # removing the route slash
-  ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
-}
-```
+    run Proc.new { |env|
+      req = Rack::Request.new(env)
+      @var = req.path.tr("/", "") # removing the route slash
+      ['200', {'Content-Type' => 'text/html'}, [erb("index.html.erb")]]
+    }
 
 Start the application using the rackup command:
 
-```bash
-$ rackup
-```
+    $ rackup
 
 The application should run and behave exactly the same as it did before.
 
@@ -275,17 +241,13 @@ There are many options to `rackup` command that you can check with the `-h`
 option. e.g we can change the port where our application listens and the server
 to [puma][puma] by doing:
 
-```bash
-$ rackup -s puma -p 4000
-Puma 2.9.1 starting...
-* Min threads: 0, max threads: 16
-* Environment: development
-* Listening on tcp://0.0.0.0:4000
-```
+    $ rackup -s puma -p 4000
+    Puma 2.9.1 starting...
+    * Min threads: 0, max threads: 16
+    * Environment: development
+    * Listening on tcp://0.0.0.0:4000
 
-I hope this very basic post on Rack helps...
-
-Thanks for reading!
+I hope this very basic post on Rack helps... Thanks for reading!
 
 [wiki]: http://en.wikipedia.org/wiki/Rack_%28web_server_interface%29
 [rack]: https://github.com/rack/rack#rackup
