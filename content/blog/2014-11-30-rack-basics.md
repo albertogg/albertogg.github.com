@@ -6,7 +6,7 @@ description: A little summary of Ruby Rack Web server, installation, responses, 
   Rack::Response, Rack::Request, ERB views, rackup and more
 tag: blog
 title: Rack basics
-url: /2014/11/30/rack-basics/
+slug: /rack-basics/
 ---
 
 If you like programming in Ruby it's plausible that you've used or heard about

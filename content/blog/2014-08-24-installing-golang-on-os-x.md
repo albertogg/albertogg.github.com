@@ -5,10 +5,10 @@ date: 2014-08-24T00:00:00Z
 description: Installing Golang on OS X using Homebrew and a single GOPATH
 tag: blog
 title: Installing Golang on OS X
-url: /2014/08/24/installing-golang-on-os-x/
+slug: /installing-golang-on-os-x/
 ---
 
-> tl;dr this are my notes for installing Go (Golang) on OS X using hombrew,
+> **tl;dr** this are my notes for installing Go (Golang) on OS X using hombrew,
 adding command completions on ZSH, a single GOPATH and all around clean install.
 
 Today we'll install the Go programming language and dependencies using OS X
@@ -24,9 +24,7 @@ installing Mercurial [(hg)][hg] version control along with go.
 > Mercurial is not a Go dependency within Homebrew, but, there are some specific
 > packages/tools like `go get` that use it, so keep that in mind.
 
-```bash
-$ brew install hg go
-```
+    $ brew install hg go
 
 This will install hg and Go with the `--cross-compile-common` flag. The cross
 compile common flag will build the language with cross-compilers and runtime
@@ -49,12 +47,10 @@ idea to have a single GOPATH and when it's not.
 
 Enough talking, lets create our GOPATH directory and export to the environment:
 
-```bash
-$ mkdir ~/go
-$ export GOPATH=$HOME/go
-$ export PATH="$GOPATH/bin:$PATH"
-$ export PATH="$PATH:/usr/local/opt/go/libexec/bin"
-```
+    $ mkdir ~/go
+    $ export GOPATH=$HOME/go
+    $ export PATH="$GOPATH/bin:$PATH"
+    $ export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 
 You can use any other directory for the GOPATH, but I found this is a common
 one within the community, so lets stick with this "convention".
@@ -73,14 +69,12 @@ When installing Go with Homebrew all ZSH completions are thrown to the
 configured to grab [completion.zsh][completions] files, we can just create a
 new `completion.zsh` file for Go and add this snippet:
 
-```bash
-completion="$(brew --prefix)/share/zsh/site-functions/go"
+    completion="$(brew --prefix)/share/zsh/site-functions/go"
 
-if test -f $completion
-then
-  source <(cat $completion)
-fi
-```
+    if test -f $completion
+    then
+      source <(cat $completion)
+    fi
 
 After restarting or reloading your shell session you'll be able to `tab`
 complete the different Go CLI commands.

@@ -2,14 +2,14 @@
 categories:
 - blog
 date: 2014-11-02T00:00:00Z
-description: Short guide on how to debug your vimrc with Bisectly and finish.
+description: Short guide on how to debug your vimrc with Bisectly and finish
 tag: blog
 title: Debugging your vimrc
-url: /2014/11/02/debugging-your-vimrc/
+slug: /debugging-your-vimrc/
 ---
 
-tl;dr this is a short guide on how to debug your `.vimrc` and hopefully it will
-help you find what's making Vim slower or inconsistent.
+> **tl;dr** this is a short guide on how to debug your `.vimrc` and hopefully it
+will help you find what's making Vim slower or inconsistent.
 
 A few days ago I added a bunch of new settings to my `.vimrc` that made my
 motion sluggish. This was happening in MacVim and in Vim and it was making me
@@ -20,7 +20,7 @@ configuration. A kind user named **watabou** (I believe) first pointed me to
 [Bisectly][bisectly].
 
 > Bisectly is a plugin-manager-agnostic fault-localisation tool for finding
-> which Vim plugin is causing you nose-bleeds.
+which Vim plugin is causing you nose-bleeds.
 
 I followed the documentation on the `README.md` file and did multiple runs of
 Bisectly but found no apparent problems with the plugins I had installed... I
@@ -40,6 +40,8 @@ on where the problem was initially located. Keep doing this until the error
 the last two sections bisected. Repeat this procedure between that section until
 the "bug" is completely localized, remove that setting or do whatever you want
 and that's it...
+
+---
 
 In my case this sluggishness was caused by two options options, `relativenumber`
 and `cursorline`. This is probably because using super fast keyboard repeat and
