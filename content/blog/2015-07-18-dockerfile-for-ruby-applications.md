@@ -139,6 +139,8 @@ Commands will do:
   - Running `bundle install`
   - Copy the rest of the app files and remove the `.env` file if available.
 
+like so:
+
     FROM ruby:2.2.2
     MAINTAINER Alberto Grespan <https://twitter.com/albertogg>
 
