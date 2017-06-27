@@ -456,11 +456,6 @@ hr {
       margin-top: 0.6em;
       margin-left: 1.4em; }
 
-.active {
-  text-decoration: underline; }
-  .active a {
-    color: rgba(85, 85, 85, 0.8) !important; }
-
 .date {
   font-family: sans-serif;
   color: #cccccc;
