@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <section>
+    <img class="gravatar" alt="gravatar-{{ .Site.Params.Grafavar.Title }}" style="float:left;" title="{{ .Site.Params.Gravatar.Title }}" src="{{ .Site.Params.Gravatar.Url }}">
+    {{ .Content }}
+    <p>Follow me on <a href="{{ .Site.Params.Connect.Twitter.Url }}">twitter</a> and <a href="{{ .Site.Params.Connect.Github }}">github</a> *or* contact me by <a href="mailto:{{ .Site.Params.Connect.Email }}">email</a>.</p>
+  </section>
+{{ end }}

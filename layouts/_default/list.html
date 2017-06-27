@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <div>
+    <ul class="posts-list">
+      {{- range .Data.Pages -}}
+      {{- if eq .Type "blog" -}}
+      <li>
+        <span>{{ .Date.Format "January 2, 2006" }}</span> <a href="{{ .URL }}">{{ .Title }}</a>
+      </li>
+      {{- end -}}
+      {{- end -}}
+    </ul>
+  </div>
+{{ end }}

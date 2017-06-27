@@ -1,0 +1,126 @@
+.header {
+  text-align: center;
+  margin-bottom: 4em;
+
+  .name {
+    display: block;
+    text-transform: lowercase;
+    font-size: 2.4em;
+    @extend .dark-links;
+
+    a {
+      font-weight: 900;
+      border-bottom: none;
+    }
+  }
+
+  .menu {
+    list-style: none;
+    padding-left: 0;
+    @extend .dark-links;
+
+    li {
+      display: inline;
+      margin-right: 0.8em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.posts-list {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    padding: 0.325em;
+
+    &:last-child {
+      margin-bottom: 2em;
+    }
+
+    span {
+      font-family: sans-serif;
+      float: right;
+      font-size: 0.70em;
+      text-transform: uppercase;
+      margin-top: 0.6em;
+      margin-left: 1.4em;
+    }
+  }
+}
+
+.date {
+  font-family: sans-serif;
+  color: $date-font;
+  text-transform: uppercase;
+}
+
+.gravatar {
+  margin: 0.3em 1.2em 1em 0;
+  border-radius: 0.3rem;
+}
+
+.post {
+  img {
+    @include img-responsive();
+    margin: 0 auto;
+    border: 0.0625em solid $light-gray;
+    padding: 0.1875em 0.1875em;
+  }
+
+  blockquote {
+    border-left: 0.25em solid $blue;
+    padding: 0 1em;
+    margin: 1em 0;
+    color: $blue;
+    @extend .inline-code;
+  }
+
+  li, p {
+    font-size: 1.25rem;
+    @extend .inline-code;
+  }
+
+  pre {
+    font-size: 1.125rem;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 0.18rem;
+    color: $dark-font;
+    padding: 0.4em 0.6em;
+    margin: 1.1em 0;
+    overflow: auto;
+  }
+
+  .video {
+    @include img-responsive();
+    width: 16em;
+    height: 9em;
+    margin: 0 auto;
+    border: 0.0625em solid $light-gray;
+    padding: 0.1875em 0.1875em;
+  }
+
+  .closing {
+    font-family: sans-serif;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 95%;
+
+    a {
+      border-bottom: 0;
+    }
+  }
+}
+
+.center-element {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
