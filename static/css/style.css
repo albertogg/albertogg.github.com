@@ -356,8 +356,6 @@ th {
 .dark-links a, .header .name a, .header .menu a {
   color: #555555;
   text-decoration: none; }
-  .dark-links a:hover, .header .name a:hover, .header .menu a:hover {
-    color: rgba(85, 85, 85, 0.8); }
   .dark-links a:visited, .header .name a:visited, .header .menu a:visited {
     color: #555555; }
 
@@ -510,7 +508,8 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  font-size: 95%; }
   .post .closing a {
     border-bottom: 0; }
 
