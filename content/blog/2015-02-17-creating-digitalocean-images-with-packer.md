@@ -9,7 +9,7 @@ title: Creating DigitalOcean images with Packer
 slug: /creating-digitalocean-images-with-packer/
 ---
 
-> tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a
+> **tl;dr** create a simple DigitalOcean Ubuntu 14.04 image that uses shell a
 provisioner to install Docker.
 
 This post will guide you through the steps needed to create a simple
