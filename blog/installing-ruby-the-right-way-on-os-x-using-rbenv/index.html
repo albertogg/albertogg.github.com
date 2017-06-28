@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Installing Ruby the right way on OS X using rbenv and some interesting plugins. We will also use Homebrew to make this task even easier.">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Installing Ruby the right way on OS X using rbenv">
+    <meta name="twitter:description" content="Installing Ruby the right way on OS X using rbenv and some interesting plugins. We will also use Homebrew to make this task even easier.">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Installing Ruby the right way on OS X using rbenv &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Installing Ruby the right way on OS X using rbenv</h1>
+    <div class="date">
+      <p>May 13, 2014</p>
+    </div> 
+    
+
+<blockquote>
+<p><strong>tl;dr</strong> there are millions of posts about installing Ruby using rbenv in OS X.
+Most of them miss the point about installing LibYAML and Readline on your
+system, but they also miss some of the best rbenv plugins that will help your
+workflow tremendously. In this post I&rsquo;ll handle it.</p>
+</blockquote>
+
+<p>I know that Ruby is not the easiest language to install, there are many details
+and decisions to handle before installing it. I believe everyone has the same
+questions at some point <em>e.g.</em> Is RVM better than rbenv, or chruby? Do I install
+Ruby directly without a version manager? and so on&hellip; I do believe the answers
+to those questions are a personal decision, a bit of research will be implied,
+but you will find your answers. For me there is no &ldquo;perfect&rdquo; tool, so, if you
+are currently using RVM or chruby and you like them and they work well for you,
+just keep using them until you find something you dislike.</p>
+
+<p>In this post I will show you why I&rsquo;m using rbenv to handle my Rubies and I&rsquo;ll
+include some really great plugins that had made my life easier.</p>
+
+<h2 id="installing-rbenv">Installing rbenv</h2>
+
+<p>On a Mac as on a Linux machine you can install rbenv using git. To install it
+for a user just <code>$ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv</code>
+and afterwards <a href="https://github.com/sstephenson/rbenv#basic-github-checkout">export the bin and enable shims and
+autocompletion</a>. I
+use <a href="http://brew.sh/">Homebrew</a> to handle all my installations and this will not
+be the exception.</p>
+
+<blockquote>
+<p>In order to compile you need to have installed <em>Xcode Command Line Tools</em>.</p>
+</blockquote>
+
+<p>This line will install rbenv and all the plugins I normally use:</p>
+
+<pre><code>$ brew install rbenv ruby-build rbenv-default-gems rbenv-gem-rehash rbenv-vars
+</code></pre>
+
+<p>After that you will need to add this line to your <code>.bashrc</code>, <code>.zshrc</code>, profile
+or whatever:</p>
+
+<pre><code>if which rbenv &gt; /dev/null; then eval &quot;$(rbenv init -)&quot;; fi
+</code></pre>
+
+<h3 id="why-plugins">Why Plugins?</h3>
+
+<p>Rbenv was invented under the Unix philosophy of doing one thing well. That&rsquo;s why
+each component is intended to do just one thing&hellip; also why we need various
+plugins to extend functionalities.</p>
+
+<h4 id="a-bit-about-the-plugins">A bit about the plugins</h4>
+
+<ul>
+<li><a href="https://github.com/sstephenson/ruby-build">ruby-build</a>: &ldquo;Is an rbenv plugin
+that provides an <code>rbenv install</code> command to compile and install different
+versions of Ruby on UNIX-like systems.&rdquo;</li>
+<li><a href="https://github.com/sstephenson/rbenv-default-gems">rbenv-default-gems</a>: &ldquo;Is
+an rbenv plugin hooks into the <code>rbenv install</code> command to automatically
+install gems every time you install a new version of Ruby.&rdquo; That said, Imagine
+installing Bundler and Pry automatically every time a new Ruby is installed,
+awesome isn&rsquo;t it?</li>
+<li><a href="https://github.com/sstephenson/rbenv-gem-rehash">rbenv-gem-rehash</a>: &ldquo;Never
+run <code>rbenv rehash</code> again. This rbenv plugin automatically runs rbenv rehash
+every time you install or uninstall a gem.&rdquo;</li>
+<li><a href="https://github.com/sstephenson/rbenv-vars">rbenv-vars</a>: &ldquo;This is a plugin for
+rbenv that lets you set global and project-specific environment variables
+before spawning Ruby processes.&rdquo;</li>
+</ul>
+
+<p>There are a bunch of plugins you can look up by doing <code>brew search rbenv</code>,
+Googling or using Github search. <strong>Remember that all the plugins where meant to
+be installed using git</strong>.</p>
+
+<h2 id="before-the-ruby-installation">Before the Ruby installation</h2>
+
+<p>Before installing any Rubies ask yourself if you want support for LibYAML,
+Readline and OpenSSL outside of rbenv. Rbenv and its plugins are a mature
+ecosystem that can solve common caveats in the Ruby installation by downloading,
+installing and compiling your rubies with the latest OpenSSL, LibYAML and if
+available on your system, Readline.</p>
+
+<p>I like to install LibYAML apart from rbenv because if there&rsquo;s an update I can
+just upgrade it without having to recompile my Rubies again. I also like to
+Install Readline to use it instead of editline just to keep development and
+production Rubies the same and don&rsquo;t break things. Lets install those libraries
+with Homebrew and see what happens:</p>
+
+<pre><code>$ brew install libyaml readline openssl
+</code></pre>
+
+<p>That was fast, now we are ready to install our first Ruby!</p>
+
+<pre><code>$ rbenv install 2.1.5
+</code></pre>
+
+<p>When it&rsquo;s done, you just have to set this Ruby as the global Ruby for your
+system (if you want to).</p>
+
+<pre><code>$ rbenv global 2.1.5
+</code></pre>
+
+<p>Now you are done. I&rsquo;ll recommend refreshing your session by <code>exec $SHELL -l</code> or
+just closing and reopening your terminal. If you try to run <code>ruby -v</code> you should
+see the output of the new installed Ruby!</p>
+
+<pre><code>$ ruby -v
+ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin13.0]
+</code></pre>
+
+<p>That was really easy&hellip; but what if you want to use a custom version of OpenSSL
+or LibYAML?</p>
+
+<h3 id="install-with-your-own-options">Install with your own options</h3>
+
+<p>If you want to compile Ruby with your preferred versions of OpenSSL, Readline
+and LibYAML you just need to export or append <code>RUBY_CONFIGURE_OPTS</code> to your
+installation command.</p>
+
+<pre><code>$ RUBY_CONFIGURE_OPTS=&quot;--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`&quot; rbenv install 2.1.5
+</code></pre>
+
+<p><strong>Remember that our libraries must be installed via homebrew for that command to
+work</strong>. You can change <em>e.g.</em> <code>brew --prefix libyaml</code> to
+<code>/usr/local/opt/libyaml</code> to make it work in any environment.</p>
+
+<hr />
+
+<p>Enjoy your freshly installed Ruby version manager!</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/" data-text="Installing Ruby the right way on OS X using rbenv" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

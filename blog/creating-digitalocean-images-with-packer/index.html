@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Creating a reproducible and Docker provisioned Ubuntu 14.04 image with Packer on DigitalOcean">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Creating DigitalOcean images with Packer">
+    <meta name="twitter:description" content="Creating a reproducible and Docker provisioned Ubuntu 14.04 image with Packer on DigitalOcean">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Creating DigitalOcean images with Packer &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Creating DigitalOcean images with Packer</h1>
+    <div class="date">
+      <p>February 17, 2015</p>
+    </div> 
+    
+
+<blockquote>
+<p><strong>tl;dr</strong> create a simple DigitalOcean Ubuntu 14.04 image that uses shell a
+provisioner to install Docker.</p>
+</blockquote>
+
+<p>This post will guide you through the steps needed to create a simple
+DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed.
+This is in a way like creating our own <a href="https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-docker-application">DigitalOcean Docker
+application</a> image.  We&rsquo;ll use a shell script as provisioner for
+this Packer template.</p>
+
+<blockquote>
+<p><strong>notes:</strong> we assume that Packer is already installed on the system, refer to
+the installation docs <a href="https://packer.io/docs/installation.html">here</a>. You could use CentOS or any other
+distro available at DigitalOcean in the same way. The script will need some
+package manager adaptation and that&rsquo;s all.</p>
+</blockquote>
+
+<h2 id="packer-template">Packer template</h2>
+
+<p>This template will create a new droplet on DigitalOcean, run the provision
+script, create a snapshot from the final state and destroy the droplet.</p>
+
+<p>Create a packer template for our installation called
+<code>docker-install-template.json</code> and drop this JSON in it.</p>
+
+<pre><code>{
+  &quot;variables&quot;: {
+    &quot;do_api_token&quot;: &quot;{{env `DIGITALOCEAN_API_TOKEN`}}&quot;
+  },
+
+  &quot;builders&quot;: [{
+    &quot;type&quot;: &quot;digitalocean&quot;,
+    &quot;api_token&quot;: &quot;{{user `do_api_token`}}&quot;,
+    &quot;size&quot;: &quot;512mb&quot;,
+    &quot;region&quot;: &quot;nyc3&quot;,
+    &quot;image&quot;: &quot;ubuntu-14-04-x64&quot;,
+    &quot;droplet_name&quot;: &quot;packer&quot;,
+    &quot;snapshot_name&quot;: &quot;build-with-packer-{{timestamp}}&quot;
+  }],
+
+  &quot;provisioners&quot;: [{
+    &quot;type&quot;: &quot;shell&quot;,
+    &quot;script&quot;: &quot;install-script.sh&quot;
+  }]
+}
+</code></pre>
+
+<p>Let me explain what this does. We are setting a variable named <code>do_api_token</code>
+that reads from the OS environment a variable named <code>DIGITALOCEAN_API_TOKEN</code>.
+Then creating a builder that for our case will obviously be DigitalOcean,
+setting the builder token from our custom variable and setting what type of
+droplet we&rsquo;ll use to create this snapshot. You can read more about this builder
+in the <a href="https://packer.io/docs/builders/digitalocean.html">packer digitalocean</a> docs.</p>
+
+<p>After the builder we have provisioners. Packer has the ability to use various
+types of provisioners, like for example, shell scripts, Ansible, Chef, Puppet,
+etc&hellip; For our case we will only use the &ldquo;Shell&rdquo; provisioner; it will install
+dependencies. You can read more about this provisioner <a href="https://packer.io/docs/provisioners/shell.html">here</a>.</p>
+
+<p>Notice that builders and provisioners are arrays. We can have multiple types of
+provisioners and multiple builders so the same image can be generated on various
+platforms.</p>
+
+<p>Once our template is ready, we should validate it to see if there are no parsing
+errors.</p>
+
+<pre><code>packer validate docker-install-template.json
+</code></pre>
+
+<p><strong>notes:</strong> this will not guarantee that we&rsquo;ve done a fine job with the shell
+script. If the required variables are not set up in our system this validation
+will output an error message.</p>
+
+<h2 id="script">Script</h2>
+
+<p>For our script we&rsquo;ll do some very simple things. As we intent to install Docker
+and have an up to date snapshot we should update installed packages, install the
+latest possible kernel and install the latest version of Docker.</p>
+
+<p>Create a file with <code>install-script.sh</code> name and copy the following:</p>
+
+<pre><code>#!/usr/bin/env sh
+
+# sleep timer for packer
+sleep 30
+
+# add additional repos
+add-apt-repository &quot;deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe&quot;
+add-apt-repository &quot;deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe&quot;
+
+# update, install curl and linux kernel 3.16
+apt-get update --fix-missing
+apt-get upgrade -y
+apt-get install -y curl linux-headers-3.16.0-29 linux-headers-3.16.0-29-generic \
+                   linux-image-3.16.0-29-generic linux-image-extra-3.16.0-29-generic
+
+# install docker
+curl -sSL https://get.docker.com/ubuntu/ | sudo sh
+
+# print docker version
+docker version
+</code></pre>
+
+<p>The sleep is to wait until the machine completely boots. Then we update the
+kernel to the latest, install docker and print the docker version.</p>
+
+<p>Let&rsquo;s try our script and template by creating the snapshot.</p>
+
+<h2 id="creating-the-snapshot">Creating the snapshot</h2>
+
+<p>Before creating our snapshot make sure to have the DigitalOcean token created.
+Remember that this token is only visible once. Export this token as
+<code>DIGITALOCEAN_API_TOKEN</code> and prepare to have your snapshot ready in a few
+minutes.</p>
+
+<pre><code>export DIGITALOCEAN_API_TOKEN=&quot;your_api_token&quot;
+</code></pre>
+
+<p>Once the environment variable is set up we should be able to run the following
+command and wait till it&rsquo;s done.</p>
+
+<pre><code>packer build docker-install-template.json
+</code></pre>
+
+<p>I&rsquo;m not going to put the hole output, this is the final chunk&hellip;</p>
+
+<pre><code>    ...
+    digitalocean: Client version: 1.5.0
+    digitalocean: Client API version: 1.17
+    digitalocean: Go version (client): go1.4.1
+    digitalocean: Git commit (client): a8a31ef
+    digitalocean: OS/Arch (client): linux/amd64
+    digitalocean: Server version: 1.5.0
+    digitalocean: Server API version: 1.17
+    digitalocean: Go version (server): go1.4.1
+    digitalocean: Git commit (server): a8a31ef
+==&gt; digitalocean: Gracefully shutting down droplet...
+==&gt; digitalocean: Creating snapshot: build-with-packer-1424129310
+==&gt; digitalocean: Waiting for snapshot to complete...
+==&gt; digitalocean: Destroying droplet...
+==&gt; digitalocean: Deleting temporary ssh key...
+Build 'digitalocean' finished.
+
+==&gt; Builds finished. The artifacts of successful builds are:
+--&gt; digitalocean: A snapshot was created: 'build-with-packer-1424129310' in region 'New York 3'
+</code></pre>
+
+<p>This final chunk shows the output from the <code>docker version</code> command and the name
+of the snapshot with the format we gave it <code>build-with-packer-{{timestamp}}</code></p>
+
+<p>Now go to your DigitalOcean admin panel and create a new droplet using your
+newly created snapshot, remember that for the kernel update to work you must
+follow <a href="https://www.digitalocean.com/community/questions/how-i-update-my-kernel">these instructions</a>.</p>
+
+<hr />
+
+<p>From my point of view Packer is a Fantastic tool. Being able to create a
+reproducible image from a template that will be ready to put into a new droplet
+is a time saver and an assurance that everything will work as it&rsquo;s suppose to.</p>
+
+<p>Remember to update your snapshots periodically for patches, etc&hellip;</p>
+
+<p>Thanks for reading&hellip;</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/creating-digitalocean-images-with-packer/" data-text="Creating DigitalOcean images with Packer" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

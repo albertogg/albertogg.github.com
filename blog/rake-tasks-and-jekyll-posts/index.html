@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Creating posts in Jekyll can become painful sometimes, stop repeating yourself and use a custom Rake Task. Thanks Jim.">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Rake tasks &amp; Jekyll posts">
+    <meta name="twitter:description" content="Creating posts in Jekyll can become painful sometimes, stop repeating yourself and use a custom Rake Task. Thanks Jim.">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Rake tasks &amp; Jekyll posts &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Rake tasks &amp; Jekyll posts</h1>
+    <div class="date">
+      <p>March 23, 2014</p>
+    </div> 
+    
+
+<blockquote>
+<p><strong>tl;dr</strong> use Rake tasks to create drafts/posts in Jekyll.</p>
+</blockquote>
+
+<p>Creating a draft or a new post is a repetitive task. If you are like me and
+often forget about things you probably need some automation in your life; if you
+don&rsquo;t, you can use this and start forgetting.</p>
+
+<p>In this post I&rsquo;ll be talking about some Rake tasks I use that help me create and
+publish drafts for my Jekyll blog.</p>
+
+<h2 id="story">Story</h2>
+
+<p>For the last 2 years that I almost didn&rsquo;t blog at all, I was using two Rake
+tasks <em>stolen</em> from <a href="http://zachholman.com/">Zack Holman</a> to create blog posts
+within Jekyll. At that time Jekyll was a bit different and both the <em>stolen</em>
+tasks and blog needed an update. A few weeks ago (february 2014) I revamped my
+blog completely including the Rake tasks. This was the end result:</p>
+
+<h2 id="new-tasks-tasks">New tasks <em>&ldquo;tasks&rdquo;</em></h2>
+
+<p>Here, I explain a bit what each task does:</p>
+
+<p>Creating a new draft:</p>
+
+<ul>
+<li>Ask for a post title.</li>
+<li>Create a slug with that title</li>
+<li>Downcase the slug and change spaces with dashes.</li>
+<li>Remove any accents of words from the slug.</li>
+<li>Create a new <code>.md</code> file in the <code>_drafts</code> directory and use the new slug as
+file name.</li>
+<li>Add the front-matter to the file with: layout, title, description, category
+and tag.</li>
+</ul>
+
+<p>When draft is ready:</p>
+
+<ul>
+<li>List drafts on the <code>_drafts</code> directory.</li>
+<li>Ask for the name of the <em>draft</em> that&rsquo;s ready to be published.</li>
+<li>Move the draft from the <code>_drafts</code> directory into the <code>_posts</code>.</li>
+<li>Rename the file by adding the current date to the file name.</li>
+</ul>
+
+<blockquote>
+<p>These features are a WIP but they work fine ATM.</p>
+</blockquote>
+
+<h2 id="the-code">The code</h2>
+
+<p>To use these tasks: you must create a <code>Rakefile</code> file; drop the code, and save
+the file. If you already have a <code>Rakefile</code> and you plan to use them, I hope that
+the namespace will prevent a collision with any of you existing tasks.</p>
+
+<pre><code>require 'fileutils'
+
+namespace :draft do
+  desc &quot;Creating a new draft for post/entry&quot;
+  task :new do
+    puts &quot;What's the name for your next post?&quot;
+    @name = STDIN.gets.chomp
+    @slug = &quot;#{@name}&quot;
+    @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
+    @slug = @slug.downcase.strip.gsub(' ', '-')
+    FileUtils.touch(&quot;_drafts/#{@slug}.md&quot;)
+    open(&quot;_drafts/#{@slug}.md&quot;, 'a' ) do |file|
+      file.puts &quot;---&quot;
+      file.puts &quot;layout: post&quot;
+      file.puts &quot;title: #{@name}&quot;
+      file.puts &quot;description: maximum 155 char description&quot;
+      file.puts &quot;category: blog&quot;
+      file.puts &quot;tag: blog&quot;
+      file.puts &quot;---&quot;
+    end
+  end
+
+  desc &quot;copy draft to production post!&quot;
+  task :ready do
+    puts &quot;Posts in _drafts:&quot;
+    Dir.foreach(&quot;_drafts&quot;) do |fname|
+      next if fname == '.' or fname == '..' or fname == '.keep'
+      puts fname
+    end
+    puts &quot;what's the name of the draft to post?&quot;
+    @post_name = STDIN.gets.chomp
+    @post_date = Time.now.strftime(&quot;%F&quot;)
+    FileUtils.mv(&quot;_drafts/#{@post_name}&quot;, &quot;_posts/#{@post_name}&quot;)
+    FileUtils.mv(&quot;_posts/#{@post_name}&quot;, &quot;_posts/#{@post_date}-#{@post_name}&quot;)
+    puts &quot;Post copied and ready to deploy!&quot;
+  end
+end
+</code></pre>
+
+<p>You can run these tasks by using the following command:</p>
+
+<pre><code>$ rake draft:new    # Creating a new draft for post/entry
+$ rake draft:ready  # copy draft to production post!
+</code></pre>
+
+<p>As you can see, both tasks are pretty straight forward, they do simple things
+and work of the box. With these tasks you&rsquo;ll no longer have to remember anything
+about the front-matter or how the file should be named within the drafts and
+posts directory, just run the tasks and start dumping ideas onto the freshly
+created markdown file.</p>
+
+<hr />
+
+<p>I know the tasks can be vastly improved but I hope this works at least for some
+of you!</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/" data-text="Rake tasks &amp; Jekyll posts" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

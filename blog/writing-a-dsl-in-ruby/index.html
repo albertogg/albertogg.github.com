@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Writing a simple Domain Specific Language (DSL) in Ruby">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Writing a DSL in Ruby">
+    <meta name="twitter:description" content="Writing a simple Domain Specific Language (DSL) in Ruby">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Writing a DSL in Ruby &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Writing a DSL in Ruby</h1>
+    <div class="date">
+      <p>December 29, 2014</p>
+    </div> 
+    
+
+<p>A Domain Specific Language or DSL is a mini language focused in solving a
+particular type of problem. That said, it&rsquo;s not a general purpose language like
+Ruby. Writing a DSL can help us improve the code base by making it more
+readable.</p>
+
+<p>If you&rsquo;ve used Rails, you&rsquo;ve used and seen tons of DSLs. <em>e.g</em> inside
+migrations, configuration files etc&hellip; DSLs in Ruby are a common thing and we
+are making a simple but useful example in this post.</p>
+
+<h2 id="what-we-want">What we want</h2>
+
+<p>At the end of the post we will end up with an <code>address_book</code> object with that
+contains an array of contacts, all done with our simple DSL:</p>
+
+<pre><code>address_book = AddressBook.new do
+  add_contact do
+    full_name &quot;Alberto Grespan&quot;
+    email &quot;alberto@example.com&quot;
+  end
+
+  add_contact do
+    full_name &quot;John Doe&quot;
+    email &quot;johndoe@example.com&quot;
+  end
+end
+</code></pre>
+
+<p>Let&rsquo;s start with the contact class.</p>
+
+<h2 id="contact">Contact</h2>
+
+<p>We want to save the contacts in our address book with their full name and email.</p>
+
+<pre><code>class Contact
+  attr_accessor :full_name, :email
+
+  def initialize(&amp;block)
+    (block.arity &lt; 1 ? (instance_eval &amp;block) : block.call(self)) if block_given?
+  end
+
+  def full_name(full_name=nil)
+    full_name.nil? ? @full_name : @full_name = full_name
+  end
+
+  def email(email=nil)
+    email.nil? ? @email : @email = email
+  end
+end
+</code></pre>
+
+<p>What we did here is very minimal and simple, and it will work for the example
+used above and also with local block variables. Let me explain this a bit.</p>
+
+<p>When we instantiate a new <code>Contact</code> object and pass it a block, it checks the
+<code>block.arity</code>, if it&rsquo;s less than one it evaluates the block using
+<code>instance_eval</code>, if it&rsquo;s more than one it uses <code>block.call(self)</code> this allow us
+to use the block with either a local block variable or without it.</p>
+
+<p>Let&rsquo;s try it out:</p>
+
+<pre><code>contact = Contact.new do
+  full_name &quot;Alberto Grespan&quot;
+  email &quot;alberto@example.com&quot;
+end
+#=&gt; #&lt;Contact:0x007fa821b240c8 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;
+</code></pre>
+
+<p>Or with local variables</p>
+
+<pre><code>contact = Contact.new do |contact|
+  contact.full_name &quot;Alberto Grespan&quot;
+  contact.email &quot;alberto@example.com&quot;
+end
+#=&gt; #&lt;Contact:0x007fa821c25bc0 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;
+</code></pre>
+
+<p>Now we need to wrap the <code>Contact</code> class functionality inside an <code>AdressBook</code> to
+match our desired goal.</p>
+
+<h2 id="addressbook">AddressBook</h2>
+
+<p>The <code>AddressBook</code> class is pretty straight forward. It should be able to manage
+an array of contacts and have a method named <code>add_contact</code> that receives a block
+and appends a new <code>Contact</code> to the contacts array.</p>
+
+<pre><code>class AddressBook
+  attr_accessor :contacts
+
+  def initialize(&amp;block)
+    @contacts = []
+    (block.arity &lt; 1 ? (instance_eval &amp;block) : block.call(self)) if block_given?
+  end
+
+  def add_contact(&amp;block)
+    @contacts &lt;&lt; Contact.new(&amp;block)
+  end
+end
+</code></pre>
+
+<p>In the same way we did with the <code>Contact</code> class we are using the <code>block.arity</code>,
+<code>instance_eval</code> and <code>block.call(self)</code> on the <code>AddressBook</code> class. Now we can
+wrap the <code>Contact</code> class functionality inside the <code>add_contact</code> method and have
+our <code>AddressBook</code> object with contacts.</p>
+
+<p>Inside <strong>irb or pry</strong>, require the two classes(<code>Contacts</code> and <code>AddressBook</code>) to
+use the DSL:</p>
+
+<pre><code>address_book = AddressBook.new do
+  add_contact do
+    full_name &quot;Alberto Grespan&quot;
+    email &quot;alberto@example.com&quot;
+  end
+
+  add_contact do
+    full_name &quot;John Doe&quot;
+    email &quot;johndoe@example.com&quot;
+  end
+end
+#=&gt; #&lt;AddressBook:0x007fa4eb10cee8 @contact=[
+    #&lt;Contact:0x007fa4eb10cdd0 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;,
+    #&lt;Contact:0x007fa4eb10cce0 @email=&quot;johndoe@example.com&quot;, @full_name=&quot;John Doe&quot;&gt;]&gt;
+</code></pre>
+
+<p>Or with local block variable</p>
+
+<pre><code>address_book = AddressBook.new do |contact|
+  contact.add_contact do
+    full_name &quot;Alberto Grespan&quot;
+    email &quot;alberto@example.com&quot;
+  end
+
+  contact.add_contact do
+    full_name &quot;John Doe&quot;
+    email &quot;johndoe@example.com&quot;
+  end
+end
+#=&gt; #&lt;AddressBook:0x007fa4ec8dcf50 @contact=[
+    #&lt;Contact:0x007fa4ec8dce60 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;,
+    #&lt;Contact:0x007fa4ec8dcd70 @email=&quot;johndoe@example.com&quot;, @full_name=&quot;John Doe&quot;&gt;]&gt;
+</code></pre>
+
+<hr />
+
+<p>Keep in mind that this code can be improved performance wise and it&rsquo;s just a way
+to make a DSL in Ruby, I also hope this is useful and simple enough to
+understand.</p>
+
+<p>Thanks for reading and thanks to <strong>Diorman Colmenares</strong> for the help!</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/writing-a-dsl-in-ruby/" data-text="Writing a DSL in Ruby" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Run multiple websites in nginx using Server Blocks (Ubuntu tutorial)
+">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
+">
+    <meta name="twitter:description" content="Run multiple websites in nginx using Server Blocks (Ubuntu tutorial)
+">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
+ &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
+</h1>
+    <div class="date">
+      <p>December 4, 2012</p>
+    </div> 
+    
+
+<p>Have you ever wonder; how can I have multiple domains or subdomains pointing to
+different projects but all of them are in just one server? well&hellip;</p>
+
+<p>This will be a very simple tutorial for doing that, with Nginx.</p>
+
+<h3 id="tutorial-tasks">tutorial tasks:</h3>
+
+<ol>
+<li>Creating or pointing domains/subdomains to the server&rsquo;s IP address</li>
+<li>Setup nginx</li>
+<li>Create a directory to keep the project</li>
+<li>Change folder permissions</li>
+<li>Create a simple html page to display</li>
+<li>Create a new Server Block with your domain or subdomain</li>
+<li>Setup and link the Server Block</li>
+<li>Restart nginx</li>
+</ol>
+
+<h3 id="1-creating-or-pointing-domains-subdomains-to-the-server-s-ip-address">1. Creating or pointing domains/subdomains to the server&rsquo;s ip address</h3>
+
+<p>Go to your domain register or to the DNS where your domain records are stored
+and point them to your server ip address (you can do this with a subdomain too).
+If you are trying this locally modify the <code>/etc/hosts</code> files and create a new
+record.</p>
+
+<pre><code>$ vim /etc/hosts
+</code></pre>
+
+<p>And add something like.</p>
+
+<pre><code>127.0.0.1    example.com
+127.0.0.1    example2.com
+127.0.0.1    my.example.com
+</code></pre>
+
+<h3 id="2-setup-nginx">2. Setup nginx</h3>
+
+<p>Setup nginx in <em>Ubuntu</em> if you haven&rsquo;t.</p>
+
+<pre><code>$ sudo apt-get install nginx
+</code></pre>
+
+<h3 id="3-create-a-directory-to-keep-the-project">3. Create a directory to keep the project</h3>
+
+<p>Create a directory wherever you prefer to store your project. If you want you
+can create it in the typical <code>/var/www/</code> or elsewhere.</p>
+
+<p>We will create the folder in our home directory just to skip task #4.</p>
+
+<pre><code>$ mkdir -p /home/username/www/example.com
+</code></pre>
+
+<p>If you didn&rsquo;t do that, read on the next task.</p>
+
+<h3 id="4-change-folder-permissions">4. Change folder permissions</h3>
+
+<p>Now that you&rsquo;ve created the folder in some random directory and not in your
+&ldquo;$HOME&rdquo;, like we did; and probably used <code>sudo</code> for that task, you should grant
+ownership of the directory to the right user and also give everyone permission
+to read it&rsquo;s content.</p>
+
+<p>You do this by simply running:</p>
+
+<pre><code>$ sudo chown -R user:user /var/www/example.com/
+$ sudo chmod 755 /var/www/example.com/
+</code></pre>
+
+<h3 id="5-create-a-simple-html-page-to-display">5. Create a simple html page to display</h3>
+
+<p><code>cd</code> into your applications directory and create a new file with the name
+<code>index.html</code>:</p>
+
+<pre><code>$ cd /home/username/www/example.com
+$ touch index.html
+$ vi index.html
+</code></pre>
+
+<p>Now, add the content to be displayed in the index file. This will help us to
+notice if everything is working or not at the end of the tutorial.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Server Block&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="6-create-a-new-server-block-with-your-domain-or-subdomain">6. Create a new Server Block with your domain or subdomain</h3>
+
+<p>In a short explanation of how <em>server block</em> works, we can say; It&rsquo;s a file that
+contains a variable called <code>server_name</code> that is used by <em>nginx</em> to figure out
+which application is being accessed on the server.</p>
+
+<p>We need to have one <em>server block</em> for each application running in our server.
+To create a new one we have to copy the <em>default</em> <em>server block</em> and then modify
+it.</p>
+
+<pre><code>$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com
+</code></pre>
+
+<blockquote>
+<p>Name the <em>server block</em> as your domain or subdomain, in this case we are using
+example.com as the domain.</p>
+</blockquote>
+
+<h3 id="7-setup-and-link-the-server-block">7. Setup and link the Server Block</h3>
+
+<p>After we&rsquo;ve created the <em>Server Block</em> we need to adapt it to meet our
+requirements, by doing:</p>
+
+<pre><code>$ sudo vi /etc/nginx/sites-available/example.com
+</code></pre>
+
+<p>And changing it&rsquo;s <code>server_name</code>, <code>root</code> folder and the previously created
+<code>index</code> file.</p>
+
+<pre><code>server {
+  listen   80; ## listen for ipv4; this line is default and implied
+  listen   [::]:80 default ipv6only=on; ## listen for ipv6
+
+  root /home/username/www/example.com;
+  index index.html;
+
+  # Make site accessible from http://localhost/
+  server_name example.com;
+}
+</code></pre>
+
+<p>The last step is to link the newly created <em>Server Block</em> into the
+<code>sites-enable</code> folder with a symlink, to get it working.</p>
+
+<pre><code>$ sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/example.com
+</code></pre>
+
+<h3 id="8-restart-nginx">8. Restart nginx</h3>
+
+<p>Restart nginx before accessing the web browser by doing:</p>
+
+<pre><code>$ sudo service nginx restart
+</code></pre>
+
+<p>At last open the browser and write down the domain in the search bar, you should
+be seeing the <code>index.html</code> file we created early.</p>
+
+<hr />
+
+<p>Now you will be able to run multiple applications in the same server. If you
+want another application running just repeat all the steps above.</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/" data-text="Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
+" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

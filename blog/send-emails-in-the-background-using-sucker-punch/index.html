@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Send emails in the backgroung using the sucker_punch gem within a Rails application">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Send emails in the background using sucker punch">
+    <meta name="twitter:description" content="Send emails in the backgroung using the sucker_punch gem within a Rails application">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Send emails in the background using sucker punch &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Send emails in the background using sucker punch</h1>
+    <div class="date">
+      <p>July 13, 2013</p>
+    </div> 
+    
+
+<h2 id="sucker-punch-gem">Sucker punch gem</h2>
+
+<p>This gem was created by <a href="https://twitter.com/brandonhilkert">@brandonhilkert</a>
+with a very specific use case in mind. I&rsquo;m not sure what the use case was, but,
+I believe it&rsquo;s something like; taking advantage of <a href="http://heroku.com">Heroku</a>
+web dynos, without needing to pay extra for a worker dyno (this is what I&rsquo;m
+using it for). If It&rsquo;s not; I&rsquo;m leaning towards simplicity. At this point with
+<a href="https://github.com/brandonhilkert/sucker_punch">sucker_punch</a> in it&rsquo;s <strong>version
+1.0.1</strong> became dead simple to install and use, no configuration needed. I&rsquo;m
+really grateful that this gem was created.</p>
+
+<blockquote>
+<p><strong>note:</strong> If you are looking for a massive background processing gem with
+persistence, etc. go with something like
+<a href="https://github.com/mperham/sidekiq">Sidekiq</a> instead.</p>
+</blockquote>
+
+<h3 id="why-sucker-punch">Why sucker punch?</h3>
+
+<ul>
+<li>Asynchronous processing within a single process.</li>
+<li>All queues can run within a single Rails/Sinatra process.</li>
+<li>No configuration needed.</li>
+<li>Dead simple to use.</li>
+<li>Reduces costs in services like Heroku.</li>
+</ul>
+
+<h2 id="sending-emails-within-a-rails-application-using-sucker-punch">Sending emails within a Rails application using sucker_punch</h2>
+
+<p>You already have a Rails application running and you want to send a contact form
+email or an email when the user registers. Let&rsquo;s do this using asynchronous
+processing with sucker punch.</p>
+
+<p>First install the sucker punch gem.</p>
+
+<pre><code># Add this line to your Gemfile
+$ gem 'sucker_punch', '~&gt; 1.0.1'
+
+# Run bundle
+$ bundle install
+</code></pre>
+
+<p>Generate the mailer.</p>
+
+<pre><code>$ rails g mailer ContactMailer
+</code></pre>
+
+<p>This command will create all the files necessary to send emails within the rails
+application.</p>
+
+<pre><code># app/mailers/contact_mailer.rb
+class ContactMailer &lt; ActionMailer::Base
+  default from: &quot;alberto@example.com&quot;
+
+  # This method receives the data from the sucker punch job.
+  def contact_form(contact)
+    @contact = contact
+
+    mail to: &quot;alberto@example.com&quot;,
+         subject: contact.subject,
+         from: contact.email
+  end
+end
+</code></pre>
+
+<p>Create your email template.</p>
+
+<pre><code># app/views/contact_mailer/contact_form.txt.erb
+# This template receives the @contact variable from the
+# app/mailers/contact_mailer.rb contact_form method.
+&lt;%= @contact.name %&gt;
+
+&lt;%= @contact.content %&gt;
+</code></pre>
+
+<p>Let&rsquo;s create the sucker punch job.</p>
+
+<pre><code># app/jobs/contacts_email_job.rb
+class ContactsEmailJob
+  include SuckerPunch::Job
+
+  # The perform method is in charge of our code execution when enqueued.
+  def perform(contact)
+    ContactMailer.contact_form(contact).deliver
+  end
+
+end
+</code></pre>
+
+<p>Now let&rsquo;s take a look at the controller.</p>
+
+<pre><code># app/controllers/contacts_controller.rb
+class ContactsController &lt; ApplicationController
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(params[:contact])
+
+    if @contact.valid?
+
+      # We call our sucker punch job asynchronously using &quot;async&quot;
+      ContactsEmailJob.new.async.perform(@contact)
+      flash[:success] = Your email has been send!
+      redirect_to root_url
+    else
+      render :action =&gt; 'new'
+    end
+  end
+end
+</code></pre>
+
+<p>When the user hits contact form and click the submit button of the form, they
+are triggering the controller which instantiates a <em>new</em> job that will <em>perform
+asynchronously</em> so the user will not be hold down waiting for the email to be
+send. In the end using background jobs for doing this things reflects in a
+better user experience.</p>
+
+<hr />
+
+<p>In conclusion doing complicated things like background jobs becomes really easy
+when using the right tools. In this case using sucker punch. We didn&rsquo;t have to
+figure out how to install and configure persistence or configuring the job
+queues. It just works.</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/" data-text="Send emails in the background using sucker punch" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

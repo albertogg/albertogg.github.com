@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Introduction to HTTP testing in Go/Golang. It&#39;s a very basic introduction with the key points you need to get started
+">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Introduction to HTTP testing in Go">
+    <meta name="twitter:description" content="Introduction to HTTP testing in Go/Golang. It&#39;s a very basic introduction with the key points you need to get started
+">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Introduction to HTTP testing in Go &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Introduction to HTTP testing in Go</h1>
+    <div class="date">
+      <p>June 13, 2015</p>
+    </div> 
+    
+
+<p>This post will be focused on a very basic introduction to HTTP testing in Go.
+Our goal will be to test a handler named <code>helloHandler</code> that responds with a
+custom header and a <code>Hello World!</code> body using only Go build-in Packages.</p>
+
+<h2 id="creating-the-hellohandler">Creating the helloHandler</h2>
+
+<p>Creating our simple HTTP handler for our desired endpoint should be something
+like this:</p>
+
+<pre><code>// main.go
+package main
+
+import (
+    &quot;log&quot;
+    &quot;net/http&quot;
+)
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set(&quot;X-Hello-World-Type&quot;, &quot;hello.v1&quot;)
+    w.Write([]byte(&quot;Hello World!&quot;))
+}
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, helloHandler)
+
+    log.Fatal(http.ListenAndServe(&quot;:3000&quot;, nil))
+}
+</code></pre>
+
+<p>Let&rsquo;s see how our simple <code>helloHandler</code> works by using <a href="http://curl.haxx.se/">cURL</a> on
+<code>localhost:3000/</code>:</p>
+
+<pre><code>% curl -i localhost:3000/
+HTTP/1.1 200 OK
+X-Hello-World-Type: hello.v1
+Date: Mon, 08 Jun 2015 00:13:01 GMT
+Content-Length: 12
+Content-Type: text/plain; charset=utf-8
+
+Hello World!%
+</code></pre>
+
+<p>Checking the response we see that it has a <strong>200 status</strong> code, our <strong>custom
+header</strong> and the <strong>Hello World! body</strong>.</p>
+
+<p>Now that we have our handler working we should go see how the tests for this
+looks like. The question is, what are we doing to test? Well&hellip; Those same
+things we just described, status code, header and body.</p>
+
+<h2 id="tests-to-our-handler">Tests to our handler</h2>
+
+<p>In my opinion there are four things we need to know before we start testing:</p>
+
+<ul>
+<li>Test file should contain <code>_test.go</code> in its name and be in the same directory
+as the file we are testing.</li>
+<li>Each test function must must begin with the word <code>Test</code>.</li>
+<li>Test functions receive only one parameter <code>t *testing.T</code>.</li>
+<li>Use <code>net/http/httptest</code> package to &ldquo;record&rdquo; the request response.</li>
+</ul>
+
+<p>Overall it&rsquo;s pretty straightforward, import all needed libraries, create a
+function for handler which name starts with <em>&ldquo;Test&rdquo;</em>, create a request and a
+recorder and pass those to the handler, do expectations using if statements.</p>
+
+<p>Based on the above explanation our test for the <code>main.go</code> file should look
+something like this:</p>
+
+<pre><code>// main_test.go
+package main
+
+import (
+    &quot;net/http&quot;
+    &quot;net/http/httptest&quot;
+    &quot;testing&quot;
+)
+
+func TestHelloHandler(t *testing.T) {
+    request, _ := http.NewRequest(&quot;GET&quot;, &quot;/&quot;, nil)
+    response := httptest.NewRecorder()
+
+    helloHandler(response, request)
+
+    if response.Code != http.StatusOK {
+        t.Fatalf(&quot;Expected status code %v, but received: %v&quot;, &quot;200&quot;, response.Code)
+    }
+
+    if response.Body.String() != &quot;Hello World!&quot; {
+        t.Fatalf(&quot;Expected body: %v, but received: %v&quot;, &quot;Hello World!&quot;, response.Body)
+    }
+
+    if response.Header().Get(&quot;X-Hello-World-Type&quot;) != &quot;hello.v1&quot; {
+        t.Fatalf(&quot;Expected header: %v, but received: %v&quot;,
+            &quot;hello.v1&quot;, response.Header().Get(&quot;X-Hello-World-Type&quot;))
+    }
+}
+</code></pre>
+
+<p>Our test file is called <code>main_test.go</code> we have a function that tests the
+<code>helloHandler</code> named <code>TestHelloHandler</code> that receives only a parameter and have
+three expectations. It should return <code>200</code>, the body should be <code>Hello World!</code>
+and must contain our custom header.</p>
+
+<p>If nothings wrong, running <code>go test</code> in our command line should look something
+like this:</p>
+
+<pre><code>go test
+PASS
+ok      github.com/albertogg/testest    0.006s
+</code></pre>
+
+<p>If one of our test fails the result looks like the following:</p>
+
+<pre><code>go test
+--- FAIL: TestHelloHandler (0.00s)
+        main_test.go:20: Expected body: Hello World!, but received: Hola Mundo!
+FAIL
+exit status 1
+FAIL    github.com/albertogg/testest    0.006s
+</code></pre>
+
+<p>That&rsquo;s all&hellip; Thanks for reading!</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/introduction-to-http-testing-in-go/" data-text="Introduction to HTTP testing in Go" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

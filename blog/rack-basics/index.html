@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="A little summary of Ruby Rack Web server, installation, responses, redirects, Rack::Response, Rack::Request, ERB views, rackup and more">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Rack basics">
+    <meta name="twitter:description" content="A little summary of Ruby Rack Web server, installation, responses, redirects, Rack::Response, Rack::Request, ERB views, rackup and more">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Rack basics &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Rack basics</h1>
+    <div class="date">
+      <p>November 30, 2014</p>
+    </div> 
+    
+
+<p>If you like programming in Ruby it&rsquo;s plausible that you&rsquo;ve used or heard about
+Rack&hellip; After all Sinatra, Grape and Rails use Rack as a common interface.</p>
+
+<h2 id="what-s-rack-and-how-does-it-work">What&rsquo;s Rack and how does it work</h2>
+
+<p>According to <a href="http://en.wikipedia.org/wiki/Rack_%28web_server_interface%29">Wikipedia</a>:</p>
+
+<blockquote>
+<p>Rack provides a minimal, modular and adaptable interface for developing Web
+applications in Ruby. By wrapping HTTP requests and responses in the simplest
+way possible, it unifies and distills the API for Web servers, Web frameworks,
+and software in between (the so-called middleware) into a single method call.</p>
+
+<p>A Rack application is a Ruby object (not a class) that responds to call. It
+takes exactly one argument, the environment and returns an Array of exactly
+three values: The status, the headers, and the body.</p>
+</blockquote>
+
+<p>Now that we got what it is and how it works (kind of), let&rsquo;s jump into the
+installation and some basic stuff.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Installation it&rsquo;s pretty normal:</p>
+
+<pre><code>$ gem install rack
+</code></pre>
+
+<p>With bundler</p>
+
+<pre><code># Gemfile
+gem 'rack', '~&gt; 1.5'
+</code></pre>
+
+<h2 id="hello-world-application">Hello World Application</h2>
+
+<p>There are two ways we can build a response for a request and return a &ldquo;Hello
+World!&ldquo;.</p>
+
+<p>We can use the &ldquo;normal&rdquo; way, that involves adding the response body inside the
+array:</p>
+
+<pre><code># app.rb
+require 'rack'
+
+app = Proc.new do |env|
+  ['200', {'Content-Type' =&gt; 'text/html'}, [&quot;Hello World!]]
+end
+
+Rack::Handler::WEBrick.run app
+</code></pre>
+
+<p>Or to use <code>Rack::Response</code>, a convenient interface to create a Rack response.
+You can read more about it <a href="http://www.rubydoc.info/github/rack/rack/Rack/Response">here</a>.</p>
+
+<pre><code># app.rb
+require 'rack'
+
+app = Proc.new do |env|
+  res = Rack::Response.new
+  res.write(&quot;Hello World!&quot;)
+  res.finish
+end
+
+Rack::Handler::WEBrick.run app
+</code></pre>
+
+<p>To run any of these applications, type:</p>
+
+<pre><code>$ ruby app.rb
+</code></pre>
+
+<p>And test the response:</p>
+
+<pre><code>$ curl -X GET localhost:8080
+Hello World!
+</code></pre>
+
+<h2 id="redirect">Redirect</h2>
+
+<p>In the same way that we did the &ldquo;Hello World!&rdquo; response we can set the
+appropriate HTTP status code and header to redirect any response to a new page.</p>
+
+<pre><code>require 'rack'
+
+app = Proc.new do |env|
+  ['302', { 'Content-Type' =&gt; 'text/html', 'Location' =&gt; &quot;/redirected&quot; }, [&quot;302 you've redirected&quot;]]
+end
+
+Rack::Handler::WEBrick.run app
+</code></pre>
+
+<p>Likewise we can use the <code>Rack::Response</code> interface.</p>
+
+<pre><code>require 'rack'
+
+app = Proc.new do |env|
+  res = Rack::Response.new
+  res.redirect(&quot;/redirected&quot;)
+  res.write(&quot;302 you've redirected&quot;)
+  res.finish
+end
+
+Rack::Handler::WEBrick.run app
+</code></pre>
+
+<p>Run the application in the same way as before using <code>ruby app.rb</code></p>
+
+<pre><code>$ curl -i -X GET localhost:8080
+HTTP/1.1 302 Found
+Location: http://localhost:8080/redirected
+Content-Length: 21
+Server: WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+Date: Mon, 24 Nov 2014 03:28:35 GMT
+Connection: Keep-Alive
+
+302 you've redirected
+</code></pre>
+
+<p>One thing to keep in mind is that there is no other route/endpoint, therefore
+we&rsquo;ll have a redirect loop.</p>
+
+<h2 id="erb-views">ERB views</h2>
+
+<p>Views are a really important part of the Web and adding ERB template views to a
+Rack application is pretty easy. We can use plain HTML views in the same way we
+will with ERB, but using a template system allow us to manipulate/show data in
+the views.</p>
+
+<p>Following the Rails convention we can create a view with <code>.html.erb</code> file
+extension in the root of our application directory and create a simple method
+that we&rsquo;ll call from inside the application Proc. Let&rsquo;s take a look:</p>
+
+<pre><code>def erb(template)
+  path = File.expand_path(&quot;#{template}&quot;)
+  ERB.new(File.read(path)).result(binding)
+end
+</code></pre>
+
+<p>This method will accept a template name, expand its path, parse that file and
+then return the resulting value as a plain HTML file.</p>
+
+<p>Let&rsquo;s try this all together:</p>
+
+<p>Create an <code>index.html.erb</code> file in the root of the project</p>
+
+<pre><code>&lt;h1&gt;Hello World &lt;%= @var %&gt;!&lt;/h1&gt;
+</code></pre>
+
+<p>Now add the <code>erb</code> method to the current <code>app.rb</code></p>
+
+<pre><code>require 'rack'
+require 'erb'
+
+def erb(template)
+  path = File.expand_path(&quot;#{template}&quot;)
+  ERB.new(File.read(path)).result(binding)
+end
+
+app = Proc.new do |env|
+  @var = &quot;Alberto&quot;
+  ['200', {'Content-Type' =&gt; 'text/html'}, [erb(&quot;index.html.erb&quot;)]]
+end
+
+Rack::Handler::WEBrick.run app
+</code></pre>
+
+<p>Run the <code>app.rb</code> and you&rsquo;ll see:</p>
+
+<pre><code>$ curl -X GET localhost:8080
+&lt;h1&gt;Hello World Alberto!&lt;/h1&gt;
+</code></pre>
+
+<p>Now let&rsquo;s do a simple <em>Hello Name</em> by catching the path URL, use it as a
+&ldquo;parameter&rdquo; and print its value inside the template.</p>
+
+<p>Using the same <code>index.html.erb</code> as before we are going to read the request path
+with some <code>Rack::Request</code> help and append the name of that path in the template
+as it was the name of the person. You can read more about Rack::Request
+<a href="http://www.rubydoc.info/github/rack/rack/Rack/Request">here</a>.</p>
+
+<pre><code>require 'rack'
+require 'erb'
+
+def erb(template)
+  path = File.expand_path(&quot;#{template}&quot;)
+  ERB.new(File.read(path)).result(binding)
+end
+
+app = Proc.new do |env|
+  req = Rack::Request.new(env)
+  @var = req.path.tr(&quot;/&quot;, &quot;&quot;) # removing the route slash
+  ['200', {'Content-Type' =&gt; 'text/html'}, [erb(&quot;index.html.erb&quot;)]]
+end
+
+Rack::Handler::WEBrick.run app
+</code></pre>
+
+<p>Run the <code>app.rb</code>:</p>
+
+<pre><code>$ curl -X GET localhost:8080/Alberto
+&lt;h1&gt;Hello World Alberto!&lt;/h1&gt;
+
+$ curl -X GET localhost:8080/John
+&lt;h1&gt;Hello World John!&lt;/h1&gt;
+</code></pre>
+
+<h2 id="rackup-the-application">Rackup the application</h2>
+
+<p>According to Rack&rsquo;s GitHub <a href="https://github.com/rack/rack#rackup">README file</a> Rackup is:</p>
+
+<blockquote>
+<p>rackup is a useful tool for running Rack applications, which uses the
+Rack::Builder DSL to configure middleware and build up applications easily.</p>
+
+<p>rackup automatically figures out the environment it is run in, and runs your
+application as FastCGI, CGI, or standalone with Mongrel or WEBrick—all from
+the same configuration.</p>
+</blockquote>
+
+<p>To rackup the application we need need to create a file with <code>.ru</code> file
+extension, then drop our simple application inside it and use the <code>rackup</code>
+command line tool to start it.</p>
+
+<p>Let&rsquo;s start creating a <code>config.ru</code> file, adding the application contents,
+removing the <code>Rack::Handler</code> and change the <code>do end</code> syntax to curly braces.</p>
+
+<pre><code>require 'rack'
+require 'erb'
+
+def erb(template)
+  path = File.expand_path(&quot;#{template}&quot;)
+  ERB.new(File.read(path)).result(binding)
+end
+
+run Proc.new { |env|
+  req = Rack::Request.new(env)
+  @var = req.path.tr(&quot;/&quot;, &quot;&quot;) # removing the route slash
+  ['200', {'Content-Type' =&gt; 'text/html'}, [erb(&quot;index.html.erb&quot;)]]
+}
+</code></pre>
+
+<p>Start the application using the rackup command:</p>
+
+<pre><code>$ rackup
+</code></pre>
+
+<p>The application should run and behave exactly the same as it did before.</p>
+
+<p>There are many options to <code>rackup</code> command that you can check with the <code>-h</code>
+option. e.g we can change the port where our application listens and the server
+to <a href="http://puma.io/">puma</a> by doing:</p>
+
+<pre><code>$ rackup -s puma -p 4000
+Puma 2.9.1 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://0.0.0.0:4000
+</code></pre>
+
+<p>I hope this very basic post on Rack helps&hellip; Thanks for reading!</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/rack-basics/" data-text="Rack basics" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

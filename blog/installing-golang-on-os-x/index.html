@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Installing Golang on OS X using Homebrew and a single GOPATH">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Installing Golang on OS X">
+    <meta name="twitter:description" content="Installing Golang on OS X using Homebrew and a single GOPATH">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Installing Golang on OS X &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Installing Golang on OS X</h1>
+    <div class="date">
+      <p>August 24, 2014</p>
+    </div> 
+    
+
+<blockquote>
+<p><strong>tl;dr</strong> this are my notes for installing Go (Golang) on OS X using hombrew,
+adding command completions on ZSH, a single GOPATH and all around clean install.</p>
+</blockquote>
+
+<p>Today we&rsquo;ll install the Go programming language and dependencies using OS X
+<a href="http://brew.sh/">Homebrew</a>. Keep in mind that this is an specific OS X installation. If
+you need to install Go on Ubuntu you can follow <a href="https://code.google.com/p/go-wiki/wiki/Ubuntu">this guide</a>, after
+that you can just go on with this tutorial.</p>
+
+<h2 id="installing-go">Installing Go</h2>
+
+<p>Our first and only step in the Homebrew installation department will be
+installing Mercurial <a href="http://mercurial.selenic.com/">(hg)</a> version control along with go.</p>
+
+<blockquote>
+<p>Mercurial is not a Go dependency within Homebrew, but, there are some specific
+packages/tools like <code>go get</code> that use it, so keep that in mind.</p>
+</blockquote>
+
+<pre><code>$ brew install hg go
+</code></pre>
+
+<p>This will install hg and Go with the <code>--cross-compile-common</code> flag. The cross
+compile common flag will build the language with cross-compilers and runtime
+support for darwin, linux and windows. If you want cross-compilers and runtime
+support for all Go supported platforms append <code>--cross-compile-all</code> flag to the
+installation command.</p>
+
+<p>You can check the existing flags using <code>brew info go</code>.</p>
+
+<h2 id="setting-the-gopath">Setting the GOPATH</h2>
+
+<p>For the go path, I prefer to use a unique/single one for all my projects and I
+like to have all packages within the <code>~/go</code> directory. I&rsquo;ll have to admit that
+I haven&rsquo;t done anything complex in Go that deserves more than a single GOPATH;
+maybe I&rsquo;ll have to bite my tongue later on, but, you know&hellip; It&rsquo;s my current
+opinion. If you feel like a single GOPATH is not good for you it&rsquo;s OK too.</p>
+
+<p>I&rsquo;ll recommend you read this <a href="http://arslan.io/ten-useful-techniques-in-go">article</a> that explains why it&rsquo;s a good
+idea to have a single GOPATH and when it&rsquo;s not.</p>
+
+<p>Enough talking, lets create our GOPATH directory and export to the environment:</p>
+
+<pre><code>$ mkdir ~/go
+$ export GOPATH=$HOME/go
+$ export PATH=&quot;$GOPATH/bin:$PATH&quot;
+$ export PATH=&quot;$PATH:/usr/local/opt/go/libexec/bin&quot;
+</code></pre>
+
+<p>You can use any other directory for the GOPATH, but I found this is a common
+one within the community, so lets stick with this &ldquo;convention&rdquo;.</p>
+
+<p>We are exporting the <code>GOPATH</code>, <code>$GOPATH/bin</code> and
+<code>/usr/local/opt/go/libexec/bin</code> directory to the <code>$PATH</code> to add any existing Go
+binaries and generated binaries automatically to our <code>$PATH</code>.</p>
+
+<h2 id="set-completions-zsh">Set completions ZSH</h2>
+
+<blockquote>
+<p>As of Go 1.4, Google Removed the completions files for zsh and bash due to the
+lack of maintenance. The following will no longer work.</p>
+</blockquote>
+
+<p>When installing Go with Homebrew all ZSH completions are thrown to the
+<code>/usr/local/share/zsh/site-functions</code> directory. If we have ZSH completions
+configured to grab <a href="https://github.com/albertogg/dotfiles/blob/master/zsh/zshrc.symlink#L23-31">completion.zsh</a> files, we can just create a
+new <code>completion.zsh</code> file for Go and add this snippet:</p>
+
+<pre><code>completion=&quot;$(brew --prefix)/share/zsh/site-functions/go&quot;
+
+if test -f $completion
+then
+  source &lt;(cat $completion)
+fi
+</code></pre>
+
+<p>After restarting or reloading your shell session you&rsquo;ll be able to <code>tab</code>
+complete the different Go CLI commands.</p>
+
+<blockquote>
+<p>If you are a Bash user, there&rsquo;s a Homebrew package that&rsquo;s called
+<code>bash-completion</code> that will easily enable this functionality. You can check
+this comment on <a href="http://stackoverflow.com/a/14970926">stackoverflow</a> that shows how to install and configure
+the package.</p>
+</blockquote>
+
+<h2 id="if-using-vim">If using Vim</h2>
+
+<p>If you are using Vim as your text editor I blindly recommend <a href="http://stackoverflow.com/a/14970926">vim-go</a>
+from <a href="http://stackoverflow.com/a/14970926">fatih</a> it&rsquo;s a fantastic plugin, really really complete and well
+crafted, give it a <em>Go</em>, you&rsquo;ll not regret it.</p>
+
+<p>These are two resources that will shows you how to set Vim for Go development.
+<a href="https://gist.github.com/cridenour/74e7635275331d5afa6b">Setting up Vim as your Go IDE</a>, and <a href="http://obahua.com/setup-vim-for-go-development/">Setup VIM for Go development</a></p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/installing-golang-on-os-x/" data-text="Installing Golang on OS X" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

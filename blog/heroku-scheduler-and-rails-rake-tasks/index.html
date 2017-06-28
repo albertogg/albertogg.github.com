@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="Using the heroku scheduler with Rails and Rake to keep our dyno awake; this will also work for any custom short periodical task">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Heroku scheduler and Rails rake tasks">
+    <meta name="twitter:description" content="Using the heroku scheduler with Rails and Rake to keep our dyno awake; this will also work for any custom short periodical task">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>Heroku scheduler and Rails rake tasks &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Heroku scheduler and Rails rake tasks</h1>
+    <div class="date">
+      <p>March 7, 2014</p>
+    </div> 
+    
+
+<blockquote>
+<p><strong>tl;dr</strong> we are using the heroku scheduler with Rails and Rake to keep our
+dyno awake; this will also work for any custom short periodical task.</p>
+</blockquote>
+
+<h2 id="heroku-scheduler">Heroku scheduler</h2>
+
+<p>The Heroku scheduler is a &ldquo;free&rdquo; application add-on that helps you run short
+tasks every 10, 60 or 3600 minutes. You can use it as much as you want per
+month, but <em>AFAIK</em> it uses minutes from your dynos. That said, be careful if you
+are on a tight budget.</p>
+
+<p>For our use case this will work flawlessly given it&rsquo;s not a key aspect of our
+application and it&rsquo;s mostly for development use.</p>
+
+<h3 id="adding-the-scheduler">Adding the scheduler</h3>
+
+<p>There are 2 ways to apply this add-on to your application; from the <a href="https://addons.heroku.com/scheduler">web
+interface</a>
+or the CLI.</p>
+
+<blockquote>
+<p>To use the CLI you must have the <a href="https://toolbelt.heroku.com/">heroku
+toolbelt</a> installed.</p>
+</blockquote>
+
+<pre><code>$ heroku addons:add scheduler
+</code></pre>
+
+<h3 id="ping-rake">ping.rake</h3>
+
+<p>It&rsquo;s time to create our rake task in Rails. First step is to create a file
+within the <code>lib/tasks</code> directory of our Rails application.</p>
+
+<pre><code>$ touch lib/tasks/ping.rake
+</code></pre>
+
+<p>Then add this code:</p>
+
+<pre><code>require 'net/http'
+
+namespace :ping do
+  desc &quot;Ping our heroku dyno every 10, 60 or 3600 min&quot;
+  task :start do
+    puts &quot;Making the attempt to ping the dyno&quot;
+
+    if ENV['URL']
+      puts &quot;Sending ping&quot;
+
+      uri = URI(ENV['URL'])
+      Net::HTTP.get_response(uri)
+
+      puts &quot;success...&quot;
+    end
+  end
+end
+</code></pre>
+
+<h3 id="environment-variables">Environment variables</h3>
+
+<p>Now you have your rake task ready to use, but&hellip; we are using environment
+variables in our task and they must be exported to heroku and locally (testing):</p>
+
+<pre><code>$ heroku config:set URL=http://xxx.herokuapp.com/ #replace xxx with your heroku appmane
+</code></pre>
+
+<blockquote>
+<p>to test the task locally you can either use <code>export
+URL=http://xxx.herokuapp.com/</code> or the <a href="https://github.com/bkeepers/dotenv">dotenv
+gem</a> and run <code>rake ping:start</code>.</p>
+</blockquote>
+
+<h3 id="testing-the-task">Testing the task</h3>
+
+<p>To test if task is working as expected within the heroku environment you have to
+commit this code and deploy your application; after that you will be able to use
+<code>heroku run</code> to test the task:</p>
+
+<pre><code>$ heroku run rake ping:start
+</code></pre>
+
+<p>If the output from the command was successful you just need to add the task to
+the scheduler and that&rsquo;s it.</p>
+
+<h3 id="adding-the-task-to-the-scheduler">Adding the task to the scheduler</h3>
+
+<p>$ heroku addons:open scheduler</p>
+
+<p>This will open the website in which you will need to add the task to be run
+(e.g. <code>rake ping:start</code>), dyno size (1x) and frequency (60minutes).</p>
+
+<hr />
+
+<p>You are all set, if you want to check if it&rsquo;s been run just check the heroku log
+in a couple of hours <code>heroku logs --ps scheduler.1</code>.</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/" data-text="Heroku scheduler and Rails rake tasks" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

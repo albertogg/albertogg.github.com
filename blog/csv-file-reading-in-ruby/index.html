@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
+    <meta name="description" content="CSV file reading in Ruby using the read and foreach methods. We will also seed a Rails database with CSV
+">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="CSV file reading in Ruby">
+    <meta name="twitter:description" content="CSV file reading in Ruby using the read and foreach methods. We will also seed a Rails database with CSV
+">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <meta name="twitter:domain" content="albertogrespan.com">
+    <title>CSV file reading in Ruby &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+        <a href="http://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+        <li><a href="http://albertogrespan.comabout">About</a></li>
+        <li><a href="http://albertogrespan.comresume">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>CSV file reading in Ruby</h1>
+    <div class="date">
+      <p>October 26, 2014</p>
+    </div> 
+    
+
+<p>In the recent days I&rsquo;ve started using CSV files more and more for data
+manipulation, specifically for database seeding. CSV is a super easy to use and
+it doesn&rsquo;t require a complex text editor&hellip; Google Spreadsheets or VIM will work
+great.</p>
+
+<p>This post I will show how to read data from <code>.csv</code> file and dumping it in a Ruby
+Array of Hashes. It will also show how to seed a Rails database.</p>
+
+<h2 id="reading-a-csv-file">Reading a CSV file</h2>
+
+<p>Ruby provides CSV support in the Standard Library and it will help us do most of
+the job very quickly; although there are various ways to achieve the same
+results we will be focusing in just 2 of the possible ways, read the file
+entirely with the <code>read</code> method or line by line with the <code>foreach</code> method.</p>
+
+<h3 id="csv-file">CSV File</h3>
+
+<p>The CSV file we are going to work with is this one:</p>
+
+<pre><code>Name,Lastname,Email,Birth Date,Hometown
+Alberto,Grespan,ag@gmail.com,30/11/1986,Mérida
+Pedro,Perez,pp@gmail.com,4/4/1984,Caracas
+John,Doe,jd@gmail.com,,Kansas
+José,González,jg@gmail.com,16/10/1984,Madrid
+Andrés,Márquez,,18/3/1987,Caracas
+</code></pre>
+
+<p>As you see from the data above the first line is the Header line, which gives
+meaning to the rest of the data and the rest of the file is just the plain data.
+There are some missing values, e.g. we don&rsquo;t have the birth date of John Doe or
+the email of Andrés Márquez.</p>
+
+<p>Our goal here is to have an Array of hashes after reading the CSV file. It must
+contains all headers as keys for their values e.g:</p>
+
+<pre><code>[
+  {:name=&gt;&quot;Alberto&quot;, :lastname=&gt;&quot;Grespan&quot;, :email=&gt;&quot;ag@gmail.com&quot;, :birth_date=&gt;&quot;30/11/1986&quot;, :hometown=&gt;&quot;Mérida&quot;},
+  {:name=&gt;&quot;Pedro&quot;, :lastname=&gt;&quot;Perez&quot;, :email=&gt;&quot;pp@gmail.com&quot;, :birth_date=&gt;&quot;4/4/1984&quot;, :hometown=&gt;&quot;Caracas&quot;},
+  {:name=&gt;&quot;John&quot;, :lastname=&gt;&quot;Doe&quot;, :email=&gt;&quot;jd@gmail.com&quot;, :birth_date=&gt;nil, :hometown=&gt;&quot;Kansas&quot;},
+  {:name=&gt;&quot;José&quot;, :lastname=&gt;&quot;González&quot;, :email=&gt;&quot;jg@gmail.com&quot;, :birth_date=&gt;&quot;16/10/1984&quot;, :hometown=&gt;&quot;Madrid&quot;},
+  {:name=&gt;&quot;Andrés&quot;, :lastname=&gt;&quot;Márquez&quot;, :email=&gt;nil, :birth_date=&gt;&quot;18/3/1987&quot;, :hometown=&gt;&quot;Caracas&quot;}
+]
+</code></pre>
+
+<h3 id="reading-all-the-file-at-once">Reading all the file at once</h3>
+
+<p>How do we go from the CSV file to an Array of hashes?</p>
+
+<p>Well pretty easily, we just need to open <em>irb</em>, require the CSV library from the
+Standard Library and use the <code>read</code> method passing it the right options and
+that&rsquo;s it!</p>
+
+<pre><code>require 'csv'
+
+&gt; data = CSV.read(&quot;csv_data.csv&quot;, { encoding: &quot;UTF-8&quot;, headers: true, header_converters: :symbol, converters: :all})
+
+&gt; hashed_data = data.map { |d| d.to_hash }
+=&gt; [
+{:name=&gt;&quot;Alberto&quot;, :lastname=&gt;&quot;Grespan&quot;, :email=&gt;&quot;ag@gmail.com&quot;, :birth_date=&gt;&quot;30/11/1986&quot;, :hometown=&gt;&quot;Mérida&quot;},
+{:name=&gt;&quot;Pedro&quot;, :lastname=&gt;&quot;Perez&quot;, :email=&gt;&quot;pp@gmail.com&quot;, :birth_date=&gt;&quot;4/4/1984&quot;, :hometown=&gt;&quot;Caracas&quot;},
+{:name=&gt;&quot;John&quot;, :lastname=&gt;&quot;Doe&quot;, :email=&gt;&quot;jd@gmail.com&quot;, :birth_date=&gt;nil, :hometown=&gt;&quot;Kansas&quot;},
+{:name=&gt;&quot;José&quot;, :lastname=&gt;&quot;González&quot;, :email=&gt;&quot;jg@gmail.com&quot;, :birth_date=&gt;&quot;16/10/1984&quot;, :hometown=&gt;&quot;Madrid&quot;},
+{:name=&gt;&quot;Andrés&quot;, :lastname=&gt;&quot;Márquez&quot;, :email=&gt;nil, :birth_date=&gt;&quot;18/3/1987&quot;, :hometown=&gt;&quot;Caracas&quot;}
+]
+</code></pre>
+
+<p>We are passing a couple of options to the <code>read</code> method:</p>
+
+<ul>
+<li><code>encoding</code> we want our data to be in UTF-8</li>
+<li><code>headers</code> we want a key, value hash with the headers</li>
+<li><code>header_converters</code> we want headers to be symbols</li>
+<li><code>converters</code> we want all of our data in the right format, integers, strings
+etc&hellip;</li>
+</ul>
+
+<p>As we first converted the CSV file into an Array of <code>CSV::Row's</code> we need to
+iterate through and convert each line to a hash, saving it in a new
+<code>hashed_data</code> variable that will achieve our desired format.</p>
+
+<p>How about doing this but line by line?</p>
+
+<h3 id="reading-line-by-line">Reading line by line</h3>
+
+<p>In a similar way as before, we are going to read the file, only that this time
+using the <code>foreach</code> method.</p>
+
+<pre><code>require 'csv'
+
+data = Array.new
+
+&gt; CSV.foreach(&quot;csv_data.csv&quot;, { encoding: &quot;UTF-8&quot;, headers: true, header_converters: :symbol, converters: :all}) do |row|
+  data &lt;&lt; row.to_hash
+end
+
+&gt; data
+=&gt; [
+{:name=&gt;&quot;Alberto&quot;, :lastname=&gt;&quot;Grespan&quot;, :email=&gt;&quot;ag@gmail.com&quot;, :birth_date=&gt;&quot;30/11/1986&quot;, :hometown=&gt;&quot;Mérida&quot;},
+{:name=&gt;&quot;Pedro&quot;, :lastname=&gt;&quot;Perez&quot;, :email=&gt;&quot;pp@gmail.com&quot;, :birth_date=&gt;&quot;4/4/1984&quot;, :hometown=&gt;&quot;Caracas&quot;},
+{:name=&gt;&quot;John&quot;, :lastname=&gt;&quot;Doe&quot;, :email=&gt;&quot;jd@gmail.com&quot;, :birth_date=&gt;nil, :hometown=&gt;&quot;Kansas&quot;},
+{:name=&gt;&quot;José&quot;, :lastname=&gt;&quot;González&quot;, :email=&gt;&quot;jg@gmail.com&quot;, :birth_date=&gt;&quot;16/10/1984&quot;, :hometown=&gt;&quot;Madrid&quot;},
+{:name=&gt;&quot;Andrés&quot;, :lastname=&gt;&quot;Márquez&quot;, :email=&gt;nil, :birth_date=&gt;&quot;18/3/1987&quot;, :hometown=&gt;&quot;Caracas&quot;}
+]
+</code></pre>
+
+<p>Now that we now how to read and print the CSV file in Ruby we can use this to
+seed a database, for example within Rails.</p>
+
+<h2 id="seeding-a-rails-database">Seeding a Rails database</h2>
+
+<p>Seeding the database through a CSV file is in no way any different from what
+we&rsquo;ve been doing. For this example let&rsquo;s try seeding a Users table that has the
+same structure as the above CSV file (name, lastname, email, birth_date and
+hometown).</p>
+
+<p>Let&rsquo;s open the <code>db/seeds.rb</code> file and use the read line by line <code>foreach</code> method
+to accomplish our seeding task.</p>
+
+<pre><code># seeds.rb
+require 'csv'
+
+CSV.foreach(&quot;db/csv/csv_data.csv&quot;, { encoding: &quot;UTF-8&quot;, headers: true, header_converters: :symbol, converters: :all}) do |row|
+  User.create(row.to_hash)
+end
+</code></pre>
+
+<p>Let&rsquo;s run the seeding:</p>
+
+<pre><code>$ bin/rake db:seed
+</code></pre>
+
+<p>And if there are no errors we can go and check in the Rails console to check if
+all the users in the CSV file where inserted correctly:</p>
+
+<pre><code>$ bin/rails c
+Loading development environment (Rails 4.1.5)
+irb(main):001:0&gt; users = User.all
+  User Load (1.4ms)  SELECT &quot;users&quot;.* FROM &quot;users&quot;
+=&gt; #&lt;ActiveRecord::Relation [
+#&lt;User id: 1, name: &quot;Alberto&quot;, lastname: &quot;Grespan&quot;, email: &quot;ag@gmail.com&quot;, birth_date: &quot;1986-11-30&quot;, hometown: &quot;Mérida&quot;, created_at: &quot;2014-10-27 00:54:44&quot;, updated_at: &quot;2014-10-27 00:54:44&quot;&gt;,
+#&lt;User id: 2, name: &quot;Pedro&quot;, lastname: &quot;Perez&quot;, email: &quot;pp@gmail.com&quot;, birth_date: &quot;1984-04-04&quot;, hometown: &quot;Caracas&quot;, created_at: &quot;2014-10-27 00:54:44&quot;, updated_at: &quot;2014-10-27 00:54:44&quot;&gt;,
+#&lt;User id: 3, name: &quot;John&quot;, lastname: &quot;Doe&quot;, email: &quot;jd@gmail.com&quot;, birth_date: nil, hometown: &quot;Kansas&quot;, created_at: &quot;2014-10-27 00:54:44&quot;, updated_at: &quot;2014-10-27 00:54:44&quot;&gt;,
+#&lt;User id: 4, name: &quot;José&quot;, lastname: &quot;González&quot;, email: &quot;jg@gmail.com&quot;, birth_date: &quot;1984-10-16&quot;, hometown: &quot;Madrid&quot;, created_at: &quot;2014-10-27 00:54:44&quot;, updated_at: &quot;2014-10-27 00:54:44&quot;&gt;,
+#&lt;User id: 5, name: &quot;Andrés&quot;, lastname: &quot;Márquez&quot;, email: nil, birth_date: &quot;1987-03-18&quot;, hometown: &quot;Caracas&quot;, created_at: &quot;2014-10-27 00:54:44&quot;, updated_at: &quot;2014-10-27 00:54:44&quot;&gt;
+]&gt;
+</code></pre>
+
+<p>Pretty cool, eh?</p>
+
+<hr />
+
+<p>I believe this is a great way to seed a database for testing and development.
+Using a CSV file can help us add, remove or modify data quickly, clean and easy.</p>
+
+<p>Keep in mind that you can also use the <code>read</code> method for seeding the database
+and that will be fine for small amount of data, but if it&rsquo;s lots and lots of
+data it will probably be a slower process that using <code>foreach</code> because it&rsquo;s
+keeping all in memory and then reading and inserting it into the db instead of
+doing it all at once.</p>
+
+<p>Thanks for reading!</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/csv-file-reading-in-ruby/" data-text="CSV file reading in Ruby" data-via="albertogg">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="//creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2015 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29129831-1', 'albertogrespan.com');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
