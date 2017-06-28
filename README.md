@@ -1,29 +1,32 @@
-# albertogg.github.com
+# Blog
 
-Hi. This is my Jekyll personal site, it's hosted using [github pages][pages].
-Feel free to ask me any questions.
+My personal blog, hosted on [github pages][pages].
+
+## Installation
+
+This blog is generated using Hugo and Wellington.
+
+Installing on macOS:
+
+    brew install hugo wellington
 
 ## Start the server
 
-I use the foreman gem to do this. Remember to `bundle` before running.
+Start the Hugo server:
 
-```sh
-$ foreman start
-```
+    hugo server
 
-## Writing a new draft
+To start Wellington:
 
-To create or publish a draft use the rake tasks that accept arguments to do so:
-
-    bundle exec rake draft:new\[draft_name\]
-    bundle exec rake draft:publish\[draft_name, draft_date (optional)\]
+    wt watch -b static/css -p assets/scss -s compressed assets/scss/style.scss
 
 ## License
 
 This project runs with two licenses one for the content and one for the code.
 
 - All the code is under the [MIT][mit] license.
-- All the blog posts are under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.][cc] license.
+- All the blog posts are under [Creative Commons
+  Attribution-NonCommercial-ShareAlike 4.0 International License.][cc] license.
 
 [pages]: http://pages.github.com/
 [mit]: http://choosealicense.com/licenses/mit/
