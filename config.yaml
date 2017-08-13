@@ -3,6 +3,10 @@ disablePathToLower: true
 languageCode: en-us
 title: Blog
 
+author:
+  name: Alberto Grespan
+  email: alberto@albertogrespan.com
+
 params:
   author: Alberto Grespan
   analytics:
