@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+CONTENT_DIR=content/blog
+
+function check_hugo {
+    if ! command -v hugo >/dev/null; then
+        echo "Hugo not found, exiting..."
+        exit 1
+    fi
+}
+
+function check_git {
+    if ! command -v git >/dev/null; then
+        echo "Git not found, exiting..."
+        exit 1
+    fi
+}
+
+function undraft {
+    check_hugo
+
+    echo "Undrafting $CONTENT_DIR/$@..."
+    hugo undraft $CONTENT_DIR/$@
+    mv $CONTENT_DIR/$@ $CONTENT_DIR/$(date +"%F")-$@
+    echo "Undraft complete..."
+}
+
+function publish {
+    check_hugo
+    check_vim
+
+    echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
+
+    # Build the project.
+    hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+
+    # Go To Public folder
+    cd public
+    # Add changes to git.
+    git add .
+
+    # Commit changes.
+    msg="rebuilding site $(date)"
+    if [ $# -eq 1 ]; then
+        msg="$1"
+    fi
+    git commit -m "$msg"
+
+    # Push source and build repos.
+    git push origin master
+
+    # Come Back up to the Project Root
+    cd ..
+}
+
+case "$1" in
+  undraft)
+    undraft $2
+    ;;
+
+  publish)
+    publish $2
+    ;;
+  *)
+    echo $"Usage: $0 {undraft post-name}"
+    exit 1
+esac
