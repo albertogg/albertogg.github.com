@@ -1,12 +1,12 @@
 ---
 date: 2017-08-13T10:00:11-04:00
 title: "Hello, Hugo"
-slug: /hello-hugo
+slug: /hello-hugo/
 description: |-
   Overview of the process and tools used to migrate this site from Jekyll to
   Hugo.
 categories:
-  - Dev
+  - Development
 tags:
   - Go
   - Ruby
