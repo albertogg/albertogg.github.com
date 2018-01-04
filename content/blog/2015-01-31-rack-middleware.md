@@ -1,11 +1,17 @@
 ---
-categories:
-- blog
 date: 2015-01-31T00:00:00Z
-description: Introduction on how to build a Rack middleware
-tag: blog
 title: Rack middleware
 slug: /rack-middleware/
+description: |-
+  An introduction on Ruby's Rack Middleware and how to build and mount couple of
+  them.
+categories:
+  - Development
+tags:
+  - Ruby
+  - HTTP
+  - Rack
+  - cURL
 ---
 
 > tl;dr we are creating two Rack middlewares, one that adds a custom header to

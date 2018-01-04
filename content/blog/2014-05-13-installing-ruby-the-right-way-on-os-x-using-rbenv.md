@@ -1,14 +1,18 @@
 ---
-categories:
-- blog
 date: 2014-05-13T00:00:00Z
-description: Installing Ruby the right way on OS X using rbenv and some interesting
-  plugins. We will also use Homebrew to make this task even easier.
-redirect_from:
-- /blog/installing-ruby-the-right-way-in-os-x-using-rbenv/
-tag: blog
 title: Installing Ruby the right way on OS X using rbenv
 slug: /installing-ruby-the-right-way-on-os-x-using-rbenv/
+description: |-
+  Installing Ruby the right way on OS X using rbenv and some interesting
+  plugins. We will also use Homebrew to make this task even easier.
+categories:
+  - Development
+tags:
+  - Ruby
+  - CLI
+  - Homebrew
+  - rbenv
+  - Installing
 ---
 
 > **tl;dr** there are millions of posts about installing Ruby using rbenv in OS X.

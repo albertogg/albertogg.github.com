@@ -1,11 +1,14 @@
 ---
-categories:
-- blog
 date: 2015-03-30T00:00:00Z
-description: My most used git aliases and a brief explanation of what do they do
-tag: blog
 title: My most used git aliases
 slug: /my-most-used-git-aliases/
+description: |-
+  My most used git aliases and a brief explanation of what do they do.
+categories:
+  - Development
+tags:
+  - Git
+  - CLI
 ---
 
 > tl;dr short description of my most used git aliases.

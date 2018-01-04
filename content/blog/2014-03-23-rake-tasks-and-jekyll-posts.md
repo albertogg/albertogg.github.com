@@ -1,12 +1,16 @@
 ---
-categories:
-- blog
 date: 2014-03-23T00:00:00Z
-description: Creating posts in Jekyll can become painful sometimes, stop repeating
-  yourself and use a custom Rake Task. Thanks Jim.
-tag: blog
 title: Rake tasks & Jekyll posts
 slug: /rake-tasks-and-jekyll-posts/
+description: |-
+  Creating posts in Jekyll can become painful sometimes, stop repeating yourself
+  and use a custom Rake Task. Thanks Jim.
+categories:
+  - Development
+tags:
+  - Ruby
+  - Rake
+  - Jekyll
 ---
 
 > **tl;dr** use Rake tasks to create drafts/posts in Jekyll.

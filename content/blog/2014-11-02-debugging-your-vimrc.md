@@ -1,11 +1,13 @@
 ---
-categories:
-- blog
 date: 2014-11-02T00:00:00Z
-description: Short guide on how to debug your vimrc with Bisectly and finish
-tag: blog
 title: Debugging your vimrc
 slug: /debugging-your-vimrc/
+description: |-
+  Short guide on how to debug your vimrc with Bisectly and finish.
+categories:
+  - Development
+tags:
+  - Vim
 ---
 
 > **tl;dr** this is a short guide on how to debug your `.vimrc` and hopefully it

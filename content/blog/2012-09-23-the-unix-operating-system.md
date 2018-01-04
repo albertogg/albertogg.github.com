@@ -1,11 +1,14 @@
 ---
-categories:
-- blog
 date: 2012-09-23T00:00:00Z
-description: Video of the Unix System in 1982, recorded on the Bell Labs
-tag: blog
 title: The UNIX Operating System
 slug: /the-unix-operating-system/
+description: |-
+  Video of the Unix System in 1982, recorded on the Bell Labs.
+categories:
+  - History
+tags:
+  - Unix
+  - Video
 ---
 
 ## "The UNIX System: Making Computers More Productive"

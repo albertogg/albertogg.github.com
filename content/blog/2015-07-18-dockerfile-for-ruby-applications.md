@@ -1,12 +1,16 @@
 ---
-categories:
-- blog
 date: 2015-07-18T00:00:00Z
-description: |
-  Create a Dockerfile for Ruby applications or use this one like a base for your applications. It's based on Ubuntu 14.04
-tag: blog
 title: Dockerfile for Ruby applications
 slug: /dockerfile-for-ruby-applications/
+description: |-
+  Create a Dockerfile for Ruby applications or use this one like a base for your
+  applications. It's based on Ubuntu 14.04.
+categories:
+  - DevOps
+tags:
+  - Docker
+  - Ruby
+  - Ubuntu
 ---
 
 There are different ways you can deploy your Ruby applications in a Docker

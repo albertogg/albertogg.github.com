@@ -1,14 +1,16 @@
 ---
-categories:
-- blog
 date: 2013-07-13T00:00:00Z
-description: |
-  Add a scrollTo Top with fixed button to your site using jQuery and Font Awesome
-redirect_from:
-- /wiki/scrollTo-Top-using-jQuery/
-tag: blog
 title: ScrollTo Top using jQuery and Font Awesome icon
 slug: /scrollTo-Top-using-jQuery/
+description: |-
+  Add a scrollTo Top with fixed button to your site using jQuery and Font
+  Awesome.
+categories:
+  - Development
+tags:
+  - JavaScript
+  - jQuery
+  - scroll
 ---
 
 Scrolling JavaScript:

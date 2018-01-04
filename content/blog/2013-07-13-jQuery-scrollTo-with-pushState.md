@@ -1,13 +1,15 @@
 ---
-categories:
-- blog
 date: 2013-07-13T00:00:00Z
-description: How to add scrollTo with pushState to your site using jQuery.
-redirect_from:
-- /wiki/jQuery-scrollTo-with-pushState/
-tag: blog
 title: jQuery scrollTo with pushState
 slug: /jQuery-scrollTo-with-pushState/
+description: |-
+  How to add scrollTo with pushState to your site using jQuery.
+categories:
+  - Development
+tags:
+  - JavaScript
+  - jQuery
+  - scroll
 ---
 
 pushState:

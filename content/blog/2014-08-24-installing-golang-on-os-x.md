@@ -1,11 +1,18 @@
 ---
-categories:
-- blog
 date: 2014-08-24T00:00:00Z
-description: Installing Golang on OS X using Homebrew and a single GOPATH
-tag: blog
-title: Installing Golang on OS X
+title: Installing Go on OS X
 slug: /installing-golang-on-os-x/
+description: |-
+  Installing Go (golang) on OS X using Homebrew and a single GOPATH.
+categories:
+  - Development
+tags:
+  - Go
+  - Homebrew
+  - OS X
+  - CLI
+  - Mercurial
+  - Installing
 ---
 
 > **tl;dr** this are my notes for installing Go (Golang) on OS X using hombrew,
@@ -19,7 +26,7 @@ that you can just go on with this tutorial.
 ## Installing Go
 
 Our first and only step in the Homebrew installation department will be
-installing Mercurial [(hg)][hg] version control along with go.
+installing Mercurial ([hg][hg]) version control along with go.
 
 > Mercurial is not a Go dependency within Homebrew, but, there are some specific
 > packages/tools like `go get` that use it, so keep that in mind.

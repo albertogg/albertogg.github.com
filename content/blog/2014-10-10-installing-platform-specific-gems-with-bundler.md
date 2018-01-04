@@ -1,11 +1,18 @@
 ---
-categories:
-- blog
 date: 2014-10-10T00:00:00Z
-description: Installing platform specific gems with Bundler
-tag: blog
 title: Installing platform specific gems with Bundler
 slug: /installing-platform-specific-gems-with-bundler/
+description: |-
+  You can install platform specific Ruby gems with Bundler.
+categories:
+  - Development
+tags:
+  - Bundler
+  - Ruby
+  - JRuby
+  - Linux
+  - Windows
+  - Installing
 ---
 
 Sometimes we'll need to install specific gems to make our project compatible in

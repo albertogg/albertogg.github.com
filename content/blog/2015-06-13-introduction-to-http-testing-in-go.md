@@ -1,12 +1,17 @@
 ---
-categories:
-- blog
 date: 2015-06-13T00:00:00Z
-description: |
-  Introduction to HTTP testing in Go/Golang. It's a very basic introduction with the key points you need to get started
-tag: blog
 title: Introduction to HTTP testing in Go
 slug: /introduction-to-http-testing-in-go/
+description: |-
+  Introduction to HTTP testing in Go. It's a very basic introduction with the
+  key points you need to get started.
+categories:
+  - Development
+tags:
+  - Go
+  - HTTP
+  - Testing
+  - cURL
 ---
 
 This post will be focused on a very basic introduction to HTTP testing in Go.

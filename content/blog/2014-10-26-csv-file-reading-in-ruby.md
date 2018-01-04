@@ -1,14 +1,15 @@
 ---
-categories:
-- blog
 date: 2014-10-26T00:00:00Z
-description: |
-  CSV file reading in Ruby using the read and foreach methods. We will also seed a Rails database with CSV
-redirect_from:
-- /blog/csv-file-manipulation-with-ruby/
-tag: blog
 title: CSV file reading in Ruby
 slug: /csv-file-reading-in-ruby/
+description: |-
+  CSV file reading in Ruby using the read and foreach methods. We will also seed
+  a Rails database with CSV.
+categories:
+  - Development
+tags:
+  - Ruby
+  - CSV
 ---
 
 In the recent days I've started using CSV files more and more for data
