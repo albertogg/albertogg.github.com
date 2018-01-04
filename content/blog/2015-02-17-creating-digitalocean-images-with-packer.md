@@ -1,12 +1,18 @@
 ---
-categories:
-- blog
 date: 2015-02-17T00:00:00Z
-description: Creating a reproducible and Docker provisioned Ubuntu 14.04 image with
-  Packer on DigitalOcean
-tag: blog
 title: Creating DigitalOcean images with Packer
 slug: /creating-digitalocean-images-with-packer/
+description: |-
+  Creating a reproducible and Docker provisioned Ubuntu 14.04 image with Packer
+  on DigitalOcean.
+categories:
+  - DevOps
+tags:
+  - Go
+  - Packer
+  - DigitalOcean
+  - Ubuntu
+  - homebrew
 ---
 
 > **tl;dr** create a simple DigitalOcean Ubuntu 14.04 image that uses shell a

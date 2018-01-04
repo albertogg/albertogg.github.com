@@ -25,3 +25,9 @@ params:
     github:
       url: https://github.com/albertogg
       handle: albertogg
+
+# Taxonomies activation
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  series: "series"

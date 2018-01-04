@@ -1,12 +1,16 @@
 ---
-categories:
-- blog
 date: 2014-11-08T00:00:00Z
-description: |
-  Fixing the Boot2docker error message that says that the client and the server don't have the same version
-tag: blog
 title: 'Error: client and server don''t have same version'
 slug: /error-client-and-server-don't-have-same-version/
+description: |-
+  Fixing the Boot2docker error message that says that the client and the server
+  don't have the same version.
+categories:
+  - Development
+tags:
+  - Docker
+  - Boot2docker
+  - CLI
 ---
 
 When using Docker through Boot2docker there is a possibility you've seen:

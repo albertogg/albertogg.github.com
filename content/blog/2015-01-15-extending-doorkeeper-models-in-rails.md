@@ -1,12 +1,15 @@
 ---
-categories:
-- blog
 date: 2015-01-15T00:00:00Z
-description: Extending Doorkeeper models in Ruby on Rails using class_eval. Associations,
-  validations, new functionality, etc...
-tag: blog
 title: Extending Doorkeeper models in Rails
 slug: /extending-doorkeeper-models-in-rails/
+description: |-
+  Extending Doorkeeper models in Ruby on Rails using class_eval. Associations,
+  validations, new functionality, etc...
+categories:
+  - Development
+tags:
+  - Ruby
+  - Doorkeeper
 ---
 
 > tl;dr use `class_eval` to extend Doorkeeper models functionality in runtime.

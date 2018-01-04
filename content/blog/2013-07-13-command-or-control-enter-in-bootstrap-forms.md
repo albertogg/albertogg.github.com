@@ -1,14 +1,16 @@
 ---
-categories:
-- blog
 date: 2013-07-13T00:00:00Z
-description: |
-  How to add command or control enter action to your forms using jQuey and twitter Boostrap
-redirect_from:
-- /wiki/command-or-control-enter-in-bootstrap-forms/
-tag: blog
 title: Command or control enter in bootstrap forms
 slug: /command-or-control-enter-in-bootstrap-forms/
+description: |-
+  How to add command or control enter action to your forms using jQuery and
+  Twitter Bootstrap.
+categories:
+  - Development
+tags:
+  - JavaScript
+  - jQuery
+  - Twitter Bootstrap
 ---
 
 Using command enter to submit:

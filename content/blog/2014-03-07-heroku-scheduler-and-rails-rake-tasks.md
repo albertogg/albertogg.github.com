@@ -1,12 +1,17 @@
 ---
-categories:
-- blog
 date: 2014-03-07T00:00:00Z
-description: Using the heroku scheduler with Rails and Rake to keep our dyno awake;
-  this will also work for any custom short periodical task
-tag: blog
 title: Heroku scheduler and Rails rake tasks
 slug: /heroku-scheduler-and-rails-rake-tasks/
+description: |-
+  Using the heroku scheduler with Rails and Rake to keep our dyno awake; this
+  will also work for any custom short periodical task.
+categories:
+  - Development
+tags:
+  - Ruby
+  - Rake
+  - Heroku
+  - CLI
 ---
 
 > **tl;dr** we are using the heroku scheduler with Rails and Rake to keep our

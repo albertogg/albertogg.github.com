@@ -1,22 +1,29 @@
 ---
-categories:
-- blog
 date: 2014-10-05T00:00:00Z
-description: Deploying a Jekyll site with Mina and rbenv
-tag: blog
 title: Deploying Jekyll with Mina and rbenv
 slug: /deploying-jekyll-with-mina-and-rbenv/
+description: |-
+  Deploying a Jekyll site served by NGINX or Apache using Mina and rbenv.
+categories:
+  - Development
+tags:
+  - Ruby
+  - Jekyll
+  - NGINX
+  - Apache
+  - Mina
+  - rbenv
 ---
 
 The purpose of this post is to show how to deploy a [Jekyll][jekyll] site using
-[Mina][mina] and it will not show how to serve the site with Nginx or Apache or
+[Mina][mina] and it will not show how to serve the site with NGINX or Apache or
 install any dependencies like Ruby or rbenv on the server.
 
 Even though we are not focusing in the things we mentioned above we'll need a
 running machine them installed:
 
 - Ruby managed from rbenv
-- Nginx or Apache
+- NGINX or Apache
 - If deploying from a private repo a new ssh keypair
 
 ## Installing Mina

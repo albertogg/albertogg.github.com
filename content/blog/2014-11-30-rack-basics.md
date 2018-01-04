@@ -1,12 +1,18 @@
 ---
-categories:
-- blog
 date: 2014-11-30T00:00:00Z
-description: A little summary of Ruby Rack Web server, installation, responses, redirects,
-  Rack::Response, Rack::Request, ERB views, rackup and more
-tag: blog
 title: Rack basics
 slug: /rack-basics/
+description: |-
+  A little summary of Ruby Rack Web server, installation, responses, redirects,
+  Rack::Response, Rack::Request, ERB views, rackup and more.
+categories:
+  - Development
+tags:
+  - Ruby
+  - Rack
+  - ERB
+  - DSL
+  - Puma
 ---
 
 If you like programming in Ruby it's plausible that you've used or heard about

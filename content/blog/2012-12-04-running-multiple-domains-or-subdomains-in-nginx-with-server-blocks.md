@@ -1,30 +1,34 @@
 ---
-categories:
-- blog
 date: 2012-12-04T00:00:00Z
-description: |
-  Run multiple websites in nginx using Server Blocks (Ubuntu tutorial)
-tag: blog
-title: |
-  Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
-slug: running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/
+title: |-
+  Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu
+slug: /running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/
+description: |-
+  Run multiple websites in NGINX using Server Blocks (Ubuntu tutorial).
+categories:
+  - DevOps
+tags:
+  - NGINX
+  - Vim
+  - Domains
+  - Subdomains
 ---
 
 Have you ever wonder; how can I have multiple domains or subdomains pointing to
 different projects but all of them are in just one server? well...
 
-This will be a very simple tutorial for doing that, with Nginx.
+This will be a very simple tutorial for doing that, with NGINX.
 
 ### tutorial tasks:
 
 1. Creating or pointing domains/subdomains to the server's IP address
-2. Setup nginx
+2. Setup NGINX
 3. Create a directory to keep the project
 4. Change folder permissions
 5. Create a simple html page to display
 6. Create a new Server Block with your domain or subdomain
 7. Setup and link the Server Block
-8. Restart nginx
+8. Restart NGINX
 
 ### 1. Creating or pointing domains/subdomains to the server's ip address
 
@@ -41,11 +45,11 @@ And add something like.
     127.0.0.1    example2.com
     127.0.0.1    my.example.com
 
-### 2. Setup nginx
+### 2. Setup NGINX
 
-Setup nginx in *Ubuntu* if you haven't.
+Setup NGINX in *Ubuntu* if you haven't.
 
-    $ sudo apt-get install nginx
+    $ sudo apt-get install NGINX
 
 ### 3. Create a directory to keep the project
 
@@ -95,7 +99,7 @@ notice if everything is working or not at the end of the tutorial.
 ### 6. Create a new Server Block with your domain or subdomain
 
 In a short explanation of how *server block* works, we can say; It's a file that
-contains a variable called `server_name` that is used by *nginx* to figure out
+contains a variable called `server_name` that is used by *NGINX* to figure out
 which application is being accessed on the server.
 
 We need to have one *server block* for each application running in our server.
@@ -133,9 +137,9 @@ The last step is to link the newly created *Server Block* into the
 
     $ sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/example.com
 
-### 8. Restart nginx
+### 8. Restart NGINX
 
-Restart nginx before accessing the web browser by doing:
+Restart NGINX before accessing the web browser by doing:
 
     $ sudo service nginx restart
 

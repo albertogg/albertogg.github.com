@@ -1,11 +1,17 @@
 ---
-categories:
-- blog
 date: 2014-10-12T00:00:00Z
-description: Diagnosing the network with ping, traceroute and mtr
-tag: blog
 title: Diagnosing the network with Ping, Traceroute and MTR
 slug: /diagnosing-the-network-with-ping-traceroute-and-mtr/
+description: |-
+  Diagnosing your network latency with ping, traceroute and mtr.
+categories:
+  - Development
+tags:
+  - Ping
+  - Traceroute
+  - mtr
+  - CLI
+  - Homebrew
 ---
 
 When you deal with a really bad internet connection everyday, as I do, you

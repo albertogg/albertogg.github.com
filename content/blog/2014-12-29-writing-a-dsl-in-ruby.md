@@ -1,11 +1,14 @@
 ---
-categories:
-- blog
 date: 2014-12-29T00:00:00Z
-description: Writing a simple Domain Specific Language (DSL) in Ruby
-tag: blog
 title: Writing a DSL in Ruby
 slug: /writing-a-dsl-in-ruby/
+description: |-
+  Writing a simple Domain Specific Language (DSL) in Ruby.
+categories:
+  - Development
+tags:
+  - Ruby
+  - DSL
 ---
 
 A Domain Specific Language or DSL is a mini language focused in solving a
