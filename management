@@ -16,6 +16,20 @@ function check_git {
     fi
 }
 
+function server {
+    check_hugo
+
+    echo "Starting Hugo server..."
+    hugo server --buildDrafts $@
+}
+
+function draft {
+    check_hugo
+
+    echo "Creating new draft $@"
+    hugo new blog/$@
+}
+
 function undraft {
     check_hugo
 
@@ -54,6 +68,14 @@ function publish {
 }
 
 case "$1" in
+  server)
+    server $2
+    ;;
+
+  draft)
+    draft $2
+    ;;
+
   undraft)
     undraft $2
     ;;
@@ -62,6 +84,6 @@ case "$1" in
     publish $2
     ;;
   *)
-    echo $"Usage: $0 {undraft post-name}"
+    echo $"Usage: $0 {server|draft draft-name|undraft draft-name|publish commit-message}"
     exit 1
 esac
