@@ -14,7 +14,17 @@ Installing on macOS:
 
 Start the Hugo server:
 
-    hugo server
+    ./blog server
+
+Draft or undraft:
+
+    ./blog draft <draft-name>
+    ./blog undraft <draft-name>
+
+Publish with default message or with custom message:
+
+    ./blog publish
+    ./blog publish <commit-name>
 
 To start Wellington:
 
