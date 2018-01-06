@@ -161,13 +161,13 @@ As you may know, dependency management in Ruby is done through Bundler Gemfile. 
       <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
       
       <guid>http://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</guid>
-      <description>The purpose of this post is to show how to deploy a Jekyll site using Mina and it will not show how to serve the site with Nginx or Apache or install any dependencies like Ruby or rbenv on the server.
+      <description>The purpose of this post is to show how to deploy a Jekyll site using Mina and it will not show how to serve the site with NGINX or Apache or install any dependencies like Ruby or rbenv on the server.
 Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll need a running machine them installed:
- Ruby managed from rbenv Nginx or Apache If deploying from a private repo a new ssh keypair  Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
+ Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair  Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
     </item>
     
     <item>
-      <title>Installing Golang on OS X</title>
+      <title>Installing Go on OS X</title>
       <link>http://albertogrespan.com/blog/installing-golang-on-os-x/</link>
       <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
       
@@ -236,7 +236,7 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       
       <guid>http://albertogrespan.com/blog/commit-subdirectoy-app-to-heroku/</guid>
       <description>Directory structure:
-. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ...  If you want to commit any of the proyects express or railsapi to heroku you can use this command:
+. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ...  If you want to commit any of the projects express or railsapi to Heroku you can use this command:
 $ git subtree push --prefix railsapi heroku master  </description>
     </item>
     
@@ -281,15 +281,14 @@ $(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;)
     </item>
     
     <item>
-      <title>Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
-</title>
+      <title>Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu</title>
       <link>http://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</link>
       <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
       
       <guid>http://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</guid>
       <description>Have you ever wonder; how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well&amp;hellip;
-This will be a very simple tutorial for doing that, with Nginx.
-tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup nginx Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart nginx  1.</description>
+This will be a very simple tutorial for doing that, with NGINX.
+tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX  1.</description>
     </item>
     
     <item>
@@ -303,13 +302,13 @@ tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo
     </item>
     
     <item>
-      <title>How I did this site using jekyll and github pages</title>
+      <title>How I did this site using Jekyll and GitHub pages</title>
       <link>http://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</link>
       <pubDate>Fri, 10 Feb 2012 00:00:00 +0000</pubDate>
       
       <guid>http://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</guid>
       <description>note: This post is deprecated by newer versions of Jekyll. You can probably summarize all this post with a jekyll new command.
- So, How I did this jekyll site? This site is runing on Github Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using jekyll.
+ So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
 Let&amp;rsquo;s start from the beginning what&amp;rsquo;s Jekyll?</description>
     </item>
     

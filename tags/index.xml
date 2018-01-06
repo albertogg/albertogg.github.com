@@ -6,9 +6,469 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 05 Oct 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://albertogrespan.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache</title>
+      <link>http://albertogrespan.com/tags/apache/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Background Jobs</title>
+      <link>http://albertogrespan.com/tags/background-jobs/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/background-jobs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boot2docker</title>
+      <link>http://albertogrespan.com/tags/boot2docker/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/boot2docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bundler</title>
+      <link>http://albertogrespan.com/tags/bundler/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/bundler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cli</title>
+      <link>http://albertogrespan.com/tags/cli/</link>
+      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Csv</title>
+      <link>http://albertogrespan.com/tags/csv/</link>
+      <pubDate>Sun, 26 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/csv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Curl</title>
+      <link>http://albertogrespan.com/tags/curl/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Digitalocean</title>
+      <link>http://albertogrespan.com/tags/digitalocean/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/digitalocean/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://albertogrespan.com/tags/docker/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Domains</title>
+      <link>http://albertogrespan.com/tags/domains/</link>
+      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/domains/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Doorkeeper</title>
+      <link>http://albertogrespan.com/tags/doorkeeper/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/doorkeeper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dsl</title>
+      <link>http://albertogrespan.com/tags/dsl/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/dsl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Erb</title>
+      <link>http://albertogrespan.com/tags/erb/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/erb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://albertogrespan.com/tags/git/</link>
+      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://albertogrespan.com/tags/github/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>http://albertogrespan.com/tags/go/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heroku</title>
+      <link>http://albertogrespan.com/tags/heroku/</link>
+      <pubDate>Fri, 07 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Homebrew</title>
+      <link>http://albertogrespan.com/tags/homebrew/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/homebrew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Http</title>
+      <link>http://albertogrespan.com/tags/http/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://albertogrespan.com/tags/hugo/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Installing</title>
+      <link>http://albertogrespan.com/tags/installing/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/installing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>http://albertogrespan.com/tags/javascript/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>http://albertogrespan.com/tags/jekyll/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jquery</title>
+      <link>http://albertogrespan.com/tags/jquery/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jruby</title>
+      <link>http://albertogrespan.com/tags/jruby/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/jruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://albertogrespan.com/tags/linux/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mercurial</title>
+      <link>http://albertogrespan.com/tags/mercurial/</link>
+      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/mercurial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mina</title>
+      <link>http://albertogrespan.com/tags/mina/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/mina/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mtr</title>
+      <link>http://albertogrespan.com/tags/mtr/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/mtr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>http://albertogrespan.com/tags/nginx/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Os X</title>
+      <link>http://albertogrespan.com/tags/os-x/</link>
+      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/os-x/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Packer</title>
+      <link>http://albertogrespan.com/tags/packer/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/packer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ping</title>
+      <link>http://albertogrespan.com/tags/ping/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/ping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Puma</title>
+      <link>http://albertogrespan.com/tags/puma/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/puma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rack</title>
+      <link>http://albertogrespan.com/tags/rack/</link>
+      <pubDate>Sat, 31 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/rack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>http://albertogrespan.com/tags/rails/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rake</title>
+      <link>http://albertogrespan.com/tags/rake/</link>
+      <pubDate>Sun, 23 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/rake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rbenv</title>
+      <link>http://albertogrespan.com/tags/rbenv/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/rbenv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>http://albertogrespan.com/tags/ruby/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sass</title>
+      <link>http://albertogrespan.com/tags/sass/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/sass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scroll</title>
+      <link>http://albertogrespan.com/tags/scroll/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/scroll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subdomains</title>
+      <link>http://albertogrespan.com/tags/subdomains/</link>
+      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/subdomains/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>http://albertogrespan.com/tags/testing/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Traceroute</title>
+      <link>http://albertogrespan.com/tags/traceroute/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/traceroute/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Twitter Bootstrap</title>
+      <link>http://albertogrespan.com/tags/twitter-bootstrap/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/twitter-bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>http://albertogrespan.com/tags/ubuntu/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unix</title>
+      <link>http://albertogrespan.com/tags/unix/</link>
+      <pubDate>Sun, 23 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/unix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video</title>
+      <link>http://albertogrespan.com/tags/video/</link>
+      <pubDate>Sun, 23 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/video/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>http://albertogrespan.com/tags/vim/</link>
+      <pubDate>Sun, 02 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wellington</title>
+      <link>http://albertogrespan.com/tags/wellington/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/wellington/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>http://albertogrespan.com/tags/windows/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/tags/windows/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

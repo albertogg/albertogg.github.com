@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Packer on Blog</title>
+    <link>http://albertogrespan.com/tags/packer/</link>
+    <description>Recent content in Packer on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Feb 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://albertogrespan.com/tags/packer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating DigitalOcean images with Packer</title>
+      <link>http://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</guid>
+      <description>tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a provisioner to install Docker.
+ This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
+ notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
+    </item>
+    
+  </channel>
+</rss>

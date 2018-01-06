@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Erb on Blog</title>
+    <link>http://albertogrespan.com/tags/erb/</link>
+    <description>Recent content in Erb on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://albertogrespan.com/tags/erb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rack basics</title>
+      <link>http://albertogrespan.com/blog/rack-basics/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/rack-basics/</guid>
+      <description>If you like programming in Ruby it&amp;rsquo;s plausible that you&amp;rsquo;ve used or heard about Rack&amp;hellip; After all Sinatra, Grape and Rails use Rack as a common interface.
+What&amp;rsquo;s Rack and how does it work According to Wikipedia:
+ Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
+    </item>
+    
+  </channel>
+</rss>

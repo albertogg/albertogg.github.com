@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Boot2docker on Blog</title>
+    <link>http://albertogrespan.com/tags/boot2docker/</link>
+    <description>Recent content in Boot2docker on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://albertogrespan.com/tags/boot2docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Error: client and server don&#39;t have same version</title>
+      <link>http://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</guid>
+      <description>When using Docker through Boot2docker there is a possibility you&amp;rsquo;ve seen:
+ Error: client and server don&amp;rsquo;t have same version (client : X, server: X)
+ This error occurs because the version of Docker installed on the Boot2docker image and the version of Docker installed on the host machine (your mac) are not the same.
+$ docker version Client version: 1.3.0 Client API version: 1.15 Go version (client): go1.3.3 Git commit (client): c78088f OS/Arch (client): darwin/amd64 2014/11/03 13:21:38 Error response from daemon: client and server don&#39;t have same version (client : 1.</description>
+    </item>
+    
+  </channel>
+</rss>

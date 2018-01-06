@@ -6,17 +6,34 @@
     <description>Recent content in Categories on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Jul 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://albertogrespan.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blog</title>
-      <link>http://albertogrespan.com/categories/blog/</link>
+      <title>Development</title>
+      <link>http://albertogrespan.com/categories/development/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      
+      <guid>http://albertogrespan.com/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>http://albertogrespan.com/categories/devops/</link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://albertogrespan.com/categories/blog/</guid>
+      <guid>http://albertogrespan.com/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>History</title>
+      <link>http://albertogrespan.com/categories/history/</link>
+      <pubDate>Sun, 23 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/categories/history/</guid>
       <description></description>
     </item>
     

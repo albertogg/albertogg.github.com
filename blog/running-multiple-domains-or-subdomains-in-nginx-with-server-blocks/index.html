@@ -3,22 +3,18 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
-    <meta name="description" content="Run multiple websites in nginx using Server Blocks (Ubuntu tutorial)
-">
+    <meta name="description" content="Run multiple websites in NGINX using Server Blocks (Ubuntu tutorial).">
     <meta name="author" content="Alberto Grespan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@albertogg">
-    <meta name="twitter:title" content="Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
-">
-    <meta name="twitter:description" content="Run multiple websites in nginx using Server Blocks (Ubuntu tutorial)
-">
+    <meta name="twitter:title" content="Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu">
+    <meta name="twitter:description" content="Run multiple websites in NGINX using Server Blocks (Ubuntu tutorial).">
     <meta name="twitter:creator" content="@albertogg">
     <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
     <meta name="twitter:domain" content="albertogrespan.com">
-    <title>Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
- &ndash; Alberto Grespan</title>
+    <title>Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu &ndash; Alberto Grespan</title>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
@@ -38,8 +34,7 @@
 
       
   <div id="post" class="post">
-    <h1>Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
-</h1>
+    <h1>Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu</h1>
     <div class="date">
       <p>December 4, 2012</p>
     </div> 
@@ -48,19 +43,19 @@
 <p>Have you ever wonder; how can I have multiple domains or subdomains pointing to
 different projects but all of them are in just one server? well&hellip;</p>
 
-<p>This will be a very simple tutorial for doing that, with Nginx.</p>
+<p>This will be a very simple tutorial for doing that, with NGINX.</p>
 
 <h3 id="tutorial-tasks">tutorial tasks:</h3>
 
 <ol>
 <li>Creating or pointing domains/subdomains to the server&rsquo;s IP address</li>
-<li>Setup nginx</li>
+<li>Setup NGINX</li>
 <li>Create a directory to keep the project</li>
 <li>Change folder permissions</li>
 <li>Create a simple html page to display</li>
 <li>Create a new Server Block with your domain or subdomain</li>
 <li>Setup and link the Server Block</li>
-<li>Restart nginx</li>
+<li>Restart NGINX</li>
 </ol>
 
 <h3 id="1-creating-or-pointing-domains-subdomains-to-the-server-s-ip-address">1. Creating or pointing domains/subdomains to the server&rsquo;s ip address</h3>
@@ -80,11 +75,11 @@ record.</p>
 127.0.0.1    my.example.com
 </code></pre>
 
-<h3 id="2-setup-nginx">2. Setup nginx</h3>
+<h3 id="2-setup-nginx">2. Setup NGINX</h3>
 
-<p>Setup nginx in <em>Ubuntu</em> if you haven&rsquo;t.</p>
+<p>Setup NGINX in <em>Ubuntu</em> if you haven&rsquo;t.</p>
 
-<pre><code>$ sudo apt-get install nginx
+<pre><code>$ sudo apt-get install NGINX
 </code></pre>
 
 <h3 id="3-create-a-directory-to-keep-the-project">3. Create a directory to keep the project</h3>
@@ -139,7 +134,7 @@ notice if everything is working or not at the end of the tutorial.</p>
 <h3 id="6-create-a-new-server-block-with-your-domain-or-subdomain">6. Create a new Server Block with your domain or subdomain</h3>
 
 <p>In a short explanation of how <em>server block</em> works, we can say; It&rsquo;s a file that
-contains a variable called <code>server_name</code> that is used by <em>nginx</em> to figure out
+contains a variable called <code>server_name</code> that is used by <em>NGINX</em> to figure out
 which application is being accessed on the server.</p>
 
 <p>We need to have one <em>server block</em> for each application running in our server.
@@ -183,9 +178,9 @@ requirements, by doing:</p>
 <pre><code>$ sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/example.com
 </code></pre>
 
-<h3 id="8-restart-nginx">8. Restart nginx</h3>
+<h3 id="8-restart-nginx">8. Restart NGINX</h3>
 
-<p>Restart nginx before accessing the web browser by doing:</p>
+<p>Restart NGINX before accessing the web browser by doing:</p>
 
 <pre><code>$ sudo service nginx restart
 </code></pre>
@@ -202,8 +197,7 @@ want another application running just repeat all the steps above.</p>
       <div>
        By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
       </div>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/" data-text="Running multiple domains or subdomains in Nginx using Server Blocks in Ubuntu
-" data-via="albertogg">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/" data-text="Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu" data-via="albertogg">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div> 
   </div> 

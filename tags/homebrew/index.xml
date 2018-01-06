@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homebrew on Blog</title>
+    <link>http://albertogrespan.com/tags/homebrew/</link>
+    <description>Recent content in Homebrew on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Feb 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://albertogrespan.com/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating DigitalOcean images with Packer</title>
+      <link>http://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</guid>
+      <description>tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a provisioner to install Docker.
+ This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
+ notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
+    </item>
+    
+    <item>
+      <title>Diagnosing the network with Ping, Traceroute and MTR</title>
+      <link>http://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</guid>
+      <description>When you deal with a really bad internet connection everyday, as I do, you probably diagnose the network more frequently than usual and after that you call your ISP and explain to a person (that may think you are crazy) how you are having packet loss in a hop that belongs to them. Yes, you have to do this as many times as you can, until you get someone at the other end of the phone call that understand what&amp;rsquo;s happening and sends someone to solve the issue, if possible.</description>
+    </item>
+    
+    <item>
+      <title>Installing Go on OS X</title>
+      <link>http://albertogrespan.com/blog/installing-golang-on-os-x/</link>
+      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/installing-golang-on-os-x/</guid>
+      <description>tl;dr this are my notes for installing Go (Golang) on OS X using hombrew, adding command completions on ZSH, a single GOPATH and all around clean install.
+ Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
+    </item>
+    
+    <item>
+      <title>Installing Ruby the right way on OS X using rbenv</title>
+      <link>http://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</link>
+      <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</guid>
+      <description>tl;dr there are millions of posts about installing Ruby using rbenv in OS X. Most of them miss the point about installing LibYAML and Readline on your system, but they also miss some of the best rbenv plugins that will help your workflow tremendously. In this post I&amp;rsquo;ll handle it.
+ I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
+    </item>
+    
+  </channel>
+</rss>
