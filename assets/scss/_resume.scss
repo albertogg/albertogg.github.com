@@ -1,0 +1,65 @@
+body {
+  background-color: transparent;
+  color: #444;
+  font-family: 'Noto Serif', serif;
+  max-width: 40.625em;
+  margin: 0 auto;
+  padding: 1.25em;
+  font-weight: 300;
+  line-height: 1.4;
+  font-size: 0.96em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+}
+
+h3 {
+  border-bottom: 1px solid #eee;
+}
+
+a {
+  color: #428bca;
+  text-decoration: none;
+
+  &:visited {
+    color: #428bca;
+  }
+
+  &:hover {
+    color: #428bca;
+    text-decoration: underline;
+  }
+}
+
+code {
+  letter-spacing: -0.0625em;
+}
+
+@media (min-width: 48em) {
+  p {
+    text-align: justify;
+  }
+}
+
+@media print {
+  body {
+    font-size: 9pt;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    text-align: justify;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
