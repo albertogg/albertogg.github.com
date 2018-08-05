@@ -16,7 +16,8 @@
     <meta name="twitter:domain" content="albertogrespan.com">
     <title>{{ .Page.Title }} &ndash; {{ .Site.Params.Author }}</title>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    {{ $style := resources.Get "site/scss/style.scss" | resources.ToCSS (dict "outputStyle" "compressed") }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
   </head>
   <body>
     <div id="content-wrapper">

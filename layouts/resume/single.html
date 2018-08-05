@@ -16,7 +16,8 @@
     <meta name="twitter:domain" content="albertogrespan.com">
     <title>{{ .Page.Title }} &ndash; {{ .Site.Params.Author }}</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/resume-style.css">
+    {{ $style := resources.Get "resume/scss/style.scss" | resources.ToCSS (dict "outputStyle" "compressed") }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
   </head>
   <body>
     {{ .Content }}
