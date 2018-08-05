@@ -4,11 +4,11 @@ My personal blog, hosted on [github pages][pages].
 
 ## Installation
 
-This blog is generated using Hugo and Wellington.
+This blog is generated using Hugo.
 
 Installing on macOS:
 
-    brew install hugo wellington
+    brew install hugo
 
 ## Start the server
 
@@ -16,7 +16,8 @@ Start the Hugo server:
 
     ./blog server
 
-Draft or undraft:
+Draft or undraft, these are Hugo archetypes so the generation is straightforward
+using the following command:
 
     ./blog draft <draft-name>
     ./blog undraft <draft-name>
@@ -25,10 +26,6 @@ Publish with default message or with custom message:
 
     ./blog publish
     ./blog publish <commit-name>
-
-To start Wellington:
-
-    wt watch -b static/css -p assets/scss -s compressed assets/scss/style.scss
 
 ## License
 
