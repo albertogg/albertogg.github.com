@@ -17,12 +17,12 @@ footer {
 
 a {
   text-decoration: none;
-  color: $links-font-color;
-  border-bottom: 1px solid $links-border-color;
+  color: $links-font;
+  border-bottom: 1px solid $links-border;
 
   &:hover {
-    color: $links-font-color;
-    border-color: $links-font-color;
+    color: $links-font;
+    border-color: $links-font;
   }
 }
 
