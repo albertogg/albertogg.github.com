@@ -1,36 +1,53 @@
 body {
   background-color: transparent;
-  color: #444;
+  color: $dark-font;
   font-family: 'Noto Serif', serif;
-  max-width: 40.625em;
-  margin: 0 auto;
-  padding: 1.25em;
+  max-width: 38em;
+  margin: 1rem auto;
+  padding: 1rem;
   font-weight: 300;
   line-height: 1.4;
-  font-size: 0.96em;
+  font-size: 1.25rem;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  line-height: 1.2;
+  line-height: 1.1;
+}
+
+h1 {
+  margin-bottom: -0.3em;
+
+  a {
+    color: $dark-font;
+
+    &:visited {
+      color: $dark-font;
+    }
+
+    &:hover {
+      color: $dark-font;
+      text-decoration: none;
+    }
+  }
 }
 
 h3 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
 }
 
 a {
-  color: #428bca;
+  color: $links-font;
   text-decoration: none;
 
   &:visited {
-    color: #428bca;
+    color: $links-font;
   }
 
   &:hover {
-    color: #428bca;
+    color: $links-font;
     text-decoration: underline;
   }
 }
@@ -47,19 +64,12 @@ code {
 
 @media print {
   body {
+    color: $print-font;
     font-size: 9pt;
     margin: 0;
-    max-width: 100%;
+    max-width: 90%;
     padding: 0;
+    padding-left: 2.4em;
     text-align: justify;
-  }
-
-  h2 {
-    margin-top: 0;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
   }
 }
