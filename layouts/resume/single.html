@@ -15,17 +15,12 @@
     <meta name="twitter:image:src" content="{{ .Site.Params.Gravatar.Url }}?s=250">
     <meta name="twitter:domain" content="albertogrespan.com">
     <title>{{ .Page.Title }} &ndash; {{ .Site.Params.Author }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
-    {{ $style := resources.Get "site/scss/style.scss" | resources.ToCSS (dict "outputStyle" "compressed") }}
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+    {{ $style := resources.Get "resume/scss/style.scss" | resources.ToCSS (dict "outputStyle" "compressed") }}
     <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
   </head>
   <body>
-    <div id="content-wrapper">
-      {{ partial "header.html" . }}
-      {{ block "main" . }}
-      {{ end }}
-    </div> <!-- id content-wrapper -->
-    {{ partial "footer.html" . }}
+    {{ .Content }}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

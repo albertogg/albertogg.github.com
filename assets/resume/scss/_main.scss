@@ -1,0 +1,74 @@
+body {
+  background-color: transparent;
+  color: $dark-font;
+  font-family: 'Noto Serif', serif;
+  max-width: 38em;
+  margin: 1rem auto;
+  padding: 1rem;
+  line-height: 1.4;
+  font-size: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+
+h1 {
+  margin-bottom: -0.3em;
+
+  a {
+    color: $dark-font;
+
+    &:visited {
+      color: $dark-font;
+    }
+
+    &:hover {
+      color: $dark-font;
+      text-decoration: none;
+    }
+  }
+}
+
+h3 {
+  border-bottom: 1px solid #ddd;
+}
+
+a {
+  color: $links-font;
+  text-decoration: none;
+
+  &:visited {
+    color: $links-font;
+  }
+
+  &:hover {
+    color: $links-font;
+    text-decoration: underline;
+  }
+}
+
+code {
+  letter-spacing: -0.0625em;
+}
+
+@media (min-width: 48em) {
+  p {
+    text-align: justify;
+  }
+}
+
+@media print {
+  body {
+    color: $print-font;
+    font-size: 9pt;
+    margin: 0;
+    max-width: 90%;
+    padding: 0;
+    padding-left: 2.4em;
+    text-align: justify;
+  }
+}
