@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jruby on Blog</title>
-    <link>http://albertogrespan.com/tags/jruby/</link>
+    <link>https://albertogrespan.com/tags/jruby/</link>
     <description>Recent content in Jruby on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Fri, 10 Oct 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://albertogrespan.com/tags/jruby/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/tags/jruby/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing platform specific gems with Bundler</title>
-      <link>http://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</link>
+      <link>https://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</link>
       <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</guid>
       <description>Sometimes we&amp;rsquo;ll need to install specific gems to make our project compatible in different platforms such as MRI, Rubinius, a particular Ruby version, JRuby, windows, etc&amp;hellip;
 As you may know, dependency management in Ruby is done through Bundler Gemfile. Bundler comes with a handy CLI command that can help us gather some information about our current platform and help us see a bigger picture of what&amp;rsquo;s going on with our project Gemfile e.</description>
     </item>

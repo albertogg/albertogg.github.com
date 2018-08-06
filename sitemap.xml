@@ -3,501 +3,505 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://albertogrespan.com/blog/hello-hugo/</loc>
+    <loc>https://albertogrespan.com/blog/hello-hugo/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/dockerfile-for-ruby-applications/</loc>
+    <loc>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</loc>
     <lastmod>2015-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/introduction-to-http-testing-in-go/</loc>
+    <loc>https://albertogrespan.com/blog/introduction-to-http-testing-in-go/</loc>
     <lastmod>2015-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/my-most-used-git-aliases/</loc>
+    <loc>https://albertogrespan.com/blog/my-most-used-git-aliases/</loc>
     <lastmod>2015-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</loc>
+    <loc>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</loc>
     <lastmod>2015-02-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/rack-middleware/</loc>
+    <loc>https://albertogrespan.com/blog/rack-middleware/</loc>
     <lastmod>2015-01-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/extending-doorkeeper-models-in-rails/</loc>
+    <loc>https://albertogrespan.com/blog/extending-doorkeeper-models-in-rails/</loc>
     <lastmod>2015-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/writing-a-dsl-in-ruby/</loc>
+    <loc>https://albertogrespan.com/blog/writing-a-dsl-in-ruby/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/rack-basics/</loc>
+    <loc>https://albertogrespan.com/blog/rack-basics/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</loc>
+    <loc>https://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</loc>
     <lastmod>2014-11-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/debugging-your-vimrc/</loc>
+    <loc>https://albertogrespan.com/blog/debugging-your-vimrc/</loc>
     <lastmod>2014-11-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/csv-file-reading-in-ruby/</loc>
+    <loc>https://albertogrespan.com/blog/csv-file-reading-in-ruby/</loc>
     <lastmod>2014-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</loc>
+    <loc>https://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</loc>
     <lastmod>2014-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</loc>
+    <loc>https://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</loc>
     <lastmod>2014-10-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</loc>
+    <loc>https://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</loc>
     <lastmod>2014-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/installing-golang-on-os-x/</loc>
+    <loc>https://albertogrespan.com/blog/installing-golang-on-os-x/</loc>
     <lastmod>2014-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</loc>
+    <loc>https://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</loc>
     <lastmod>2014-06-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</loc>
+    <loc>https://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</loc>
     <lastmod>2014-05-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/always-prune-remote-tracking-branches/</loc>
+    <loc>https://albertogrespan.com/blog/always-prune-remote-tracking-branches/</loc>
     <lastmod>2014-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/</loc>
+    <loc>https://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/</loc>
     <lastmod>2014-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/</loc>
+    <loc>https://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/</loc>
     <lastmod>2014-03-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/commit-subdirectoy-app-to-heroku/</loc>
+    <loc>https://albertogrespan.com/blog/commit-subdirectoy-app-to-heroku/</loc>
     <lastmod>2013-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</loc>
+    <loc>https://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</loc>
+    <loc>https://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</loc>
+    <loc>https://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</loc>
+    <loc>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</loc>
+    <loc>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</loc>
     <lastmod>2012-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/the-unix-operating-system/</loc>
+    <loc>https://albertogrespan.com/blog/the-unix-operating-system/</loc>
     <lastmod>2012-09-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</loc>
+    <loc>https://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</loc>
     <lastmod>2012-02-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/about/</loc>
+    <loc>https://albertogrespan.com/about/</loc>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/apache/</loc>
+    <loc>https://albertogrespan.com/tags/apache/</loc>
     <lastmod>2014-10-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/background-jobs/</loc>
+    <loc>https://albertogrespan.com/tags/background-jobs/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/</loc>
+    <loc>https://albertogrespan.com/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/blog/</loc>
+    <loc>https://albertogrespan.com/blog/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/boot2docker/</loc>
+    <loc>https://albertogrespan.com/tags/boot2docker/</loc>
     <lastmod>2014-11-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/bundler/</loc>
+    <loc>https://albertogrespan.com/tags/bundler/</loc>
     <lastmod>2014-10-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/categories/</loc>
+    <loc>https://albertogrespan.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/cli/</loc>
+    <loc>https://albertogrespan.com/tags/cli/</loc>
     <lastmod>2015-03-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/csv/</loc>
+    <loc>https://albertogrespan.com/tags/csv/</loc>
     <lastmod>2014-10-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/curl/</loc>
+    <loc>https://albertogrespan.com/tags/curl/</loc>
     <lastmod>2015-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/categories/development/</loc>
+    <loc>https://albertogrespan.com/categories/development/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/categories/devops/</loc>
+    <loc>https://albertogrespan.com/categories/devops/</loc>
     <lastmod>2015-07-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/digitalocean/</loc>
+    <loc>https://albertogrespan.com/tags/digitalocean/</loc>
     <lastmod>2015-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/docker/</loc>
+    <loc>https://albertogrespan.com/tags/docker/</loc>
     <lastmod>2015-07-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/domains/</loc>
+    <loc>https://albertogrespan.com/tags/domains/</loc>
     <lastmod>2012-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/doorkeeper/</loc>
+    <loc>https://albertogrespan.com/tags/doorkeeper/</loc>
     <lastmod>2015-01-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/dsl/</loc>
+    <loc>https://albertogrespan.com/tags/dsl/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/erb/</loc>
+    <loc>https://albertogrespan.com/tags/erb/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/git/</loc>
+    <loc>https://albertogrespan.com/tags/git/</loc>
     <lastmod>2015-03-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/github/</loc>
+    <loc>https://albertogrespan.com/tags/github/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/go/</loc>
+    <loc>https://albertogrespan.com/tags/go/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/heroku/</loc>
+    <loc>https://albertogrespan.com/tags/heroku/</loc>
     <lastmod>2014-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/categories/history/</loc>
+    <loc>https://albertogrespan.com/categories/history/</loc>
     <lastmod>2012-09-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/homebrew/</loc>
+    <loc>https://albertogrespan.com/tags/homebrew/</loc>
     <lastmod>2015-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/http/</loc>
+    <loc>https://albertogrespan.com/tags/http/</loc>
     <lastmod>2015-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/hugo/</loc>
+    <loc>https://albertogrespan.com/tags/hugo/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/installing/</loc>
+    <loc>https://albertogrespan.com/tags/installing/</loc>
     <lastmod>2014-10-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/javascript/</loc>
+    <loc>https://albertogrespan.com/tags/javascript/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/jekyll/</loc>
+    <loc>https://albertogrespan.com/tags/jekyll/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/jquery/</loc>
+    <loc>https://albertogrespan.com/tags/jquery/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/jruby/</loc>
+    <loc>https://albertogrespan.com/tags/jruby/</loc>
     <lastmod>2014-10-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/linux/</loc>
+    <loc>https://albertogrespan.com/tags/linux/</loc>
     <lastmod>2014-10-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/mercurial/</loc>
+    <loc>https://albertogrespan.com/tags/mercurial/</loc>
     <lastmod>2014-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/mina/</loc>
+    <loc>https://albertogrespan.com/tags/mina/</loc>
     <lastmod>2014-10-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/mtr/</loc>
+    <loc>https://albertogrespan.com/tags/mtr/</loc>
     <lastmod>2014-10-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/nginx/</loc>
+    <loc>https://albertogrespan.com/tags/nginx/</loc>
     <lastmod>2014-10-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/os-x/</loc>
+    <loc>https://albertogrespan.com/tags/os-x/</loc>
     <lastmod>2014-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/packer/</loc>
+    <loc>https://albertogrespan.com/tags/packer/</loc>
     <lastmod>2015-02-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/ping/</loc>
+    <loc>https://albertogrespan.com/tags/ping/</loc>
     <lastmod>2014-10-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/puma/</loc>
+    <loc>https://albertogrespan.com/tags/puma/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/rack/</loc>
+    <loc>https://albertogrespan.com/tags/rack/</loc>
     <lastmod>2015-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/rails/</loc>
+    <loc>https://albertogrespan.com/tags/rails/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/rake/</loc>
+    <loc>https://albertogrespan.com/tags/rake/</loc>
     <lastmod>2014-03-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/rbenv/</loc>
+    <loc>https://albertogrespan.com/tags/rbenv/</loc>
     <lastmod>2014-10-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/ruby/</loc>
+    <loc>https://albertogrespan.com/resume/</loc>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/ruby/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/sass/</loc>
+    <loc>https://albertogrespan.com/tags/sass/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/scroll/</loc>
+    <loc>https://albertogrespan.com/tags/scroll/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/series/</loc>
+    <loc>https://albertogrespan.com/series/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/subdomains/</loc>
+    <loc>https://albertogrespan.com/tags/subdomains/</loc>
     <lastmod>2012-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/</loc>
+    <loc>https://albertogrespan.com/tags/</loc>
     <lastmod>2014-10-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/testing/</loc>
+    <loc>https://albertogrespan.com/tags/testing/</loc>
     <lastmod>2015-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/traceroute/</loc>
+    <loc>https://albertogrespan.com/tags/traceroute/</loc>
     <lastmod>2014-10-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/twitter-bootstrap/</loc>
+    <loc>https://albertogrespan.com/tags/twitter-bootstrap/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/ubuntu/</loc>
+    <loc>https://albertogrespan.com/tags/ubuntu/</loc>
     <lastmod>2015-07-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/unix/</loc>
+    <loc>https://albertogrespan.com/tags/unix/</loc>
     <lastmod>2012-09-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/video/</loc>
+    <loc>https://albertogrespan.com/tags/video/</loc>
     <lastmod>2012-09-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/vim/</loc>
+    <loc>https://albertogrespan.com/tags/vim/</loc>
     <lastmod>2014-11-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/wellington/</loc>
+    <loc>https://albertogrespan.com/tags/wellington/</loc>
     <lastmod>2017-08-13T10:00:11-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://albertogrespan.com/tags/windows/</loc>
+    <loc>https://albertogrespan.com/tags/windows/</loc>
     <lastmod>2014-10-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

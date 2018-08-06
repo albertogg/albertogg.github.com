@@ -2,31 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Blog</title>
-    <link>http://albertogrespan.com/tags/javascript/</link>
+    <link>https://albertogrespan.com/tags/javascript/</link>
     <description>Recent content in Javascript on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Sat, 13 Jul 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://albertogrespan.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Command or control enter in bootstrap forms</title>
-      <link>http://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</link>
+      <link>https://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</guid>
       <description>Using command enter to submit:
 $(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;gt; .string&#39;, function(event) { if(event.keyCode == 13 &amp;amp;&amp;amp; (event.metaKey || event.ctrlKey)) { $(&#39;input.btn.submit-helper&#39;).click(); } });   Add a helper class to your submit button to identify it. If you want to target normal inputs use .text and to target textareas use .string or use both.  </description>
     </item>
     
     <item>
       <title>ScrollTo Top using jQuery and Font Awesome icon</title>
-      <link>http://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</link>
+      <link>https://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</guid>
       <description>Scrolling JavaScript:
 $(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(event) { event.preventDefault(); if (viewPortWidth &amp;gt; 480) { if ($(this).scrollTop() &amp;gt; 180) { $(&#39;.scrollTo-top&#39;).fadeIn(); } else { $(&#39;.scrollTo-top&#39;).fadeOut(); } } }); $(&#39;.scrollTo-top&#39;).click(function(event) { $(&#39;html, body&#39;).animate({scrollTop : 0 }, 600); event.preventDefault(); }); });  Add the Font Awesome Angle Double Up icon.
 &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;scrollTo-top&amp;quot; style=&amp;quot;display: inline;&amp;quot;&amp;gt; &amp;lt;i class=&amp;quot;fa fa-angle-double-up&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;/a&amp;gt;  The scss style for the scrollTo-Top button using a Font Awesome icon.</description>
@@ -34,10 +36,10 @@ $(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(
     
     <item>
       <title>jQuery scrollTo with pushState</title>
-      <link>http://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</link>
+      <link>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</guid>
       <description>pushState:
 $(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); });   Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id.  </description>
     </item>

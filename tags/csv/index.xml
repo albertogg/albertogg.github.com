@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Csv on Blog</title>
-    <link>http://albertogrespan.com/tags/csv/</link>
+    <link>https://albertogrespan.com/tags/csv/</link>
     <description>Recent content in Csv on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Sun, 26 Oct 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://albertogrespan.com/tags/csv/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/tags/csv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CSV file reading in Ruby</title>
-      <link>http://albertogrespan.com/blog/csv-file-reading-in-ruby/</link>
+      <link>https://albertogrespan.com/blog/csv-file-reading-in-ruby/</link>
       <pubDate>Sun, 26 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/csv-file-reading-in-ruby/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/csv-file-reading-in-ruby/</guid>
       <description>In the recent days I&amp;rsquo;ve started using CSV files more and more for data manipulation, specifically for database seeding. CSV is a super easy to use and it doesn&amp;rsquo;t require a complex text editor&amp;hellip; Google Spreadsheets or VIM will work great.
 This post I will show how to read data from .csv file and dumping it in a Ruby Array of Hashes. It will also show how to seed a Rails database.</description>
     </item>

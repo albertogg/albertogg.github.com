@@ -2,38 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Blog</title>
-    <link>http://albertogrespan.com/categories/</link>
+    <link>https://albertogrespan.com/categories/</link>
     <description>Recent content in Categories on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     
-	<atom:link href="http://albertogrespan.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>http://albertogrespan.com/categories/development/</link>
+      <link>https://albertogrespan.com/categories/development/</link>
       <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
-      
-      <guid>http://albertogrespan.com/categories/development/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Devops</title>
-      <link>http://albertogrespan.com/categories/devops/</link>
+      <link>https://albertogrespan.com/categories/devops/</link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/categories/devops/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/categories/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>History</title>
-      <link>http://albertogrespan.com/categories/history/</link>
+      <link>https://albertogrespan.com/categories/history/</link>
       <pubDate>Sun, 23 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/categories/history/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/categories/history/</guid>
       <description></description>
     </item>
     

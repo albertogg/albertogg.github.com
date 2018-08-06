@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Background Jobs on Blog</title>
-    <link>http://albertogrespan.com/tags/background-jobs/</link>
+    <link>https://albertogrespan.com/tags/background-jobs/</link>
     <description>Recent content in Background Jobs on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Sat, 13 Jul 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://albertogrespan.com/tags/background-jobs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/tags/background-jobs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Send emails in the background using sucker punch</title>
-      <link>http://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</link>
+      <link>https://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</guid>
       <description>Sucker punch gem This gem was created by @brandonhilkert with a very specific use case in mind. I&amp;rsquo;m not sure what the use case was, but, I believe it&amp;rsquo;s something like; taking advantage of Heroku web dynos, without needing to pay extra for a worker dyno (this is what I&amp;rsquo;m using it for). If It&amp;rsquo;s not; I&amp;rsquo;m leaning towards simplicity. At this point with sucker_punch in it&amp;rsquo;s version 1.0.1 became dead simple to install and use, no configuration needed.</description>
     </item>
     

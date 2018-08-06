@@ -2,31 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Blog</title>
-    <link>http://albertogrespan.com/tags/docker/</link>
+    <link>https://albertogrespan.com/tags/docker/</link>
     <description>Recent content in Docker on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Sat, 18 Jul 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://albertogrespan.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dockerfile for Ruby applications</title>
-      <link>http://albertogrespan.com/blog/dockerfile-for-ruby-applications/</link>
+      <link>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/dockerfile-for-ruby-applications/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</guid>
       <description>There are different ways you can deploy your Ruby applications in a Docker container. You can either choose one of the many existing Ruby images on the public docker registry, use it as your base and adapt it to your needs or&amp;hellip; build your own Ruby base image from scratch based on your favorite OS and then build your application image on top of it.
 In this post we are going through the whole process of building the Ruby image from scratch based on the official Ubuntu 14.</description>
     </item>
     
     <item>
       <title>Error: client and server don&#39;t have same version</title>
-      <link>http://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</link>
+      <link>https://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</link>
       <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</guid>
       <description>When using Docker through Boot2docker there is a possibility you&amp;rsquo;ve seen:
  Error: client and server don&amp;rsquo;t have same version (client : X, server: X)
  This error occurs because the version of Docker installed on the Boot2docker image and the version of Docker installed on the host machine (your mac) are not the same.
@@ -35,10 +37,10 @@ $ docker version Client version: 1.3.0 Client API version: 1.15 Go version (clie
     
     <item>
       <title>Delete stopped &amp; untagged docker images</title>
-      <link>http://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</link>
+      <link>https://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</link>
       <pubDate>Mon, 09 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</guid>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</guid>
       <description>If you want or need first stop the containers
 $ docker stop $(docker ps -a -q)  Delete all stopped containers
 $ docker rm $(docker ps -a -q)  Delete all untagged images (TAG: &amp;lt;none&amp;gt;)

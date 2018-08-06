@@ -2,12 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Blog</title>
-    <link>http://albertogrespan.com/series/</link>
+    <link>https://albertogrespan.com/series/</link>
     <description>Recent content in Series on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     
-	<atom:link href="http://albertogrespan.com/series/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertogrespan.com/series/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
