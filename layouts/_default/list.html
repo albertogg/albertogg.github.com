@@ -4,7 +4,7 @@
       {{- range .Data.Pages -}}
       {{- if eq .Type "blog" -}}
       <li>
-        <span>{{ .Date.Format "January 2, 2006" }}</span> <a href="{{ .URL }}">{{ .Title }}</a>
+        <span>{{ .Date.Format "January 2, 2006" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </li>
       {{- end -}}
       {{- end -}}
