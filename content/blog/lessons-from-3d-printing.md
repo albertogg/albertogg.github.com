@@ -2,14 +2,13 @@
 title: "Lessons From 3d Printing"
 date: 2019-11-03T18:08:43-04:00
 description: |-
-  These are all of the lessons I wish I knew before I started in the 3D Printing
-  hobby. E-steps calibration, filament, cleaning, etc...
+  The lessons I've learned in the journey of 3D Printing. E-steps calibration,
+  filament, flow rate multiplier, PID, adhesion, upgrades, etc...
 categories:
   - 3D Printing
 tags:
   - Calibration
-  - Cura
-  - Slic3r
+  - Assembly
 draft: true
 ---
 
@@ -20,65 +19,69 @@ will be to keep it up to date with my latest findings.
 ## Calibration
 
 One of the most important aspects for getting good prints is getting the printer
-calibrated correctly, but what actually do we need to calibrate? Mostly Extruder
-steps (e-steps), flow rate multiplier, and PID for the hotend and bed.
+calibrated correctly. Extruder steps (e-steps), flow rate multiplier, and PID.
 
 ### Extruder steps "e-steps"
 
-As the Ender 3 is a bowden setup printer you'll need to calibrate the extruder
-through free air, this means that you'll need to unscrew the fitting closest the
-hotend and then measure the distance of the filament. Doing it this way will
-actually calibrate your motor in isolation with only the tube interfering in the
-process because that's a variable that will always be there no matter what. Once
-you have this you'll fine tune per-filament using the flow rate multiplier
-because your motor was tuned in isolation and it's outputting the correct amount
-of filament.
+Depending on your printer setup, if it's bowden or direct you'll calibrate your
+e-steps differently. In any bowden setup it's recommended that you calibrate the
+extruder through free air, this means that you'll need to detach the tube
+closest the hotend, extrude and measure the distance of the filament multiple
+times until satisfied. Doing the calibration this way will ensure a proper
+calibration of the extruder motor in isolation. For direct setups the process is
+going directly through the nozzle.
 
-Reference: [MatterHackers][matterhackers-extruder-calibration]
+References:
+- [MatterHackers][matterhackers-extruder-calibration]
 
 ### Flow rate multiplier
 
-Once you have your e-steps calibrated you'll then fine tune things for that
-specific filament type and or brand. You could go as far as proper calibration
-of each spool indistinct of them being the same brand. So what do you do? you
-print the calibration cube in vase mode (one perimeter), then measure multiple
-times in different places and average your results and change the flow rate
-multiplier. Remember to **measure only the top layer**.
+Once you have your e-steps calibrated you'll then fine tune things per filament
+spool, type, and or brand. For this the recommendation is to print the
+calibration cube in vase mode (one perimeter), then measure, average, and
+calculate your results to change the flow rate multiplier. Remember to **measure
+only the top layer**.
+
+References:
+-
 
 ### PID
 
 One additional calibration step per-filament and or brand that you'll end up
 doing is printing the temperature tower. This will help you diagnose the
-preferred temperature for that filament. With that in mind you'll have to
-calibrate your PID to keep the temperature of your hotend as close to those
-numbers as possible.
+preferred temperature for that filament. Once you know that, calibrate the PID
+to keep the temperature of your hotend as close to those numbers as possible.
 
-## What not do calibrate
+References:
+-
 
-There are other things that you will not need to calibrate as they are fine with
-factory calibration:
+## What not to calibrate
 
-X, Y or Z motors. These SHOULD NOT be calibrated as they already are calibrated
-based on your belts and lead screws. You'll read in some places that you should
-calibrate them, but you don't, period.
+There is a misconception that to gain print accuracy you need to also calibrate
+the X, Y, or Z motors, and the reality is that **SHOULD NOT** be calibrate them
+as they already are calibrated based on your belts and lead screws.
 
 ## Adhesion
 
 Having good adhesion is (I think) the most important part of the printing
-process. Materials, temperatures, and bed surfaces are heavy influencers in this
-game. PLA for example (theoretically) can be printed with the bed at room
-temperature but we know that adhesion is better at higher temperatures, and if
-your are having adhesion problems you should aim for a hotter first layer but
-keep the rest of the print below the glass transition temperature, that's
-because once adhered you want to avoid your first layer to get soft.
+process. Materials, temperatures, and bed surfaces are the influencers. PLA for
+example (theoretically) can be printed with the bed at room temperature but we
+know that adhesion is better at higher temperatures, and if your are having
+adhesion problems you should aim for a hotter first layer but keep the rest of
+the print below the glass transition temperature, that's because once adhered
+you want to avoid your first layer to get soft while applying the next layers to
+reduce the elephant foot.
 
-Elephant foot
+References:
+-
 
 ## Filament
 
-Read the spool information.
+Read the spool information, don't follow the "default" settings on your slicer
+of choice, read the specs of the filament you are printing and do some tests
+such as the temperature tower.
 
-## Assembling
+## Assembly
 
 Assembling your new 3D printer can be daunting at first but current printers are
 not that complicated to assemble, and apart from the assembly instructions that
