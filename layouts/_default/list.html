@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div>
     <ul class="posts-list">
-      {{- range .Data.Pages -}}
+      {{- range .Site.RegularPages -}}
       {{- if eq .Type "blog" -}}
       <li>
         <span>{{ .Date.Format "January 2, 2006" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
