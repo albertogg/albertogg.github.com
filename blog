@@ -35,9 +35,11 @@ function draft {
 function undraft {
     check_hugo
 
-    echo "Undrafting $CONTENT_DIR/$@..."
-    hugo undraft $CONTENT_DIR/$@
-    mv $CONTENT_DIR/$@ $CONTENT_DIR/$(date +"%F")-$@
+    local new_filename=${CONTENT_DIR}/$(date +"%F")-$@
+
+    echo "Undrafting ${CONTENT_DIR}/$@..."
+    mv ${CONTENT_DIR}/$@ $new_filename
+    sed -i '' "/draft: true/d" $new_filename
     echo "Undraft complete..."
 }
 
