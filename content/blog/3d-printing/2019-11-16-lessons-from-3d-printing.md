@@ -1,6 +1,7 @@
 ---
+date: 2019-11-16T18:08:43-04:00
 title: "Lessons From 3D Printing"
-date: 2019-11-03T18:08:43-04:00
+slug: /lessons-from-3d-printing/
 description: |-
   Lessons learned while 3D Printing. From, E-steps calibration, filament, flow
   rate multiplier, PID, bed leveling, adhesion, assembly, etc...
@@ -13,7 +14,6 @@ tags:
   - Nozzle
   - Filament
   - Bed Leveling
-draft: true
 ---
 
 This post talks about my experiences with 3D printing while using and Ender 3
@@ -36,6 +36,7 @@ ensure a proper calibration of the extruder motor in isolation. For direct
 setups the process is going directly through the nozzle.
 
 References:
+
 - [MatterHackers Extruder Calibration][matterhackers-extruder-calibration]
 - [Extruder Calibration][extruder-calibration]
 
@@ -48,6 +49,7 @@ average, and calculate your results to change the flow rate multiplier. Remember
 to **measure only the top layer**.
 
 References:
+
 - [Flow rate calibration guide][extruder-multiplier-calibration-guide]
 - [Extrusion multiplier calibration][prusa-extruder-multiplier-calibration]
 - [Calibrating Extruder Multiplier][extruder-calibration]
@@ -60,6 +62,7 @@ preferred temperature for that filament. Once you know that, calibrate the PID
 to keep the temperature of your hotend as close to those numbers as possible.
 
 References:
+
 - [PID Tuning][pid-tuning]
 
 ## What not to calibrate
@@ -80,6 +83,7 @@ Marlin][marlin-mesh-bed-level] and using a piece of paper as a reference spacer
 to know how close are you between the bed and the nozzle.
 
 References:
+
 - [Mesh Bed Leveling][marlin-mesh-bed-level]
 - [CHEP - Easy Way To Level Your Bed][chep-bed-leveling]
 
@@ -97,6 +101,7 @@ the elephant foot. In general start with a "cold" temperature and start raising
 it as you need.
 
 References:
+
 - [Print not sticking to the bed][print-not-sticking]
 
 ## Filament
@@ -124,6 +129,7 @@ are:
   responsible of a fit movement of the carriages
 
 References:
+
 - [Creality Ender 3 assembly and pro build tips][assembly-build-tips]
 
 ## Nozzle

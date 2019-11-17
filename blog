@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -Eeo pipefail
+
 CONTENT_DIR=content/blog
 
 function check_hugo {
@@ -27,15 +29,17 @@ function draft {
     check_hugo
 
     echo "Creating new draft $@"
-    hugo new blog/$@
+    hugo new --kind blog ${CONTENT_DIR}/$@
 }
 
 function undraft {
     check_hugo
 
-    echo "Undrafting $CONTENT_DIR/$@..."
-    hugo undraft $CONTENT_DIR/$@
-    mv $CONTENT_DIR/$@ $CONTENT_DIR/$(date +"%F")-$@
+    local new_filename=${CONTENT_DIR}/$(date +"%F")-$@
+
+    echo "Undrafting ${CONTENT_DIR}/$@..."
+    mv ${CONTENT_DIR}/$@ $new_filename
+    sed -i '' "/draft: true/d" $new_filename
     echo "Undraft complete..."
 }
 
