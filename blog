@@ -29,7 +29,7 @@ function draft {
     check_hugo
 
     echo "Creating new draft $@"
-    hugo new blog/$@
+    hugo new --kind blog ${CONTENT_DIR}/$@
 }
 
 function undraft {
