@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rbenv on Blog</title>
+    <title>rbenv on Blog</title>
     <link>https://albertogrespan.com/tags/rbenv/</link>
-    <description>Recent content in Rbenv on Blog</description>
+    <description>Recent content in rbenv on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>

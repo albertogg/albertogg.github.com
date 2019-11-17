@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Domains on Blog</title>
+    <link>https://albertogrespan.com/tags/Domains/</link>
+    <description>Recent content in Domains on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
+    <lastBuildDate>Tue, 04 Dec 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://albertogrespan.com/tags/Domains/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu</title>
+      <link>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</link>
+      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</guid>
+      <description>Have you ever wonder; how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well&amp;hellip;
+This will be a very simple tutorial for doing that, with NGINX.
+tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX  1.</description>
+    </item>
+    
+  </channel>
+</rss>

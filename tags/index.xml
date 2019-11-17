@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Blog</title>
@@ -8,166 +8,202 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sun, 05 Oct 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 18:08:43 -0400</lastBuildDate>
     
 	<atom:link href="https://albertogrespan.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Apache</title>
-      <link>https://albertogrespan.com/tags/apache/</link>
-      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Adhesion</title>
+      <link>https://albertogrespan.com/tags/Adhesion/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/apache/</guid>
+      <guid>https://albertogrespan.com/tags/Adhesion/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Background Jobs</title>
-      <link>https://albertogrespan.com/tags/background-jobs/</link>
-      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <title>Assembly</title>
+      <link>https://albertogrespan.com/tags/Assembly/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/background-jobs/</guid>
+      <guid>https://albertogrespan.com/tags/Assembly/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Boot2docker</title>
-      <link>https://albertogrespan.com/tags/boot2docker/</link>
-      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      <title>Bed Leveling</title>
+      <link>https://albertogrespan.com/tags/Bed-Leveling/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/boot2docker/</guid>
+      <guid>https://albertogrespan.com/tags/Bed-Leveling/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Bundler</title>
-      <link>https://albertogrespan.com/tags/bundler/</link>
-      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Calibration</title>
+      <link>https://albertogrespan.com/tags/Calibration/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/bundler/</guid>
+      <guid>https://albertogrespan.com/tags/Calibration/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Cli</title>
-      <link>https://albertogrespan.com/tags/cli/</link>
-      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
+      <title>Filament</title>
+      <link>https://albertogrespan.com/tags/Filament/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/cli/</guid>
+      <guid>https://albertogrespan.com/tags/Filament/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Csv</title>
-      <link>https://albertogrespan.com/tags/csv/</link>
-      <pubDate>Sun, 26 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Nozzle</title>
+      <link>https://albertogrespan.com/tags/Nozzle/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/csv/</guid>
+      <guid>https://albertogrespan.com/tags/Nozzle/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Curl</title>
-      <link>https://albertogrespan.com/tags/curl/</link>
-      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/curl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Digitalocean</title>
-      <link>https://albertogrespan.com/tags/digitalocean/</link>
-      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/digitalocean/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://albertogrespan.com/tags/docker/</link>
-      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Domains</title>
-      <link>https://albertogrespan.com/tags/domains/</link>
-      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/domains/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Doorkeeper</title>
-      <link>https://albertogrespan.com/tags/doorkeeper/</link>
-      <pubDate>Thu, 15 Jan 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/doorkeeper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dsl</title>
-      <link>https://albertogrespan.com/tags/dsl/</link>
-      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/dsl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Erb</title>
-      <link>https://albertogrespan.com/tags/erb/</link>
-      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/erb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://albertogrespan.com/tags/git/</link>
-      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://albertogrespan.com/tags/github/</link>
+      <title>GitHub</title>
+      <link>https://albertogrespan.com/tags/GitHub/</link>
       <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/github/</guid>
+      <guid>https://albertogrespan.com/tags/GitHub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>https://albertogrespan.com/tags/go/</link>
+      <link>https://albertogrespan.com/tags/Go/</link>
       <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/go/</guid>
+      <guid>https://albertogrespan.com/tags/Go/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Heroku</title>
-      <link>https://albertogrespan.com/tags/heroku/</link>
-      <pubDate>Fri, 07 Mar 2014 00:00:00 +0000</pubDate>
+      <title>Hugo</title>
+      <link>https://albertogrespan.com/tags/Hugo/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/heroku/</guid>
+      <guid>https://albertogrespan.com/tags/Hugo/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Homebrew</title>
+      <title>Jekyll</title>
+      <link>https://albertogrespan.com/tags/Jekyll/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>https://albertogrespan.com/tags/Ruby/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SASS</title>
+      <link>https://albertogrespan.com/tags/SASS/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/SASS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wellington</title>
+      <link>https://albertogrespan.com/tags/Wellington/</link>
+      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Wellington/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://albertogrespan.com/tags/Docker/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://albertogrespan.com/tags/Ubuntu/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cURL</title>
+      <link>https://albertogrespan.com/tags/cURL/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/cURL/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTP</title>
+      <link>https://albertogrespan.com/tags/HTTP/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/HTTP/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://albertogrespan.com/tags/Testing/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CLI</title>
+      <link>https://albertogrespan.com/tags/CLI/</link>
+      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/CLI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://albertogrespan.com/tags/Git/</link>
+      <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DigitalOcean</title>
+      <link>https://albertogrespan.com/tags/DigitalOcean/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/DigitalOcean/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homebrew</title>
       <link>https://albertogrespan.com/tags/homebrew/</link>
       <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
@@ -176,97 +212,97 @@
     </item>
     
     <item>
-      <title>Http</title>
-      <link>https://albertogrespan.com/tags/http/</link>
-      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      <title>Packer</title>
+      <link>https://albertogrespan.com/tags/Packer/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/http/</guid>
+      <guid>https://albertogrespan.com/tags/Packer/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>https://albertogrespan.com/tags/hugo/</link>
-      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <title>Rack</title>
+      <link>https://albertogrespan.com/tags/Rack/</link>
+      <pubDate>Sat, 31 Jan 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/hugo/</guid>
+      <guid>https://albertogrespan.com/tags/Rack/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Installing</title>
-      <link>https://albertogrespan.com/tags/installing/</link>
-      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Doorkeeper</title>
+      <link>https://albertogrespan.com/tags/Doorkeeper/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/installing/</guid>
+      <guid>https://albertogrespan.com/tags/Doorkeeper/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Javascript</title>
-      <link>https://albertogrespan.com/tags/javascript/</link>
-      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <title>DSL</title>
+      <link>https://albertogrespan.com/tags/DSL/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/javascript/</guid>
+      <guid>https://albertogrespan.com/tags/DSL/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Jekyll</title>
-      <link>https://albertogrespan.com/tags/jekyll/</link>
-      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <title>ERB</title>
+      <link>https://albertogrespan.com/tags/ERB/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/jekyll/</guid>
+      <guid>https://albertogrespan.com/tags/ERB/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Jquery</title>
-      <link>https://albertogrespan.com/tags/jquery/</link>
-      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <title>Puma</title>
+      <link>https://albertogrespan.com/tags/Puma/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/jquery/</guid>
+      <guid>https://albertogrespan.com/tags/Puma/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Jruby</title>
-      <link>https://albertogrespan.com/tags/jruby/</link>
-      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Boot2docker</title>
+      <link>https://albertogrespan.com/tags/Boot2docker/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/jruby/</guid>
+      <guid>https://albertogrespan.com/tags/Boot2docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://albertogrespan.com/tags/linux/</link>
-      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Vim</title>
+      <link>https://albertogrespan.com/tags/Vim/</link>
+      <pubDate>Sun, 02 Nov 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/linux/</guid>
+      <guid>https://albertogrespan.com/tags/Vim/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Mercurial</title>
-      <link>https://albertogrespan.com/tags/mercurial/</link>
-      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
+      <title>CSV</title>
+      <link>https://albertogrespan.com/tags/CSV/</link>
+      <pubDate>Sun, 26 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/mercurial/</guid>
+      <guid>https://albertogrespan.com/tags/CSV/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Mina</title>
-      <link>https://albertogrespan.com/tags/mina/</link>
-      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Homebrew</title>
+      <link></link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/mina/</guid>
+      <guid></guid>
       <description></description>
     </item>
     
     <item>
-      <title>Mtr</title>
+      <title>mtr</title>
       <link>https://albertogrespan.com/tags/mtr/</link>
       <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
@@ -275,79 +311,97 @@
     </item>
     
     <item>
-      <title>Nginx</title>
-      <link>https://albertogrespan.com/tags/nginx/</link>
-      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/nginx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Os X</title>
-      <link>https://albertogrespan.com/tags/os-x/</link>
-      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/os-x/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Packer</title>
-      <link>https://albertogrespan.com/tags/packer/</link>
-      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/packer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Ping</title>
-      <link>https://albertogrespan.com/tags/ping/</link>
+      <link>https://albertogrespan.com/tags/Ping/</link>
       <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/ping/</guid>
+      <guid>https://albertogrespan.com/tags/Ping/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Puma</title>
-      <link>https://albertogrespan.com/tags/puma/</link>
-      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      <title>Traceroute</title>
+      <link>https://albertogrespan.com/tags/Traceroute/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/puma/</guid>
+      <guid>https://albertogrespan.com/tags/Traceroute/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rack</title>
-      <link>https://albertogrespan.com/tags/rack/</link>
-      <pubDate>Sat, 31 Jan 2015 00:00:00 +0000</pubDate>
+      <title>Bundler</title>
+      <link>https://albertogrespan.com/tags/Bundler/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/rack/</guid>
+      <guid>https://albertogrespan.com/tags/Bundler/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rails</title>
-      <link>https://albertogrespan.com/tags/rails/</link>
-      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <title>Installing</title>
+      <link>https://albertogrespan.com/tags/Installing/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/rails/</guid>
+      <guid>https://albertogrespan.com/tags/Installing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rake</title>
-      <link>https://albertogrespan.com/tags/rake/</link>
-      <pubDate>Sun, 23 Mar 2014 00:00:00 +0000</pubDate>
+      <title>JRuby</title>
+      <link>https://albertogrespan.com/tags/JRuby/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/rake/</guid>
+      <guid>https://albertogrespan.com/tags/JRuby/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rbenv</title>
+      <title>Linux</title>
+      <link>https://albertogrespan.com/tags/Linux/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://albertogrespan.com/tags/Windows/</link>
+      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apache</title>
+      <link>https://albertogrespan.com/tags/Apache/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mina</title>
+      <link>https://albertogrespan.com/tags/Mina/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Mina/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NGINX</title>
+      <link>https://albertogrespan.com/tags/NGINX/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/NGINX/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rbenv</title>
       <link>https://albertogrespan.com/tags/rbenv/</link>
       <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
@@ -356,25 +410,79 @@
     </item>
     
     <item>
-      <title>Ruby</title>
-      <link>https://albertogrespan.com/tags/ruby/</link>
-      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <title>Mercurial</title>
+      <link>https://albertogrespan.com/tags/Mercurial/</link>
+      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/ruby/</guid>
+      <guid>https://albertogrespan.com/tags/Mercurial/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Sass</title>
-      <link>https://albertogrespan.com/tags/sass/</link>
-      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
+      <title>OS X</title>
+      <link>https://albertogrespan.com/tags/OS-X/</link>
+      <pubDate>Sun, 24 Aug 2014 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/sass/</guid>
+      <guid>https://albertogrespan.com/tags/OS-X/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Scroll</title>
+      <title>Rake</title>
+      <link>https://albertogrespan.com/tags/Rake/</link>
+      <pubDate>Sun, 23 Mar 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Rake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heroku</title>
+      <link>https://albertogrespan.com/tags/Heroku/</link>
+      <pubDate>Fri, 07 Mar 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Background jobs</title>
+      <link>https://albertogrespan.com/tags/Background-jobs/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Background-jobs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://albertogrespan.com/tags/JavaScript/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/JavaScript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://albertogrespan.com/tags/jQuery/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/jQuery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>https://albertogrespan.com/tags/Rails/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scroll</title>
       <link>https://albertogrespan.com/tags/scroll/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
@@ -383,92 +491,47 @@
     </item>
     
     <item>
-      <title>Subdomains</title>
-      <link>https://albertogrespan.com/tags/subdomains/</link>
-      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/subdomains/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testing</title>
-      <link>https://albertogrespan.com/tags/testing/</link>
-      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Traceroute</title>
-      <link>https://albertogrespan.com/tags/traceroute/</link>
-      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/traceroute/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Twitter Bootstrap</title>
-      <link>https://albertogrespan.com/tags/twitter-bootstrap/</link>
+      <link>https://albertogrespan.com/tags/Twitter-Bootstrap/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/twitter-bootstrap/</guid>
+      <guid>https://albertogrespan.com/tags/Twitter-Bootstrap/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ubuntu</title>
-      <link>https://albertogrespan.com/tags/ubuntu/</link>
-      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      <title>Domains</title>
+      <link>https://albertogrespan.com/tags/Domains/</link>
+      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/ubuntu/</guid>
+      <guid>https://albertogrespan.com/tags/Domains/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subdomains</title>
+      <link>https://albertogrespan.com/tags/Subdomains/</link>
+      <pubDate>Tue, 04 Dec 2012 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/Subdomains/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Unix</title>
-      <link>https://albertogrespan.com/tags/unix/</link>
+      <link>https://albertogrespan.com/tags/Unix/</link>
       <pubDate>Sun, 23 Sep 2012 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/unix/</guid>
+      <guid>https://albertogrespan.com/tags/Unix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Video</title>
-      <link>https://albertogrespan.com/tags/video/</link>
+      <link>https://albertogrespan.com/tags/Video/</link>
       <pubDate>Sun, 23 Sep 2012 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vim</title>
-      <link>https://albertogrespan.com/tags/vim/</link>
-      <pubDate>Sun, 02 Nov 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Wellington</title>
-      <link>https://albertogrespan.com/tags/wellington/</link>
-      <pubDate>Sun, 13 Aug 2017 10:00:11 -0400</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/wellington/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>https://albertogrespan.com/tags/windows/</link>
-      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/windows/</guid>
+      <guid>https://albertogrespan.com/tags/Video/</guid>
       <description></description>
     </item>
     

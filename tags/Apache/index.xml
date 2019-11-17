@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apache on Blog</title>
+    <link>https://albertogrespan.com/tags/Apache/</link>
+    <description>Recent content in Apache on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
+    <lastBuildDate>Sun, 05 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://albertogrespan.com/tags/Apache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploying Jekyll with Mina and rbenv</title>
+      <link>https://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</link>
+      <pubDate>Sun, 05 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</guid>
+      <description>The purpose of this post is to show how to deploy a Jekyll site using Mina and it will not show how to serve the site with NGINX or Apache or install any dependencies like Ruby or rbenv on the server.
+Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll need a running machine them installed:
+ Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair  Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
+    </item>
+    
+  </channel>
+</rss>

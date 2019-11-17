@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Blog</title>
+    <link>https://albertogrespan.com/tags/Ubuntu/</link>
+    <description>Recent content in Ubuntu on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
+    <lastBuildDate>Sat, 18 Jul 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://albertogrespan.com/tags/Ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerfile for Ruby applications</title>
+      <link>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</guid>
+      <description>There are different ways you can deploy your Ruby applications in a Docker container. You can either choose one of the many existing Ruby images on the public docker registry, use it as your base and adapt it to your needs or&amp;hellip; build your own Ruby base image from scratch based on your favorite OS and then build your application image on top of it.
+In this post we are going through the whole process of building the Ruby image from scratch based on the official Ubuntu 14.</description>
+    </item>
+    
+    <item>
+      <title>Creating DigitalOcean images with Packer</title>
+      <link>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</guid>
+      <description>tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a provisioner to install Docker.
+ This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
+ notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Blog</title>
@@ -8,10 +8,21 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sun, 13 Aug 2017 10:00:11 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 18:08:43 -0400</lastBuildDate>
     
 	<atom:link href="https://albertogrespan.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lessons From 3D Printing</title>
+      <link>https://albertogrespan.com/blog/3d-printing/lessons-from-3d-printing/</link>
+      <pubDate>Sat, 16 Nov 2019 18:08:43 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/3d-printing/lessons-from-3d-printing/</guid>
+      <description>This post talks about my experiences with 3D printing while using and Ender 3 Pro, what I&amp;rsquo;ve learned, misses and recommendations. My intention with this post will be to keep it up to date with my latest findings.
+Calibration Calibration is important no matter what; to get good prints you&amp;rsquo;ll have to calibrate: Extruder steps (e-steps), flow rate multiplier, and PID.
+Extruder steps &amp;ldquo;e-steps&amp;rdquo; Depending on your printer setup, if it&amp;rsquo;s bowden or direct you&amp;rsquo;ll calibrate your e-steps differently.</description>
+    </item>
     
     <item>
       <title>Hello, Hugo</title>
@@ -253,6 +264,16 @@ $(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;
     </item>
     
     <item>
+      <title>jQuery scrollTo with pushState</title>
+      <link>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</guid>
+      <description>pushState:
+$(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); });   Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id.  </description>
+    </item>
+    
+    <item>
       <title>ScrollTo Top using jQuery and Font Awesome icon</title>
       <link>https://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
@@ -270,16 +291,6 @@ $(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</guid>
       <description>Sucker punch gem This gem was created by @brandonhilkert with a very specific use case in mind. I&amp;rsquo;m not sure what the use case was, but, I believe it&amp;rsquo;s something like; taking advantage of Heroku web dynos, without needing to pay extra for a worker dyno (this is what I&amp;rsquo;m using it for). If It&amp;rsquo;s not; I&amp;rsquo;m leaning towards simplicity. At this point with sucker_punch in it&amp;rsquo;s version 1.0.1 became dead simple to install and use, no configuration needed.</description>
-    </item>
-    
-    <item>
-      <title>jQuery scrollTo with pushState</title>
-      <link>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</link>
-      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</guid>
-      <description>pushState:
-$(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); });   Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id.  </description>
     </item>
     
     <item>
