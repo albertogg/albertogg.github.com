@@ -1,6 +1,6 @@
 ---
 title: "Lessons From 3D Printing"
-date: 2019-11-03T18:08:43-04:00
+date: 2019-11-16T18:08:43-04:00
 description: |-
   Lessons learned while 3D Printing. From, E-steps calibration, filament, flow
   rate multiplier, PID, bed leveling, adhesion, assembly, etc...
@@ -13,7 +13,6 @@ tags:
   - Nozzle
   - Filament
   - Bed Leveling
-draft: true
 ---
 
 This post talks about my experiences with 3D printing while using and Ender 3
