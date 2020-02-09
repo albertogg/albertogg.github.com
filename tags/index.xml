@@ -8,10 +8,55 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sat, 16 Nov 2019 18:08:43 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 23:08:54 -0400</lastBuildDate>
     
 	<atom:link href="https://albertogrespan.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://albertogrespan.com/tags/docker/</link>
+      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://albertogrespan.com/tags/git/</link>
+      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qmk</title>
+      <link>https://albertogrespan.com/tags/qmk/</link>
+      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/qmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tmk</title>
+      <link>https://albertogrespan.com/tags/tmk/</link>
+      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/tmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>whitefox</title>
+      <link>https://albertogrespan.com/tags/whitefox/</link>
+      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/tags/whitefox/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Adhesion</title>
@@ -132,10 +177,10 @@
     
     <item>
       <title>Docker</title>
-      <link>https://albertogrespan.com/tags/Docker/</link>
+      <link></link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/Docker/</guid>
+      <guid></guid>
       <description></description>
     </item>
     
@@ -186,10 +231,10 @@
     
     <item>
       <title>Git</title>
-      <link>https://albertogrespan.com/tags/Git/</link>
+      <link></link>
       <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/tags/Git/</guid>
+      <guid></guid>
       <description></description>
     </item>
     

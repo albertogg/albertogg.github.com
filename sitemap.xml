@@ -3,6 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://albertogrespan.com/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/blog/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/categories/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/docker/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/blog/mk/flashing-qmk-on-a-whitefox/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/git/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/categories/MK/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/qmk/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/tmk/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://albertogrespan.com/tags/whitefox/</loc>
+    <lastmod>2020-02-05T23:08:54-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://albertogrespan.com/categories/3D-Printing/</loc>
     <lastmod>2019-11-16T18:08:43-04:00</lastmod>
   </url>
@@ -23,22 +78,7 @@
   </url>
   
   <url>
-    <loc>https://albertogrespan.com/</loc>
-    <lastmod>2019-11-16T18:08:43-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://albertogrespan.com/blog/</loc>
-    <lastmod>2019-11-16T18:08:43-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://albertogrespan.com/tags/Calibration/</loc>
-    <lastmod>2019-11-16T18:08:43-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://albertogrespan.com/categories/</loc>
     <lastmod>2019-11-16T18:08:43-04:00</lastmod>
   </url>
   
@@ -54,11 +94,6 @@
   
   <url>
     <loc>https://albertogrespan.com/tags/Nozzle/</loc>
-    <lastmod>2019-11-16T18:08:43-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://albertogrespan.com/tags/</loc>
     <lastmod>2019-11-16T18:08:43-04:00</lastmod>
   </url>
   
@@ -113,11 +148,6 @@
   </url>
   
   <url>
-    <loc>https://albertogrespan.com/tags/Docker/</loc>
-    <lastmod>2015-07-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</loc>
     <lastmod>2015-07-18T00:00:00+00:00</lastmod>
   </url>
@@ -149,11 +179,6 @@
   
   <url>
     <loc>https://albertogrespan.com/tags/CLI/</loc>
-    <lastmod>2015-03-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://albertogrespan.com/tags/Git/</loc>
     <lastmod>2015-03-30T00:00:00+00:00</lastmod>
   </url>
   
