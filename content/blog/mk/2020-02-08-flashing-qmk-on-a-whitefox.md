@@ -13,7 +13,6 @@ tags:
   - qmk
   - whitefox
   - tmk
-draft: true
 ---
 
 Awhile back I had this itch of wanting to try a different firmware for my then
