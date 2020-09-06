@@ -9,6 +9,7 @@ author:
 
 params:
   author: Alberto Grespan
+  domain: albertogrespan.com
   analytics:
     google:
       id: UA-29129831-1
