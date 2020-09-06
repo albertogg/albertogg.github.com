@@ -7,10 +7,9 @@
     {{ .Content }}
     <div class="closing">
       <div>
-       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@{{ .Site.Params.Connect.Twitter.Handle }}</a>
+       By <a href="{{ .Site.Params.Connect.Twitter.Url }}" class="twitter-follow-link">@{{ .Site.Params.Connect.Twitter.Handle }}</a>
       </div>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://albertogrespan.com{{ .RelPermalink }}" data-text="{{ .Title }}" data-via="{{ .Site.Params.Connect.Twitter.Handle }}">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="{{ .Permalink }}" data-text="{{ .Title }}" data-via="{{ .Site.Params.Connect.Twitter.Handle }}" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div> <!-- class closing -->
   </div> <!-- id class post -->
 {{ end }}
