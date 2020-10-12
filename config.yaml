@@ -12,7 +12,7 @@ params:
   domain: albertogrespan.com
   analytics:
     google:
-      id: UA-29129831-1
+      id: UA-180348489-1
       domain: albertogrespan.com
   gravatar:
     url: https://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png
