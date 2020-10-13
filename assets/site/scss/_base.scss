@@ -1,11 +1,31 @@
+:root {
+  color-scheme: light dark;
+  @include light(--bg-color, bg-color);
+  @include light(--bg-color-code, bg-color-code);
+  @include light(--font-color, font-color);
+  @include light(--font-color-highlight, font-color-highlight);
+  @include light(--link-color, link-color);
+}
+
+/* switch to dark mode color */
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark(--bg-color, bg-color);
+    @include dark(--bg-color-code, bg-color-code);
+    @include dark(--font-color, font-color);
+    @include dark(--font-color-highlight, font-color-highlight);
+    @include dark(--link-color, link-color);
+  }
+}
+
 body {
-  background-color: transparent;
-  color: $dark-font;
+  background-color: var(--bg-color);
+  color: var(--font-color);
   font-family: 'Merriweather', serif;
   max-width: 36em;
   margin: 0 auto;
   padding: 1.25em;
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: 1.38rem;
   font-weight: 300;
 }
@@ -17,12 +37,12 @@ footer {
 
 a {
   text-decoration: none;
-  color: $links-font;
-  border-bottom: 1px solid $links-border;
+  color: var(--link-color);
 
   &:hover {
-    color: $links-font;
-    border-color: $links-font;
+    color: var(--link-color);
+    border-color: var(--link-color);
+    border-bottom: 2px solid var(--link-color);
   }
 }
 
@@ -41,8 +61,9 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.1;
+  line-height: 1.2;
   font-weight: bold;
+  color: var(--font-color-highlight)
 }
 
 hr {
@@ -51,5 +72,5 @@ hr {
   margin-bottom: 3rem;
   height: 2px;
   border: 0;
-  background-color: $blue;
+  background-color: var(--link-color);
 }
