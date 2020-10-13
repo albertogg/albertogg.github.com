@@ -48,15 +48,10 @@
     <div class="date">
       <p>December 4, 2012</p>
     </div> 
-    
-
-<p>Have you ever wonder; how can I have multiple domains or subdomains pointing to
+    <p>Have you ever wonder; how can I have multiple domains or subdomains pointing to
 different projects but all of them are in just one server? well&hellip;</p>
-
 <p>This will be a very simple tutorial for doing that, with NGINX.</p>
-
 <h3 id="tutorial-tasks">tutorial tasks:</h3>
-
 <ol>
 <li>Creating or pointing domains/subdomains to the server&rsquo;s IP address</li>
 <li>Setup NGINX</li>
@@ -67,69 +62,47 @@ different projects but all of them are in just one server? well&hellip;</p>
 <li>Setup and link the Server Block</li>
 <li>Restart NGINX</li>
 </ol>
-
-<h3 id="1-creating-or-pointing-domains-subdomains-to-the-server-s-ip-address">1. Creating or pointing domains/subdomains to the server&rsquo;s ip address</h3>
-
+<h3 id="1-creating-or-pointing-domainssubdomains-to-the-servers-ip-address">1. Creating or pointing domains/subdomains to the server&rsquo;s ip address</h3>
 <p>Go to your domain register or to the DNS where your domain records are stored
 and point them to your server ip address (you can do this with a subdomain too).
 If you are trying this locally modify the <code>/etc/hosts</code> files and create a new
 record.</p>
-
 <pre><code>$ vim /etc/hosts
 </code></pre>
-
 <p>And add something like.</p>
-
 <pre><code>127.0.0.1    example.com
 127.0.0.1    example2.com
 127.0.0.1    my.example.com
 </code></pre>
-
 <h3 id="2-setup-nginx">2. Setup NGINX</h3>
-
 <p>Setup NGINX in <em>Ubuntu</em> if you haven&rsquo;t.</p>
-
 <pre><code>$ sudo apt-get install NGINX
 </code></pre>
-
 <h3 id="3-create-a-directory-to-keep-the-project">3. Create a directory to keep the project</h3>
-
 <p>Create a directory wherever you prefer to store your project. If you want you
 can create it in the typical <code>/var/www/</code> or elsewhere.</p>
-
 <p>We will create the folder in our home directory just to skip task #4.</p>
-
 <pre><code>$ mkdir -p /home/username/www/example.com
 </code></pre>
-
 <p>If you didn&rsquo;t do that, read on the next task.</p>
-
 <h3 id="4-change-folder-permissions">4. Change folder permissions</h3>
-
 <p>Now that you&rsquo;ve created the folder in some random directory and not in your
 &ldquo;$HOME&rdquo;, like we did; and probably used <code>sudo</code> for that task, you should grant
 ownership of the directory to the right user and also give everyone permission
 to read it&rsquo;s content.</p>
-
 <p>You do this by simply running:</p>
-
 <pre><code>$ sudo chown -R user:user /var/www/example.com/
 $ sudo chmod 755 /var/www/example.com/
 </code></pre>
-
 <h3 id="5-create-a-simple-html-page-to-display">5. Create a simple html page to display</h3>
-
 <p><code>cd</code> into your applications directory and create a new file with the name
 <code>index.html</code>:</p>
-
 <pre><code>$ cd /home/username/www/example.com
 $ touch index.html
 $ vi index.html
 </code></pre>
-
 <p>Now, add the content to be displayed in the index file. This will help us to
 notice if everything is working or not at the end of the tutorial.</p>
-
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -140,36 +113,26 @@ notice if everything is working or not at the end of the tutorial.</p>
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
 <h3 id="6-create-a-new-server-block-with-your-domain-or-subdomain">6. Create a new Server Block with your domain or subdomain</h3>
-
 <p>In a short explanation of how <em>server block</em> works, we can say; It&rsquo;s a file that
 contains a variable called <code>server_name</code> that is used by <em>NGINX</em> to figure out
 which application is being accessed on the server.</p>
-
 <p>We need to have one <em>server block</em> for each application running in our server.
 To create a new one we have to copy the <em>default</em> <em>server block</em> and then modify
 it.</p>
-
 <pre><code>$ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com
 </code></pre>
-
 <blockquote>
 <p>Name the <em>server block</em> as your domain or subdomain, in this case we are using
 example.com as the domain.</p>
 </blockquote>
-
 <h3 id="7-setup-and-link-the-server-block">7. Setup and link the Server Block</h3>
-
 <p>After we&rsquo;ve created the <em>Server Block</em> we need to adapt it to meet our
 requirements, by doing:</p>
-
 <pre><code>$ sudo vi /etc/nginx/sites-available/example.com
 </code></pre>
-
 <p>And changing it&rsquo;s <code>server_name</code>, <code>root</code> folder and the previously created
 <code>index</code> file.</p>
-
 <pre><code>server {
   listen   80; ## listen for ipv4; this line is default and implied
   listen   [::]:80 default ipv6only=on; ## listen for ipv6
@@ -181,25 +144,17 @@ requirements, by doing:</p>
   server_name example.com;
 }
 </code></pre>
-
 <p>The last step is to link the newly created <em>Server Block</em> into the
 <code>sites-enable</code> folder with a symlink, to get it working.</p>
-
 <pre><code>$ sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/example.com
 </code></pre>
-
 <h3 id="8-restart-nginx">8. Restart NGINX</h3>
-
 <p>Restart NGINX before accessing the web browser by doing:</p>
-
 <pre><code>$ sudo service nginx restart
 </code></pre>
-
 <p>At last open the browser and write down the domain in the search bar, you should
 be seeing the <code>index.html</code> file we created early.</p>
-
-<hr />
-
+<hr>
 <p>Now you will be able to run multiple applications in the same server. If you
 want another application running just repeat all the steps above.</p>
 

@@ -48,176 +48,118 @@
     <div class="date">
       <p>March 30, 2015</p>
     </div> 
-    
-
-<blockquote>
+    <blockquote>
 <p>tl;dr short description of my most used git aliases.</p>
 </blockquote>
-
 <p>In this post I&rsquo;ll be talking about my most used git aliases in no particular
 order. I&rsquo;m going to throw all of my <code>.gitconfig</code> in here and that&rsquo;s all.</p>
-
 <p>I believe git is one of the greatest pieces of software ever made. It&rsquo;s a
 functional tool that <em>just works</em>. If you use git on daily basis I bet you type
 <code>git</code> at least a hundreds of times a day. Aliases are a way to mitigate some
 large, repeated or painful to type commands, they can be added globally (hole
 system) or locally (one repo only). I&rsquo;ll use alias globally on the post.</p>
-
 <p>To add a new alias via command line you&rsquo;ll do something like this:</p>
-
 <pre><code>git config --global alias.st status
 </code></pre>
-
 <p>The other way of adding them is by <strong>carefully</strong> placing the alias directly in
 the <code>~/.gitconfig</code> file in the same way <code>git config --global alias</code> does. All
 aliases live under <code>[alias]</code> section on the file.</p>
-
 <pre><code>[alias]
     st = status
 </code></pre>
-
 <p>Let&rsquo;s start with the aliases&hellip;</p>
-
 <h2 id="change-branch">Change branch</h2>
-
 <p>To change branch I have a simple and widely used alias: <code>co</code> an abbreviation for
 <code>checkout</code>. It works like this:</p>
-
 <pre><code>git co master
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.co checkout
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>co = checkout
 </code></pre>
-
 <h2 id="start-new-work">Start new work</h2>
-
 <p>Start working on a new feature, fix, etc&hellip; I use <code>git cob &lt;branch-name&gt;</code>. This
 is an alias for <code>checkout -b &lt;branch-name&gt;</code> that creates a new branch and moves
 to it with a simple command.</p>
-
 <pre><code>git cob test-branch
 Switched to a new branch 'test-branch'
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.cob &quot;checkout -b&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>cob = checkout -b
 </code></pre>
-
 <h2 id="review-what-changed">Review what changed</h2>
-
 <p>To check the new state of your current work I use <code>git sts</code>. This is an alias
 for <code>status -s</code> that will only show in a simple way which files where modified,
 deleted, added, etc&hellip; with this simple command.</p>
-
 <pre><code>git sts
  M _drafts/my-most-used-git-aliases.md
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.sts &quot;status -s&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>sts = status -s
 </code></pre>
-
 <h2 id="rename-branch">Rename branch</h2>
-
 <p>Sometimes we name a branch poorly or maybe we thought the name was &ldquo;good&rdquo; but
 not meaningful to the work we are doing. To rename the branch locally I have a
 <em>rename</em> alias for <code>git branch -m</code>. One thing to keep in mind is that this
 command works in two different ways if we are on the branch we want to rename we
 can just <code>git rename new-name</code>. If we are not on the branch have to use
 <code>git rename target-branch new-name</code>.</p>
-
 <pre><code>git rename git-alias
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.rename &quot;branch -m&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>rename = branch -m
 </code></pre>
-
 <h2 id="review-which-file-have-conflicts">Review which file have conflicts</h2>
-
 <p>This has been a really useful command for me. It tells you which files have
 conflicts after merging. I picked up this command from an
 <a href="https://twitter.com/indirect/status/539529691380469760">@indirect tweet</a> a few months back.</p>
-
 <p>Let&rsquo;s create a &ldquo;conflict&rdquo; in a file to recreate how this command works.</p>
-
 <pre><code>git merge --no-ff hello2
 Auto-merging hello
 CONFLICT (content): Merge conflict in hello
 Automatic merge failed; fix conflicts and then commit the result.
 </code></pre>
-
 <p>Now that we have a conflict let&rsquo;s try the alias.</p>
-
 <pre><code>git conflicts
 hello
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.conflicts &quot;diff --name-only --diff-filter=U&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>conflicts = diff --name-only --diff-filter=U
 </code></pre>
-
 <h2 id="diff-by-words">Diff by words</h2>
-
 <p>Diff by highlighting inline word changes instead of whole lines. It&rsquo;s just a
 super simple alias for <code>git diff --word-diff</code>.</p>
-
 <p>Here it shows that the word git was removed and changed by the word got.</p>
-
 <pre><code>git dw
 [-git-]{+got+} conflicts
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.dw &quot;diff --word-diff&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>dw = diff --word-diff
 </code></pre>
-
 <h2 id="pretty-graph-log">Pretty graph log</h2>
-
 <p>Show a pretty graph of commits with short inline message and custom colors.
 This is a really cool command to review the commit history one of the most
 useful things anyone could use. It&rsquo;s a long command that I bet no one could type
 each time. Color can be modified easily if you dislike them.</p>
-
 <pre><code>git lg
 *   4d58be2 - Merge branch 'packer' (4 weeks ago)&lt;Alberto Grespan&gt;
 |\
@@ -231,87 +173,59 @@ each time. Color can be modified easily if you dislike them.</p>
 * 6848854 - Missing file name rack-middleware post (6 weeks ago)&lt;Alberto Grespan&gt;
 ...
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.lg &quot;log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit&quot;.
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit
 </code></pre>
-
 <h2 id="unstage-files">Unstage files</h2>
-
 <p>Remove file from the stage area or unstage files.</p>
-
 <pre><code>git unstage _drafts/my-most-used-git-aliases.md
 Unstaged changes after reset:
 M       _drafts/my-most-used-git-aliases.md
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.unstage &quot;reset HEAD --&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>unstage = reset HEAD --
 </code></pre>
-
 <h2 id="search-for-occurrences">Search for occurrences</h2>
-
 <p>Searching for occurrences using <code>git grep</code> is a very common task for me.  I
 normally search for function names, class namespace, variable, etc&hellip; This alias
 came pretty handy a while a go because I added two flags <code>-Ii</code> to make the
 search broader and that makes the command a little bit better for my use case.</p>
-
 <p>Here is how to use it:</p>
-
 <pre><code>git g openssl
 _posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:Before installing any Rubies ask yourself if you want support for LibYAML, Readline and **OpenSSL** outside of rbenv. Rbenv and its plugins are a mature ecosystem that can solve common caveats in the Ruby installation by downloading, installing and compiling your rubies with the latest **OpenSSL**, LibYAML and if available on your system, Readline.
 _posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:$ brew install libyaml readline **openssl**
 _posts/2014-05-13-installing-ruby-the-right-way-on-os-x-using-rbenv.md:That was really easy... but what if you want to use a custom version of **OpenSSL** or LibYAML?
 ...
 </code></pre>
-
 <p>To setup the alias use:</p>
-
 <pre><code>git config --global alias.g &quot;grep -Ii&quot;
 </code></pre>
-
 <p>Or copy the following into the <code>~/.gitconfig</code> file</p>
-
 <pre><code>g = grep -Ii
 </code></pre>
-
 <h2 id="count-commits">Count commits</h2>
-
 <p>Count the commits between two commits. I often find myself wanting to know how
 much commits in a day or how much commits do I have in a long lived feature
 branch, this alias helps me with this. This is how this alias works:</p>
-
 <pre><code>git count 452a5de 4d58be2
 5
 </code></pre>
-
 <p>Given that this alias is a function that receives parameters the way I advice to
 setup this alias is to copy it directly into the <code>~/.gitconfig</code> file.</p>
-
 <pre><code>count = &quot;!f() { git log $1..$2 --pretty=oneline | wc -l; }; f&quot;
 </code></pre>
-
 <p>These are all of my current aliases&hellip;</p>
-
-<hr />
-
+<hr>
 <p>As I said before, some of my used aliases are for repetitive or long commands,
 not all of them may be really useful but are easier to remember that typing a
 series of options with a command. Over all I hope these aliases are helpful to
 you as they are for me.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

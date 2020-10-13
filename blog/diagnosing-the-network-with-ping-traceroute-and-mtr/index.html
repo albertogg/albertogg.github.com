@@ -48,26 +48,20 @@
     <div class="date">
       <p>October 12, 2014</p>
     </div> 
-    
-
-<p>When you deal with a really bad internet connection everyday, as I do, you
+    <p>When you deal with a really bad internet connection everyday, as I do, you
 probably diagnose the network more frequently than usual and after that you
 call your ISP and explain to a person (that may think you are crazy) how you
 are having packet loss in a hop that belongs to them. Yes, you have to do this
 as many times as you can, until you get someone at the other end of the phone
 call that understand what&rsquo;s happening and sends someone to solve the issue, if
 possible.</p>
-
 <h2 id="ping-and-traceroute">Ping and Traceroute</h2>
-
 <p>As explained above this a weekly task I have to deal with, I start with a
 simple <code>ping</code> to <a href="https://www.google.com/">google.com</a> and after that I do a <code>traceroute</code> to see
 what the average <code>ping</code> for each hop in the network looks like. If there are
 some hiccups, I <code>ping</code> and <code>traceroute</code> again, but this time to the faulty hop
 or hops.</p>
-
 <p>Let&rsquo;s try to send 10 ICMP packages to Google and see how it goes:</p>
-
 <pre><code>$ ping -c 10 google.com
 PING google.com (173.194.37.9): 56 data bytes
 64 bytes from 173.194.37.9: icmp_seq=0 ttl=57 time=58.831 ms
@@ -85,14 +79,11 @@ PING google.com (173.194.37.9): 56 data bytes
 10 packets transmitted, 10 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 53.718/103.690/370.775/90.287 ms
 </code></pre>
-
 <p>It seems that is a good day, there&rsquo;s a bit more of latency in two packages,
 nothing really significant.</p>
-
 <p>Let&rsquo;s do a <code>traceroute</code> now using three flags,<code>-v</code> for verbose and richer
 output, <code>-I</code> for ICMP packages instead of UDP and <code>-S</code> for a summary of probes
 not answered</p>
-
 <pre><code>$ traceroute -v -I -S google.com
 traceroute: Warning: google.com has multiple addresses; using 173.194.37.1
 traceroute to google.com (173.194.37.1), 64 hops max, 72 byte packets
@@ -105,7 +96,6 @@ traceroute to google.com (173.194.37.1), 64 hops max, 72 byte packets
  7  209.85.251.203 (209.85.251.203) 36 bytes to 10.0.1.4  47.417 ms  76.920 ms  49.649 ms (0% loss)
  8  mia05s08-in-f1.1e100.net (173.194.37.1) 52 bytes to 10.0.1.4  81.094 ms  50.548 ms  54.033 ms (0% loss)
 </code></pre>
-
 <p>As you may see <code>traceroute</code> can be a little tricky to understand at first, so
 let me explain it. It sends three packages to each hop in the network and
 calculates the loss by the amount of package not answered or dropped that are
@@ -113,41 +103,28 @@ represented with an (<code>*</code>). It defaults to a maximum of 64 hops with a
 packet. Normally the first hop will be your router (if any) and the two or
 three subsequent hops belongs to your ISP. For us those are the ones that
 matter because they are the ones that we can complain about directly.</p>
-
 <p>There are a lot more flags options you can use with <code>traceroute</code> that you can
 check in the manual of the command.</p>
-
 <h2 id="mtr">MTR</h2>
-
 <p>I recently found a tool that also helps me diagnose the network, it&rsquo;s called
 MTR. At first glance MTR seems to be really similar to <code>traceroute</code> and it is.
 It combines <code>ping</code> and <code>traceroute</code> in a single network diagnostic tool that&rsquo;s
 easy to use and really complete.</p>
-
 <p>It doesn&rsquo;t come pre-installed in the mayority of the OS, but it&rsquo;s fairly easy
 to install via package managers:</p>
-
 <h3 id="ubuntu-and-debian">Ubuntu and Debian</h3>
-
 <pre><code>$ apt-get install mtr
 </code></pre>
-
 <h3 id="centos">CentOS</h3>
-
 <pre><code>$ yum install mtr
 </code></pre>
-
 <h3 id="os-x">OS X</h3>
-
 <pre><code>$ brew install mtr
 </code></pre>
-
 <p>Once we have it installed the CLI is really simple and the &ldquo;defaults&rdquo; are ok
 for most cases I use <code>--no-dns</code> to omit the reverse DNS lookups and <code>--report</code>
 that sends 10 ICMP packages to each hop of the network.</p>
-
 <p>Let&rsquo;s try it out:</p>
-
 <pre><code>$ mtr --no-dns --report google.com
 Start: Sun Oct 12 14:54:09 2014
 HOST: x-wing.local       Loss%   Snt   Last   Avg  Best  Wrst StDev
@@ -160,10 +137,8 @@ HOST: x-wing.local       Loss%   Snt   Last   Avg  Best  Wrst StDev
   7.|-- 209.85.251.203             0.0%    10   48.8  64.2  48.6  90.1  15.1
   8.|-- 173.194.37.2               0.0%    10   63.6  62.6  47.0 103.7  17.8
 </code></pre>
-
 <p>The output is more or less similar to the <code>traceroute</code>, a bit fancier and better
 explained. Columns from left to right:</p>
-
 <ul>
 <li>Package loss <code>Loss%</code></li>
 <li>Number of packages sent <code>Snt</code></li>
@@ -174,16 +149,12 @@ explained. Columns from left to right:</p>
 <li>Standard Deviation <code>StDev</code> in which the higher the value the greater the
 difference between package measurements (less is better).</li>
 </ul>
-
 <p>The way I use MTR is the same one that I do with <code>traceroute</code> and <code>ping</code>, I
 first use <code>ping</code> and afterwards use <code>mtr</code> just to be sure of what&rsquo;s happening.</p>
-
-<hr />
-
+<hr>
 <p>We briefly talked about this three tools can help you diagnose your network by
 detecting package loss, average response time and the standard deviation between
 them.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

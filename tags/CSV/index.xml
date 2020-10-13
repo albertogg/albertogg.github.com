@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sun, 26 Oct 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/CSV/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 26 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/CSV/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSV file reading in Ruby</title>
       <link>https://albertogrespan.com/blog/csv-file-reading-in-ruby/</link>

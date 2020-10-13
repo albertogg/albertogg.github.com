@@ -51,17 +51,12 @@ multiple times images.">
       <p>June 9, 2014</p>
     </div> 
     <p>If you want or need first stop the containers</p>
-
 <pre><code>$ docker stop $(docker ps -a -q)
 </code></pre>
-
 <p>Delete all stopped containers</p>
-
 <pre><code>$ docker rm $(docker ps -a -q)
 </code></pre>
-
 <p>Delete all untagged images (TAG: <code>&lt;none&gt;</code>)</p>
-
 <pre><code>$ docker rmi $(docker images | awk '/^&lt;none&gt;/ { print $3 }')
 </code></pre>
 

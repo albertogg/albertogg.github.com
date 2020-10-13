@@ -50,47 +50,33 @@ will also work for any custom short periodical task.">
     <div class="date">
       <p>March 7, 2014</p>
     </div> 
-    
-
-<blockquote>
+    <blockquote>
 <p><strong>tl;dr</strong> we are using the heroku scheduler with Rails and Rake to keep our
 dyno awake; this will also work for any custom short periodical task.</p>
 </blockquote>
-
 <h2 id="heroku-scheduler">Heroku scheduler</h2>
-
 <p>The Heroku scheduler is a &ldquo;free&rdquo; application add-on that helps you run short
 tasks every 10, 60 or 3600 minutes. You can use it as much as you want per
 month, but <em>AFAIK</em> it uses minutes from your dynos. That said, be careful if you
 are on a tight budget.</p>
-
 <p>For our use case this will work flawlessly given it&rsquo;s not a key aspect of our
 application and it&rsquo;s mostly for development use.</p>
-
 <h3 id="adding-the-scheduler">Adding the scheduler</h3>
-
 <p>There are 2 ways to apply this add-on to your application; from the <a href="https://addons.heroku.com/scheduler">web
 interface</a>
 or the CLI.</p>
-
 <blockquote>
 <p>To use the CLI you must have the <a href="https://toolbelt.heroku.com/">heroku
 toolbelt</a> installed.</p>
 </blockquote>
-
 <pre><code>$ heroku addons:add scheduler
 </code></pre>
-
-<h3 id="ping-rake">ping.rake</h3>
-
+<h3 id="pingrake">ping.rake</h3>
 <p>It&rsquo;s time to create our rake task in Rails. First step is to create a file
 within the <code>lib/tasks</code> directory of our Rails application.</p>
-
 <pre><code>$ touch lib/tasks/ping.rake
 </code></pre>
-
 <p>Then add this code:</p>
-
 <pre><code>require 'net/http'
 
 namespace :ping do
@@ -109,42 +95,28 @@ namespace :ping do
   end
 end
 </code></pre>
-
 <h3 id="environment-variables">Environment variables</h3>
-
 <p>Now you have your rake task ready to use, but&hellip; we are using environment
 variables in our task and they must be exported to heroku and locally (testing):</p>
-
 <pre><code>$ heroku config:set URL=http://xxx.herokuapp.com/ #replace xxx with your heroku appmane
 </code></pre>
-
 <blockquote>
-<p>to test the task locally you can either use <code>export
-URL=http://xxx.herokuapp.com/</code> or the <a href="https://github.com/bkeepers/dotenv">dotenv
+<p>to test the task locally you can either use <code>export URL=http://xxx.herokuapp.com/</code> or the <a href="https://github.com/bkeepers/dotenv">dotenv
 gem</a> and run <code>rake ping:start</code>.</p>
 </blockquote>
-
 <h3 id="testing-the-task">Testing the task</h3>
-
 <p>To test if task is working as expected within the heroku environment you have to
 commit this code and deploy your application; after that you will be able to use
 <code>heroku run</code> to test the task:</p>
-
 <pre><code>$ heroku run rake ping:start
 </code></pre>
-
 <p>If the output from the command was successful you just need to add the task to
 the scheduler and that&rsquo;s it.</p>
-
 <h3 id="adding-the-task-to-the-scheduler">Adding the task to the scheduler</h3>
-
 <p>$ heroku addons:open scheduler</p>
-
 <p>This will open the website in which you will need to add the task to be run
 (e.g. <code>rake ping:start</code>), dyno size (1x) and frequency (60minutes).</p>
-
-<hr />
-
+<hr>
 <p>You are all set, if you want to check if it&rsquo;s been run just check the heroku log
 in a couple of hours <code>heroku logs --ps scheduler.1</code>.</p>
 

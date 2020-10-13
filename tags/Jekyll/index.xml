@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sun, 13 Aug 2017 10:00:11 -0400</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Jekyll/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 13 Aug 2017 10:00:11 -0400</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello, Hugo</title>
       <link>https://albertogrespan.com/blog/hello-hugo/</link>

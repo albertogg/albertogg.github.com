@@ -54,30 +54,22 @@ correct configuration. You just need Git version 1.8.5 or newer.">
 <p><strong>tl;dr</strong> after version 1.8.5 of git, you can now configure it to
 automatically prune remote-tracking branches with every fetch/pull.</p>
 </blockquote>
-
 <p>Before Git version 1.8.5 if you wanted to prune remote-tracking branches you
 where forced to use/remember the <code>git fetch --prune</code> command, even if your
 workflow didn&rsquo;t involve fetching directly with the <code>fetch</code> command. For that
-reason if you find yourself pulling and then using an alias or just typing <code>git
-fetch --prune</code> every once in a while, this new Git configuration is perfect for
+reason if you find yourself pulling and then using an alias or just typing <code>git fetch --prune</code> every once in a while, this new Git configuration is perfect for
 you.</p>
-
 <p>There are two new configuration commands that will help you achieve this
 behavior (pruning) in different ways. The first command is:</p>
-
 <pre><code>$ git config fetch.prune true
 </code></pre>
-
 <p>This command will set in your configuration file the prune flag true, so it will
 prune automatically with every fetch. The default git behavior of this flag is
 false. Yes, if you&rsquo;re wondering <code>git pull</code> will implicitly use this flag.</p>
-
 <p>For the last couple of weeks I&rsquo;ve been giving this a try and it has been a dream
 come true, it&rsquo;s a perfect addition to my workflow (I&rsquo;m also using the <code>rebase</code>
 flag with every pull).</p>
-
 <p>Check out this output:</p>
-
 <pre><code>$ git pull
 From github.com:albertogg/test-something
  x [deleted]         (none)     -&gt; origin/fix-bleh
@@ -91,24 +83,17 @@ Unpacking objects: 100% (5/5), done.
 First, rewinding head to replay your work on top of it...
 Fast-forwarded master to 5596684fbd39d037e1a60a8b75f250d059c3e904.
 </code></pre>
-
 <p>The second command is somewhat similar to the first one, but it will only apply
 to the remote repo you want <em>e.g. origin</em>.</p>
-
 <pre><code>$ git config remote.origin.prune true
 </code></pre>
-
 <p>The results in both cases will be the same; you have to decide which one suites
 you better, although if you add both configurations to your repo or system wide
 the second one will overwrite the behavior of the first one, so be careful with
 that.</p>
-
-<hr />
-
+<hr>
 <p>Remember, that you can make this configurations work system wide by just adding
-the <code>--global</code> flag when executing the command e.g. <code>git config --global
-fetch.prune true</code>.</p>
-
+the <code>--global</code> flag when executing the command e.g. <code>git config --global fetch.prune true</code>.</p>
 <p>Thanks for reading!</p>
 
     <div class="closing">

@@ -51,14 +51,12 @@ Twitter Bootstrap.">
       <p>July 13, 2013</p>
     </div> 
     <p>Using command enter to submit:</p>
-
 <pre><code>$(document).on('keydown', '.controls &gt; .text, .controls &gt; .string', function(event) {
   if(event.keyCode == 13 &amp;&amp; (event.metaKey || event.ctrlKey)) {
     $('input.btn.submit-helper').click();
   }
 });
 </code></pre>
-
 <ul>
 <li>Add a helper class to your submit button to identify it.</li>
 <li>If you want to target normal inputs use .text and to target textareas use

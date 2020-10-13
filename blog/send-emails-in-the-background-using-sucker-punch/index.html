@@ -50,10 +50,7 @@ application.">
     <div class="date">
       <p>July 13, 2013</p>
     </div> 
-    
-
-<h2 id="sucker-punch-gem">Sucker punch gem</h2>
-
+    <h2 id="sucker-punch-gem">Sucker punch gem</h2>
 <p>This gem was created by <a href="https://twitter.com/brandonhilkert">@brandonhilkert</a>
 with a very specific use case in mind. I&rsquo;m not sure what the use case was, but,
 I believe it&rsquo;s something like; taking advantage of <a href="http://heroku.com">Heroku</a>
@@ -62,15 +59,12 @@ using it for). If It&rsquo;s not; I&rsquo;m leaning towards simplicity. At this 
 <a href="https://github.com/brandonhilkert/sucker_punch">sucker_punch</a> in it&rsquo;s <strong>version
 1.0.1</strong> became dead simple to install and use, no configuration needed. I&rsquo;m
 really grateful that this gem was created.</p>
-
 <blockquote>
 <p><strong>note:</strong> If you are looking for a massive background processing gem with
 persistence, etc. go with something like
 <a href="https://github.com/mperham/sidekiq">Sidekiq</a> instead.</p>
 </blockquote>
-
 <h3 id="why-sucker-punch">Why sucker punch?</h3>
-
 <ul>
 <li>Asynchronous processing within a single process.</li>
 <li>All queues can run within a single Rails/Sinatra process.</li>
@@ -78,30 +72,22 @@ persistence, etc. go with something like
 <li>Dead simple to use.</li>
 <li>Reduces costs in services like Heroku.</li>
 </ul>
-
-<h2 id="sending-emails-within-a-rails-application-using-sucker-punch">Sending emails within a Rails application using sucker_punch</h2>
-
+<h2 id="sending-emails-within-a-rails-application-using-sucker_punch">Sending emails within a Rails application using sucker_punch</h2>
 <p>You already have a Rails application running and you want to send a contact form
 email or an email when the user registers. Let&rsquo;s do this using asynchronous
 processing with sucker punch.</p>
-
 <p>First install the sucker punch gem.</p>
-
 <pre><code># Add this line to your Gemfile
 $ gem 'sucker_punch', '~&gt; 1.0.1'
 
 # Run bundle
 $ bundle install
 </code></pre>
-
 <p>Generate the mailer.</p>
-
 <pre><code>$ rails g mailer ContactMailer
 </code></pre>
-
 <p>This command will create all the files necessary to send emails within the rails
 application.</p>
-
 <pre><code># app/mailers/contact_mailer.rb
 class ContactMailer &lt; ActionMailer::Base
   default from: &quot;alberto@example.com&quot;
@@ -116,9 +102,7 @@ class ContactMailer &lt; ActionMailer::Base
   end
 end
 </code></pre>
-
 <p>Create your email template.</p>
-
 <pre><code># app/views/contact_mailer/contact_form.txt.erb
 # This template receives the @contact variable from the
 # app/mailers/contact_mailer.rb contact_form method.
@@ -126,9 +110,7 @@ end
 
 &lt;%= @contact.content %&gt;
 </code></pre>
-
 <p>Let&rsquo;s create the sucker punch job.</p>
-
 <pre><code># app/jobs/contacts_email_job.rb
 class ContactsEmailJob
   include SuckerPunch::Job
@@ -140,9 +122,7 @@ class ContactsEmailJob
 
 end
 </code></pre>
-
 <p>Now let&rsquo;s take a look at the controller.</p>
-
 <pre><code># app/controllers/contacts_controller.rb
 class ContactsController &lt; ApplicationController
   def new
@@ -164,15 +144,12 @@ class ContactsController &lt; ApplicationController
   end
 end
 </code></pre>
-
 <p>When the user hits contact form and click the submit button of the form, they
 are triggering the controller which instantiates a <em>new</em> job that will <em>perform
 asynchronously</em> so the user will not be hold down waiting for the email to be
 send. In the end using background jobs for doing this things reflects in a
 better user experience.</p>
-
-<hr />
-
+<hr>
 <p>In conclusion doing complicated things like background jobs becomes really easy
 when using the right tools. In this case using sucker punch. We didn&rsquo;t have to
 figure out how to install and configure persistence or configuring the job

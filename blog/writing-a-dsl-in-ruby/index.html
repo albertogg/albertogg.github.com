@@ -48,22 +48,16 @@
     <div class="date">
       <p>December 29, 2014</p>
     </div> 
-    
-
-<p>A Domain Specific Language or DSL is a mini language focused in solving a
+    <p>A Domain Specific Language or DSL is a mini language focused in solving a
 particular type of problem. That said, it&rsquo;s not a general purpose language like
 Ruby. Writing a DSL can help us improve the code base by making it more
 readable.</p>
-
 <p>If you&rsquo;ve used Rails, you&rsquo;ve used and seen tons of DSLs. <em>e.g</em> inside
 migrations, configuration files etc&hellip; DSLs in Ruby are a common thing and we
 are making a simple but useful example in this post.</p>
-
 <h2 id="what-we-want">What we want</h2>
-
 <p>At the end of the post we will end up with an <code>address_book</code> object with that
 contains an array of contacts, all done with our simple DSL:</p>
-
 <pre><code>address_book = AddressBook.new do
   add_contact do
     full_name &quot;Alberto Grespan&quot;
@@ -76,13 +70,9 @@ contains an array of contacts, all done with our simple DSL:</p>
   end
 end
 </code></pre>
-
 <p>Let&rsquo;s start with the contact class.</p>
-
 <h2 id="contact">Contact</h2>
-
 <p>We want to save the contacts in our address book with their full name and email.</p>
-
 <pre><code>class Contact
   attr_accessor :full_name, :email
 
@@ -99,42 +89,32 @@ end
   end
 end
 </code></pre>
-
 <p>What we did here is very minimal and simple, and it will work for the example
 used above and also with local block variables. Let me explain this a bit.</p>
-
 <p>When we instantiate a new <code>Contact</code> object and pass it a block, it checks the
 <code>block.arity</code>, if it&rsquo;s less than one it evaluates the block using
 <code>instance_eval</code>, if it&rsquo;s more than one it uses <code>block.call(self)</code> this allow us
 to use the block with either a local block variable or without it.</p>
-
 <p>Let&rsquo;s try it out:</p>
-
 <pre><code>contact = Contact.new do
   full_name &quot;Alberto Grespan&quot;
   email &quot;alberto@example.com&quot;
 end
 #=&gt; #&lt;Contact:0x007fa821b240c8 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;
 </code></pre>
-
 <p>Or with local variables</p>
-
 <pre><code>contact = Contact.new do |contact|
   contact.full_name &quot;Alberto Grespan&quot;
   contact.email &quot;alberto@example.com&quot;
 end
 #=&gt; #&lt;Contact:0x007fa821c25bc0 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;
 </code></pre>
-
 <p>Now we need to wrap the <code>Contact</code> class functionality inside an <code>AdressBook</code> to
 match our desired goal.</p>
-
 <h2 id="addressbook">AddressBook</h2>
-
 <p>The <code>AddressBook</code> class is pretty straight forward. It should be able to manage
 an array of contacts and have a method named <code>add_contact</code> that receives a block
 and appends a new <code>Contact</code> to the contacts array.</p>
-
 <pre><code>class AddressBook
   attr_accessor :contacts
 
@@ -148,15 +128,12 @@ and appends a new <code>Contact</code> to the contacts array.</p>
   end
 end
 </code></pre>
-
 <p>In the same way we did with the <code>Contact</code> class we are using the <code>block.arity</code>,
 <code>instance_eval</code> and <code>block.call(self)</code> on the <code>AddressBook</code> class. Now we can
 wrap the <code>Contact</code> class functionality inside the <code>add_contact</code> method and have
 our <code>AddressBook</code> object with contacts.</p>
-
 <p>Inside <strong>irb or pry</strong>, require the two classes(<code>Contacts</code> and <code>AddressBook</code>) to
 use the DSL:</p>
-
 <pre><code>address_book = AddressBook.new do
   add_contact do
     full_name &quot;Alberto Grespan&quot;
@@ -172,9 +149,7 @@ end
     #&lt;Contact:0x007fa4eb10cdd0 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;,
     #&lt;Contact:0x007fa4eb10cce0 @email=&quot;johndoe@example.com&quot;, @full_name=&quot;John Doe&quot;&gt;]&gt;
 </code></pre>
-
 <p>Or with local block variable</p>
-
 <pre><code>address_book = AddressBook.new do |contact|
   contact.add_contact do
     full_name &quot;Alberto Grespan&quot;
@@ -190,13 +165,10 @@ end
     #&lt;Contact:0x007fa4ec8dce60 @email=&quot;alberto@example.com&quot;, @full_name=&quot;Alberto Grespan&quot;&gt;,
     #&lt;Contact:0x007fa4ec8dcd70 @email=&quot;johndoe@example.com&quot;, @full_name=&quot;John Doe&quot;&gt;]&gt;
 </code></pre>
-
-<hr />
-
+<hr>
 <p>Keep in mind that this code can be improved performance wise and it&rsquo;s just a way
 to make a DSL in Ruby, I also hope this is useful and simple enough to
 understand.</p>
-
 <p>Thanks for reading and thanks to <strong>Diorman Colmenares</strong> for the help!</p>
 
     <div class="closing">

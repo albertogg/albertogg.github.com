@@ -53,7 +53,6 @@ validations, new functionality, etc...">
     <blockquote>
 <p>tl;dr use <code>class_eval</code> to extend Doorkeeper models functionality in runtime.</p>
 </blockquote>
-
 <p>A few weeks ago at work, we were extending our very basic OAuth2 provider by
 adding the possibility to either login with Google OAuth2 or with our own. With
 that we also did a role based level of authorization, nothing complex&hellip; but, as
@@ -61,9 +60,7 @@ we are using Doorkeeper for the OAuth2 we needed new validations, associations
 and a couple of new methods in one of their models to fulfill our needs. To
 achieve this we used <code>class_eval</code> inside a Rails initializer that allowed us to
 extend the model in runtime without touching the code inside the gem.</p>
-
 <p>Let&rsquo;s take a look at it.</p>
-
 <pre><code># config/initializers/doorkeeper_patch.rb
 # Log the Doorkeeper extension
 Rails.logger.info &quot;Extending Doorkeeper from config/initializer/doorkeeper_patch.rb&quot;
@@ -76,19 +73,14 @@ Doorkeeper::Application.class_eval do
   # keep adding any other methods, validations, relations here...
 end
 </code></pre>
-
 <p>Note that there is a <code>Rails.logger</code> at the beginning of the file as a
 notification that there is a &ldquo;monkey patch&rdquo; in Doorkeeper, this may be helpful
 when debugging latter, after that, we proceed to add whatever was needed to that
 model as if we were inside that Rails model.</p>
-
 <p>You can do the same thing to the other Doorkeeper models or libraries.</p>
-
-<hr />
-
+<hr>
 <p>That&rsquo;s all, pretty easily we manage to accomplish what we needed by extending
 the models in runtime using <code>class_eval</code>.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

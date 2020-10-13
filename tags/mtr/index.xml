@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sun, 12 Oct 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/mtr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 12 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/mtr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Diagnosing the network with Ping, Traceroute and MTR</title>
       <link>https://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</link>

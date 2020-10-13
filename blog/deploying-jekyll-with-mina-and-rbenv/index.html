@@ -48,64 +48,46 @@
     <div class="date">
       <p>October 5, 2014</p>
     </div> 
-    
-
-<p>The purpose of this post is to show how to deploy a <a href="http://jekyllrb.com/">Jekyll</a> site using
+    <p>The purpose of this post is to show how to deploy a <a href="http://jekyllrb.com/">Jekyll</a> site using
 <a href="http://nadarei.co/mina/">Mina</a> and it will not show how to serve the site with NGINX or Apache or
 install any dependencies like Ruby or rbenv on the server.</p>
-
 <p>Even though we are not focusing in the things we mentioned above we&rsquo;ll need a
 running machine them installed:</p>
-
 <ul>
 <li>Ruby managed from rbenv</li>
 <li>NGINX or Apache</li>
 <li>If deploying from a private repo a new ssh keypair</li>
 </ul>
-
 <h2 id="installing-mina">Installing Mina</h2>
-
 <p>As Mina is just a gem we will use the <code>gem</code> command to install it or just add
 it to your Gemfile and <code>bundle</code> it.</p>
-
 <pre><code>$ gem install mina
 </code></pre>
-
 <p>After Mina is installed we need to run the <code>init</code> command, this will create a
 <code>config/deploy.rb</code> with the default instructions which are very complete and a
 good base to work with.</p>
-
 <pre><code>$ mina init
 </code></pre>
-
 <h2 id="getting-everything-ready">Getting everything ready</h2>
-
 <p>The first thing after installing Mina will be to exclude <em>vendor</em> folder from
 our Jekyll project build.</p>
-
 <pre><code># _config.yml
 exclude: ['vendor']
 </code></pre>
-
 <p>After you&rsquo;ve done that let&rsquo;s move onto the <code>config/deploy.rb</code> file and modify
 a couple of things.</p>
-
 <p>As we&rsquo;ll be using rbenv to do our deployment the first thing we need to
 <code>require 'mina/rbenv'</code> module, then load rbenv in the <code>:environment</code> task.</p>
-
 <blockquote>
 <p>for some weird reason rbenv was not getting loaded in the terminal session
 because the <code>RBENV_ROOT</code> variable was not getting exported and the rbenv
 command was giving me errors. My solution was to explicitly export that
 variable in the <code>:environment</code> task.</p>
 </blockquote>
-
 <p>We use the <code>:environment</code> task to do this because this task will be invoked
 before our <code>:deploy</code> task helping us to get everything loaded prior needing
 it.</p>
-
 <p>Our <code>:environment</code> task will look like this:</p>
-
 <pre><code>set :rbenv_path, &quot;/usr/local/rbenv&quot;
 
 task :environment do
@@ -113,11 +95,9 @@ task :environment do
   invoke :'rbenv:load'
 end
 </code></pre>
-
 <p>Now let&rsquo;s add the domain, deploy directory, repo, branch and deploy user
 variables. One important thing here is that we are deploy from a git repo so we
 need to <code>require 'mina/git'</code> to have this feature.</p>
-
 <pre><code>set :term_mode, nil
 set :domain, example.com # can be an IP address
 set :deploy_to, '/home/deployer/jekyll'
@@ -126,14 +106,11 @@ set :repository, 'git@github.com:albertogg/bleh.git'
 set :branch, 'master'
 set :user, 'deployer'   # Username in the server.
 </code></pre>
-
 <p>Our final and most important thing will be the <code>:deploy</code> task, this task will
 do everything for us, clone our repo in our desired directory, bundle our
 project gems, and build our blog. As we are using bundler we need to
 <code>require 'mina/bunlder'</code> module also.</p>
-
 <p>As there is no much to explain let&rsquo;s see the whole <code>deploy.rb</code> file:</p>
-
 <pre><code>require 'mina/git'
 require 'mina/bundler'
 require 'mina/rbenv'
@@ -179,28 +156,19 @@ task :deploy =&gt; :environment do
   end
 end
 </code></pre>
-
 <h2 id="deploying">Deploying</h2>
-
 <p>It&rsquo;s pretty easy I think. We just need to do two more things and we are done.
 Let&rsquo;s setup Mina on the server by running:</p>
-
 <pre><code>$ mina setup
 </code></pre>
-
 <p>After this if everything worked we are just left with the final task, deploy:</p>
-
 <pre><code>$ mina deploy
 </code></pre>
-
 <p>That&rsquo;s it! very easy don&rsquo;t you think?</p>
-
-<hr />
-
+<hr>
 <p>Mina is very nice and easy to setup, I hope you find it a good light solution
 for deploying your site, I did, It also works great for bigger sites done with
 Rails and Sinatra.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

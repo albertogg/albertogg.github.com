@@ -48,17 +48,13 @@
     <div class="date">
       <p>October 10, 2014</p>
     </div> 
-    
-
-<p>Sometimes we&rsquo;ll need to install specific gems to make our project compatible in
+    <p>Sometimes we&rsquo;ll need to install specific gems to make our project compatible in
 different platforms such as MRI, Rubinius, a particular Ruby version, JRuby,
 windows, etc&hellip;</p>
-
 <p>As you may know, dependency management in Ruby is done through
 <a href="http://bundler.io/">Bundler</a> Gemfile. Bundler comes with a handy CLI command that can
 help us gather some information about our current platform and help us see a
 bigger picture of what&rsquo;s going on with our project Gemfile e.g:</p>
-
 <pre><code>$ bundle platform
 Your platform is: x86_64-darwin13.0
 
@@ -67,15 +63,11 @@ Your app has gems that work on these platforms:
 
 Your Gemfile does not specify a Ruby version requirement.
 </code></pre>
-
 <p>That&rsquo;s cool, but how do we manage platform specific gems?</p>
-
 <h2 id="managing-platforms">Managing platforms</h2>
-
 <p>Apart from the bundler&rsquo;s platform command it also have a <code>platforms</code> option
 that can be used within the Gemfile and applied to a group of gems in a block
 form or to a single gem in the same way we do it with <code>groups</code>.</p>
-
 <pre><code># Gemfile
 platforms :ruby do
   gem &quot;ruby-debug&quot;
@@ -84,19 +76,14 @@ end
 
 gem 'jdbc-postgres', '~&gt; 9.3.1102', :platforms =&gt; :jruby
 </code></pre>
-
 <p>The platforms block tells that these two gems are only going to be installed
 when using <em>C Ruby (MRI) or Rubinius, but NOT Windows</em> and the <code>jdbc-postgres</code>
 gem will only be installed when the platform is JRuby. You can check more
 <a href="http://bundler.io/v1.7/man/gemfile.5.html">here</a>.</p>
-
 <p>This can help us be more subtle with <a href="http://rubygems.org/">rubygems.org</a> servers and
 probably with our application load times.</p>
-
 <p>But wait, there&rsquo;s another &ldquo;solution&rdquo; that can be used and it&rsquo;s pure Ruby.</p>
-
 <p>Let&rsquo;s test it:</p>
-
 <pre><code>$ irb
 
 &gt; RUBY_PLATFORM
@@ -104,22 +91,18 @@ probably with our application load times.</p>
 &gt; puts &quot;YAY&quot; if RUBY_PLATFORM=~ /x86_64-darwin13.0/
 =&gt; YAY
 </code></pre>
-
 <p>I&rsquo;m currently running under OS X so my platform will be Darwin. The output
 above is telling me that. But what is <code>RUBY_PLATFORM</code> ?</p>
-
 <p><code>RUBY_PLATFORM</code> is a Ruby constant that will give us our current platform, it&rsquo;s
 also the same constant that Bundler uses when we type <code>bundle platform</code>. You
 might be thinking how can we apply this to a Gemfile&hellip; Well, easy, in the same
 we just did.</p>
-
 <pre><code># Gemfile
 if RUBY_PLATFORM =~ /x86_64-linux/
   gem 'libv8', '~&gt; 3.16.14.7'
   gem 'therubyracer', '~&gt; 0.12.1'
 end
 </code></pre>
-
 <p>As you see we are using it to install some dependencies only on Linux. One
 thing I&rsquo;ve notice when using <code>RUBY_PLATFORM</code> is that it&rsquo;s a bit &ldquo;unreliable&rdquo;. I
 haven&rsquo;t test it in all possible platforms but when using this constant an JRuby
@@ -127,7 +110,6 @@ the output will be &ldquo;Java&rdquo; and not the current OS, this may be the in
 behaviour, but it wasn&rsquo;t for me, so be careful with this if you are planing on
 using it for gem installation purposes, it may be better and safer to just
 stick with Bundler&rsquo;s platforms.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

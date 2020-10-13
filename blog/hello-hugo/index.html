@@ -60,7 +60,6 @@ integration, syntax highlighting with <a href="http://rouge.jneen.net">Rouge</a>
 documentation on some of the core parts, and used the migration tool to move my
 posts. It all went very well, the migration was seamless until I tried adapting
 my Jekyll layout into Hugo.</p>
-
 <p>One of the hardest parts for me was understanding how the layouts work. Layouts
 are a bit complicated because in the documentation they are mixed up with
 themes. A theme is an &ldquo;encapsulated&rdquo; layout meant to be shared, while the layout
@@ -71,7 +70,6 @@ track using three default layouts, a <code>baseof.html</code>, a <code>list.html
 language</a>, which I found to be easy to pick up, flexible, and
 with good <a href="https://gohugo.io/templates/introduction/">documentation</a>, in the end It took me a few of
 hours to have everything working in this area.</p>
-
 <p>Then I encountered another &ldquo;sort of issue&rdquo;, one I knew from the start. All of my
 Style Sheets are written in <a href="http://sass-lang.com">Sass</a> and there&rsquo;s no out of the box support
 in Hugo for it. I choose Sass long time ago as it made sense, it&rsquo;s written in
@@ -82,29 +80,24 @@ install another interpreter/compiler, one that was fast, and that was sort of
 maintained. I decided on <a href="https://getwt.io">Wellington</a>, it&rsquo;s also written in
 <a href="https://golang.org">Go</a>, it uses <a href="http://sass-lang.com/libsass">LibSass</a> (super fast), and the most important part
 is that my existing Sass compiled.</p>
-
 <p>Something I really liked, although, it&rsquo;s nothing special, is that Hugo allows
 you to use your configuration and front-matter in YAML, JSON, or TOML. My
 decision was to keep it in YAML, BUT, you can convert everything from YAML to
 TOML using the Hugo CLI command, that&rsquo;ll let you experiment or migrate
 effortlessly, I tried it, it worked, but as I said, my decision was made.</p>
-
 <p>Syntax highlighting was pretty easy to have in Jekyll with <a href="http://rouge.jneen.net">Rouge</a>, but
 not really necessary, it&rsquo;s a pretty thing to have. With Hugo I needed yet
 another dependency (python <a href="http://pygments.org">Pygments</a>), so I decided to drop syntax
 highlighting completely, and with this I took a drastic change, I also dropped
 GitHub&rsquo;s flavored markdown syntax in some of my posts in favor of plain old
 Markdown indentation.</p>
-
 <p>Deployments was one of the main reasons I jumped very early on the Jekyll wagon,
 static site generation and <a href="https://pages.github.com">GitHub Pages</a> integration, something super
 awesome in 2011, that got better through the years. I&rsquo;ve lost it, but things are
 not so bad either.  I&rsquo;m using the two repos now, one for hosting blog&rsquo;s code and
 one for the generated output. You can read how it works in this <a href="https://github.com/whipperstacker/blog/blob/master/content/post/deploying-a-hugo-site-to-github-pages.md">excellent blog
 post</a>.</p>
-
-<hr />
-
+<hr>
 <p>All in all I&rsquo;m very happy with my new setup, I have yet to try some of the many
 features of Hugo, such as Archetypes, Cross References, and Table of Contents. I
 got to experience a migration from one static site generator to another and see
@@ -116,10 +109,8 @@ them up to date, documentation is good and they&rsquo;ve recently made it better
 easier to navigate. Even though I&rsquo;m happy, not everything is perfect, I&rsquo;m
 missing <a href="https://jekyllrb.com/docs/assets/">Jekyll&rsquo;s Sass integration</a>, and <a href="https://pages.github.com">GitHub Pages</a>
 push to master builds.</p>
-
 <p>I hope this post puts my migration in perspective for anyone considering doing
 the same.</p>
-
 <p>Thanks!</p>
 
     <div class="closing">

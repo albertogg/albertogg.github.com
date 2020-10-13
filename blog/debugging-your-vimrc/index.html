@@ -52,7 +52,6 @@
 <p><strong>tl;dr</strong> this is a short guide on how to debug your <code>.vimrc</code> and hopefully it
 will help you find what&rsquo;s making Vim slower or inconsistent.</p>
 </blockquote>
-
 <p>A few days ago I added a bunch of new settings to my <code>.vimrc</code> that made my
 motion sluggish. This was happening in MacVim and in Vim and it was making me
 mad because apart from being slow, Vim was using a lot of CPU and with large
@@ -60,19 +59,15 @@ files it was unbearable. After being fed up with this I hopped on IRC and joined
 the <strong>#vim</strong> channel to ask knowledgeable people how can I debug my Vim
 configuration. A kind user named <strong>watabou</strong> (I believe) first pointed me to
 <a href="https://github.com/dahu/bisectly">Bisectly</a>.</p>
-
 <blockquote>
 <p>Bisectly is a plugin-manager-agnostic fault-localisation tool for finding
 which Vim plugin is causing you nose-bleeds.</p>
 </blockquote>
-
 <p>I followed the documentation on the <code>README.md</code> file and did multiple runs of
 Bisectly but found no apparent problems with the plugins I had installed&hellip; I
 asked again in the IRC channel and the same user (watabou) told me to put
 <code>:finish</code> in the middle of the configuration and explain a bit what to do.</p>
-
 <p>Let me explain it briefly:</p>
-
 <p><code>:finish</code> works just like a <code>git bisect</code> but in a manual way. e.g. It
 deactivates the latter half or part of the <code>.vimrc</code> file to detect if the
 problem is in the first half or the second half of that file. After <code>:finish</code> is
@@ -84,16 +79,12 @@ on where the problem was initially located. Keep doing this until the error
 the last two sections bisected. Repeat this procedure between that section until
 the &ldquo;bug&rdquo; is completely localized, remove that setting or do whatever you want
 and that&rsquo;s it&hellip;</p>
-
-<hr />
-
+<hr>
 <p>In my case this sluggishness was caused by two options options, <code>relativenumber</code>
 and <code>cursorline</code>. This is probably because using super fast keyboard repeat and
 repaint doesn&rsquo;t get along well. After removing those options Vim was super fast
 again.</p>
-
 <p>Hope this super short post helps you figure out how to debug your <code>.vimrc</code>.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

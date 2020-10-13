@@ -50,33 +50,23 @@ and use a custom Rake Task. Thanks Jim.">
     <div class="date">
       <p>March 23, 2014</p>
     </div> 
-    
-
-<blockquote>
+    <blockquote>
 <p><strong>tl;dr</strong> use Rake tasks to create drafts/posts in Jekyll.</p>
 </blockquote>
-
 <p>Creating a draft or a new post is a repetitive task. If you are like me and
 often forget about things you probably need some automation in your life; if you
 don&rsquo;t, you can use this and start forgetting.</p>
-
 <p>In this post I&rsquo;ll be talking about some Rake tasks I use that help me create and
 publish drafts for my Jekyll blog.</p>
-
 <h2 id="story">Story</h2>
-
 <p>For the last 2 years that I almost didn&rsquo;t blog at all, I was using two Rake
 tasks <em>stolen</em> from <a href="http://zachholman.com/">Zack Holman</a> to create blog posts
 within Jekyll. At that time Jekyll was a bit different and both the <em>stolen</em>
 tasks and blog needed an update. A few weeks ago (february 2014) I revamped my
 blog completely including the Rake tasks. This was the end result:</p>
-
 <h2 id="new-tasks-tasks">New tasks <em>&ldquo;tasks&rdquo;</em></h2>
-
 <p>Here, I explain a bit what each task does:</p>
-
 <p>Creating a new draft:</p>
-
 <ul>
 <li>Ask for a post title.</li>
 <li>Create a slug with that title</li>
@@ -87,26 +77,20 @@ file name.</li>
 <li>Add the front-matter to the file with: layout, title, description, category
 and tag.</li>
 </ul>
-
 <p>When draft is ready:</p>
-
 <ul>
 <li>List drafts on the <code>_drafts</code> directory.</li>
 <li>Ask for the name of the <em>draft</em> that&rsquo;s ready to be published.</li>
 <li>Move the draft from the <code>_drafts</code> directory into the <code>_posts</code>.</li>
 <li>Rename the file by adding the current date to the file name.</li>
 </ul>
-
 <blockquote>
 <p>These features are a WIP but they work fine ATM.</p>
 </blockquote>
-
 <h2 id="the-code">The code</h2>
-
 <p>To use these tasks: you must create a <code>Rakefile</code> file; drop the code, and save
 the file. If you already have a <code>Rakefile</code> and you plan to use them, I hope that
 the namespace will prevent a collision with any of you existing tasks.</p>
-
 <pre><code>require 'fileutils'
 
 namespace :draft do
@@ -145,21 +129,16 @@ namespace :draft do
   end
 end
 </code></pre>
-
 <p>You can run these tasks by using the following command:</p>
-
 <pre><code>$ rake draft:new    # Creating a new draft for post/entry
 $ rake draft:ready  # copy draft to production post!
 </code></pre>
-
 <p>As you can see, both tasks are pretty straight forward, they do simple things
 and work of the box. With these tasks you&rsquo;ll no longer have to remember anything
 about the front-matter or how the file should be named within the drafts and
 posts directory, just run the tasks and start dumping ideas onto the freshly
 created markdown file.</p>
-
-<hr />
-
+<hr>
 <p>I know the tasks can be vastly improved but I hope this works at least for some
 of you!</p>
 

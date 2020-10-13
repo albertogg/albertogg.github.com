@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sun, 23 Mar 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Rake/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 23 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Rake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rake tasks &amp; Jekyll posts</title>
       <link>https://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/</link>

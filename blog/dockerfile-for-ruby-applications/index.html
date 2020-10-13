@@ -50,40 +50,30 @@ applications. It&#39;s based on Ubuntu 14.04.">
     <div class="date">
       <p>July 18, 2015</p>
     </div> 
-    
-
-<p>There are different ways you can deploy your Ruby applications in a Docker
+    <p>There are different ways you can deploy your Ruby applications in a Docker
 container. You can either choose one of the many existing Ruby images on the
 <a href="https://registry.hub.docker.com/search?q=ruby&amp;searchfield=">public docker registry</a>, use it as your base and adapt it
 to your needs or&hellip; build your own Ruby base image from scratch based on your
 favorite OS and then build your application image on top of it.</p>
-
 <p>In this post we are going through the whole process of building the Ruby image
 from scratch based on the official Ubuntu 14.04 container. We will also create
 an onbuild image.</p>
-
 <h2 id="building-the-base-image">Building the base image</h2>
-
 <p>This image will set base for the rest of the post as we will use the resulting
 image to create our set of Ruby images.</p>
-
 <p>The image will contain all the things Ruby expects to compile and run properly
 on a Debian based OS. I&rsquo;m not going to talk about the required packages, instead
 I&rsquo;m going to focus on the separation of concerns and configuration of the set of
 images.</p>
-
 <p>One thing to keep in mind is that the image we&rsquo;ll build is only for Ruby and
 will not contain any database related packages. If there&rsquo;s a need to install a
 gem with native extensions requiring &ldquo;extra&rdquo; packages those should go into that
 specific image unless all of your apps require it.</p>
-
 <p><strong>What should you expect from this image?</strong></p>
-
 <p>This image will not complain about any TTY warnings during installation because
 of the <code>noninteractive</code> flag we are using, all your applications will use
 <code>en_US.UTF-8</code> as the default encoding and most of the installation process will
 be silent do to the <code>-qq</code> flag.</p>
-
 <pre><code>FROM ubuntu:14.04.2
 MAINTAINER Alberto Grespan &lt;https://twitter.com/albertogg&gt;
 
@@ -120,36 +110,27 @@ RUN apt-get update -qq &amp;&amp; \
 RUN rm -rf /var/lib/apt/lists/* &amp;&amp;\
     truncate -s 0 /var/log/*log
 </code></pre>
-
 <p>It&rsquo;s a pretty straightforward image nothing rare so far. You can also use
 <code>--no-install-recommends</code> to avoid installing extra packages and save some
 space.</p>
-
 <p>For building this image run the following command:</p>
-
 <pre><code>docker build -t dependency-image:14.04.2 .
 </code></pre>
-
 <blockquote>
 <p><strong>note:</strong> If you need any database gem you can add any of the following
 packages and installing the database itself if required:</p>
-
 <ul>
 <li><code>libpq-dev</code> for PostgreSQL</li>
 <li><code>libmysqlclient-dev</code> for MySQL</li>
 <li><code>libsqlite3-dev</code> for SQLite3</li>
 </ul>
 </blockquote>
-
 <h2 id="building-the-ruby-image">Building the Ruby image</h2>
-
 <p>The Ruby image will use our base dependency image (the one we just build) and
 we&rsquo;ll install Ruby version 2.2.2 through <a href="https://github.com/sstephenson/ruby-build">ruby-build</a> and we&rsquo;ll also
 install <a href="http://bundler.io/">bundler</a> by default.</p>
-
 <p>If you need another Ruby version just change it in the <code>RUBY_VERSION</code>
 environment variable.</p>
-
 <pre><code>FROM dependency-image:14.04.2
 MAINTAINER Alberto Grespan &lt;https://twitter.com/albertogg&gt;
 
@@ -164,36 +145,26 @@ RUN echo 'gem: --no-document' &gt;&gt; /usr/local/etc/gemrc &amp;&amp;\
 RUN gem update --system &amp;&amp;\
     gem install bundler
 </code></pre>
-
 <p>This image still straightforward. We avoid gems installing documentation by
 setting the <code>--no-document</code>. You could also install any other &ldquo;default&rdquo; gems
 here.</p>
-
 <p>For building this image run the following command:</p>
-
 <pre><code>docker build -t ruby:2.2.2 .
 </code></pre>
-
 <h2 id="building-the-onbuild-image">Building the onbuild image</h2>
-
 <p>The <strong>onbuild</strong> image is very practical if you are repeating over an over again
 the same steps in each application Dockerfile.</p>
-
 <p>What this image does is execute all commands that exist in this image prior any
 commands on your application Dockerfile. For most ruby applications these
 commands shown here are almost always the same.</p>
-
 <p>Commands will do:</p>
-
 <ul>
 <li>Set the app directory</li>
 <li>Copy the <code>Gemfile</code> and the <code>Gemfile.lock</code> to <em>cache</em> them out</li>
 <li>Running <code>bundle install</code></li>
 <li>Copy the rest of the app files and remove the <code>.env</code> file if available.</li>
 </ul>
-
 <p>like so:</p>
-
 <pre><code>FROM ruby:2.2.2
 MAINTAINER Alberto Grespan &lt;https://twitter.com/albertogg&gt;
 
@@ -206,32 +177,24 @@ ONBUILD RUN bundle install --without test development
 ONBUILD COPY . /usr/src/app
 ONBUILD RUN rm -f .env
 </code></pre>
-
 <p>One thing to know about <strong>onbuild</strong> images is that they <em>always</em> have a custom
 docker tag with <code>-onbuild</code> in it. For example if our Ruby 2.2.2 image is named
 <code>ruby</code> with a tag <code>2.2.2</code> the onbuild image should be tagged <code>2.2.2-onbuild</code>.</p>
-
 <p>For building this image run the following command:</p>
-
 <pre><code>docker build -t ruby:2.2.2-onbuild .
 </code></pre>
-
 <p><strong>How would an application Dockerfile look like while using onbuild image?</strong></p>
-
 <p>It would look something like this:</p>
-
 <pre><code>FROM ruby:2.2.2-onbuild
 
 EXPOSE 3000
 
 CMD [&quot;foreman&quot;, &quot;start&quot;]
 </code></pre>
-
 <blockquote>
 <p><strong>note:</strong> The CMD can also be added to <strong>onbuild</strong> Dockerfile if it&rsquo;s always
 the same.</p>
 </blockquote>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

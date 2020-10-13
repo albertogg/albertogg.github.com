@@ -50,25 +50,19 @@ them.">
     <div class="date">
       <p>January 31, 2015</p>
     </div> 
-    
-
-<blockquote>
+    <blockquote>
 <p>tl;dr we are creating two Rack middlewares, one that adds a custom header to
 all responses and one that adds a new route with a custom response.</p>
 </blockquote>
-
 <p>As explained in a previous post about <a href="http://albertogrespan.com/blog/rack-basics/">Rack basics</a>, Rack is found
 on the most popular Ruby web frameworks, as it&rsquo;s an adaptable interface for
 developing web applications. In this post we are going to create two simple
 middlewares. The first one will add a custom header to all responses, the second
 one will add a custom route that responds to <code>/ping</code> and to glue it all together
 we are using <code>Rack::Builder</code>.</p>
-
 <h2 id="things-to-know-about-rack-middleware">Things to know about Rack middleware</h2>
-
 <p>There are few things that we need to know about Rack middleware in order to
 fully understand how it works are:</p>
-
 <ul>
 <li>Each middleware responds to a <code>call()</code> method.</li>
 <li>Only receives one argument, the environment (<code>env</code>).</li>
@@ -76,18 +70,13 @@ fully understand how it works are:</p>
 of strings as the body.</li>
 <li>Each middleware is responsible of calling the next.</li>
 </ul>
-
 <p>Now that we know this, let&rsquo;s start writing the middleware.</p>
-
 <h2 id="adding-a-custom-header">Adding a custom header</h2>
-
 <p>For this first middleware we are going to add a custom header to all responses.
 We&rsquo;ll be using the following header: <code>X-Custom-Header: customheader.v1</code>. We
 could also use something like <code>Content-Type: application/json; charset=utf-8</code> if
 we wanted to.</p>
-
 <p><strong>note:</strong> our middleware will live in a <code>lib</code> directory.</p>
-
 <pre><code># lib/custom_header.rb
 module Rack
   class CustomHeader
@@ -105,22 +94,17 @@ module Rack
   end
 end
 </code></pre>
-
 <p>As explained in the section above, we are creating the <code>call()</code> method and
 passing it the <code>env</code> argument. Inside this method we picking up the status,
 headers and body from the <code>@app.call(env)</code>. Then appending our custom header to
 the existing response headers and finally return the array of status code,
 headers, and body.</p>
-
 <p>We have our first middleware ready, let&rsquo;s go with the second one.</p>
-
 <h2 id="adding-a-new-route">Adding a new route</h2>
-
 <p>Inside this middleware we are adding a new route called <code>/ping</code>. This route will
 respond with a <code>pong</code> text. How will this middleware work? It will check the
 request path, if it&rsquo;s <code>/ping</code> it will respond if it doesn&rsquo;t, the call will pass
 to the rest of the stack.</p>
-
 <pre><code># lib/ping.rb
 module Rack
   class Ping
@@ -139,37 +123,28 @@ module Rack
   end
 end
 </code></pre>
-
 <p>In the same way as with the <code>CustomHeader</code> middleware, there will be a <code>call()</code>
 method with the <code>env</code> argument. Inside this method we&rsquo;ll check using
 <code>Rack::Request</code> the path of the current request and generate the desired
 response array with the status code, empty headers and a body of strings. Note
 that if the route is not <code>/ping</code> we simply call <code>@app.call(env)</code> letting the
 call go through the stack.</p>
-
 <p>We could also read the request path like this: <code>if env[&quot;PATH_INFO&quot;] == &quot;/ping&quot;</code>
 but I like using the <code>Rack::Request</code> interface.</p>
-
 <p>Now let&rsquo;s glue the middleware to an application.</p>
-
 <h2 id="rack-builder">Rack Builder</h2>
-
 <p>According to the documentation is:</p>
-
 <blockquote>
 <p>Rack::Builder implements a small DSL to iteratively construct Rack
 applications</p>
 </blockquote>
-
 <p>I can define this as the backbone that holds middlewares and applications
 together into a single Rack application. With that said, what we need to
 understand when we see <code>Rack::Builder.new</code> in an application, is that it&rsquo;s a
 block that packs a bunch of middleware (defined by the <code>use</code> keyword) and an
 application at the bottom (defined by the <code>run</code> keyword) into a single Rack
 application <code>app</code> that will allow us to run the whole thing.</p>
-
 <p>Let&rsquo;s give it a look&hellip;</p>
-
 <pre><code># config.ru
 $:.unshift File.expand_path('../lib', __FILE__)
 
@@ -184,17 +159,13 @@ end
 
 run app
 </code></pre>
-
 <p>The first thing we do is loading the <code>lib</code> directory into the <code>$LOAD_PATH</code> and
 require the two files that contain our middleware. Now that we know that our
 middleware is available, we&rsquo;ll pack the application with <code>Rack::Builder.new</code> by
 adding the middleware on the top and the application at the bottom. The final
 step will be to run the new packed Rack app.</p>
-
 <p>Let&rsquo;s try this running the <code>config.ru</code> and doing some requests with <code>cURL</code>.</p>
-
 <p>Start the application using the <code>rackup</code> command.</p>
-
 <pre><code>$ curl -i -X GET localhost:9292
 HTTP/1.1 200 OK
 X-Custom-Header: customheader.v1
@@ -202,13 +173,10 @@ Transfer-Encoding: chunked
 
 Say something to me!
 </code></pre>
-
 <p>First we are trying the <code>&quot;/&quot;</code> route but it will be the same with any route as
 our application responds to all routes. The response is the expected, as there
 is our custom header and the application body.</p>
-
 <p>But what happens if we use the <code>/ping</code> route:</p>
-
 <pre><code>$ curl -i -X GET localhost:9292/ping
 HTTP/1.1 200 OK
 X-Custom-Header: customheader.v1
@@ -216,18 +184,14 @@ Transfer-Encoding: chunked
 
 pong
 </code></pre>
-
 <p>One thing to notice is that this response apart from being from the Ping
 middleware it also has our custom header, that&rsquo;s because the <code>CustomHeader</code>
 middleware is before the <code>Ping</code> middleware and with middleware the order
 matters. This will not happen if the order was different, so be careful when
 you are setting up new middleware in the stack.</p>
-
-<hr />
-
+<hr>
 <p>This is a very simple example that shows how middleware are created and work. I
 hope it&rsquo;s useful for some of you.</p>
-
 <p>Thanks for reading!</p>
 
     <div class="closing">

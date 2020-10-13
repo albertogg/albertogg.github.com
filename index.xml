@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Wed, 05 Feb 2020 23:08:54 -0400</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 05 Feb 2020 23:08:54 -0400</lastBuildDate><atom:link href="https://albertogrespan.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flashing QMK on a WhiteFox Mechanical Keyboard</title>
       <link>https://albertogrespan.com/blog/mk/flashing-qmk-on-a-whitefox/</link>
@@ -60,7 +56,7 @@ In this post we are going through the whole process of building the Ruby image f
       <guid>https://albertogrespan.com/blog/introduction-to-http-testing-in-go/</guid>
       <description>This post will be focused on a very basic introduction to HTTP testing in Go. Our goal will be to test a handler named helloHandler that responds with a custom header and a Hello World! body using only Go build-in Packages.
 Creating the helloHandler Creating our simple HTTP handler for our desired endpoint should be something like this:
-// main.go package main import ( &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; ) func helloHandler(w http.</description>
+// main.go package main import ( &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; ) func helloHandler(w http.ResponseWriter, r *http.</description>
     </item>
     
     <item>
@@ -320,7 +316,7 @@ tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/the-unix-operating-system/</guid>
       <description>&amp;ldquo;The UNIX System: Making Computers More Productive&amp;rdquo; If you work on a Unix-like operating system this video is a must watch! no excuses!
- &amp;ldquo;This film &amp;ldquo;The UNIX System: Making Computers More Productive&amp;rdquo;, is one of two that Bell Labs made in 1982 about UNIX&amp;rsquo;s significance, impact and usability. Even 10 years after its first installation, it&amp;rsquo;s still an introduction to the system. The other film, &amp;ldquo;The UNIX System: Making Computers Easier to Use&amp;rdquo;, is roughly the same, only a little shorter.</description>
+&amp;ldquo;This film &amp;ldquo;The UNIX System: Making Computers More Productive&amp;rdquo;, is one of two that Bell Labs made in 1982 about UNIX&amp;rsquo;s significance, impact and usability. Even 10 years after its first installation, it&amp;rsquo;s still an introduction to the system. The other film, &amp;ldquo;The UNIX System: Making Computers Easier to Use&amp;rdquo;, is roughly the same, only a little shorter.</description>
     </item>
     
     <item>

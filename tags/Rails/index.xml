@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sat, 13 Jul 2013 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Rails/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 13 Jul 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Rails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Send emails in the background using sucker punch</title>
       <link>https://albertogrespan.com/blog/send-emails-in-the-background-using-sucker-punch/</link>

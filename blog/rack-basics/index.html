@@ -50,50 +50,36 @@ Rack::Response, Rack::Request, ERB views, rackup and more.">
     <div class="date">
       <p>November 30, 2014</p>
     </div> 
-    
-
-<p>If you like programming in Ruby it&rsquo;s plausible that you&rsquo;ve used or heard about
+    <p>If you like programming in Ruby it&rsquo;s plausible that you&rsquo;ve used or heard about
 Rack&hellip; After all Sinatra, Grape and Rails use Rack as a common interface.</p>
-
-<h2 id="what-s-rack-and-how-does-it-work">What&rsquo;s Rack and how does it work</h2>
-
+<h2 id="whats-rack-and-how-does-it-work">What&rsquo;s Rack and how does it work</h2>
 <p>According to <a href="http://en.wikipedia.org/wiki/Rack_%28web_server_interface%29">Wikipedia</a>:</p>
-
 <blockquote>
 <p>Rack provides a minimal, modular and adaptable interface for developing Web
 applications in Ruby. By wrapping HTTP requests and responses in the simplest
 way possible, it unifies and distills the API for Web servers, Web frameworks,
 and software in between (the so-called middleware) into a single method call.</p>
-
+</blockquote>
+<blockquote>
 <p>A Rack application is a Ruby object (not a class) that responds to call. It
 takes exactly one argument, the environment and returns an Array of exactly
 three values: The status, the headers, and the body.</p>
 </blockquote>
-
 <p>Now that we got what it is and how it works (kind of), let&rsquo;s jump into the
 installation and some basic stuff.</p>
-
 <h2 id="installation">Installation</h2>
-
 <p>Installation it&rsquo;s pretty normal:</p>
-
 <pre><code>$ gem install rack
 </code></pre>
-
 <p>With bundler</p>
-
 <pre><code># Gemfile
 gem 'rack', '~&gt; 1.5'
 </code></pre>
-
 <h2 id="hello-world-application">Hello World Application</h2>
-
 <p>There are two ways we can build a response for a request and return a &ldquo;Hello
-World!&ldquo;.</p>
-
+World!&rdquo;.</p>
 <p>We can use the &ldquo;normal&rdquo; way, that involves adding the response body inside the
 array:</p>
-
 <pre><code># app.rb
 require 'rack'
 
@@ -103,10 +89,8 @@ end
 
 Rack::Handler::WEBrick.run app
 </code></pre>
-
 <p>Or to use <code>Rack::Response</code>, a convenient interface to create a Rack response.
 You can read more about it <a href="http://www.rubydoc.info/github/rack/rack/Rack/Response">here</a>.</p>
-
 <pre><code># app.rb
 require 'rack'
 
@@ -118,23 +102,16 @@ end
 
 Rack::Handler::WEBrick.run app
 </code></pre>
-
 <p>To run any of these applications, type:</p>
-
 <pre><code>$ ruby app.rb
 </code></pre>
-
 <p>And test the response:</p>
-
 <pre><code>$ curl -X GET localhost:8080
 Hello World!
 </code></pre>
-
 <h2 id="redirect">Redirect</h2>
-
 <p>In the same way that we did the &ldquo;Hello World!&rdquo; response we can set the
 appropriate HTTP status code and header to redirect any response to a new page.</p>
-
 <pre><code>require 'rack'
 
 app = Proc.new do |env|
@@ -143,9 +120,7 @@ end
 
 Rack::Handler::WEBrick.run app
 </code></pre>
-
 <p>Likewise we can use the <code>Rack::Response</code> interface.</p>
-
 <pre><code>require 'rack'
 
 app = Proc.new do |env|
@@ -157,9 +132,7 @@ end
 
 Rack::Handler::WEBrick.run app
 </code></pre>
-
 <p>Run the application in the same way as before using <code>ruby app.rb</code></p>
-
 <pre><code>$ curl -i -X GET localhost:8080
 HTTP/1.1 302 Found
 Location: http://localhost:8080/redirected
@@ -170,39 +143,28 @@ Connection: Keep-Alive
 
 302 you've redirected
 </code></pre>
-
 <p>One thing to keep in mind is that there is no other route/endpoint, therefore
 we&rsquo;ll have a redirect loop.</p>
-
 <h2 id="erb-views">ERB views</h2>
-
 <p>Views are a really important part of the Web and adding ERB template views to a
 Rack application is pretty easy. We can use plain HTML views in the same way we
 will with ERB, but using a template system allow us to manipulate/show data in
 the views.</p>
-
 <p>Following the Rails convention we can create a view with <code>.html.erb</code> file
 extension in the root of our application directory and create a simple method
 that we&rsquo;ll call from inside the application Proc. Let&rsquo;s take a look:</p>
-
 <pre><code>def erb(template)
   path = File.expand_path(&quot;#{template}&quot;)
   ERB.new(File.read(path)).result(binding)
 end
 </code></pre>
-
 <p>This method will accept a template name, expand its path, parse that file and
 then return the resulting value as a plain HTML file.</p>
-
 <p>Let&rsquo;s try this all together:</p>
-
 <p>Create an <code>index.html.erb</code> file in the root of the project</p>
-
 <pre><code>&lt;h1&gt;Hello World &lt;%= @var %&gt;!&lt;/h1&gt;
 </code></pre>
-
 <p>Now add the <code>erb</code> method to the current <code>app.rb</code></p>
-
 <pre><code>require 'rack'
 require 'erb'
 
@@ -218,21 +180,16 @@ end
 
 Rack::Handler::WEBrick.run app
 </code></pre>
-
 <p>Run the <code>app.rb</code> and you&rsquo;ll see:</p>
-
 <pre><code>$ curl -X GET localhost:8080
 &lt;h1&gt;Hello World Alberto!&lt;/h1&gt;
 </code></pre>
-
 <p>Now let&rsquo;s do a simple <em>Hello Name</em> by catching the path URL, use it as a
 &ldquo;parameter&rdquo; and print its value inside the template.</p>
-
 <p>Using the same <code>index.html.erb</code> as before we are going to read the request path
 with some <code>Rack::Request</code> help and append the name of that path in the template
 as it was the name of the person. You can read more about Rack::Request
 <a href="http://www.rubydoc.info/github/rack/rack/Rack/Request">here</a>.</p>
-
 <pre><code>require 'rack'
 require 'erb'
 
@@ -249,36 +206,29 @@ end
 
 Rack::Handler::WEBrick.run app
 </code></pre>
-
 <p>Run the <code>app.rb</code>:</p>
-
 <pre><code>$ curl -X GET localhost:8080/Alberto
 &lt;h1&gt;Hello World Alberto!&lt;/h1&gt;
 
 $ curl -X GET localhost:8080/John
 &lt;h1&gt;Hello World John!&lt;/h1&gt;
 </code></pre>
-
 <h2 id="rackup-the-application">Rackup the application</h2>
-
 <p>According to Rack&rsquo;s GitHub <a href="https://github.com/rack/rack#rackup">README file</a> Rackup is:</p>
-
 <blockquote>
 <p>rackup is a useful tool for running Rack applications, which uses the
 Rack::Builder DSL to configure middleware and build up applications easily.</p>
-
+</blockquote>
+<blockquote>
 <p>rackup automatically figures out the environment it is run in, and runs your
 application as FastCGI, CGI, or standalone with Mongrel or WEBrick—all from
 the same configuration.</p>
 </blockquote>
-
 <p>To rackup the application we need need to create a file with <code>.ru</code> file
 extension, then drop our simple application inside it and use the <code>rackup</code>
 command line tool to start it.</p>
-
 <p>Let&rsquo;s start creating a <code>config.ru</code> file, adding the application contents,
 removing the <code>Rack::Handler</code> and change the <code>do end</code> syntax to curly braces.</p>
-
 <pre><code>require 'rack'
 require 'erb'
 
@@ -293,25 +243,19 @@ run Proc.new { |env|
   ['200', {'Content-Type' =&gt; 'text/html'}, [erb(&quot;index.html.erb&quot;)]]
 }
 </code></pre>
-
 <p>Start the application using the rackup command:</p>
-
 <pre><code>$ rackup
 </code></pre>
-
 <p>The application should run and behave exactly the same as it did before.</p>
-
 <p>There are many options to <code>rackup</code> command that you can check with the <code>-h</code>
 option. e.g we can change the port where our application listens and the server
 to <a href="http://puma.io/">puma</a> by doing:</p>
-
 <pre><code>$ rackup -s puma -p 4000
 Puma 2.9.1 starting...
 * Min threads: 0, max threads: 16
 * Environment: development
 * Listening on tcp://0.0.0.0:4000
 </code></pre>
-
 <p>I hope this very basic post on Rack helps&hellip; Thanks for reading!</p>
 
     <div class="closing">

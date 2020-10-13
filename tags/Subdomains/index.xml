@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Tue, 04 Dec 2012 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Subdomains/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 04 Dec 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Subdomains/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu</title>
       <link>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</link>

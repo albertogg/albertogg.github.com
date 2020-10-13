@@ -50,17 +50,12 @@ key points you need to get started.">
     <div class="date">
       <p>June 13, 2015</p>
     </div> 
-    
-
-<p>This post will be focused on a very basic introduction to HTTP testing in Go.
+    <p>This post will be focused on a very basic introduction to HTTP testing in Go.
 Our goal will be to test a handler named <code>helloHandler</code> that responds with a
 custom header and a <code>Hello World!</code> body using only Go build-in Packages.</p>
-
 <h2 id="creating-the-hellohandler">Creating the helloHandler</h2>
-
 <p>Creating our simple HTTP handler for our desired endpoint should be something
 like this:</p>
-
 <pre><code>// main.go
 package main
 
@@ -80,10 +75,8 @@ func main() {
     log.Fatal(http.ListenAndServe(&quot;:3000&quot;, nil))
 }
 </code></pre>
-
 <p>Let&rsquo;s see how our simple <code>helloHandler</code> works by using <a href="http://curl.haxx.se/">cURL</a> on
 <code>localhost:3000/</code>:</p>
-
 <pre><code>% curl -i localhost:3000/
 HTTP/1.1 200 OK
 X-Hello-World-Type: hello.v1
@@ -93,18 +86,13 @@ Content-Type: text/plain; charset=utf-8
 
 Hello World!%
 </code></pre>
-
 <p>Checking the response we see that it has a <strong>200 status</strong> code, our <strong>custom
 header</strong> and the <strong>Hello World! body</strong>.</p>
-
 <p>Now that we have our handler working we should go see how the tests for this
 looks like. The question is, what are we doing to test? Well&hellip; Those same
 things we just described, status code, header and body.</p>
-
 <h2 id="tests-to-our-handler">Tests to our handler</h2>
-
 <p>In my opinion there are four things we need to know before we start testing:</p>
-
 <ul>
 <li>Test file should contain <code>_test.go</code> in its name and be in the same directory
 as the file we are testing.</li>
@@ -112,14 +100,11 @@ as the file we are testing.</li>
 <li>Test functions receive only one parameter <code>t *testing.T</code>.</li>
 <li>Use <code>net/http/httptest</code> package to &ldquo;record&rdquo; the request response.</li>
 </ul>
-
 <p>Overall it&rsquo;s pretty straightforward, import all needed libraries, create a
 function for handler which name starts with <em>&ldquo;Test&rdquo;</em>, create a request and a
 recorder and pass those to the handler, do expectations using if statements.</p>
-
 <p>Based on the above explanation our test for the <code>main.go</code> file should look
 something like this:</p>
-
 <pre><code>// main_test.go
 package main
 
@@ -149,22 +134,17 @@ func TestHelloHandler(t *testing.T) {
     }
 }
 </code></pre>
-
 <p>Our test file is called <code>main_test.go</code> we have a function that tests the
 <code>helloHandler</code> named <code>TestHelloHandler</code> that receives only a parameter and have
 three expectations. It should return <code>200</code>, the body should be <code>Hello World!</code>
 and must contain our custom header.</p>
-
 <p>If nothings wrong, running <code>go test</code> in our command line should look something
 like this:</p>
-
 <pre><code>go test
 PASS
 ok      github.com/albertogg/testest    0.006s
 </code></pre>
-
 <p>If one of our test fails the result looks like the following:</p>
-
 <pre><code>go test
 --- FAIL: TestHelloHandler (0.00s)
         main_test.go:20: Expected body: Hello World!, but received: Hola Mundo!
@@ -172,7 +152,6 @@ FAIL
 exit status 1
 FAIL    github.com/albertogg/testest    0.006s
 </code></pre>
-
 <p>That&rsquo;s all&hellip; Thanks for reading!</p>
 
     <div class="closing">

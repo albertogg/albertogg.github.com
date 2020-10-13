@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Installing on Blog</title>
-    <link>https://albertogrespan.com/tags/Installing/</link>
-    <description>Recent content in Installing on Blog</description>
+    <title>Homebrew on Blog</title>
+    <link>https://albertogrespan.com/tags/Homebrew/</link>
+    <description>Recent content in Homebrew on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Fri, 10 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Installing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Feb 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Homebrew/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Installing platform specific gems with Bundler</title>
-      <link>https://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</link>
-      <pubDate>Fri, 10 Oct 2014 00:00:00 +0000</pubDate>
+      <title>Creating DigitalOcean images with Packer</title>
+      <link>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</link>
+      <pubDate>Tue, 17 Feb 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/blog/installing-platform-specific-gems-with-bundler/</guid>
-      <description>Sometimes we&amp;rsquo;ll need to install specific gems to make our project compatible in different platforms such as MRI, Rubinius, a particular Ruby version, JRuby, windows, etc&amp;hellip;
-As you may know, dependency management in Ruby is done through Bundler Gemfile. Bundler comes with a handy CLI command that can help us gather some information about our current platform and help us see a bigger picture of what&amp;rsquo;s going on with our project Gemfile e.</description>
+      <guid>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</guid>
+      <description>tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a provisioner to install Docker.
+ This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
+ notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
+    </item>
+    
+    <item>
+      <title>Diagnosing the network with Ping, Traceroute and MTR</title>
+      <link>https://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
+      <guid>https://albertogrespan.com/blog/diagnosing-the-network-with-ping-traceroute-and-mtr/</guid>
+      <description>When you deal with a really bad internet connection everyday, as I do, you probably diagnose the network more frequently than usual and after that you call your ISP and explain to a person (that may think you are crazy) how you are having packet loss in a hop that belongs to them. Yes, you have to do this as many times as you can, until you get someone at the other end of the phone call that understand what&amp;rsquo;s happening and sends someone to solve the issue, if possible.</description>
     </item>
     
     <item>

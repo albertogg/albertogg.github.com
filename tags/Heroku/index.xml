@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Fri, 07 Mar 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Heroku/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 07 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Heroku/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Heroku scheduler and Rails rake tasks</title>
       <link>https://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/</link>

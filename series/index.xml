@@ -7,10 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
-    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    
-	<atom:link href="https://albertogrespan.com/series/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster><atom:link href="https://albertogrespan.com/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

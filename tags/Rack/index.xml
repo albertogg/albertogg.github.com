@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sat, 31 Jan 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Rack/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 31 Jan 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Rack/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rack middleware</title>
       <link>https://albertogrespan.com/blog/rack-middleware/</link>

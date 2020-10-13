@@ -8,11 +8,7 @@
     <language>en-us</language>
     <managingEditor>alberto@albertogrespan.com (Alberto Grespan)</managingEditor>
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
-    <lastBuildDate>Sat, 08 Nov 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://albertogrespan.com/tags/Boot2docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 08 Nov 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Boot2docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Error: client and server don&#39;t have same version</title>
       <link>https://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</link>
