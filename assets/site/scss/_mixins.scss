@@ -4,3 +4,13 @@
   max-width: 100%;
   height: auto;
 }
+
+@mixin dark($property, $varName) {
+  $dark: map-get($themes, $dark-theme);
+  #{$property}: map-get($dark, $varName);
+}
+
+@mixin light($property, $varName) {
+  $light: map-get($themes, $light-theme);
+  #{$property}: map-get($light, $varName);
+}

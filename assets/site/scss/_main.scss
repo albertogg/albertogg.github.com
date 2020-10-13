@@ -54,7 +54,7 @@
 
 .date {
   font-family: sans-serif;
-  color: $date-font;
+  color: var(--font-color-highlight);
   text-transform: uppercase;
 }
 
@@ -72,10 +72,10 @@
   }
 
   blockquote {
-    border-left: 0.25em solid $blue;
+    border-left: 0.25em solid var(--link-color);
     padding: 0 1em;
     margin: 1em 0;
-    color: $blue;
+    color: var(--link-color);
     @extend .inline-code;
   }
 
@@ -86,9 +86,9 @@
 
   pre {
     font-size: 1.125rem;
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: var(--bg-color-code);
     border-radius: 0.18rem;
-    color: $dark-font;
+    color: var(--font-color-highlight);
     padding: 0.4em 0.6em;
     margin: 1.1em 0;
     overflow: auto;

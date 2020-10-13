@@ -1,9 +1,48 @@
-$dark-font: rgba(85, 85, 85, 1);
-$dark-font-hover: rgba($dark-font, 0.8); // font color
-$lighter-font: rgba(153, 153, 153, 1); // font from blockquotes
-$date-font: rgba(204, 204, 204, 1); // #ccc date color
+// Required variables for the themes mixins
+$dark-theme: "dark-theme";
+$light-theme: "light-theme";
+
+// Color paletts
+$white: rgba(255, 255, 255, 1);
+$black: rgba(18, 18, 18, 1);
+$gray: rgba(85, 85, 85, 1);
+$light-gray: rgba(236, 236, 236, 1);
+$dark-gray: rgba(37, 37, 37, 1);
 $blue: rgba(53, 126, 252, 1);
+$light-blue: rgba(104, 177, 255, 1);
+
+// Light
+$light-background-color: $white;
+$light-background-color-code: rgba($black, 0.1);
+$light-font-color: rgba($gray, 0.87);
+$light-font-color-highlight: rgba($gray, 1);
+$light-link-color: $blue;
+
+// Dark
+$dark-background-color: $black;
+$dark-background-color-code: rgba($white, 0.1);
+$dark-font-color: rgba($white, 0.6);
+$dark-font-color-highlight: rgba($dark-font-color, 0.87);
+$dark-link-color: $light-blue;
+
+// Resume variables
+$dark-font: $gray;
 $links-font: $blue;
-$links-border: rgba(236, 236, 236, 1);
-$light-gray: $links-border; // blockquote left border
-$print-font: rgba(37, 37, 37, 1);
+$print-font: $dark-gray;
+
+$themes: (
+  $light-theme: (
+    "bg-color": $light-background-color,
+    "bg-color-code": $light-background-color-code,
+    "font-color": $light-font-color,
+    "font-color-highlight": $light-font-color-highlight,
+    "link-color": $light-link-color,
+  ),
+  $dark-theme: (
+    "bg-color": $dark-background-color,
+    "bg-color-code": $dark-background-color-code,
+    "font-color": $dark-font-color,
+    "font-color-highlight": $dark-font-color-highlight,
+    "link-color": $dark-link-color,
+  )
+);
