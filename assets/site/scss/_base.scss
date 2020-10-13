@@ -5,6 +5,7 @@
   @include light(--font-color, font-color);
   @include light(--font-color-highlight, font-color-highlight);
   @include light(--link-color, link-color);
+  --font-weight: 400;
 }
 
 /* switch to dark mode color */
@@ -15,6 +16,7 @@
     @include dark(--font-color, font-color);
     @include dark(--font-color-highlight, font-color-highlight);
     @include dark(--link-color, link-color);
+    --font-weight: 300;
   }
 }
 
@@ -27,7 +29,7 @@ body {
   padding: 1.25em;
   line-height: 1.5;
   font-size: 1.38rem;
-  font-weight: 300;
+  font-weight: var(--font-weight);
 }
 
 footer {

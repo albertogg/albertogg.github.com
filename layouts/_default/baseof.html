@@ -24,7 +24,7 @@
     <meta name="twitter:creator" content="@{{ .Site.Params.Connect.Twitter.Handle }}">
     <meta name="twitter:image" content="{{ .Site.Params.Gravatar.Url }}?s=250">
     <title>{{ .Page.Title }} &ndash; {{ .Site.Params.Author }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900" rel="stylesheet">
     {{ $style := resources.Get "site/scss/style.scss" | resources.ToCSS (dict "outputStyle" "compressed") }}
     <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
   </head>
