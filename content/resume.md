@@ -6,8 +6,8 @@ type: resume
 
 # [Alberto Grespan][site]
 
-_Reliability Engineer_ - Caracas, Venezuela </br>
-[alberto@albertogrespan.com](mailto: alberto@albertogrespan.com) -
+_Reliability Engineer_ - Caracas, Venezuela\
+[alberto@albertogrespan.com](mailto:alberto@albertogrespan.com) -
 [github.com/albertogg][github]
 
 ### Skills
