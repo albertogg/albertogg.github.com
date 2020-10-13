@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" Content-Encoding="gzip">
-    <meta name="description" content="{{ .Params.Description }}">
-    <meta name="author" content="{{ .Site.Params.Author }}">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.Analytics.Google.Id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ .Site.Params.Analytics.Google.Id }}');
+    </script>
+    <!-- End Global site tag (gtag.js) - Google Analytics -->
+    <meta name="description" content="{{ .Params.Description }}">
+    <meta name="author" content="{{ .Site.Params.Author }}">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@{{ .Site.Params.Connect.Twitter.Handle }}">
     <meta name="twitter:title" content="{{ .Page.Title }}">
@@ -21,15 +31,5 @@
   </head>
   <body>
     {{ .Content }}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '{{ .Site.Params.Analytics.Google.Id }}', '{{ .Site.Params.Analytics.Google.Domain }}');
-      ga('require', 'linkid', 'linkid.js');
-      ga('send', 'pageview');
-    </script>
   </body>
 </html>
