@@ -4,6 +4,13 @@
     <div class="date">
       <p>{{ .Date.Format "January 2, 2006" }}</p>
     </div> <!-- class date -->
+    {{ if .Params.toc }}
+    <aside>
+      <h4>Table of Contents</h4>
+      {{ .TableOfContents }}
+    </aside>
+    <hr class="toc">
+    {{ end }}
     {{ .Content }}
     <div class="closing">
       <div>
