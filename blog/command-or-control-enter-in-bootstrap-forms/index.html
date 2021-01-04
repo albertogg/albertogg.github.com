@@ -48,8 +48,9 @@ Twitter Bootstrap.">
   <div id="post" class="post">
     <h1>Command or control enter in bootstrap forms</h1>
     <div class="date">
-      <p>July 13, 2013</p>
+      <p>&mdash; July 13, 2013</p>
     </div> 
+    
     <p>Using command enter to submit:</p>
 <pre><code>$(document).on('keydown', '.controls &gt; .text, .controls &gt; .string', function(event) {
   if(event.keyCode == 13 &amp;&amp; (event.metaKey || event.ctrlKey)) {
