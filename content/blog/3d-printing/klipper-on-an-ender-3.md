@@ -67,9 +67,9 @@ My configuration file aka `printer.cfg` is based on a **SKR 1.4 Turbo**
 micro-controller with **TMC 2209 drivers with sensorless homing**, an original
 **BLTouch v3** and a **BMG extruder clone**.
 
-I'm not going to get into the details but [here you'll find
-them][albertogg-klipper-config]. If your setup is different than mine [here
-you'll find][klipper-config] official configuration examples.
+I'm not going to get into my configuration details in here, but you can look at
+them in [my GitHub repo][albertogg-klipper-config]. If your setup is different than
+mine look into [Klipper's config examples][klipper-config] for more guidance.
 
 There are a couple of things that I should mention.
 - [Fluidd does require a couple of things to be added to that configuration
@@ -85,20 +85,36 @@ While I was working on the mappings for my setup and wasn't sure about something
 I used Marlin as the source of truth. This because I had a working configuration
 there.
 
+For example for the SKR 1.4 I used this [Marlin PIN mappings][marlin-pins] to
+look for probe pins and ensuring others were correct.
+
 ## Homing
 
-All axis and where they should fit. Try all 4 corners and see if the nozzle is
-actually stopping where you think it should. In my case based on the location of
-the probe I had to change the MAX limit of the printer to accommodate for the
-probe to stop in the correct places.
+Homing and checking that the 4 corners of the bed are correctly mapped is an
+easy but requires testing. At first I thought that by setting up `position_max:
+235` on X and Y I was good to go, but in reality that's not the case.
 
-## PID Tuning
+Things I had to account for and measure:
+- As I have a probe I added `[safe_z_home]`. This is typically done near the
+  center of the bed so that the probe has a safe surface to land. What I did
+  here was look that the nozzle landed in the correct coordinates I set
+- Move the nozzle to `0,0`, `0,235`, `235,235`, and `235,0`. See of the nozzle
+  landed where expected and continue.
+    - In my case this didn't worked for X correctly. What I had to tweak for it
+      to work was the `homing_retract_dist` and set it to `0` for it to gather 0
+      right where the end stop is. After that X started working normally.
+- I had to flip the `dir_pin` so that the `position_endstop` reflected the
+  correct end stop position (`0`)
 
-Extruder and Bed
+After these changes homing was working as it should.
 
 ## Calibrating Probe Offsets
 
 X,Y, and Z offsets
+
+## PID Tuning
+
+Extruder and Bed
 
 ## Bed leveling
 
@@ -124,3 +140,4 @@ Tuning tower
 [albertogg-klipper-config]: https://github.com/albertogg/klipper-config
 [klipper-config]: https://github.com/KevinOConnor/klipper/tree/master/config
 [fluidd-config-req]: https://github.com/cadriel/fluidd/blob/develop/docs/printer-setup-and-macros.md#printer-setup--macros
+[marlin-pins]: https://github.com/MarlinFirmware/Marlin/blob/2.0.x/Marlin/src/pins/lpc1768/pins_BTT_SKR_V1_4.h
