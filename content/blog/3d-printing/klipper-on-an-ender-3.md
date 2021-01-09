@@ -65,7 +65,7 @@ be a script that will allow for custom and different setups.
 
 My configuration file aka `printer.cfg` is based on a **SKR 1.4 Turbo**
 micro-controller with **TMC 2209 drivers with sensorless homing**, an original
-**BLTouch v3** and a **BMG extruder clone**.
+**BL-Touch v3** and a **BMG extruder clone**.
 
 I'm not going to get into my configuration details in here, but you can look at
 them in [my GitHub repo][albertogg-klipper-config]. If your setup is different than
@@ -78,6 +78,9 @@ There are a couple of things that I should mention.
   pin
 - Use `rotation_distance` instead of `step_distance` as the latter is deprecated
   and will be removed
+- Verify that the endstops are not in `TRIGGERED` state if they are not being
+  triggered. Use `QUERY_ENDSTOPS` for this. You can read more about this in the
+  [verify endstops section][klipper-config-check]
 
 ### Marlin for port mappings
 
@@ -88,39 +91,106 @@ there.
 For example for the SKR 1.4 I used this [Marlin PIN mappings][marlin-pins] to
 look for probe pins and ensuring others were correct.
 
-## Homing
+## Proper Coordinates and Homing
 
-Homing and checking that the 4 corners of the bed are correctly mapped is an
-easy but requires testing. At first I thought that by setting up `position_max:
-235` on X and Y I was good to go, but in reality that's not the case.
+At first I thought that by setting up `position_max: 235` on X and Y was more
+than enough but in reality it was different.
 
-Things I had to account for and measure:
+Things I had to account for and measure to get proper homing:
 - As I have a probe I added `[safe_z_home]`. This is typically done near the
   center of the bed so that the probe has a safe surface to land. What I did
-  here was look that the nozzle landed in the correct coordinates I set
+  here was to ensure that the nozzle landed in the correct coordinates I set.
+  The bed is `235` by `235` I used `117.5` and `117.5` and ensured nozzle was in
+  the middle (it didn't at first, I explain why later in this section)
 - Move the nozzle to `0,0`, `0,235`, `235,235`, and `235,0`. See of the nozzle
-  landed where expected and continue.
-    - In my case this didn't worked for X correctly. What I had to tweak for it
-      to work was the `homing_retract_dist` and set it to `0` for it to gather 0
-      right where the end stop is. After that X started working normally.
+  landed in every corner
+    - In my case this didn't worked for X correctly and I had to tweak the
+      `homing_retract_dist` and set it to `0` for it to gather 0 right where the
+      end stop is. After that X started working as expected
 - I had to flip the `dir_pin` so that the `position_endstop` reflected the
   correct end stop position (`0`)
 
-After these changes homing was working as it should.
+After these changes homing was working as expected.
 
-## Calibrating Probe Offsets
+## Calibrating Probe
 
-X,Y, and Z offsets
+In my case as I've mentioned before I have a BL-Touch. This type of probe even
+though it's very popular it might be more delicate ~~problematic~~ than others.
+
+There are a couple of things we need to do with the probe to make it work as
+intended:
+
+- Test that the it works. Read the following [BL-Touch
+  section][klipper-bltouch-section]
+- Calibrate the probe X, Y, and Z offsets. Read the following on [probe
+  calibration][klipper-probe-calibration]
+  - I recommend to Home the printer before attempting anything
 
 ## PID Tuning
 
-Extruder and Bed
+Before you start **ensure that your bed and or hotend** is at room temperature.
+
+This is the command to calibrate the hotend/extruder:
+
+    PID_CALIBRATE HEATER=extruder TARGET=200
+
+This is the command to calibrate the heated bed:
+
+    PID_CALIBRATE HEATER=heater_bed TARGET=60
+
+Once any of the above command run `SAVE_CONFIG` for it to save the values to the
+`printer.cfg` file.
 
 ## Bed leveling
 
+There are multiple ways to do bed leveling. As I have a probe I used the
+following two methods. Screw tilt Adjust and then Mesh Bed Leveling. Keep in
+mind that the former will throw the latter off-board so my recommendation is to
+do it in such order.
+
 ### Screw Tilt Adjust
 
+For this we need to do 4 things.
+1. Measure the screw diameter (Mine is M4)
+1. Know your probe offsets for X and Y
+1. Measure where are the screws located (both X and Y references)
+1. Once you know your screws location add your probe offsets
+
+For example based on the above my configuration ended like this:
+
+    [screws_tilt_adjust]
+    screw1: 74,47
+    screw1_name: front left screw
+    screw2: 245, 47
+    screw2_name: front right screw
+    screw3: 245, 217
+    screw3_name: rear right screw
+    screw4: 74,217
+    screw4_name: rear left screw
+    screw_thread: CW-M4
+
+**Note:** `screw2` and `screw3` X coordinate is `245` after adding the X
+position with X probe offset, this forced me to change `position_max` to `245`
+to accommodate it.
+
+For more information check [adjusting bed leveling screws using the bed
+probe][klipper-config-screws-tilt].
+
 ### Mesh Bed Leveling
+
+Mesh bed leveling is simpler than the Screw Tilt Adjust. The most important
+thing is knowing what are the mesh limits and the amount of probe points you'll
+want. For example:
+
+    [bed_mesh]
+    speed: 80
+    horizontal_move_z: 5
+    mesh_min: 18,18
+    mesh_max: 175,202
+    probe_count: 5,5
+    algorithm: bicubic
+
+For more information check [bed mesh configuration][klipper-config-bed-mesh].
 
 ## Calibrating Extruder Rotation
 
@@ -139,5 +209,10 @@ Tuning tower
 [build-flash-micro-controller]: https://www.klipper3d.org/Installation.html
 [albertogg-klipper-config]: https://github.com/albertogg/klipper-config
 [klipper-config]: https://github.com/KevinOConnor/klipper/tree/master/config
+[klipper-bltouch-section]: https://www.klipper3d.org/BLTouch.html
+[klipper-probe-calibration]: https://www.klipper3d.org/Probe_Calibrate.html
+[klipper-config-check]: https://www.klipper3d.org/Config_checks.html
+[klipper-config-bed-mesh]: https://www.klipper3d.org/Config_Reference.html#bed_mesh
+[klipper-config-screws-tilt]: https://www.klipper3d.org/Manual_Level.html
 [fluidd-config-req]: https://github.com/cadriel/fluidd/blob/develop/docs/printer-setup-and-macros.md#printer-setup--macros
 [marlin-pins]: https://github.com/MarlinFirmware/Marlin/blob/2.0.x/Marlin/src/pins/lpc1768/pins_BTT_SKR_V1_4.h
