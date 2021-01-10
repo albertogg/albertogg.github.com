@@ -153,7 +153,7 @@ do it in such order.
 For this we need to do 4 things.
 1. Measure the screw diameter (Mine is M4)
 1. Know your probe offsets for X and Y
-1. Measure where are the screws located (both X and Y references)
+1. Measure where are the screws located in the bed (both X and Y references)
 1. Once you know your screws location add your probe offsets
 
 For example based on the above my configuration ended like this:
@@ -169,9 +169,9 @@ For example based on the above my configuration ended like this:
     screw4_name: rear left screw
     screw_thread: CW-M4
 
-**Note:** `screw2` and `screw3` X coordinate is `245` after adding the X
-position with X probe offset, this forced me to change `position_max` to `245`
-to accommodate it.
+> **Note:** `screw2` and `screw3` X coordinate is `245` after adding the X
+position with X probe offset; this forced me to change `position_max` to `245`
+to reach it.
 
 For more information check [adjusting bed leveling screws using the bed
 probe][klipper-config-screws-tilt].
@@ -194,11 +194,55 @@ For more information check [bed mesh configuration][klipper-config-bed-mesh].
 
 ## Calibrating Extruder Rotation
 
+For X, Y, and Z I ["Obtained rotation_distance by inspecting the
+hardware"][klipper-config-rotation-distance] as this is the simplest way to do
+so. For E I went with the usual way [e-steps calibration][e-steps-calibration],
+but I recommend following [this
+guide][klipper-config-rotation-distance-extruders].
+
+As I have a BMG extruder clone with a 3:1 gear ration I added this value to the
+configuration and ended with the following:
+
+    [extruder]
+    step_pin: P2.13
+    dir_pin: !P0.11
+    enable_pin: !P2.12
+    rotation_distance: 22.95 # Calculated distance
+    microsteps: 16
+    gear_ratio: 3:1 # BMG gear ratio
+    ...
+
+For more information check [extruder configuration][klipper-config-extruder].
+
 ## Pressure Advance
 
-Tuning tower
+Pressure Advance in Klipper is the same as Marlin's Linear Advance but the
+tuning part is different, and it seems to work better in Klipper (maybe it's the
+way of tuning it).
+
+> **Note:** the calculated pressure advance value is dependent on the extruder,
+the nozzle, and the filament spool.
+
+Steps for doing so can be found here, but in short:
+- Download the tuning tower STL file
+- Slice the STL with, 100mm/s SPEED in internal and external perimeters, ZERO
+  infill, ZERO to very low retraction (even if bowden tube), and a 0.28mm layer
+  height (or higher).
+- Run `SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500`
+- And `TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0
+  FACTOR=.020`
+- Start printing
+
+Once the print is done, we proceed to the next step, measuring and doing the
+math to get our Pressure Advance value. Follow the official [tuning pressure
+advance guide][klipper-pressure-advance] for details.
+
+I'll explain how to set the Pressure Advance value within the slicer in a per
+filament basis in the [Slicers section](#slicers).
 
 ## Macros
+
+## Slicers
 
 [klipper]: https://www.klipper3d.org
 [fluidd]: https://github.com/cadriel/fluidd
@@ -211,8 +255,13 @@ Tuning tower
 [klipper-config]: https://github.com/KevinOConnor/klipper/tree/master/config
 [klipper-bltouch-section]: https://www.klipper3d.org/BLTouch.html
 [klipper-probe-calibration]: https://www.klipper3d.org/Probe_Calibrate.html
+[klipper-pressure-advance]: https://www.klipper3d.org/Pressure_Advance.html
 [klipper-config-check]: https://www.klipper3d.org/Config_checks.html
 [klipper-config-bed-mesh]: https://www.klipper3d.org/Config_Reference.html#bed_mesh
 [klipper-config-screws-tilt]: https://www.klipper3d.org/Manual_Level.html
+[klipper-config-extruder]: https://www.klipper3d.org/Config_Reference.html#extruder
+[klipper-config-rotation-distance]: https://www.klipper3d.org/Rotation_Distance.html
+[klipper-config-rotation-distance-extruders]: https://www.klipper3d.org/Rotation_Distance.html#calibrating-rotation_distance-on-extruders
 [fluidd-config-req]: https://github.com/cadriel/fluidd/blob/develop/docs/printer-setup-and-macros.md#printer-setup--macros
 [marlin-pins]: https://github.com/MarlinFirmware/Marlin/blob/2.0.x/Marlin/src/pins/lpc1768/pins_BTT_SKR_V1_4.h
+[e-steps-calibration]: https://albertogrespan.com/blog/3d-printing/lessons-from-3d-printing/#extruder-steps-e-steps
