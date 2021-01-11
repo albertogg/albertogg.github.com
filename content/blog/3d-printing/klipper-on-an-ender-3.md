@@ -242,7 +242,45 @@ filament basis in the [Slicers section](#slicers).
 
 ## Macros
 
+Macros are what you'll think they are; a set of commands that are called from a
+single invocation.
+
+These are the macros I currently have:
+
+- `G29` Load the default bed mesh profile
+- `PAUSE` Pause the print (macro suggested by Fluidd)
+- `RESUME` Resume the print (macro suggested by Fluidd)
+- `CANCEL_PRINT` Cancel the print (macro suggested by Fluidd)
+- `PRIME_EXTRUDER` Macro created to prime the extruder on start print
+- `START_PRINT` Set of instructions required at the start of every print
+  (accepts parameters)
+- `END_PRINT` Set of instructions required at the end of every print
+- `LOAD_FILAMENT` Macro for loading filament on the BMG extruder clone
+- `UNLOAD_FILAMENT` Required unloading filament on the BMG extruder clone based
+  on the official [BMG scripts][bmg-scripts]
+
+Check the macros in my [printer.cfg file][albertogg-klipper-macros].
+
 ## Slicers
+
+There are some [Slicer requirements][klipper-slicer-reqs] from Klipper. Most of
+the things are related to slicer features you should not use to avoid issues.
+Other than those I'm going to use this section to explain how to use Macros in
+you slicer.
+
+For [PrusaSlicer][prusaslicer] for example:
+
+Adding the `START_PRINT` macro and passing whatever first layer temp to it:
+
+    START_PRINT BED_TEMP="M140 S[first_layer_bed_temperature]" EXTRUDER_TEMP="M104 S[first_layer_temperature]" ;
+
+Adding the `END_PRINT` macro:
+
+    END_PRINT ;
+
+Add the Pressure Advance command to a filament:
+
+    SET_PRESSURE_ADVANCE ADVANCE=0.544 ;
 
 [klipper]: https://www.klipper3d.org
 [fluidd]: https://github.com/cadriel/fluidd
@@ -252,10 +290,12 @@ filament basis in the [Slicers section](#slicers).
 [installing-rpios]: https://www.raspberrypi.org/documentation/installation/installing-images/
 [build-flash-micro-controller]: https://www.klipper3d.org/Installation.html
 [albertogg-klipper-config]: https://github.com/albertogg/klipper-config
+[albertogg-klipper-macros]: https://github.com/albertogg/klipper-config/blob/97b36987ebfe697a084584e684897f2f1b13dea1/ender-3/printer.cfg#L194
 [klipper-config]: https://github.com/KevinOConnor/klipper/tree/master/config
 [klipper-bltouch-section]: https://www.klipper3d.org/BLTouch.html
 [klipper-probe-calibration]: https://www.klipper3d.org/Probe_Calibrate.html
 [klipper-pressure-advance]: https://www.klipper3d.org/Pressure_Advance.html
+[klipper-slicer-reqs]: https://www.klipper3d.org/Slicers.html
 [klipper-config-check]: https://www.klipper3d.org/Config_checks.html
 [klipper-config-bed-mesh]: https://www.klipper3d.org/Config_Reference.html#bed_mesh
 [klipper-config-screws-tilt]: https://www.klipper3d.org/Manual_Level.html
@@ -265,3 +305,5 @@ filament basis in the [Slicers section](#slicers).
 [fluidd-config-req]: https://github.com/cadriel/fluidd/blob/develop/docs/printer-setup-and-macros.md#printer-setup--macros
 [marlin-pins]: https://github.com/MarlinFirmware/Marlin/blob/2.0.x/Marlin/src/pins/lpc1768/pins_BTT_SKR_V1_4.h
 [e-steps-calibration]: https://albertogrespan.com/blog/3d-printing/lessons-from-3d-printing/#extruder-steps-e-steps
+[bmg-scripts]: https://www.bondtech.se/en/2018/05/03/load-unload-script/
+[prusaslicer]: https://github.com/prusa3d/PrusaSlicer
