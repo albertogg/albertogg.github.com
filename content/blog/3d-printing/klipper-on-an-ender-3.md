@@ -1,17 +1,19 @@
 ---
-date: 2021-01-02T23:48:47-04:00
+date: 2021-01-11T00:35:47-04:00
 title: "Klipper on an Ender 3"
 slug: "/klipper-on-an-ender-3/"
 description: |-
   The complete process of getting Klipper up and running on an Ender 3. From
   installation (Fluidd) to configuration, tuning, etc... All you need to know.
 categories:
-  - Development
-  - DevOps
+  - 3D Printing
 tags:
-  - tag
+  - Klipper
+  - Calibration
+  - Filament
+  - Bed Leveling
+  - Macros
 toc: true
-draft: true
 ---
 
 This post will take you through the process of getting [Klipper][klipper] up and
