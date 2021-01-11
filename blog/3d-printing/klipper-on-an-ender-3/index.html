@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="QWmLu6t80Hd6FFgS7MaFl_UMcFLXqOLwd08_u-HXzsk">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180348489-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-180348489-1');
+    </script>
+    
+    <meta name="description" content="The complete process of getting Klipper up and running on an Ender 3. From
+installation (Fluidd) to configuration, tuning, etc... All you need to know.">
+    <meta name="author" content="Alberto Grespan">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@albertogg">
+    <meta name="twitter:title" content="Klipper on an Ender 3">
+    <meta name="twitter:description" content="The complete process of getting Klipper up and running on an Ender 3. From
+installation (Fluidd) to configuration, tuning, etc... All you need to know.">
+    <meta name="twitter:creator" content="@albertogg">
+    <meta name="twitter:image" content="https://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png?s=250">
+    <title>Klipper on an Ender 3 &ndash; Alberto Grespan</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://albertogrespan.com/site/scss/style.css">
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <div class="header">
+  <header class="container">
+    <h1 class="name">
+      <a href="https://albertogrespan.com">Alberto Grespan</a>
+    </h1> 
+    <ul class="menu">
+      <li><a href="https://albertogrespan.com/about/">About</a></li>
+      <li><a href="https://albertogrespan.com/resume/">Resume</a></li>
+    </ul> 
+  </header> 
+</div> 
+
+      
+  <div id="post" class="post">
+    <h1>Klipper on an Ender 3</h1>
+    <div class="date">
+      <p>&mdash; January 11, 2021</p>
+    </div> 
+    
+    <aside>
+      <h4>Table of Contents</h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#whats-klipper">Whats Klipper?</a></li>
+    <li><a href="#installation-through-fluidd">Installation Through Fluidd</a></li>
+    <li><a href="#installation-alternatives">Installation Alternatives</a></li>
+    <li><a href="#configuration-file">Configuration File</a>
+      <ul>
+        <li><a href="#marlin-for-port-mappings">Marlin for port mappings</a></li>
+      </ul>
+    </li>
+    <li><a href="#proper-coordinates-and-homing">Proper Coordinates and Homing</a></li>
+    <li><a href="#calibrating-probe">Calibrating Probe</a></li>
+    <li><a href="#pid-tuning">PID Tuning</a></li>
+    <li><a href="#bed-leveling">Bed leveling</a>
+      <ul>
+        <li><a href="#screw-tilt-adjust">Screw Tilt Adjust</a></li>
+        <li><a href="#mesh-bed-leveling">Mesh Bed Leveling</a></li>
+      </ul>
+    </li>
+    <li><a href="#calibrating-rotation-distance">Calibrating Rotation Distance</a></li>
+    <li><a href="#pressure-advance">Pressure Advance</a></li>
+    <li><a href="#macros">Macros</a></li>
+    <li><a href="#slicers">Slicers</a></li>
+  </ul>
+</nav>
+    </aside>
+    <hr class="toc">
+    
+    <p>This post will take you through the process of getting <a href="https://www.klipper3d.org">Klipper</a> up and
+running from my experience of doing so on an Ender 3 Pro with some mods. I&rsquo;m
+going to try to keep this post as up to date as possible while I learn/use new
+things.</p>
+<h2 id="whats-klipper">Whats Klipper?</h2>
+<p><em><a href="https://www.klipper3d.org">Klipper</a> is a 3d-Printer firmware. It combines the power of a general
+purpose computer with one or more micro-controllers.</em> — Klipper Website</p>
+<p>This means that Klipper will use the Raspberry PI CPU to calculate printer
+movements and then compress and transmit them to the micro-controller board for
+execution.</p>
+<h2 id="installation-through-fluidd">Installation Through Fluidd</h2>
+<p>What&rsquo;s <a href="https://github.com/cadriel/fluidd">Fluidd</a>? <em>&ldquo;Fluidd is a free and Open Source <a href="https://www.klipper3d.org">Klipper</a> Web
+interface for managing your 3d Printer.&quot;</em> — Fluidd GitHub</p>
+<p>Installing Klipper through Fluidd is an easy task. To install it you&rsquo;ll need to
+download <a href="https://github.com/cadriel/FluiddPI">FluiddPI</a>, a Raspbian based distro for Fluidd that comes
+with Klipper and everything you need pre-installed.</p>
+<p>The <a href="https://www.raspberrypi.org/documentation/installation/installing-images/">following instructions</a> will guide you through the
+process of putting the OS in the Raspberry PI.</p>
+<p>Now on the Raspberry PI we need to build the software for the micro-controller.
+For this follow the steps in <a href="https://www.klipper3d.org/Installation.html">Building and flashing the
+micro-controller</a>. <strong>In my case Flashing via USB
+did not worked and I had to manually</strong> by <code>scp</code> the <code>.bin</code> build file out of the
+Raspberry PI into my computer for then to pasted it into the SD Card and rename
+it to <code>flash.bin</code> that the micro-controller recognize it and flash it.</p>
+<p>For the final installation step we need to create the <code>printer.cfg</code> file. This
+file will contain details details on the printer such as pins, stepper motor
+directions, drivers, probe, etc&hellip; We will talk about this in the <a href="#configuration-file">Configuration
+File section</a></p>
+<h2 id="installation-alternatives">Installation Alternatives</h2>
+<p><a href="https://github.com/cadriel/FluiddPI">FluiddPI</a> is not the only way to install Klipper. In fact there are
+other more popular ones. Like <a href="https://github.com/raymondh2/MainsailOS">MainsailOS</a>, <a href="https://github.com/th33xitus/KIAUH">KIAUH</a>, and
+there&rsquo;s always the manual approach. I haven&rsquo;t experimented with any of these but
+MainsailOS seems to be very similar to what we did with Fluidd. KIAUH seems to
+be a script that will allow for custom and different setups.</p>
+<h2 id="configuration-file">Configuration File</h2>
+<p>My configuration file aka <code>printer.cfg</code> is based on a <strong>SKR 1.4 Turbo</strong>
+micro-controller with <strong>TMC 2209 drivers with sensorless homing</strong>, an original
+<strong>BL-Touch v3</strong> and a <strong>BMG extruder clone</strong>.</p>
+<p>I&rsquo;m not going to get into my configuration details in here, but you can look at
+them in <a href="https://github.com/albertogg/klipper-config">my GitHub repo</a>. If your setup is different
+than mine look into <a href="https://github.com/KevinOConnor/klipper/tree/master/config">Klipper&rsquo;s config examples</a> for more
+guidance.</p>
+<p>There are a couple of things that I should mention.</p>
+<ul>
+<li><a href="https://github.com/cadriel/fluidd/blob/develop/docs/printer-setup-and-macros.md#printer-setup--macros">Fluidd does require a couple of things to be added to that configuration
+file</a></li>
+<li>Using <code>!</code> in front of a pin number will flip/reverse the functionality of said
+pin</li>
+<li>Use <code>rotation_distance</code> instead of <code>step_distance</code> as the latter is deprecated
+and will be removed</li>
+<li>Verify that the endstops are not in <code>TRIGGERED</code> state if they are not being
+triggered. Use <code>QUERY_ENDSTOPS</code> for this. You can read more about this in the
+<a href="https://www.klipper3d.org/Config_checks.html">verify endstops section</a></li>
+<li>Use the <code>STEPPER_BUZZ</code> command to verify the direction of your motors. For
+example: <code>STEPPER_BUZZ STEPPER=stepper_x</code>. You can read more about this in the
+<a href="https://www.klipper3d.org/Config_checks.html">verify stepper motors section</a></li>
+</ul>
+<h3 id="marlin-for-port-mappings">Marlin for port mappings</h3>
+<p>While I was working on the mappings for my setup and wasn&rsquo;t sure about something
+I used Marlin as the source of truth. This because I had a working configuration
+there.</p>
+<p>For example for the SKR 1.4 I used this <a href="https://github.com/MarlinFirmware/Marlin/blob/2.0.x/Marlin/src/pins/lpc1768/pins_BTT_SKR_V1_4.h">Marlin PIN mappings</a> to
+look for probe pins and ensuring others were correct.</p>
+<h2 id="proper-coordinates-and-homing">Proper Coordinates and Homing</h2>
+<p>At first I thought that by setting up <code>position_max: 235</code> on X and Y was more
+than enough but in reality it was different.</p>
+<p>Things I had to account for and measure to get proper homing:</p>
+<ul>
+<li>As I have a probe I added <code>[safe_z_home]</code>. This is typically done near the
+center of the bed so that the probe has a safe surface to land. What I did
+here was to ensure that the nozzle landed in the correct coordinates I set.
+The bed is <code>235</code> by <code>235</code> I used <code>117.5</code> and <code>117.5</code> and ensured nozzle was in
+the middle (it didn&rsquo;t at first, I explain why later in this section)</li>
+<li>Move the nozzle to each corner, meaning: <code>0,0</code>, <code>0,235</code>, <code>235,235</code>, and
+<code>235,0</code> and see where the nozzle lands
+<ul>
+<li>In my case this didn&rsquo;t worked for X correctly and I had to tweak the
+<code>homing_retract_dist</code> and set it to <code>0</code> for it to gather 0 right where the
+end stop is. After that X started working as expected</li>
+</ul>
+</li>
+<li>I had to flip the <code>dir_pin</code> so that the <code>position_endstop</code> reflected the
+correct end stop position (<code>0</code>)</li>
+</ul>
+<p>After these changes homing was working as expected.</p>
+<h2 id="calibrating-probe">Calibrating Probe</h2>
+<p>In my case as I&rsquo;ve mentioned before I have a BL-Touch. This type of probe even
+though it&rsquo;s very popular it might be more delicate <del>problematic</del> than others.</p>
+<p>There are a couple of things we need to do with the probe to make it work as
+intended:</p>
+<ul>
+<li>Test that the it works. Read the following <a href="https://www.klipper3d.org/BLTouch.html">BL-Touch
+section</a></li>
+<li>Calibrate the probe X, Y, and Z offsets. Read the following on <a href="https://www.klipper3d.org/Probe_Calibrate.html">probe
+calibration</a>
+<ul>
+<li>I recommend to Home the printer before attempting anything</li>
+</ul>
+</li>
+<li>You need to set <code>position_min</code> to be able to complete the calibration in your
+Z axis to a negative number something like <code>-5</code> will work</li>
+</ul>
+<h2 id="pid-tuning">PID Tuning</h2>
+<p>Before you start <strong>ensure that your bed and or hotend</strong> is at room temperature.</p>
+<p>This is the command to calibrate the hotend/extruder:</p>
+<pre><code>PID_CALIBRATE HEATER=extruder TARGET=200
+</code></pre>
+<p>This is the command to calibrate the heated bed:</p>
+<pre><code>PID_CALIBRATE HEATER=heater_bed TARGET=60
+</code></pre>
+<p>Once any of the above command run <code>SAVE_CONFIG</code> for it to save the values to the
+<code>printer.cfg</code> file.</p>
+<h2 id="bed-leveling">Bed leveling</h2>
+<p>There are multiple ways to do bed leveling. As I have a probe I used the
+following two methods. <strong>Screw tilt Adjust</strong> and then <strong>Mesh Bed Leveling</strong>.
+Keep in mind that the former will throw the latter off-board so my
+recommendation is to do it in such order.</p>
+<h3 id="screw-tilt-adjust">Screw Tilt Adjust</h3>
+<p>For this we need to do 4 things:</p>
+<ol>
+<li>Measure the screw diameter (Mine is M4)</li>
+<li>Know your probe offsets for X and Y</li>
+<li>Measure where are the screws located in the bed (both X and Y references)</li>
+<li>Once you know your screws location add your probe offsets</li>
+<li>Home <code>G28</code> and then run <code>SCREWS_TILT_CALCULATE</code> and repeat the tilt calculate
+procedure until flat</li>
+</ol>
+<p>For example based on the above my configuration ended like this:</p>
+<pre><code>[screws_tilt_adjust]
+screw1: 74,47
+screw1_name: front left screw
+screw2: 245, 47
+screw2_name: front right screw
+screw3: 245, 217
+screw3_name: rear right screw
+screw4: 74,217
+screw4_name: rear left screw
+screw_thread: CW-M4
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>screw2</code> and <code>screw3</code> X coordinate is <code>245</code> after adding (sum) the X
+position with X probe offset; this forced me to change <code>position_max</code> to <code>245</code>
+to be able to reach that coordinate.</p>
+</blockquote>
+<p>Interpreting the output is simple. <code>CW 00:15</code> Turn clockwise 1/4 of a turn. <code>CCW 00:45</code> counter clockwise 3/4 of a turn.</p>
+<p>For more information check <a href="https://www.klipper3d.org/Manual_Level.html">adjusting bed leveling screws using the bed
+probe</a>.</p>
+<h3 id="mesh-bed-leveling">Mesh Bed Leveling</h3>
+<p>Mesh bed leveling is simpler than the Screw Tilt Adjust. The most important
+thing is knowing what are the mesh limits and the amount of probe points you&rsquo;ll
+want. For example:</p>
+<pre><code>[bed_mesh]
+speed: 80
+horizontal_move_z: 5
+mesh_min: 18,18
+mesh_max: 175,202
+probe_count: 5,5
+algorithm: bicubic
+</code></pre>
+<p>After this run <code>BED_MESH_CALIBRATE</code> and wait for the results, then <code>SAVE_CONFIG</code>
+to keep those numbers in the configuration file.</p>
+<p>For more information check <a href="https://www.klipper3d.org/Config_Reference.html#bed_mesh">bed mesh configuration</a>.</p>
+<h2 id="calibrating-rotation-distance">Calibrating Rotation Distance</h2>
+<p>For X, Y, and Z I <a href="https://www.klipper3d.org/Rotation_Distance.html">&ldquo;Obtained rotation_distance by inspecting the
+hardware&rdquo;</a> as this is the simplest way to do
+so. For E I went with the usual way <a href="https://albertogrespan.com/blog/3d-printing/lessons-from-3d-printing/#extruder-steps-e-steps">e-steps calibration</a>,
+but I recommend following <a href="https://www.klipper3d.org/Rotation_Distance.html#calibrating-rotation_distance-on-extruders">this
+guide</a>.</p>
+<p>As I have a BMG extruder clone with a 3:1 gear ration I added this value to the
+configuration and ended with the following:</p>
+<pre><code>[extruder]
+step_pin: P2.13
+dir_pin: !P0.11
+enable_pin: !P2.12
+rotation_distance: 22.95 # Calculated distance
+microsteps: 16
+gear_ratio: 3:1 # BMG gear ratio
+...
+</code></pre>
+<p>For more information check <a href="https://www.klipper3d.org/Config_Reference.html#extruder">extruder configuration</a>.</p>
+<h2 id="pressure-advance">Pressure Advance</h2>
+<p>Pressure Advance in Klipper is the same as Marlin&rsquo;s Linear Advance but the
+tuning part is different, and it seems to work better in Klipper (maybe it&rsquo;s the
+way of tuning it).</p>
+<blockquote>
+<p><strong>Note:</strong> the calculated pressure advance value is dependent on the extruder,
+the nozzle, and the filament spool.</p>
+</blockquote>
+<p>Steps for doing so can be found here, but in short:</p>
+<ul>
+<li>Download the <a href="https://www.klipper3d.org/prints/square_tower.stl">square tower STL</a> file</li>
+<li>Slice the STL using:
+<ul>
+<li>Speed of 100mm/s of higher in internal and external perimeters</li>
+<li>ZERO infill</li>
+<li>ZERO to very low retraction (even if bowden tube)</li>
+<li>0.28mm layer height (or higher).</li>
+</ul>
+</li>
+<li>Run <code>SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500</code></li>
+<li>And <code>TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020</code></li>
+<li>Start printing</li>
+</ul>
+<p>Once the print is done, we proceed to the next step, measuring and doing the
+math to get our Pressure Advance value. Follow the official <a href="https://www.klipper3d.org/Pressure_Advance.html">tuning pressure
+advance guide</a> for how to measure and calculate the
+value.</p>
+<p>I&rsquo;ll explain how to set the Pressure Advance value within the slicer in a per
+filament basis in the <a href="#slicers">Slicers section</a>.</p>
+<h2 id="macros">Macros</h2>
+<p>Macros are what you&rsquo;ll think they are; a set of commands that are called from a
+single invocation.</p>
+<p>These are the macros I currently have:</p>
+<ul>
+<li><code>G29</code> Load the default bed mesh profile</li>
+<li><code>PAUSE</code> Pause the print (macro suggested by Fluidd)</li>
+<li><code>RESUME</code> Resume the print (macro suggested by Fluidd)</li>
+<li><code>CANCEL_PRINT</code> Cancel the print (macro suggested by Fluidd)</li>
+<li><code>PRIME_EXTRUDER</code> Macro created to prime the extruder on start print</li>
+<li><code>START_PRINT</code> Set of instructions required at the start of every print
+(accepts parameters)</li>
+<li><code>END_PRINT</code> Set of instructions required at the end of every print</li>
+<li><code>LOAD_FILAMENT</code> Macro for loading filament on the BMG extruder clone</li>
+<li><code>UNLOAD_FILAMENT</code> Required unloading filament on the BMG extruder clone based
+on the official <a href="https://www.bondtech.se/en/2018/05/03/load-unload-script/">BMG scripts</a></li>
+</ul>
+<p>Check the macros in my <a href="https://github.com/albertogg/klipper-config/blob/97b36987ebfe697a084584e684897f2f1b13dea1/ender-3/printer.cfg#L194">printer.cfg file</a>.</p>
+<h2 id="slicers">Slicers</h2>
+<p>There are some <a href="https://www.klipper3d.org/Slicers.html">Slicer requirements</a> from Klipper. Most of
+the things are related to slicer features you should not use to avoid issues.
+Other than those I&rsquo;m going to use this section to explain how to use Macros in
+you slicer.</p>
+<p>For <a href="https://github.com/prusa3d/PrusaSlicer">PrusaSlicer</a> for example:</p>
+<p>Adding the <code>START_PRINT</code> macro and passing whatever first layer temp to it:</p>
+<pre><code>START_PRINT BED_TEMP=&quot;M140 S[first_layer_bed_temperature]&quot; EXTRUDER_TEMP=&quot;M104 S[first_layer_temperature]&quot; ;
+</code></pre>
+<p>Adding the <code>END_PRINT</code> macro:</p>
+<pre><code>END_PRINT ;
+</code></pre>
+<p>Add the Pressure Advance command to a filament:</p>
+<pre><code>SET_PRESSURE_ADVANCE ADVANCE=0.544 ;
+</code></pre>
+<p>That&rsquo;s how a macro is used from within the slicer.</p>
+
+    <div class="closing">
+      <div>
+       By <a href="https://twitter.com/albertogg" class="twitter-follow-link">@albertogg</a>
+      </div>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://albertogrespan.com/blog/3d-printing/klipper-on-an-ender-3/" data-text="Klipper on an Ender 3" data-via="albertogg" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div> 
+  </div> 
+
+    </div> 
+    <footer id="footer">
+  <div class="container">
+    <p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>2012 &#151; 2021 albertogrespan.com</p>
+  </div> 
+</footer> 
+
+  </body>
+</html>
