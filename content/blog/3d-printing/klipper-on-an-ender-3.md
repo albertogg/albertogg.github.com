@@ -4,7 +4,7 @@ title: "Klipper on an Ender 3"
 slug: "/klipper-on-an-ender-3/"
 description: |-
   The complete process of getting Klipper up and running on an Ender 3. From
-  installation to configuration, tuning, etc... All you need to know.
+  installation (Fluidd) to configuration, tuning, etc... All you need to know.
 categories:
   - Development
   - DevOps
@@ -34,24 +34,23 @@ What's [Fluidd][fluidd]? _"Fluidd is a free and Open Source [Klipper][klipper] W
 interface for managing your 3d Printer."_ &mdash; Fluidd GitHub
 
 Installing Klipper through Fluidd is an easy task. To install it you'll need to
-download [FluiddPI][fluiddpi] a Raspbian based distro for Fluidd that comes with
-Klipper and everything you need pre-installed.
+download [FluiddPI][fluiddpi], a Raspbian based distro for Fluidd that comes
+with Klipper and everything you need pre-installed.
 
-The [following instructions][installing-rpios] will guide you through the process of putting the OS
-in the Raspberry PI.
+The [following instructions][installing-rpios] will guide you through the
+process of putting the OS in the Raspberry PI.
 
 Now on the Raspberry PI we need to build the software for the micro-controller.
 For this follow the steps in [Building and flashing the
 micro-controller][build-flash-micro-controller]. **In my case Flashing via USB
 did not worked and I had to manually** by `scp` the `.bin` build file out of the
 Raspberry PI into my computer for then to pasted it into the SD Card and rename
-it to `flash.bin` that the micro-controller will use. After this I had the
-process almost done.
+it to `flash.bin` that the micro-controller recognize it and flash it.
 
 For the final installation step we need to create the `printer.cfg` file. This
-file will contain details details on the printer such as pins, drivers, probe,
-etc... We will talk about this in the [Configuration File
-section](#configuration-file)
+file will contain details details on the printer such as pins, stepper motor
+directions, drivers, probe, etc... We will talk about this in the [Configuration
+File section](#configuration-file)
 
 ## Installation Alternatives
 
@@ -68,8 +67,9 @@ micro-controller with **TMC 2209 drivers with sensorless homing**, an original
 **BL-Touch v3** and a **BMG extruder clone**.
 
 I'm not going to get into my configuration details in here, but you can look at
-them in [my GitHub repo][albertogg-klipper-config]. If your setup is different than
-mine look into [Klipper's config examples][klipper-config] for more guidance.
+them in [my GitHub repo][albertogg-klipper-config]. If your setup is different
+than mine look into [Klipper's config examples][klipper-config] for more
+guidance.
 
 There are a couple of things that I should mention.
 - [Fluidd does require a couple of things to be added to that configuration
@@ -81,6 +81,9 @@ There are a couple of things that I should mention.
 - Verify that the endstops are not in `TRIGGERED` state if they are not being
   triggered. Use `QUERY_ENDSTOPS` for this. You can read more about this in the
   [verify endstops section][klipper-config-check]
+- Use the `STEPPER_BUZZ` command to verify the direction of your motors. For
+  example: `STEPPER_BUZZ STEPPER=stepper_x`. You can read more about this in the
+  [verify stepper motors section][klipper-config-check]
 
 ### Marlin for port mappings
 
@@ -102,8 +105,8 @@ Things I had to account for and measure to get proper homing:
   here was to ensure that the nozzle landed in the correct coordinates I set.
   The bed is `235` by `235` I used `117.5` and `117.5` and ensured nozzle was in
   the middle (it didn't at first, I explain why later in this section)
-- Move the nozzle to `0,0`, `0,235`, `235,235`, and `235,0`. See of the nozzle
-  landed in every corner
+- Move the nozzle to each corner, meaning: `0,0`, `0,235`, `235,235`, and
+  `235,0` and see where the nozzle lands
     - In my case this didn't worked for X correctly and I had to tweak the
       `homing_retract_dist` and set it to `0` for it to gather 0 right where the
       end stop is. After that X started working as expected
@@ -125,6 +128,8 @@ intended:
 - Calibrate the probe X, Y, and Z offsets. Read the following on [probe
   calibration][klipper-probe-calibration]
   - I recommend to Home the printer before attempting anything
+- You need to set `position_min` to be able to complete the calibration in your
+  Z axis to a negative number something like `-5` will work
 
 ## PID Tuning
 
@@ -144,17 +149,19 @@ Once any of the above command run `SAVE_CONFIG` for it to save the values to the
 ## Bed leveling
 
 There are multiple ways to do bed leveling. As I have a probe I used the
-following two methods. Screw tilt Adjust and then Mesh Bed Leveling. Keep in
-mind that the former will throw the latter off-board so my recommendation is to
-do it in such order.
+following two methods. **Screw tilt Adjust** and then **Mesh Bed Leveling**.
+Keep in mind that the former will throw the latter off-board so my
+recommendation is to do it in such order.
 
 ### Screw Tilt Adjust
 
-For this we need to do 4 things.
+For this we need to do 4 things:
 1. Measure the screw diameter (Mine is M4)
 1. Know your probe offsets for X and Y
 1. Measure where are the screws located in the bed (both X and Y references)
 1. Once you know your screws location add your probe offsets
+1. Home `G28` and then run `SCREWS_TILT_CALCULATE` and repeat the tilt calculate
+   procedure until flat
 
 For example based on the above my configuration ended like this:
 
@@ -169,9 +176,12 @@ For example based on the above my configuration ended like this:
     screw4_name: rear left screw
     screw_thread: CW-M4
 
-> **Note:** `screw2` and `screw3` X coordinate is `245` after adding the X
+> **Note:** `screw2` and `screw3` X coordinate is `245` after adding (sum) the X
 position with X probe offset; this forced me to change `position_max` to `245`
-to reach it.
+to be able to reach that coordinate.
+
+Interpreting the output is simple. `CW 00:15` Turn clockwise 1/4 of a turn. `CCW
+00:45` counter clockwise 3/4 of a turn.
 
 For more information check [adjusting bed leveling screws using the bed
 probe][klipper-config-screws-tilt].
@@ -190,9 +200,12 @@ want. For example:
     probe_count: 5,5
     algorithm: bicubic
 
+After this run `BED_MESH_CALIBRATE` and wait for the results, then `SAVE_CONFIG`
+to keep those numbers in the configuration file.
+
 For more information check [bed mesh configuration][klipper-config-bed-mesh].
 
-## Calibrating Extruder Rotation
+## Calibrating Rotation Distance
 
 For X, Y, and Z I ["Obtained rotation_distance by inspecting the
 hardware"][klipper-config-rotation-distance] as this is the simplest way to do
@@ -224,10 +237,12 @@ way of tuning it).
 the nozzle, and the filament spool.
 
 Steps for doing so can be found here, but in short:
-- Download the tuning tower STL file
-- Slice the STL with, 100mm/s SPEED in internal and external perimeters, ZERO
-  infill, ZERO to very low retraction (even if bowden tube), and a 0.28mm layer
-  height (or higher).
+- Download the [square tower STL][klipper-square-tower] file
+- Slice the STL using:
+    - Speed of 100mm/s of higher in internal and external perimeters
+    - ZERO infill
+    - ZERO to very low retraction (even if bowden tube)
+    - 0.28mm layer height (or higher).
 - Run `SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500`
 - And `TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0
   FACTOR=.020`
@@ -235,7 +250,8 @@ Steps for doing so can be found here, but in short:
 
 Once the print is done, we proceed to the next step, measuring and doing the
 math to get our Pressure Advance value. Follow the official [tuning pressure
-advance guide][klipper-pressure-advance] for details.
+advance guide][klipper-pressure-advance] for how to measure and calculate the
+value.
 
 I'll explain how to set the Pressure Advance value within the slicer in a per
 filament basis in the [Slicers section](#slicers).
@@ -282,6 +298,8 @@ Add the Pressure Advance command to a filament:
 
     SET_PRESSURE_ADVANCE ADVANCE=0.544 ;
 
+That's how a macro is used from within the slicer.
+
 [klipper]: https://www.klipper3d.org
 [fluidd]: https://github.com/cadriel/fluidd
 [fluiddpi]: https://github.com/cadriel/FluiddPI
@@ -302,6 +320,7 @@ Add the Pressure Advance command to a filament:
 [klipper-config-extruder]: https://www.klipper3d.org/Config_Reference.html#extruder
 [klipper-config-rotation-distance]: https://www.klipper3d.org/Rotation_Distance.html
 [klipper-config-rotation-distance-extruders]: https://www.klipper3d.org/Rotation_Distance.html#calibrating-rotation_distance-on-extruders
+[klipper-square-tower]: https://www.klipper3d.org/prints/square_tower.stl
 [fluidd-config-req]: https://github.com/cadriel/fluidd/blob/develop/docs/printer-setup-and-macros.md#printer-setup--macros
 [marlin-pins]: https://github.com/MarlinFirmware/Marlin/blob/2.0.x/Marlin/src/pins/lpc1768/pins_BTT_SKR_V1_4.h
 [e-steps-calibration]: https://albertogrespan.com/blog/3d-printing/lessons-from-3d-printing/#extruder-steps-e-steps
