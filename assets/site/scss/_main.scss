@@ -67,7 +67,6 @@
   img {
     @include img-responsive();
     margin: 0 auto;
-    border: 0.0625em solid $light-gray;
     padding: 0.1875em 0.1875em;
   }
 
@@ -92,6 +91,13 @@
     padding: 0.4em 0.6em;
     margin: 1.1em 0;
     overflow: auto;
+  }
+
+  figcaption {
+    p {
+      margin-top: 0.2rem;
+      font-size: 0.750rem;
+    }
   }
 
   .video {
