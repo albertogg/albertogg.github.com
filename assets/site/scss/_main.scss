@@ -94,6 +94,13 @@
     overflow: auto;
   }
 
+  figcaption {
+    p {
+      margin-top: 0.2rem;
+      font-size: 0.750rem;
+    }
+  }
+
   .video {
     @include img-responsive();
     width: 16em;
