@@ -47,7 +47,7 @@ For this follow the steps in [Building and flashing the
 micro-controller][build-flash-micro-controller]. **In my case Flashing via USB
 did not worked and I had to manually** by `scp` the `.bin` build file out of the
 Raspberry PI into my computer for then to pasted it into the SD Card and rename
-it to `flash.bin` that the micro-controller recognize it and flash it.
+it to `firmware.bin` that the micro-controller recognize it and flash it.
 
 For the final installation step we need to create the `printer.cfg` file. This
 file will contain details details on the printer such as pins, stepper motor
