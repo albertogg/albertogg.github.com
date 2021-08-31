@@ -15,18 +15,20 @@ toc: true
 draft: true
 ---
 
-This are some simple and direct instructions on how to install the UniFi Network
-Controller on a Raspberry Pi. I've only tested this in Raspberry Pi OS.
+Simple and direct instructions on how to install the UniFi Network Controller on
+a Raspberry Pi. I've only tested this in Raspberry Pi OS, but It should work for
+Ubuntu.
 
-Instructions start after a fresh installation of the OS. For installation
-instructions [see the official website][raspberry-pi-os]. We also require
-[remote access][remote-access] to the Raspberry Pi.
+I'm not going to show how to install Raspberry Pi OS. I assume at this point you
+have a fresh installation of the OS. For installation instructions [see the
+official website][raspberry-pi-os]. We will also require [remote
+access][remote-access] to the Raspberry Pi.
 
 ## Rename hostname
 
 We want to ensure the Raspberry Pi has the correct Hostname. In my case I have
-dnsmasq in my network and I reach hosts by using their hostnames. You can check
-the following post on [domain names for home networks][homenet-domain-name].
+dnsmasq in my network and I reach hosts by their hostnames. You can check the
+following post on [domain names for home networks][homenet-domain-name].
 
     sudo hostnamectl set-hostname unifi-network
 
@@ -40,57 +42,66 @@ I haven't tested it.
 ## Install UniFi Network Controller
 
 Add the [Debian repository for the UniFi Network
-Controller][install-unifi-via-apt]. It should work in both Debian or Ubuntu.
+Controller][install-unifi-via-apt].
 
     sudo apt update && sudo apt install ca-certificates apt-transport-https
 
     echo 'deb https://www.ui.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
 
-Install the package. At this point the `unifi` package will install all of its
-dependencies and everything will be ready to use.
+Install the package.
 
     sudo apt install unifi -y
 
+ At this point the `unifi` package installed all of its dependencies and it's
+ ready to use.
+
 ### Start UniFi Network (Controller)
 
-Now that everything is ready we just need to start the service.
+Now that everything is ready we need start the service.
 
     sudo service unifi start
 
-In the browser open `<raspberry-pi-IP-address>:8443` and you'll see the UniFi
-Network Controller.
+Open your browser and point to `<raspberry-pi-IP-address>:8443` and you'll see
+the UniFi Network Controller.
 
 ## Additional steps
 
 These are some additional steps only if you'd like to serve the UniFi Network
-Controller from nginx. For this we will need a couple of things:
+Controller from nginx you'll need a couple of things.
 
 - An SSL certificate.
 - nginx and its configuration.
+
+**Note:** additional steps will only work if you have DNS resolution to the IP
+address of the Raspberry Pi.
 
 ### Install mkcert
 
 For the certificate we will use mkcert. [mkcert][mkcert] is a simple zero-config
 tool to make locally trusted development certificates with any names you'd like.
 
-I'm not going to go over how to use this but this is a great tool to use for
-this.
+Generate the cert. At this point we are assuming that you have `dnsmasq` and
+that you are able to resolve `unifi-controller.home.arpa` to the IP address of
+you Raspberry Pi.
+
+    mkcert "unifi-controller.home.arpa"
+
+With that cert ready we will proceed with the nginx install.
 
 ### Install nginx
 
-Now we need nginx or any other reverse reverse proxy server.
+Now we need nginx. Any reverse proxy server will work.
 
     sudo apt install nginx
 
 ### Set the nginx config
 
-Now on to the configuration piece. For this one we would like to have some
-things. We want custom redirects from HTTP to HTTPS. We will also need to send
-some proxy headers and our custom certs.
+On to the configuration we would like to have custom redirects from HTTP to
+HTTPS, some proxy headers, and our custom certs.
 
 You can copy the cert from your local computer into the Raspberry Pi using SCP.
 
-    scp ~/mycert* pi@<raspberry-pi-ip>:/home/pi/
+    scp ~/unifi-controller.home.arpa* pi@unifi-controller.home.arpa:/home/pi/
 
 Now for the configuration piece. Create the following code in
 `/etc/nginx/sites-avaliable/unifi`
@@ -98,7 +109,7 @@ Now for the configuration piece. Create the following code in
 
     server {
       listen 80;
-      server_name _;
+      server_name unifi-controller.home.arpa;
 
       return 301 https://$server_name$request_uri;
     }
@@ -107,12 +118,12 @@ Now for the configuration piece. Create the following code in
       # SSL configuration
       listen 443 ssl;
 
-      server_name _;
+      server_name unifi-controller.home.arpa;
 
       ssl on;
       ssl_protocols TLSv1.2 TLSv1.3;
-      ssl_certificate /home/pi/mycert.pem;
-      ssl_certificate_key /home/pi/mycert-key.pem;
+      ssl_certificate /home/pi/unifi-controller.home.arpa.pem;
+      ssl_certificate_key /home/pi/unifi-controller.home.arpa-key.pem;
 
       location / {
         proxy_pass https://localhost:8443;
@@ -134,7 +145,8 @@ Restart nginx.
 
     sudo systemctl restart nginx
 
-That's it.
+That's it. At this point you can open your browser and point to
+`unifi-controller.local.arpa` and you'll see the UniFi Network Controller.
 
 [raspberry-pi-os]: https://www.raspberrypi.org/software/
 [remote-access]: https://www.raspberrypi.org/documentation/computers/remote-access.html#remote-access
