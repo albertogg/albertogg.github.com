@@ -1,5 +1,5 @@
 ---
-date: 2021-08-27T16:58:50-04:00
+date: 2021-08-31T22:52:50-04:00
 title: "UniFi Network Controller Install in a Raspberry Pi"
 slug: "/unifi-network-controller-install-in-a-raspberry-pi/"
 description: |-
@@ -13,7 +13,6 @@ tags:
   - nginx
   - mkcert
 toc: true
-draft: true
 ---
 
 Simple and direct instructions on how to install the UniFi Network Controller in
