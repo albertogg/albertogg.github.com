@@ -3,14 +3,15 @@ date: 2021-08-27T16:58:50-04:00
 title: "UniFi Network Controller Install in a Raspberry Pi"
 slug: "/unifi-network-controller-install-in-a-raspberry-pi/"
 description: |-
-  Installing and configuring the UniFi Network Controller in a Raspberry Pi
-  running Raspberry Pi OS. Optional nginx configuration using certificates
-  generated with mkcert.
+  Setting up the UniFi Network Controller in a Raspberry Pi running Raspberry Pi
+  OS. Optional nginx configuration using certificates generated with mkcert.
 categories:
-  - Development
-  - DevOps
+  - Raspberry Pi
 tags:
-  - tag
+  - UniFi
+  - OpenJDK
+  - nginx
+  - mkcert
 toc: true
 draft: true
 ---
