@@ -87,7 +87,7 @@ Creating the helloHandler Creating our simple HTTP handler for our desired endpo
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/my-most-used-git-aliases/</guid>
       <description>tl;dr short description of my most used git aliases.
- In this post I&amp;rsquo;ll be talking about my most used git aliases in no particular order. I&amp;rsquo;m going to throw all of my .gitconfig in here and that&amp;rsquo;s all.
+In this post I&amp;rsquo;ll be talking about my most used git aliases in no particular order. I&amp;rsquo;m going to throw all of my .gitconfig in here and that&amp;rsquo;s all.
 I believe git is one of the greatest pieces of software ever made. It&amp;rsquo;s a functional tool that just works. If you use git on daily basis I bet you type git at least a hundreds of times a day.</description>
     </item>
     
@@ -98,8 +98,8 @@ I believe git is one of the greatest pieces of software ever made. It&amp;rsquo;
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</guid>
       <description>tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a provisioner to install Docker.
- This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
- notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
+This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
+notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
     </item>
     
     <item>
@@ -109,7 +109,7 @@ I believe git is one of the greatest pieces of software ever made. It&amp;rsquo;
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/rack-middleware/</guid>
       <description>tl;dr we are creating two Rack middlewares, one that adds a custom header to all responses and one that adds a new route with a custom response.
- As explained in a previous post about Rack basics, Rack is found on the most popular Ruby web frameworks, as it&amp;rsquo;s an adaptable interface for developing web applications. In this post we are going to create two simple middlewares. The first one will add a custom header to all responses, the second one will add a custom route that responds to /ping and to glue it all together we are using Rack::Builder.</description>
+As explained in a previous post about Rack basics, Rack is found on the most popular Ruby web frameworks, as it&amp;rsquo;s an adaptable interface for developing web applications. In this post we are going to create two simple middlewares. The first one will add a custom header to all responses, the second one will add a custom route that responds to /ping and to glue it all together we are using Rack::Builder.</description>
     </item>
     
     <item>
@@ -119,7 +119,7 @@ I believe git is one of the greatest pieces of software ever made. It&amp;rsquo;
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/extending-doorkeeper-models-in-rails/</guid>
       <description>tl;dr use class_eval to extend Doorkeeper models functionality in runtime.
- A few weeks ago at work, we were extending our very basic OAuth2 provider by adding the possibility to either login with Google OAuth2 or with our own. With that we also did a role based level of authorization, nothing complex&amp;hellip; but, as we are using Doorkeeper for the OAuth2 we needed new validations, associations and a couple of new methods in one of their models to fulfill our needs.</description>
+A few weeks ago at work, we were extending our very basic OAuth2 provider by adding the possibility to either login with Google OAuth2 or with our own. With that we also did a role based level of authorization, nothing complex&amp;hellip; but, as we are using Doorkeeper for the OAuth2 we needed new validations, associations and a couple of new methods in one of their models to fulfill our needs.</description>
     </item>
     
     <item>
@@ -140,7 +140,7 @@ If you&amp;rsquo;ve used Rails, you&amp;rsquo;ve used and seen tons of DSLs. e.g
       <guid>https://albertogrespan.com/blog/rack-basics/</guid>
       <description>If you like programming in Ruby it&amp;rsquo;s plausible that you&amp;rsquo;ve used or heard about Rack&amp;hellip; After all Sinatra, Grape and Rails use Rack as a common interface.
 What&amp;rsquo;s Rack and how does it work According to Wikipedia:
- Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
+Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
     </item>
     
     <item>
@@ -150,8 +150,8 @@ What&amp;rsquo;s Rack and how does it work According to Wikipedia:
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</guid>
       <description>When using Docker through Boot2docker there is a possibility you&amp;rsquo;ve seen:
- Error: client and server don&amp;rsquo;t have same version (client : X, server: X)
- This error occurs because the version of Docker installed on the Boot2docker image and the version of Docker installed on the host machine (your mac) are not the same.
+Error: client and server don&amp;rsquo;t have same version (client : X, server: X)
+This error occurs because the version of Docker installed on the Boot2docker image and the version of Docker installed on the host machine (your mac) are not the same.
 $ docker version Client version: 1.3.0 Client API version: 1.15 Go version (client): go1.3.3 Git commit (client): c78088f OS/Arch (client): darwin/amd64 2014/11/03 13:21:38 Error response from daemon: client and server don&#39;t have same version (client : 1.</description>
     </item>
     
@@ -162,7 +162,7 @@ $ docker version Client version: 1.3.0 Client API version: 1.15 Go version (clie
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/debugging-your-vimrc/</guid>
       <description>tl;dr this is a short guide on how to debug your .vimrc and hopefully it will help you find what&amp;rsquo;s making Vim slower or inconsistent.
- A few days ago I added a bunch of new settings to my .vimrc that made my motion sluggish. This was happening in MacVim and in Vim and it was making me mad because apart from being slow, Vim was using a lot of CPU and with large files it was unbearable.</description>
+A few days ago I added a bunch of new settings to my .vimrc that made my motion sluggish. This was happening in MacVim and in Vim and it was making me mad because apart from being slow, Vim was using a lot of CPU and with large files it was unbearable.</description>
     </item>
     
     <item>
@@ -202,7 +202,7 @@ As you may know, dependency management in Ruby is done through Bundler Gemfile. 
       <guid>https://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</guid>
       <description>The purpose of this post is to show how to deploy a Jekyll site using Mina and it will not show how to serve the site with NGINX or Apache or install any dependencies like Ruby or rbenv on the server.
 Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll need a running machine them installed:
- Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair  Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
+Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
     </item>
     
     <item>
@@ -212,7 +212,7 @@ Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-golang-on-os-x/</guid>
       <description>tl;dr this are my notes for installing Go (Golang) on OS X using hombrew, adding command completions on ZSH, a single GOPATH and all around clean install.
- Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
+Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
     </item>
     
     <item>
@@ -222,9 +222,9 @@ Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</guid>
       <description>If you want or need first stop the containers
-$ docker stop $(docker ps -a -q)  Delete all stopped containers
-$ docker rm $(docker ps -a -q)  Delete all untagged images (TAG: &amp;lt;none&amp;gt;)
-$ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39;)  </description>
+$ docker stop $(docker ps -a -q) Delete all stopped containers
+$ docker rm $(docker ps -a -q) Delete all untagged images (TAG: &amp;lt;none&amp;gt;)
+$ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39;) </description>
     </item>
     
     <item>
@@ -234,7 +234,7 @@ $ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</guid>
       <description>tl;dr there are millions of posts about installing Ruby using rbenv in OS X. Most of them miss the point about installing LibYAML and Readline on your system, but they also miss some of the best rbenv plugins that will help your workflow tremendously. In this post I&amp;rsquo;ll handle it.
- I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
+I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
     </item>
     
     <item>
@@ -244,7 +244,7 @@ $ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/always-prune-remote-tracking-branches/</guid>
       <description>tl;dr after version 1.8.5 of git, you can now configure it to automatically prune remote-tracking branches with every fetch/pull.
- Before Git version 1.8.5 if you wanted to prune remote-tracking branches you where forced to use/remember the git fetch --prune command, even if your workflow didn&amp;rsquo;t involve fetching directly with the fetch command. For that reason if you find yourself pulling and then using an alias or just typing git fetch --prune every once in a while, this new Git configuration is perfect for you.</description>
+Before Git version 1.8.5 if you wanted to prune remote-tracking branches you where forced to use/remember the git fetch --prune command, even if your workflow didn&amp;rsquo;t involve fetching directly with the fetch command. For that reason if you find yourself pulling and then using an alias or just typing git fetch --prune every once in a while, this new Git configuration is perfect for you.</description>
     </item>
     
     <item>
@@ -254,7 +254,7 @@ $ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/</guid>
       <description>tl;dr use Rake tasks to create drafts/posts in Jekyll.
- Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don&amp;rsquo;t, you can use this and start forgetting.
+Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don&amp;rsquo;t, you can use this and start forgetting.
 In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me create and publish drafts for my Jekyll blog.</description>
     </item>
     
@@ -265,7 +265,7 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/</guid>
       <description>tl;dr we are using the heroku scheduler with Rails and Rake to keep our dyno awake; this will also work for any custom short periodical task.
- Heroku scheduler The Heroku scheduler is a &amp;ldquo;free&amp;rdquo; application add-on that helps you run short tasks every 10, 60 or 3600 minutes. You can use it as much as you want per month, but AFAIK it uses minutes from your dynos. That said, be careful if you are on a tight budget.</description>
+Heroku scheduler The Heroku scheduler is a &amp;ldquo;free&amp;rdquo; application add-on that helps you run short tasks every 10, 60 or 3600 minutes. You can use it as much as you want per month, but AFAIK it uses minutes from your dynos. That said, be careful if you are on a tight budget.</description>
     </item>
     
     <item>
@@ -275,8 +275,8 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/commit-subdirectoy-app-to-heroku/</guid>
       <description>Directory structure:
-. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ...  If you want to commit any of the projects express or railsapi to Heroku you can use this command:
-$ git subtree push --prefix railsapi heroku master  </description>
+. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ... If you want to commit any of the projects express or railsapi to Heroku you can use this command:
+$ git subtree push --prefix railsapi heroku master </description>
     </item>
     
     <item>
@@ -286,7 +286,7 @@ $ git subtree push --prefix railsapi heroku master  </description>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</guid>
       <description>Using command enter to submit:
-$(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;gt; .string&#39;, function(event) { if(event.keyCode == 13 &amp;amp;&amp;amp; (event.metaKey || event.ctrlKey)) { $(&#39;input.btn.submit-helper&#39;).click(); } });   Add a helper class to your submit button to identify it. If you want to target normal inputs use .text and to target textareas use .string or use both.  </description>
+$(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;gt; .string&#39;, function(event) { if(event.keyCode == 13 &amp;amp;&amp;amp; (event.metaKey || event.ctrlKey)) { $(&#39;input.btn.submit-helper&#39;).click(); } }); Add a helper class to your submit button to identify it. If you want to target normal inputs use .text and to target textareas use .string or use both. </description>
     </item>
     
     <item>
@@ -296,7 +296,7 @@ $(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</guid>
       <description>pushState:
-$(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); });   Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id.  </description>
+$(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); }); Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id. </description>
     </item>
     
     <item>
@@ -306,8 +306,9 @@ $(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;)
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</guid>
       <description>Scrolling JavaScript:
-$(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(event) { event.preventDefault(); if (viewPortWidth &amp;gt; 480) { if ($(this).scrollTop() &amp;gt; 180) { $(&#39;.scrollTo-top&#39;).fadeIn(); } else { $(&#39;.scrollTo-top&#39;).fadeOut(); } } }); $(&#39;.scrollTo-top&#39;).click(function(event) { $(&#39;html, body&#39;).animate({scrollTop : 0 }, 600); event.preventDefault(); }); });  Add the Font Awesome Angle Double Up icon.
-&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;scrollTo-top&amp;quot; style=&amp;quot;display: inline;&amp;quot;&amp;gt; &amp;lt;i class=&amp;quot;fa fa-angle-double-up&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;/a&amp;gt;  The scss style for the scrollTo-Top button using a Font Awesome icon.</description>
+$(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(event) { event.preventDefault(); if (viewPortWidth &amp;gt; 480) { if ($(this).scrollTop() &amp;gt; 180) { $(&#39;.scrollTo-top&#39;).fadeIn(); } else { $(&#39;.scrollTo-top&#39;).fadeOut(); } } }); $(&#39;.scrollTo-top&#39;).click(function(event) { $(&#39;html, body&#39;).animate({scrollTop : 0 }, 600); event.preventDefault(); }); }); Add the Font Awesome Angle Double Up icon.
+&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;scrollTo-top&amp;quot; style=&amp;quot;display: inline;&amp;quot;&amp;gt; &amp;lt;i class=&amp;quot;fa fa-angle-double-up&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;/a&amp;gt; The scss style for the scrollTo-Top button using a Font Awesome icon.
+.scrollTo-top { display: none; position: fixed; bottom: 16px; right: 20px; font-size: 32px; background-color: rgba(0, 0, 0, 0.</description>
     </item>
     
     <item>
@@ -327,7 +328,7 @@ $(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(
       <guid>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</guid>
       <description>Have you ever wonder; how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well&amp;hellip;
 This will be a very simple tutorial for doing that, with NGINX.
-tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX  1.</description>
+tutorial tasks: Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX 1.</description>
     </item>
     
     <item>
@@ -347,7 +348,7 @@ tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</guid>
       <description>note: This post is deprecated by newer versions of Jekyll. You can probably summarize all this post with a jekyll new command.
- So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
+So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
 Let&amp;rsquo;s start from the beginning what&amp;rsquo;s Jekyll?</description>
     </item>
     
@@ -368,7 +369,7 @@ Let&amp;rsquo;s start from the beginning what&amp;rsquo;s Jekyll?</description>
       <guid>https://albertogrespan.com/resume/</guid>
       <description>Alberto Grespan Reliability Engineer - Caracas, Venezuela
 alberto@albertogrespan.com - github.com/albertogg
-Skills  Languages: Ruby, JRuby, Go, Scala, Java, Bash. API development using Ruby Grape, Go, Akka, Rails. Experience building infrastructure atop of AWS. Infrastructure as code using Terraform and AWS CloudFormation. Configuration management experience with Ansible. Experience with CI/CD pipelines in GitLab and AWS CodePipeline. Database experience using MySQL, PostgreSQL, and VoltDB.  Professional Experience Reliability Engineer at Full 360 Inc, November 2017 - Present</description>
+Skills Languages: Ruby, JRuby, Go, Scala, Java, Bash. API development using Ruby Grape, Go, Akka, Rails. Experience building infrastructure atop of AWS. Infrastructure as code using Terraform and AWS CloudFormation. Configuration management experience with Ansible. Experience with CI/CD pipelines in GitLab and AWS CodePipeline. Database experience using MySQL, PostgreSQL, and VoltDB. Professional Experience Reliability Engineer at Full 360 Inc, November 2017 - Present</description>
     </item>
     
   </channel>

@@ -26,7 +26,7 @@ As you may know, dependency management in Ruby is done through Bundler Gemfile. 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-golang-on-os-x/</guid>
       <description>tl;dr this are my notes for installing Go (Golang) on OS X using hombrew, adding command completions on ZSH, a single GOPATH and all around clean install.
- Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
+Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ As you may know, dependency management in Ruby is done through Bundler Gemfile. 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</guid>
       <description>tl;dr there are millions of posts about installing Ruby using rbenv in OS X. Most of them miss the point about installing LibYAML and Readline on your system, but they also miss some of the best rbenv plugins that will help your workflow tremendously. In this post I&amp;rsquo;ll handle it.
- I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
+I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
     </item>
     
   </channel>

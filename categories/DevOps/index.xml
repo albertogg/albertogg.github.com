@@ -26,8 +26,8 @@ In this post we are going through the whole process of building the Ruby image f
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/creating-digitalocean-images-with-packer/</guid>
       <description>tl;dr create a simple DigitalOcean Ubuntu 14.04 image that uses shell a provisioner to install Docker.
- This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
- notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
+This post will guide you through the steps needed to create a simple DigitalOcean Ubuntu 14.04 image with the latest Docker and Kernel installed. This is in a way like creating our own DigitalOcean Docker application image. We&amp;rsquo;ll use a shell script as provisioner for this Packer template.
+notes: we assume that Packer is already installed on the system, refer to the installation docs here.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ In this post we are going through the whole process of building the Ruby image f
       <guid>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</guid>
       <description>Have you ever wonder; how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well&amp;hellip;
 This will be a very simple tutorial for doing that, with NGINX.
-tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX  1.</description>
+tutorial tasks: Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX 1.</description>
     </item>
     
   </channel>

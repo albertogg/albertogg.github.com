@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/extending-doorkeeper-models-in-rails/</guid>
       <description>tl;dr use class_eval to extend Doorkeeper models functionality in runtime.
- A few weeks ago at work, we were extending our very basic OAuth2 provider by adding the possibility to either login with Google OAuth2 or with our own. With that we also did a role based level of authorization, nothing complex&amp;hellip; but, as we are using Doorkeeper for the OAuth2 we needed new validations, associations and a couple of new methods in one of their models to fulfill our needs.</description>
+A few weeks ago at work, we were extending our very basic OAuth2 provider by adding the possibility to either login with Google OAuth2 or with our own. With that we also did a role based level of authorization, nothing complex&amp;hellip; but, as we are using Doorkeeper for the OAuth2 we needed new validations, associations and a couple of new methods in one of their models to fulfill our needs.</description>
     </item>
     
   </channel>

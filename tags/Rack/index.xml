@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/rack-middleware/</guid>
       <description>tl;dr we are creating two Rack middlewares, one that adds a custom header to all responses and one that adds a new route with a custom response.
- As explained in a previous post about Rack basics, Rack is found on the most popular Ruby web frameworks, as it&amp;rsquo;s an adaptable interface for developing web applications. In this post we are going to create two simple middlewares. The first one will add a custom header to all responses, the second one will add a custom route that responds to /ping and to glue it all together we are using Rack::Builder.</description>
+As explained in a previous post about Rack basics, Rack is found on the most popular Ruby web frameworks, as it&amp;rsquo;s an adaptable interface for developing web applications. In this post we are going to create two simple middlewares. The first one will add a custom header to all responses, the second one will add a custom route that responds to /ping and to glue it all together we are using Rack::Builder.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <guid>https://albertogrespan.com/blog/rack-basics/</guid>
       <description>If you like programming in Ruby it&amp;rsquo;s plausible that you&amp;rsquo;ve used or heard about Rack&amp;hellip; After all Sinatra, Grape and Rails use Rack as a common interface.
 What&amp;rsquo;s Rack and how does it work According to Wikipedia:
- Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
+Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
     </item>
     
   </channel>

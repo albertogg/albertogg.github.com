@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/</guid>
       <description>tl;dr use Rake tasks to create drafts/posts in Jekyll.
- Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don&amp;rsquo;t, you can use this and start forgetting.
+Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don&amp;rsquo;t, you can use this and start forgetting.
 In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me create and publish drafts for my Jekyll blog.</description>
     </item>
     
@@ -27,7 +27,7 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/</guid>
       <description>tl;dr we are using the heroku scheduler with Rails and Rake to keep our dyno awake; this will also work for any custom short periodical task.
- Heroku scheduler The Heroku scheduler is a &amp;ldquo;free&amp;rdquo; application add-on that helps you run short tasks every 10, 60 or 3600 minutes. You can use it as much as you want per month, but AFAIK it uses minutes from your dynos. That said, be careful if you are on a tight budget.</description>
+Heroku scheduler The Heroku scheduler is a &amp;ldquo;free&amp;rdquo; application add-on that helps you run short tasks every 10, 60 or 3600 minutes. You can use it as much as you want per month, but AFAIK it uses minutes from your dynos. That said, be careful if you are on a tight budget.</description>
     </item>
     
     <item>
@@ -37,8 +37,8 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/commit-subdirectoy-app-to-heroku/</guid>
       <description>Directory structure:
-. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ...  If you want to commit any of the projects express or railsapi to Heroku you can use this command:
-$ git subtree push --prefix railsapi heroku master  </description>
+. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ... If you want to commit any of the projects express or railsapi to Heroku you can use this command:
+$ git subtree push --prefix railsapi heroku master </description>
     </item>
     
   </channel>

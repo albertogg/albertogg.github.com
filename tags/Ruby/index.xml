@@ -35,7 +35,7 @@ In this post we are going through the whole process of building the Ruby image f
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/rack-middleware/</guid>
       <description>tl;dr we are creating two Rack middlewares, one that adds a custom header to all responses and one that adds a new route with a custom response.
- As explained in a previous post about Rack basics, Rack is found on the most popular Ruby web frameworks, as it&amp;rsquo;s an adaptable interface for developing web applications. In this post we are going to create two simple middlewares. The first one will add a custom header to all responses, the second one will add a custom route that responds to /ping and to glue it all together we are using Rack::Builder.</description>
+As explained in a previous post about Rack basics, Rack is found on the most popular Ruby web frameworks, as it&amp;rsquo;s an adaptable interface for developing web applications. In this post we are going to create two simple middlewares. The first one will add a custom header to all responses, the second one will add a custom route that responds to /ping and to glue it all together we are using Rack::Builder.</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@ In this post we are going through the whole process of building the Ruby image f
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/extending-doorkeeper-models-in-rails/</guid>
       <description>tl;dr use class_eval to extend Doorkeeper models functionality in runtime.
- A few weeks ago at work, we were extending our very basic OAuth2 provider by adding the possibility to either login with Google OAuth2 or with our own. With that we also did a role based level of authorization, nothing complex&amp;hellip; but, as we are using Doorkeeper for the OAuth2 we needed new validations, associations and a couple of new methods in one of their models to fulfill our needs.</description>
+A few weeks ago at work, we were extending our very basic OAuth2 provider by adding the possibility to either login with Google OAuth2 or with our own. With that we also did a role based level of authorization, nothing complex&amp;hellip; but, as we are using Doorkeeper for the OAuth2 we needed new validations, associations and a couple of new methods in one of their models to fulfill our needs.</description>
     </item>
     
     <item>
@@ -66,7 +66,7 @@ If you&amp;rsquo;ve used Rails, you&amp;rsquo;ve used and seen tons of DSLs. e.g
       <guid>https://albertogrespan.com/blog/rack-basics/</guid>
       <description>If you like programming in Ruby it&amp;rsquo;s plausible that you&amp;rsquo;ve used or heard about Rack&amp;hellip; After all Sinatra, Grape and Rails use Rack as a common interface.
 What&amp;rsquo;s Rack and how does it work According to Wikipedia:
- Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
+Rack provides a minimal, modular and adaptable interface for developing Web applications in Ruby. By wrapping HTTP requests and responses in the simplest way possible, it unifies and distills the API for Web servers, Web frameworks, and software in between (the so-called middleware) into a single method call.</description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ As you may know, dependency management in Ruby is done through Bundler Gemfile. 
       <guid>https://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</guid>
       <description>The purpose of this post is to show how to deploy a Jekyll site using Mina and it will not show how to serve the site with NGINX or Apache or install any dependencies like Ruby or rbenv on the server.
 Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll need a running machine them installed:
- Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair  Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
+Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
     </item>
     
     <item>
@@ -107,7 +107,7 @@ Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</guid>
       <description>tl;dr there are millions of posts about installing Ruby using rbenv in OS X. Most of them miss the point about installing LibYAML and Readline on your system, but they also miss some of the best rbenv plugins that will help your workflow tremendously. In this post I&amp;rsquo;ll handle it.
- I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
+I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
     </item>
     
     <item>
@@ -117,7 +117,7 @@ Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/rake-tasks-and-jekyll-posts/</guid>
       <description>tl;dr use Rake tasks to create drafts/posts in Jekyll.
- Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don&amp;rsquo;t, you can use this and start forgetting.
+Creating a draft or a new post is a repetitive task. If you are like me and often forget about things you probably need some automation in your life; if you don&amp;rsquo;t, you can use this and start forgetting.
 In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me create and publish drafts for my Jekyll blog.</description>
     </item>
     
@@ -128,7 +128,7 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/heroku-scheduler-and-rails-rake-tasks/</guid>
       <description>tl;dr we are using the heroku scheduler with Rails and Rake to keep our dyno awake; this will also work for any custom short periodical task.
- Heroku scheduler The Heroku scheduler is a &amp;ldquo;free&amp;rdquo; application add-on that helps you run short tasks every 10, 60 or 3600 minutes. You can use it as much as you want per month, but AFAIK it uses minutes from your dynos. That said, be careful if you are on a tight budget.</description>
+Heroku scheduler The Heroku scheduler is a &amp;ldquo;free&amp;rdquo; application add-on that helps you run short tasks every 10, 60 or 3600 minutes. You can use it as much as you want per month, but AFAIK it uses minutes from your dynos. That said, be careful if you are on a tight budget.</description>
     </item>
     
     <item>
@@ -138,8 +138,8 @@ In this post I&amp;rsquo;ll be talking about some Rake tasks I use that help me 
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/commit-subdirectoy-app-to-heroku/</guid>
       <description>Directory structure:
-. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ...  If you want to commit any of the projects express or railsapi to Heroku you can use this command:
-$ git subtree push --prefix railsapi heroku master  </description>
+. ├── LICENSE ├── README.md ├── express │ ├── Procfile │ ├── README.md │ ├── app.js │ ├── models │ │ └── user.js │ ├── ormConfig.js │ ├── package.json │ └── seeds.js └── railsapi ├── Gemfile ├── Gemfile.lock ├── Procfile ... If you want to commit any of the projects express or railsapi to Heroku you can use this command:
+$ git subtree push --prefix railsapi heroku master </description>
     </item>
     
     <item>
@@ -158,7 +158,7 @@ $ git subtree push --prefix railsapi heroku master  </description>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</guid>
       <description>note: This post is deprecated by newer versions of Jekyll. You can probably summarize all this post with a jekyll new command.
- So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
+So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
 Let&amp;rsquo;s start from the beginning what&amp;rsquo;s Jekyll?</description>
     </item>
     

@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/debugging-your-vimrc/</guid>
       <description>tl;dr this is a short guide on how to debug your .vimrc and hopefully it will help you find what&amp;rsquo;s making Vim slower or inconsistent.
- A few days ago I added a bunch of new settings to my .vimrc that made my motion sluggish. This was happening in MacVim and in Vim and it was making me mad because apart from being slow, Vim was using a lot of CPU and with large files it was unbearable.</description>
+A few days ago I added a bunch of new settings to my .vimrc that made my motion sluggish. This was happening in MacVim and in Vim and it was making me mad because apart from being slow, Vim was using a lot of CPU and with large files it was unbearable.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <guid>https://albertogrespan.com/blog/running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/</guid>
       <description>Have you ever wonder; how can I have multiple domains or subdomains pointing to different projects but all of them are in just one server? well&amp;hellip;
 This will be a very simple tutorial for doing that, with NGINX.
-tutorial tasks:  Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX  1.</description>
+tutorial tasks: Creating or pointing domains/subdomains to the server&amp;rsquo;s IP address Setup NGINX Create a directory to keep the project Change folder permissions Create a simple html page to display Create a new Server Block with your domain or subdomain Setup and link the Server Block Restart NGINX 1.</description>
     </item>
     
   </channel>

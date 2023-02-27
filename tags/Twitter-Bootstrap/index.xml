@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/command-or-control-enter-in-bootstrap-forms/</guid>
       <description>Using command enter to submit:
-$(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;gt; .string&#39;, function(event) { if(event.keyCode == 13 &amp;amp;&amp;amp; (event.metaKey || event.ctrlKey)) { $(&#39;input.btn.submit-helper&#39;).click(); } });   Add a helper class to your submit button to identify it. If you want to target normal inputs use .text and to target textareas use .string or use both.  </description>
+$(document).on(&#39;keydown&#39;, &#39;.controls &amp;gt; .text, .controls &amp;gt; .string&#39;, function(event) { if(event.keyCode == 13 &amp;amp;&amp;amp; (event.metaKey || event.ctrlKey)) { $(&#39;input.btn.submit-helper&#39;).click(); } }); Add a helper class to your submit button to identify it. If you want to target normal inputs use .text and to target textareas use .string or use both. </description>
     </item>
     
   </channel>

@@ -10,15 +10,6 @@
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Wed, 05 Feb 2020 23:08:54 -0400</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Flashing QMK on a WhiteFox Mechanical Keyboard</title>
-      <link>https://albertogrespan.com/blog/mk/flashing-qmk-on-a-whitefox/</link>
-      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/blog/mk/flashing-qmk-on-a-whitefox/</guid>
-      <description>Awhile back I had this itch of wanting to try a different firmware for my then recent mechanical keyboard. By that time I was also completely new to the mechanical keyboard world. To get some new layout for the keyboard I had to jump into a website, select my keyboard layout and start putting things together, it was very straight forward. Some time after I started wondering if I could put a different firmware on the keyboard.</description>
-    </item>
-    
-    <item>
       <title>Dockerfile for Ruby applications</title>
       <link>https://albertogrespan.com/blog/dockerfile-for-ruby-applications/</link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
@@ -35,8 +26,8 @@ In this post we are going through the whole process of building the Ruby image f
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/error-client-and-server-dont-have-same-version/</guid>
       <description>When using Docker through Boot2docker there is a possibility you&amp;rsquo;ve seen:
- Error: client and server don&amp;rsquo;t have same version (client : X, server: X)
- This error occurs because the version of Docker installed on the Boot2docker image and the version of Docker installed on the host machine (your mac) are not the same.
+Error: client and server don&amp;rsquo;t have same version (client : X, server: X)
+This error occurs because the version of Docker installed on the Boot2docker image and the version of Docker installed on the host machine (your mac) are not the same.
 $ docker version Client version: 1.3.0 Client API version: 1.15 Go version (client): go1.3.3 Git commit (client): c78088f OS/Arch (client): darwin/amd64 2014/11/03 13:21:38 Error response from daemon: client and server don&#39;t have same version (client : 1.</description>
     </item>
     
@@ -47,9 +38,9 @@ $ docker version Client version: 1.3.0 Client API version: 1.15 Go version (clie
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/delete-stopped-and-untagged-docker-images/</guid>
       <description>If you want or need first stop the containers
-$ docker stop $(docker ps -a -q)  Delete all stopped containers
-$ docker rm $(docker ps -a -q)  Delete all untagged images (TAG: &amp;lt;none&amp;gt;)
-$ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39;)  </description>
+$ docker stop $(docker ps -a -q) Delete all stopped containers
+$ docker rm $(docker ps -a -q) Delete all untagged images (TAG: &amp;lt;none&amp;gt;)
+$ docker rmi $(docker images | awk &#39;/^&amp;lt;none&amp;gt;/ { print $3 }&#39;) </description>
     </item>
     
   </channel>

@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-golang-on-os-x/</guid>
       <description>tl;dr this are my notes for installing Go (Golang) on OS X using hombrew, adding command completions on ZSH, a single GOPATH and all around clean install.
- Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
+Today we&amp;rsquo;ll install the Go programming language and dependencies using OS X Homebrew. Keep in mind that this is an specific OS X installation. If you need to install Go on Ubuntu you can follow this guide, after that you can just go on with this tutorial.</description>
     </item>
     
   </channel>

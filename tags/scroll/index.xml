@@ -16,7 +16,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/jQuery-scrollTo-with-pushState/</guid>
       <description>pushState:
-$(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); });   Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id.  </description>
+$(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;).click(function(){ var myUri = $(this).attr(&#39;href&#39;); $(&#39;html,body&#39;).animate({ scrollTop: $(&#39;#&#39; + $(this).prop(&#39;class&#39;)).offset().top }, 500); history.pushState(&#39;&#39;, document.title, myUri); return false; }); }); Every navigation anchor element needs a unique class name. The target elements needs the same unique class name but as id. </description>
     </item>
     
     <item>
@@ -26,8 +26,9 @@ $(document).ready(function() { $(&#39;.nav-scroller &amp;gt; li &amp;gt; a&#39;)
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/scrollTo-Top-using-jQuery/</guid>
       <description>Scrolling JavaScript:
-$(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(event) { event.preventDefault(); if (viewPortWidth &amp;gt; 480) { if ($(this).scrollTop() &amp;gt; 180) { $(&#39;.scrollTo-top&#39;).fadeIn(); } else { $(&#39;.scrollTo-top&#39;).fadeOut(); } } }); $(&#39;.scrollTo-top&#39;).click(function(event) { $(&#39;html, body&#39;).animate({scrollTop : 0 }, 600); event.preventDefault(); }); });  Add the Font Awesome Angle Double Up icon.
-&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;scrollTo-top&amp;quot; style=&amp;quot;display: inline;&amp;quot;&amp;gt; &amp;lt;i class=&amp;quot;fa fa-angle-double-up&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;/a&amp;gt;  The scss style for the scrollTo-Top button using a Font Awesome icon.</description>
+$(function() { var viewPortWidth = $(window).width(); $(window).scroll(function(event) { event.preventDefault(); if (viewPortWidth &amp;gt; 480) { if ($(this).scrollTop() &amp;gt; 180) { $(&#39;.scrollTo-top&#39;).fadeIn(); } else { $(&#39;.scrollTo-top&#39;).fadeOut(); } } }); $(&#39;.scrollTo-top&#39;).click(function(event) { $(&#39;html, body&#39;).animate({scrollTop : 0 }, 600); event.preventDefault(); }); }); Add the Font Awesome Angle Double Up icon.
+&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;scrollTo-top&amp;quot; style=&amp;quot;display: inline;&amp;quot;&amp;gt; &amp;lt;i class=&amp;quot;fa fa-angle-double-up&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;/a&amp;gt; The scss style for the scrollTo-Top button using a Font Awesome icon.
+.scrollTo-top { display: none; position: fixed; bottom: 16px; right: 20px; font-size: 32px; background-color: rgba(0, 0, 0, 0.</description>
     </item>
     
   </channel>

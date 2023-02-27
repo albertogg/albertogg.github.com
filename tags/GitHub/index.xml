@@ -25,7 +25,7 @@
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</guid>
       <description>note: This post is deprecated by newer versions of Jekyll. You can probably summarize all this post with a jekyll new command.
- So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
+So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
 Let&amp;rsquo;s start from the beginning what&amp;rsquo;s Jekyll?</description>
     </item>
     

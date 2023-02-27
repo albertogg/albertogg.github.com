@@ -17,7 +17,7 @@
       <guid>https://albertogrespan.com/blog/deploying-jekyll-with-mina-and-rbenv/</guid>
       <description>The purpose of this post is to show how to deploy a Jekyll site using Mina and it will not show how to serve the site with NGINX or Apache or install any dependencies like Ruby or rbenv on the server.
 Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll need a running machine them installed:
- Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair  Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
+Ruby managed from rbenv NGINX or Apache If deploying from a private repo a new ssh keypair Installing Mina As Mina is just a gem we will use the gem command to install it or just add it to your Gemfile and bundle it.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@ Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/installing-ruby-the-right-way-on-os-x-using-rbenv/</guid>
       <description>tl;dr there are millions of posts about installing Ruby using rbenv in OS X. Most of them miss the point about installing LibYAML and Readline on your system, but they also miss some of the best rbenv plugins that will help your workflow tremendously. In this post I&amp;rsquo;ll handle it.
- I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
+I know that Ruby is not the easiest language to install, there are many details and decisions to handle before installing it.</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ Even though we are not focusing in the things we mentioned above we&amp;rsquo;ll
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/jekyll-github-pages-blog-tutorial/</guid>
       <description>note: This post is deprecated by newer versions of Jekyll. You can probably summarize all this post with a jekyll new command.
- So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
+So, How I did this Jekyll site? This site is runing on GitHub Pages and is using Jekyll for the layouts and blog posts. In this post I will guide you through the steps for you to build your own site using Jekyll.
 Let&amp;rsquo;s start from the beginning what&amp;rsquo;s Jekyll?</description>
     </item>
     

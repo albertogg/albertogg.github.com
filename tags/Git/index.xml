@@ -10,22 +10,13 @@
     <webMaster>alberto@albertogrespan.com (Alberto Grespan)</webMaster>
     <lastBuildDate>Wed, 05 Feb 2020 23:08:54 -0400</lastBuildDate><atom:link href="https://albertogrespan.com/tags/Git/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Flashing QMK on a WhiteFox Mechanical Keyboard</title>
-      <link>https://albertogrespan.com/blog/mk/flashing-qmk-on-a-whitefox/</link>
-      <pubDate>Wed, 05 Feb 2020 23:08:54 -0400</pubDate>
-      <author>alberto@albertogrespan.com (Alberto Grespan)</author>
-      <guid>https://albertogrespan.com/blog/mk/flashing-qmk-on-a-whitefox/</guid>
-      <description>Awhile back I had this itch of wanting to try a different firmware for my then recent mechanical keyboard. By that time I was also completely new to the mechanical keyboard world. To get some new layout for the keyboard I had to jump into a website, select my keyboard layout and start putting things together, it was very straight forward. Some time after I started wondering if I could put a different firmware on the keyboard.</description>
-    </item>
-    
-    <item>
       <title>My most used git aliases</title>
       <link>https://albertogrespan.com/blog/my-most-used-git-aliases/</link>
       <pubDate>Mon, 30 Mar 2015 00:00:00 +0000</pubDate>
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/my-most-used-git-aliases/</guid>
       <description>tl;dr short description of my most used git aliases.
- In this post I&amp;rsquo;ll be talking about my most used git aliases in no particular order. I&amp;rsquo;m going to throw all of my .gitconfig in here and that&amp;rsquo;s all.
+In this post I&amp;rsquo;ll be talking about my most used git aliases in no particular order. I&amp;rsquo;m going to throw all of my .gitconfig in here and that&amp;rsquo;s all.
 I believe git is one of the greatest pieces of software ever made. It&amp;rsquo;s a functional tool that just works. If you use git on daily basis I bet you type git at least a hundreds of times a day.</description>
     </item>
     
@@ -36,7 +27,7 @@ I believe git is one of the greatest pieces of software ever made. It&amp;rsquo;
       <author>alberto@albertogrespan.com (Alberto Grespan)</author>
       <guid>https://albertogrespan.com/blog/always-prune-remote-tracking-branches/</guid>
       <description>tl;dr after version 1.8.5 of git, you can now configure it to automatically prune remote-tracking branches with every fetch/pull.
- Before Git version 1.8.5 if you wanted to prune remote-tracking branches you where forced to use/remember the git fetch --prune command, even if your workflow didn&amp;rsquo;t involve fetching directly with the fetch command. For that reason if you find yourself pulling and then using an alias or just typing git fetch --prune every once in a while, this new Git configuration is perfect for you.</description>
+Before Git version 1.8.5 if you wanted to prune remote-tracking branches you where forced to use/remember the git fetch --prune command, even if your workflow didn&amp;rsquo;t involve fetching directly with the fetch command. For that reason if you find yourself pulling and then using an alias or just typing git fetch --prune every once in a while, this new Git configuration is perfect for you.</description>
     </item>
     
   </channel>
