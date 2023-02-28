@@ -6,3 +6,4 @@ drafts
 ToDo.md
 .jekyll-metadata
 resources/
+.hugo_build.lock
