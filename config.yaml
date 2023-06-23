@@ -10,10 +10,6 @@ author:
 params:
   author: Alberto Grespan
   domain: albertogrespan.com
-  analytics:
-    google:
-      id: UA-180348489-1
-      domain: albertogrespan.com
   gravatar:
     url: https://www.gravatar.com/avatar/006ef14fba8fadd40053ecda5039deb2.png
     title: albertogg
