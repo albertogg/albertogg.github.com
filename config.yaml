@@ -23,8 +23,13 @@ params:
       url: https://github.com/albertogg
       handle: albertogg
 
-# Taxonomies activation
+# Taxonomies activation default.
 taxonomies:
   tag: "tags"
   category: "categories"
   series: "series"
+
+# Disable some kinds that I'm not using.
+disableKinds:
+- taxonomy
+- term
