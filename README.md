@@ -1,6 +1,6 @@
 # Blog
 
-My personal blog, hosted on [github pages][pages].
+My personal blog, hosted on [Cloudflare pages][pages].
 
 ## Installation
 
@@ -22,11 +22,6 @@ using the following command:
     ./blog draft <draft-name>
     ./blog undraft <draft-name>
 
-Publish with default message or with custom message:
-
-    ./blog publish
-    ./blog publish <commit-name>
-
 ## License
 
 This project runs with two licenses one for the content and one for the code.
@@ -35,6 +30,6 @@ This project runs with two licenses one for the content and one for the code.
 - All the blog posts are under [Creative Commons
   Attribution-NonCommercial-ShareAlike 4.0 International License.][cc] license.
 
-[pages]: http://pages.github.com/
-[mit]: http://choosealicense.com/licenses/mit/
-[cc]: http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+[pages]: https://pages.cloudflare.com
+[mit]: https://choosealicense.com/licenses/mit/
+[cc]: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
