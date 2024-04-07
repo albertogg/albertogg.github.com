@@ -43,30 +43,6 @@ function undraft {
     echo "Undraft complete..."
 }
 
-# publish command from the hugo website
-function publish {
-    check_hugo
-    check_git
-
-    echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
-    # Build the project.
-    hugo
-    # Go To Public folder
-    cd public
-    # Add changes to git.
-    git add .
-    # Commit changes.
-    msg="Rebuilding site $(date)"
-    if [ $# -eq 1 ]; then
-        msg="$1"
-    fi
-    git commit -m "$msg"
-    # Push source and build repos.
-    git push origin master
-    # Come Back up to the Project Root
-    cd ..
-}
-
 case "$1" in
   server)
     server $2
@@ -79,11 +55,7 @@ case "$1" in
   undraft)
     undraft $2
     ;;
-
-  publish)
-    publish $2
-    ;;
   *)
-    echo $"Usage: $0 {server|draft <draft-name>.md|undraft <draft-name>.md|publish commit-message}"
+    echo $"Usage: $0 {server|draft <draft-name>.md|undraft <draft-name>.md}"
     exit 1
 esac
