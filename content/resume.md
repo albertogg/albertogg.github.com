@@ -6,62 +6,62 @@ type: resume
 
 # [Alberto Grespan][site]
 
-_Reliability Engineer_ - Caracas, Venezuela\
+_Senior Software Engineer_ - Caracas, Venezuela\
 [alberto@albertogrespan.com](mailto:alberto@albertogrespan.com) -
 [github.com/albertogg][github]
 
 ### Skills
 
-- Languages: Ruby, JRuby, Go, Scala, Java, Bash.
-- API development using Ruby Grape, Go, Akka, Rails.
-- Experience building infrastructure atop of AWS.
-- Infrastructure as code using Terraform and AWS CloudFormation.
-- Configuration management experience with Ansible.
-- Experience with CI/CD pipelines in GitLab and AWS CodePipeline.
-- Database experience using MySQL, PostgreSQL, and VoltDB.
+- Languages and APIs: Ruby, JRuby, Go, Python, TypeScript, Rust, Java; Ruby
+  Grape, Akka, Rails, FastAPI.
+- Infrastructure and delivery: AWS (ECS, EKS), Nomad, Vault, Terraform,
+  CloudFormation, Ansible, GitHub Actions, Bitbucket Pipelines, GitLab, AWS
+  CodePipeline.
+- Databases and open source: MySQL, PostgreSQL, VoltDB; [VoltDB client for
+  JRuby][jruby-client].
 
 ### Professional Experience
 
-**Reliability Engineer at [Full 360 Inc][full360],** November 2017 - Present
+**Senior Software Engineer at [Omni Arcs][omni-arcs],** July 2023 - Present
 
-- Developed Terraform best practices for the company.
-- Developed a new set of AWS AMIs using Packer and Ansible to comply with
-  internal security standards.
-- Led efforts migrating internal infrastructure from CloudFormation to
-  Terraform.
+- Built infrastructure for an agent-based AI platform on Kubernetes and
+  Cloudflare Workers.
+- Developed backend services in Python, TypeScript, Rust, and Go.
+- Automated end-to-end deployments with GitHub Actions CI/CD pipelines.
+
+**Reliability Engineer at [Micro Focus][micro-focus],** June 2021 - July 2023
+
+- Developed and maintained the Vertica Database SaaS offering.
+- Implemented CI/CD with Bitbucket Pipelines to improve release cadence and
+  reduce manual errors.
+- Migrated EC2 infrastructure to Kubernetes and contributed to the
+  [Vertica Kubernetes Operator][vertica-kubernetes] for production readiness.
+
+**Reliability Engineer at [Full 360 Inc][full360],** November 2017 - June 2021
+
+- Defined security-focused Terraform standards for reusable, auditable
+  infrastructure.
+- Built secure AWS AMIs with Packer and Ansible to enforce hardening
+  baselines.
+- Automated infrastructure delivery via CI/CD and blue/green deployments.
 
 **Software Engineer at [Full 360 Inc][full360],** June 2014 - November 2017
 
-- Developed and maintained a caching layer to minimize the load on a clients
-  Mainframe; used by more than 12 million members on their loyalty program.
+- Built and maintained a caching layer to reduce load on a client's mainframe;
+  used by 12M+ loyalty members.
 - Led efforts migrating a client microservice architecture to Nomad, Vault,
   Consul, and Prometheus for metrics and alerting.
-- Enforced standardization of different services by creating internal toolkits.
-- Led efforts migrating a client VoltDB installation from version 3.7 to 6.8.
+- Standardized services through internal toolkits and led a client VoltDB
+  upgrade from version 3.7 to 6.8.
 
-**Writer and Developer at Codehero Blog,** June 2013 - June 2014
+**Earlier Experience**
 
-- Led efforts on the blog migration from WordPress to Jekyll, for a faster and
-  cost effective blog.
-- Developed Ansible playbooks to automate server provisioning which reduced the
-  manual process from over an hour to less than 20 minutes.
-
-**Android Developer at Aura Internacional,** June 2013 - December 2013
-
-- Leverage the company's private vehicle tracking API in an Android app to
-  provide taxi drivers a solution to arrange pickups based in geolocation.
-
-**Full Stack at [Cacao Servicios Tecnológicos][cacao],** March 2012 - March 2013
-
-- Developed internal scripts that analyzed Linux configurations to determine
-  common security flaws.
-- Worked as part of the Solaris consultant team in two of the biggest telecoms
-  in Venezuela.
-
-**Open Source**
-
-- Crafted a [VoltDB client library for JRuby][jruby-client], wrapping the
-  official Java client in a Ruby idiomatic way.
+- **Writer and Developer, Codehero Blog (2013 - 2014):** Migrated the blog from
+  WordPress to Jekyll and automated provisioning with Ansible.
+- **Android Developer, Aura Internacional (2013):** Integrated a private
+  tracking API into an Android app for geolocation-based taxi pickups.
+- **Full Stack, [Cacao Servicios Tecnológicos][cacao] (2012 - 2013):** Built
+  Linux security audit scripts and supported Solaris consulting engagements.
 
 ### Education
 
@@ -71,5 +71,8 @@ _Reliability Engineer_ - Caracas, Venezuela\
 [site]: https://albertogrespan.com
 [github]: https://github.com/albertogg
 [full360]: http://www.full360.com
+[micro-focus]: https://www.microfocus.com
+[omni-arcs]: https://www.omniarcs.com
+[vertica-kubernetes]: https://github.com/vertica/vertica-kubernetes
 [cacao]: http://cacaoenbytes.com/
 [jruby-client]: https://github.com/full360/voltdb-client-jruby
