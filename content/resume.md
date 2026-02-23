@@ -12,17 +12,35 @@ _Reliability Engineer_ - Caracas, Venezuela\
 
 ### Skills
 
-- Languages: Ruby, JRuby, Go, Scala, Java, Bash.
+- Languages: Ruby, JRuby, Go, Python, TypeScript, Scala, Java, Bash.
 - API development using Ruby Grape, Go, Akka, Rails.
-- Experience building infrastructure atop of AWS.
+- Experience building infrastructure atop of AWS, including ECS and EKS.
 - Infrastructure as code using Terraform and AWS CloudFormation.
 - Configuration management experience with Ansible.
-- Experience with CI/CD pipelines in GitLab and AWS CodePipeline.
+- Experience with CI/CD pipelines in GitLab, Bitbucket Pipelines, and AWS CodePipeline.
 - Database experience using MySQL, PostgreSQL, and VoltDB.
 
 ### Professional Experience
 
-**Reliability Engineer at [Full 360 Inc][full360],** November 2017 - Present
+**Reliability Engineer at [Omni Arcs][omni-arcs],** July 2023 - Present
+
+- Developed infrastructure for deploying chat-based AI agents, enhancing
+  workflow and task execution capabilities.
+- Created backend services in Python, TypeScript, and Go, utilizing AWS
+  ECS/EKS for deployment.
+- Contributed to platform reliability through operational automation and
+  service readiness initiatives.
+
+**Reliability Engineer at [Micro Focus][micro-focus],** June 2021 - July 2023
+
+- Developed and maintained the SaaS offering for the Vertica Database,
+  enhancing user experience and performance.
+- Implemented CI/CD processes using Bitbucket Pipelines, improving release
+  cadence and minimizing manual errors.
+- Migrated EC2-based infrastructure to Kubernetes, increasing deployment
+  flexibility and efficiency.
+
+**Reliability Engineer at [Full 360 Inc][full360],** November 2017 - June 2021
 
 - Developed Terraform best practices for the company.
 - Developed a new set of AWS AMIs using Packer and Ansible to comply with
@@ -71,5 +89,7 @@ _Reliability Engineer_ - Caracas, Venezuela\
 [site]: https://albertogrespan.com
 [github]: https://github.com/albertogg
 [full360]: http://www.full360.com
+[micro-focus]: https://www.microfocus.com
+[omni-arcs]: https://www.omniarcs.com
 [cacao]: http://cacaoenbytes.com/
 [jruby-client]: https://github.com/full360/voltdb-client-jruby
