@@ -22,31 +22,35 @@ _Reliability Engineer_ - Caracas, Venezuela\
 
 ### Professional Experience
 
-**Reliability Engineer at [Omni Arcs][omni-arcs],** July 2023 - Present
+**Senior Software Engineer at [Omni Arcs][omni-arcs],** July 2023 - Present
 
-- Developed infrastructure for deploying chat-based AI agents, enhancing
-  workflow and task execution capabilities.
-- Created backend services in Python, TypeScript, and Go, utilizing AWS
-  ECS/EKS for deployment.
-- Contributed to platform reliability through operational automation and
-  service readiness initiatives.
+- Built the infrastructure for an agent-based AI platform on Kubernetes and
+  Cloudflare Workers, improving workflow and task execution capabilities.
+- Developed backend services in Python, TypeScript, Rust, and Go to support
+  core platform functionality and integrations.
+- Automated end-to-end deployments with CI/CD pipelines in GitHub Actions,
+  increasing release reliability and operational efficiency.
 
 **Reliability Engineer at [Micro Focus][micro-focus],** June 2021 - July 2023
 
 - Developed and maintained the SaaS offering for the Vertica Database,
-  enhancing user experience and performance.
+  improving platform reliability, performance, and user experience.
 - Implemented CI/CD processes using Bitbucket Pipelines, improving release
-  cadence and minimizing manual errors.
-- Migrated EC2-based infrastructure to Kubernetes, increasing deployment
-  flexibility and efficiency.
+  cadence and reducing manual operational errors.
+- Migrated EC2-based infrastructure to Kubernetes to adopt the
+  [Vertica Kubernetes Operator][vertica-kubernetes], improving deployment
+  flexibility and operational efficiency.
+- Contributed to the [Vertica Kubernetes Operator][vertica-kubernetes] to
+  support production readiness and ongoing platform operations.
 
 **Reliability Engineer at [Full 360 Inc][full360],** November 2017 - June 2021
 
-- Developed Terraform best practices for the company.
-- Developed a new set of AWS AMIs using Packer and Ansible to comply with
-  internal security standards.
-- Led efforts migrating internal infrastructure from CloudFormation to
-  Terraform.
+- Defined and maintained security-focused Terraform standards for reusable,
+  auditable infrastructure.
+- Built and maintained secure AWS AMIs with Packer and Ansible to enforce
+  internal hardening baselines.
+- Automated infrastructure delivery through CI/CD pipelines with blue/green
+  deployment strategies to reduce release risk.
 
 **Software Engineer at [Full 360 Inc][full360],** June 2014 - November 2017
 
@@ -91,5 +95,6 @@ _Reliability Engineer_ - Caracas, Venezuela\
 [full360]: http://www.full360.com
 [micro-focus]: https://www.microfocus.com
 [omni-arcs]: https://www.omniarcs.com
+[vertica-kubernetes]: https://github.com/vertica/vertica-kubernetes
 [cacao]: http://cacaoenbytes.com/
 [jruby-client]: https://github.com/full360/voltdb-client-jruby
