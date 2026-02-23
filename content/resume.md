@@ -6,17 +6,19 @@ type: resume
 
 # [Alberto Grespan][site]
 
-_Reliability Engineer_ - Caracas, Venezuela\
+_Senior Software Engineer_ - Caracas, Venezuela\
 [alberto@albertogrespan.com](mailto:alberto@albertogrespan.com) -
 [github.com/albertogg][github]
 
 ### Skills
 
-- Languages: Ruby, JRuby, Go, Python, TypeScript, Rust, Scala, Java, Bash.
-- API development: Ruby Grape, Go, Akka, Rails, FastAPI, Rust.
-- AWS infrastructure (ECS, EKS), Terraform, CloudFormation, Ansible.
-- CI/CD: GitHub Actions, Bitbucket Pipelines, GitLab, AWS CodePipeline.
-- Databases: MySQL, PostgreSQL, VoltDB.
+- Languages and APIs: Ruby, JRuby, Go, Python, TypeScript, Rust, Java; Ruby
+  Grape, Akka, Rails, FastAPI.
+- Infrastructure and delivery: AWS (ECS, EKS), Nomad, Vault, Terraform,
+  CloudFormation, Ansible, GitHub Actions, Bitbucket Pipelines, GitLab, AWS
+  CodePipeline.
+- Databases and open source: MySQL, PostgreSQL, VoltDB; [VoltDB client for
+  JRuby][jruby-client].
 
 ### Professional Experience
 
@@ -32,10 +34,8 @@ _Reliability Engineer_ - Caracas, Venezuela\
 - Developed and maintained the Vertica Database SaaS offering.
 - Implemented CI/CD with Bitbucket Pipelines to improve release cadence and
   reduce manual errors.
-- Migrated EC2 infrastructure to Kubernetes to adopt the
-  [Vertica Kubernetes Operator][vertica-kubernetes].
-- Contributed to the [Vertica Kubernetes Operator][vertica-kubernetes] for
-  production readiness and operations.
+- Migrated EC2 infrastructure to Kubernetes and contributed to the
+  [Vertica Kubernetes Operator][vertica-kubernetes] for production readiness.
 
 **Reliability Engineer at [Full 360 Inc][full360],** November 2017 - June 2021
 
@@ -51,32 +51,17 @@ _Reliability Engineer_ - Caracas, Venezuela\
   used by 12M+ loyalty members.
 - Led efforts migrating a client microservice architecture to Nomad, Vault,
   Consul, and Prometheus for metrics and alerting.
-- Standardized services by creating internal toolkits.
-- Led efforts migrating a client VoltDB installation from version 3.7 to 6.8.
+- Standardized services through internal toolkits and led a client VoltDB
+  upgrade from version 3.7 to 6.8.
 
-**Writer and Developer at Codehero Blog,** June 2013 - June 2014
+**Earlier Experience**
 
-- Led migration of the blog from WordPress to Jekyll for faster, lower-cost
-  operations.
-- Built Ansible playbooks that reduced server provisioning from 1+ hour to
-  under 20 minutes.
-
-**Android Developer at Aura Internacional,** June 2013 - December 2013
-
-- Integrated the company's private tracking API into an Android app so taxi
-  drivers could arrange geolocation-based pickups.
-
-**Full Stack at [Cacao Servicios Tecnológicos][cacao],** March 2012 - March 2013
-
-- Developed internal scripts to analyze Linux configurations for common
-  security flaws.
-- Worked as part of the Solaris consultant team in two of the biggest telecoms
-  in Venezuela.
-
-**Open Source**
-
-- Built a [VoltDB client library for JRuby][jruby-client], wrapping the
-  official Java client with an idiomatic Ruby API.
+- **Writer and Developer, Codehero Blog (2013 - 2014):** Migrated the blog from
+  WordPress to Jekyll and automated provisioning with Ansible.
+- **Android Developer, Aura Internacional (2013):** Integrated a private
+  tracking API into an Android app for geolocation-based taxi pickups.
+- **Full Stack, [Cacao Servicios Tecnológicos][cacao] (2012 - 2013):** Built
+  Linux security audit scripts and supported Solaris consulting engagements.
 
 ### Education
 
