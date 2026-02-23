@@ -12,78 +12,71 @@ _Reliability Engineer_ - Caracas, Venezuela\
 
 ### Skills
 
-- Languages: Ruby, JRuby, Go, Python, TypeScript, Scala, Java, Bash.
-- API development using Ruby Grape, Go, Akka, Rails.
-- Experience building infrastructure atop of AWS, including ECS and EKS.
-- Infrastructure as code using Terraform and AWS CloudFormation.
-- Configuration management experience with Ansible.
-- Experience with CI/CD pipelines in GitLab, Bitbucket Pipelines, and AWS CodePipeline.
-- Database experience using MySQL, PostgreSQL, and VoltDB.
+- Languages: Ruby, JRuby, Go, Python, TypeScript, Rust, Scala, Java, Bash.
+- API development: Ruby Grape, Go, Akka, Rails, FastAPI, Rust.
+- AWS infrastructure (ECS, EKS), Terraform, CloudFormation, Ansible.
+- CI/CD: GitHub Actions, Bitbucket Pipelines, GitLab, AWS CodePipeline.
+- Databases: MySQL, PostgreSQL, VoltDB.
 
 ### Professional Experience
 
 **Senior Software Engineer at [Omni Arcs][omni-arcs],** July 2023 - Present
 
-- Built the infrastructure for an agent-based AI platform on Kubernetes and
-  Cloudflare Workers, improving workflow and task execution capabilities.
-- Developed backend services in Python, TypeScript, Rust, and Go to support
-  core platform functionality and integrations.
-- Automated end-to-end deployments with CI/CD pipelines in GitHub Actions,
-  increasing release reliability and operational efficiency.
+- Built infrastructure for an agent-based AI platform on Kubernetes and
+  Cloudflare Workers.
+- Developed backend services in Python, TypeScript, Rust, and Go.
+- Automated end-to-end deployments with GitHub Actions CI/CD pipelines.
 
 **Reliability Engineer at [Micro Focus][micro-focus],** June 2021 - July 2023
 
-- Developed and maintained the SaaS offering for the Vertica Database,
-  improving platform reliability, performance, and user experience.
-- Implemented CI/CD processes using Bitbucket Pipelines, improving release
-  cadence and reducing manual operational errors.
-- Migrated EC2-based infrastructure to Kubernetes to adopt the
-  [Vertica Kubernetes Operator][vertica-kubernetes], improving deployment
-  flexibility and operational efficiency.
-- Contributed to the [Vertica Kubernetes Operator][vertica-kubernetes] to
-  support production readiness and ongoing platform operations.
+- Developed and maintained the Vertica Database SaaS offering.
+- Implemented CI/CD with Bitbucket Pipelines to improve release cadence and
+  reduce manual errors.
+- Migrated EC2 infrastructure to Kubernetes to adopt the
+  [Vertica Kubernetes Operator][vertica-kubernetes].
+- Contributed to the [Vertica Kubernetes Operator][vertica-kubernetes] for
+  production readiness and operations.
 
 **Reliability Engineer at [Full 360 Inc][full360],** November 2017 - June 2021
 
-- Defined and maintained security-focused Terraform standards for reusable,
-  auditable infrastructure.
-- Built and maintained secure AWS AMIs with Packer and Ansible to enforce
-  internal hardening baselines.
-- Automated infrastructure delivery through CI/CD pipelines with blue/green
-  deployment strategies to reduce release risk.
+- Defined security-focused Terraform standards for reusable, auditable
+  infrastructure.
+- Built secure AWS AMIs with Packer and Ansible to enforce hardening
+  baselines.
+- Automated infrastructure delivery via CI/CD and blue/green deployments.
 
 **Software Engineer at [Full 360 Inc][full360],** June 2014 - November 2017
 
-- Developed and maintained a caching layer to minimize the load on a clients
-  Mainframe; used by more than 12 million members on their loyalty program.
+- Built and maintained a caching layer to reduce load on a client's mainframe;
+  used by 12M+ loyalty members.
 - Led efforts migrating a client microservice architecture to Nomad, Vault,
   Consul, and Prometheus for metrics and alerting.
-- Enforced standardization of different services by creating internal toolkits.
+- Standardized services by creating internal toolkits.
 - Led efforts migrating a client VoltDB installation from version 3.7 to 6.8.
 
 **Writer and Developer at Codehero Blog,** June 2013 - June 2014
 
-- Led efforts on the blog migration from WordPress to Jekyll, for a faster and
-  cost effective blog.
-- Developed Ansible playbooks to automate server provisioning which reduced the
-  manual process from over an hour to less than 20 minutes.
+- Led migration of the blog from WordPress to Jekyll for faster, lower-cost
+  operations.
+- Built Ansible playbooks that reduced server provisioning from 1+ hour to
+  under 20 minutes.
 
 **Android Developer at Aura Internacional,** June 2013 - December 2013
 
-- Leverage the company's private vehicle tracking API in an Android app to
-  provide taxi drivers a solution to arrange pickups based in geolocation.
+- Integrated the company's private tracking API into an Android app so taxi
+  drivers could arrange geolocation-based pickups.
 
 **Full Stack at [Cacao Servicios Tecnológicos][cacao],** March 2012 - March 2013
 
-- Developed internal scripts that analyzed Linux configurations to determine
-  common security flaws.
+- Developed internal scripts to analyze Linux configurations for common
+  security flaws.
 - Worked as part of the Solaris consultant team in two of the biggest telecoms
   in Venezuela.
 
 **Open Source**
 
-- Crafted a [VoltDB client library for JRuby][jruby-client], wrapping the
-  official Java client in a Ruby idiomatic way.
+- Built a [VoltDB client library for JRuby][jruby-client], wrapping the
+  official Java client with an idiomatic Ruby API.
 
 ### Education
 
