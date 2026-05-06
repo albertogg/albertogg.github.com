@@ -1,6 +1,6 @@
 baseURL: https://albertogrespan.com
 disablePathToLower: true
-languageCode: en-us
+locale: en-US
 title: Blog
 
 author:
@@ -22,6 +22,11 @@ params:
     github:
       url: https://github.com/albertogg
       handle: albertogg
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 # Taxonomies activation default.
 taxonomies:
