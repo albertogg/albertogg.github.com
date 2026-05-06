@@ -4,7 +4,7 @@
       {{- range .Site.RegularPages -}}
       {{- if eq .Type "blog" -}}
       <li>
-        <span>{{ .Date.Format "January 2, 2006" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span>{{ partial "date.html" . }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </li>
       {{- end -}}
       {{- end -}}

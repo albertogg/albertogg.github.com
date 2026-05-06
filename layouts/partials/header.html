@@ -1,12 +1,12 @@
 <div class="header">
   <header class="container">
     <h1 class="name">
-      <a href="{{ .Site.BaseURL }}">{{ .Site.Params.Author }}</a>
+      <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.Author }}</a>
     </h1> <!-- class name -->
     <ul class="menu">
-      <li><a href="{{ .Site.BaseURL }}/about/">About</a></li>
-      <li><a href="{{ .Site.BaseURL }}/resume/">Resume</a></li>
-      <li><a href="{{ .Site.BaseURL }}/index.xml">RSS</a></li>
+      <li><a href="{{ "about/" | relURL }}">{{ i18n "about" }}</a></li>
+      <li><a href="{{ "resume/" | relURL }}">{{ i18n "resume" }}</a></li>
+      <li><a href="{{ "index.xml" | relLangURL }}">{{ i18n "rss" }}</a></li>
     </ul> <!-- class menu -->
   </header> <!-- class containter -->
 </div> <!-- class header -->

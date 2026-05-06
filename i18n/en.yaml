@@ -1,0 +1,16 @@
+about:
+  other: "About"
+resume:
+  other: "Resume"
+rss:
+  other: "RSS"
+tableOfContents:
+  other: "Table of Contents"
+by:
+  other: "By"
+readInEnglish:
+  other: "Read in English"
+readInSpanish:
+  other: "Read in Spanish"
+license:
+  other: "This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>."
