@@ -1,6 +1,20 @@
 baseURL: https://albertogrespan.com
 disablePathToLower: true
-locale: en-US
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    locale: en-US
+    label: English
+    weight: 1
+    title: Blog
+  es:
+    locale: es
+    label: Español
+    weight: 2
+    title: Blog
+
 title: Blog
 
 author:
