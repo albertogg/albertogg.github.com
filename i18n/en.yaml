@@ -1,5 +1,9 @@
-about:
-  other: "About"
+whoIAm:
+  other: "Who I am"
+postsTitle:
+  other: "Notes"
+intro:
+  other: "I'm Alberto Grespan, a Software Engineer from Caracas, Venezuela. I love the Internet, open source software, gadgets, and video games."
 resume:
   other: "Resume"
 rss:

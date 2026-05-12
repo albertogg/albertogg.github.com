@@ -4,9 +4,10 @@
       <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.Author }}</a>
     </h1> <!-- class name -->
     <ul class="menu">
-      <li><a href="{{ "about/" | relURL }}">{{ i18n "about" }}</a></li>
       <li><a href="{{ "resume/" | relURL }}">{{ i18n "resume" }}</a></li>
       <li><a href="{{ "index.xml" | relLangURL }}">{{ i18n "rss" }}</a></li>
     </ul> <!-- class menu -->
+    <h2 class="intro-title">{{ i18n "whoIAm" }}</h2>
+    <p class="intro">{{ i18n "intro" }}</p>
   </header> <!-- class containter -->
 </div> <!-- class header -->

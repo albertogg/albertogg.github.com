@@ -14,6 +14,17 @@
     }
   }
 
+  .intro-title {
+    margin: 0.6rem 0 0.2rem;
+    font-size: 1.3rem;
+  }
+
+  .intro {
+    max-width: 38rem;
+    margin: 0.4rem auto 1.2rem;
+    font-size: 1.05rem;
+  }
+
   .menu {
     list-style: none;
     padding-left: 0;
@@ -28,6 +39,10 @@
       }
     }
   }
+}
+
+.posts-title {
+  margin-bottom: 0.6rem;
 }
 
 .posts-list {
