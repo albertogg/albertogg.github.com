@@ -1,0 +1,76 @@
+{{ define "main" }}
+  <main class="home">
+    <section class="home-hero">
+      <h1 class="home-name"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Params.Author }}</a></h1>
+      <div class="home-controls">
+        {{ $target := "" }}
+        {{ if .IsTranslated }}
+          {{ range .AllTranslations }}
+            {{ if ne .Language.Lang $.Site.Language.Lang }}
+              {{ $target = .RelPermalink }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if eq .Site.Language.Lang "en" }}
+          <a class="lang-toggle" href="{{ $target }}">ES</a>
+        {{ else }}
+          <a class="lang-toggle" href="{{ $target }}">EN</a>
+        {{ end }}
+        <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.733.733 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zM16 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 16 8zM2.5 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zm10.657-5.157a.5.5 0 0 1 0 .707L11.743 4.964a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM4.964 11.743a.5.5 0 0 1 0 .707L3.55 13.864a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm8.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.964 4.964a.5.5 0 0 1-.707 0L2.843 3.55a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707z"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ i18n "whoIAm" }}</h2>
+      <p>{{ i18n "intro" }}</p>
+      <p><a href="{{ "resume/" | relLangURL }}">{{ i18n "resume" }}</a></p>
+    </section>
+
+    <section>
+      <h2>{{ i18n "whatIOffer" }}</h2>
+      <p>{{ i18n "whatIOfferIntro" }}</p>
+      <ul>
+        <li>{{ i18n "offerCloudInfra" }}</li>
+        <li>{{ i18n "offerCICD" }}</li>
+        <li>{{ i18n "offerAI" }}</li>
+        <li>{{ i18n "offerWorkshops" }}</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="notes-title">{{ i18n "postsTitle" }} <a class="rss-icon" href="{{ "index.xml" | relLangURL }}" aria-label="RSS" title="RSS">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.002 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2.002zm10.89 12.89a1 1 0 1 1-1.414 1.415A9 9 0 0 0 3 5.414a1 1 0 1 1 1.414-1.414 11 11 0 0 1 8.478 8.89zM9.566 12.89a1 1 0 1 1-1.415 1.415A5 5 0 0 0 3 9.414a1 1 0 1 1 1.414-1.414 7 7 0 0 1 5.152 4.89zM4 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+      </a></h2>
+      <ul class="posts-list">
+        {{- range .Site.RegularPages -}}
+        {{- if eq .Type "blog" -}}
+        <li>
+          <span>{{ partial "date.html" . }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{- end -}}
+        {{- end -}}
+      </ul>
+    </section>
+
+    <section>
+      <h2>{{ i18n "getInTouch" }}</h2>
+      <div class="contact-icons">
+        <a href="{{ .Site.Params.Connect.Github.Url }}" aria-label="GitHub" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8.013 8.013 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.56 7.56 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <a href="https://x.com/albertogg" aria-label="X" title="X">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.294 6.928 14.357 1h-1.2L8.758 6.147 5.26 1H1.2l5.312 7.817L1.2 15h1.2l4.644-5.436L10.74 15h4.06L9.294 6.928ZM7.66 8.84l-.538-.77L2.84 1.92h1.848l3.457 4.948.538.77 4.49 6.43h-1.848L7.66 8.84Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/albertogrespan" aria-label="LinkedIn" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.473 0 16 .513 16 1.146v13.708c0 .633-.527 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.21c.837 0 1.358-.554 1.358-1.248-.015-.71-.52-1.248-1.341-1.248-.822 0-1.358.538-1.358 1.248 0 .694.52 1.248 1.326 1.248h.015zm4.908 8.21V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+        </a>
+        <a href="mailto:{{ .Site.Params.Connect.Email }}" aria-label="Email" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217L8 8.383.001 4.217V4zm0 1.383 5.803 3.48L0 13.118V5.383zM6.761 9.674 0 13.743V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.257l-6.761-4.07L8 10.417l-1.239-.743zM16 13.118l-5.803-4.255L16 5.383v7.735z"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+{{ end }}

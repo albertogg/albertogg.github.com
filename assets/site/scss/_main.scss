@@ -154,3 +154,97 @@
 .toc {
   background-color: var(--font-color);
 }
+
+.home {
+  text-align: left;
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  h1, h2 {
+    margin-bottom: 0.4rem;
+  }
+
+  .home-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-name {
+    margin: 0;
+    font-size: 2.4em;
+
+    a {
+      color: var(--font-color-highlight);
+      border-bottom: none;
+    }
+  }
+
+  .home-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    font-family: sans-serif;
+    margin-left: auto;
+  }
+
+  .lang-toggle,
+  .theme-toggle {
+    border: 1px solid var(--link-color);
+    background: transparent;
+    color: var(--link-color);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .theme-toggle .icon-sun {
+    display: none;
+  }
+
+  .theme-toggle[data-theme="dark"] .icon-moon {
+    display: none;
+  }
+
+  .theme-toggle[data-theme="dark"] .icon-sun {
+    display: inline;
+  }
+
+  .notes-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rss-icon,
+  .contact-icons a {
+    border-bottom: none;
+  }
+
+  .contact-icons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .posts-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    padding-left: 0;
+  }
+
+  .posts-list li span {
+    float: none;
+    margin: 0;
+    order: 2;
+  }
+}

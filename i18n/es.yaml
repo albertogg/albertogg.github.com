@@ -18,3 +18,17 @@ readInSpanish:
   other: "Leer en español"
 license:
   other: "Esta obra está bajo una licencia <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>."
+whatIOffer:
+  other: "Qué ofrezco"
+whatIOfferIntro:
+  other: "Consultoría y acompañamiento práctico en estas áreas:"
+offerCloudInfra:
+  other: "Infraestructura en la nube"
+offerCICD:
+  other: "CI/CD y despliegues a producción"
+offerAI:
+  other: "IA y sistemas agénticos"
+offerWorkshops:
+  other: "Workshops técnicos personalizados"
+getInTouch:
+  other: "Contacto"
