@@ -10,7 +10,7 @@
 
 /* switch to dark mode color */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     @include dark(--bg-color, bg-color);
     @include dark(--bg-color-code, bg-color-code);
     @include dark(--font-color, font-color);
@@ -20,15 +20,33 @@
   }
 }
 
+:root[data-theme="light"] {
+  @include light(--bg-color, bg-color);
+  @include light(--bg-color-code, bg-color-code);
+  @include light(--font-color, font-color);
+  @include light(--font-color-highlight, font-color-highlight);
+  @include light(--link-color, link-color);
+  --font-weight: 400;
+}
+
+:root[data-theme="dark"] {
+  @include dark(--bg-color, bg-color);
+  @include dark(--bg-color-code, bg-color-code);
+  @include dark(--font-color, font-color);
+  @include dark(--font-color-highlight, font-color-highlight);
+  @include dark(--link-color, link-color);
+  --font-weight: 300;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: 'Merriweather', serif;
-  max-width: 36em;
+  max-width: 44rem;
   margin: 0 auto;
   padding: 1.25em;
-  line-height: 1.5;
-  font-size: 1.38rem;
+  line-height: 1.65;
+  font-size: 1.08rem;
   font-weight: var(--font-weight);
 }
 
