@@ -3,7 +3,14 @@ whoIAm:
 postsTitle:
   other: "Notes"
 intro:
-  other: "I'm Alberto Grespan, a Software Engineer from Caracas, Venezuela. I love the Internet, open source software, gadgets, and video games."
+  other: |
+    I'm a software engineer from Caracas, Venezuela, with 14+ years of remote experience across consultancies, startups, and large companies.
+
+    I focused on web applications, with a preference for backend engineering and cloud infrastructure on AWS and GCP.
+
+    I designed production-ready architectures with CI/CD and observability, led small teams and projects, and optimized cloud costs.
+
+    I'm currently working on AI and agentic applications.
 resume:
   other: "Resume"
 rss:

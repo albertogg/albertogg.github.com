@@ -3,7 +3,14 @@ whoIAm:
 postsTitle:
   other: "Notas"
 intro:
-  other: "Soy Alberto Grespan, ingeniero de software de Caracas, Venezuela. Me encanta Internet, el software de código abierto, los gadgets y los videojuegos."
+  other: |
+    Soy ingeniero de software de Caracas, Venezuela, con más de 14 años de experiencia remota en consultorías, startups y grandes empresas.
+
+    Me enfoqué en aplicaciones web, con preferencia por backend e infraestructura en la nube en AWS y GCP.
+
+    Diseñé arquitecturas listas para producción con CI/CD y observabilidad, lideré equipos y proyectos pequeños, y optimicé costos en la nube.
+
+    Actualmente trabajo con IA y aplicaciones agénticas.
 resume:
   other: "CV"
 rss:
