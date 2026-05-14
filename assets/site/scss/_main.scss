@@ -169,9 +169,10 @@
   .home-hero {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     gap: 1rem;
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
   }
 
@@ -196,13 +197,36 @@
 
   .lang-toggle,
   .theme-toggle {
-    border: 1px solid var(--link-color);
+    border: 0;
     background: transparent;
     color: var(--link-color);
-    border-radius: 0.25rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0;
     line-height: 1;
     cursor: pointer;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1;
+    border-bottom: none;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+
+  .theme-toggle svg {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
   }
 
   .theme-toggle .icon-sun {
@@ -242,9 +266,18 @@
     padding-left: 0;
   }
 
+  .posts-list li a {
+    order: 2;
+    flex: 1 1 20rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .posts-list li span {
     float: none;
     margin: 0;
-    order: 2;
+    order: 1;
+    font-size: 0.8em;
   }
 }
