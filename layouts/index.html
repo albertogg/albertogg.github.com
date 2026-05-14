@@ -47,13 +47,7 @@
 
     <section>
       <h2>{{ i18n "whatIOffer" }}</h2>
-      <p>{{ i18n "whatIOfferIntro" }}</p>
-      <ul>
-        <li>{{ i18n "offerCloudInfra" }}</li>
-        <li>{{ i18n "offerCICD" }}</li>
-        <li>{{ i18n "offerAI" }}</li>
-        <li>{{ i18n "offerWorkshops" }}</li>
-      </ul>
+      {{ i18n "whatIOfferBody" | markdownify }}
     </section>
 
     <section>

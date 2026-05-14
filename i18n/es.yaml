@@ -27,15 +27,13 @@ license:
   other: "Esta obra está bajo una licencia <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>."
 whatIOffer:
   other: "Qué ofrezco"
-whatIOfferIntro:
-  other: "Consultoría y acompañamiento práctico en estas áreas:"
-offerCloudInfra:
-  other: "Infraestructura en la nube"
-offerCICD:
-  other: "CI/CD y despliegues a producción"
-offerAI:
-  other: "IA y sistemas agénticos"
-offerWorkshops:
-  other: "Workshops técnicos personalizados"
+whatIOfferBody:
+  other: |
+    Ayudo a equipos a entregar plataformas web confiables más rápido, con arquitectura clara y menor costo en la nube.
+
+    - Arquitectura cloud lista para producción (AWS/GCP)
+    - Pipelines CI/CD con releases seguros y repetibles
+    - Arquitectura de aplicaciones de IA y sistemas agénticos
+    - Observabilidad, escalabilidad y optimización de costos cloud
 getInTouch:
   other: "Contacto"

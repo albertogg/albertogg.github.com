@@ -27,15 +27,13 @@ license:
   other: "This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>."
 whatIOffer:
   other: "What I offer"
-whatIOfferIntro:
-  other: "Consulting and hands-on support in these areas:"
-offerCloudInfra:
-  other: "Cloud Infrastructure"
-offerCICD:
-  other: "CI/CD and production deployments"
-offerAI:
-  other: "AI and Agentic Systems"
-offerWorkshops:
-  other: "Personalized technical workshops"
+whatIOfferBody:
+  other: |
+    I help teams ship reliable web platforms faster, with clear architecture and lower cloud cost.
+
+    - Production-ready cloud architecture (AWS/GCP)
+    - CI/CD pipelines with safe, repeatable releases
+    - AI and agentic application architecture
+    - Observability, scaling, and cloud cost optimization
 getInTouch:
   other: "Get in touch"
