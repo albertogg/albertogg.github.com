@@ -1,11 +1,10 @@
 ---
 date: 2013-07-13T00:00:00Z
-title: ScrollTo Top using jQuery and Font Awesome icon
+title: ScrollTo Top usando jQuery y el ícono de Font Awesome
 slug: /scrollTo-Top-using-jQuery/
 translationKey: "scrollto-top-using-jquery"
 description: |-
-  Add a scrollTo Top with fixed button to your site using jQuery and Font
-  Awesome.
+  Agrega un botón fijo de scrollTo Top a tu sitio usando jQuery y Font Awesome.
 categories:
   - Development
 tags:
@@ -14,7 +13,9 @@ tags:
   - scroll
 ---
 
-Scrolling JavaScript:
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
+
+JavaScript de scrolling:
 
     $(function() {
       var viewPortWidth = $(window).width();
@@ -36,13 +37,13 @@ Scrolling JavaScript:
       });
     });
 
-Add the Font Awesome Angle Double Up icon.
+Agrega el ícono Angle Double Up de Font Awesome.
 
     <a href="#" class="scrollTo-top" style="display: inline;">
       <i class="fa fa-angle-double-up"></i>
     </a>
 
-The scss style for the scrollTo-Top button using a Font Awesome icon.
+El estilo scss para el botón scrollTo-Top usando un ícono de Font Awesome.
 
     .scrollTo-top {
       display: none;

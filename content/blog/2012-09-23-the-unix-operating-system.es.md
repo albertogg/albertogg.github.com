@@ -1,10 +1,10 @@
 ---
 date: 2012-09-23T00:00:00Z
-title: The UNIX Operating System
+title: El sistema operativo UNIX
 slug: /the-unix-operating-system/
 translationKey: "the-unix-operating-system"
 description: |-
-  Video of the Unix System in 1982, recorded on the Bell Labs.
+  Video del sistema Unix en 1982, grabado en Bell Labs.
 categories:
   - History
 tags:
@@ -12,10 +12,11 @@ tags:
   - Video
 ---
 
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
+
 ## "The UNIX System: Making Computers More Productive"
 
-**If you work on a Unix-like operating system this video is a must watch! no
-excuses!**
+**Si trabajas con un sistema operativo tipo Unix, este video es obligatorio. ¡Sin excusas!**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tc4ROCJYbm0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

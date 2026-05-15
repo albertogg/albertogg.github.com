@@ -4,8 +4,8 @@ title: 'Error: client and server don''t have same version'
 slug: /error-client-and-server-don't-have-same-version/
 translationKey: "error-client-and-server-dont-have-same-version"
 description: |-
-  Fixing the Boot2docker error message that says that the client and the server
-  don't have the same version.
+  Cómo corregir el error de Boot2docker cuando cliente y servidor no tienen la
+  misma versión.
 categories:
   - Development
 tags:
@@ -14,13 +14,14 @@ tags:
   - CLI
 ---
 
-When using Docker through Boot2docker there is a possibility you've seen:
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
+
+Al usar Docker con Boot2docker, quizá viste este error:
 
 > Error: client and server don't have same version (client : X, server: X)
 
-This error occurs because the version of Docker installed on the Boot2docker
-image and the version of Docker installed on the host machine (your mac) are not
-the same.
+Ocurre porque la versión de Docker en la imagen de Boot2docker y la versión en
+la máquina host no coinciden.
 
     $ docker version
     Client version: 1.3.0
@@ -30,16 +31,10 @@ the same.
     OS/Arch (client): darwin/amd64
     2014/11/03 13:21:38 Error response from daemon: client and server don't have same version (client : 1.15, server: 1.14)
 
-Or
-
-    $ docker build -t my_containers .
-    2014/11/03 13:13:06 Error: client and server don't have same version (client : 1.15, server: 1.14)
-
-The solution to this error is to update the Boot2docker VM image using the
-provided CLI.
+La solución es actualizar la imagen de la VM de Boot2docker:
 
     $ boot2docker stop # stop boot2docker running instances
     $ boot2docker download # download and install the new VM image
     $ boot2docker start # start the updated VM
 
-Hope this helps!
+¡Espero que ayude!

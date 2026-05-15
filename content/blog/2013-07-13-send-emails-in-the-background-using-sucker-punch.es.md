@@ -1,11 +1,10 @@
 ---
 date: 2013-07-13T00:00:00Z
-title: Send emails in the background using sucker punch
+title: Enviar correos en segundo plano usando sucker punch
 slug: /send-emails-in-the-background-using-sucker-punch/
 translationKey: "send-emails-in-the-background-using-sucker-punch"
 description: |-
-  Send emails in the background using the sucker_punch gem in a Rails
-  application.
+  Envía correos en segundo plano usando la gema sucker_punch en una aplicación Rails.
 categories:
   - Development
 tags:
@@ -14,36 +13,32 @@ tags:
   - Background jobs
 ---
 
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
+
 ## Sucker punch gem
 
 This gem was created by [@brandonhilkert](https://twitter.com/brandonhilkert)
-with a very specific use case in mind. I'm not sure what the use case was, but,
-I believe it's something like; taking advantage of [Heroku](http://heroku.com)
-web dynos, without needing to pay extra for a worker dyno (this is what I'm
-using it for). If It's not; I'm leaning towards simplicity. At this point with
-[sucker_punch](https://github.com/brandonhilkert/sucker_punch) in it's **version
-1.0.1** became dead simple to install and use, no configuration needed. I'm
-really grateful that this gem was created.
+with a very specific use case in mind.
 
 > **note:** If you are looking for a massive background processing gem with
 > persistence, etc. go with something like
 > [Sidekiq](https://github.com/mperham/sidekiq) instead.
 
-### Why sucker punch?
+### ¿Por qué sucker punch?
 
-- Asynchronous processing within a single process.
-- All queues can run within a single Rails/Sinatra process.
-- No configuration needed.
-- Dead simple to use.
-- Reduces costs in services like Heroku.
+- Procesamiento asíncrono dentro de un solo proceso.
+- Todas las colas pueden correr dentro de un único proceso Rails/Sinatra.
+- No necesita configuración.
+- Muy simple de usar.
+- Reduce costos en servicios como Heroku.
 
-## Sending emails within a Rails application using sucker_punch
+## Enviar correos dentro de una aplicación Rails usando sucker_punch
 
-You already have a Rails application running and you want to send a contact form
-email or an email when the user registers. Let's do this using asynchronous
-processing with sucker punch.
+Ya tienes una aplicación Rails funcionando y quieres enviar un correo desde un
+formulario de contacto o al registrar un usuario. Hagámoslo con procesamiento
+asíncrono usando sucker punch.
 
-First install the sucker punch gem.
+Primero instala la gema sucker punch.
 
     # Add this line to your Gemfile
     $ gem 'sucker_punch', '~> 1.0.1'
@@ -51,12 +46,12 @@ First install the sucker punch gem.
     # Run bundle
     $ bundle install
 
-Generate the mailer.
+Genera el mailer.
 
     $ rails g mailer ContactMailer
 
-This command will create all the files necessary to send emails within the rails
-application.
+Este comando creará todos los archivos necesarios para enviar correos dentro de
+la aplicación Rails.
 
     # app/mailers/contact_mailer.rb
     class ContactMailer < ActionMailer::Base
@@ -72,7 +67,7 @@ application.
       end
     end
 
-Create your email template.
+Crea tu plantilla de correo.
 
     # app/views/contact_mailer/contact_form.txt.erb
     # This template receives the @contact variable from the
@@ -81,7 +76,7 @@ Create your email template.
 
     <%= @contact.content %>
 
-Let's create the sucker punch job.
+Ahora crea el job de sucker punch.
 
     # app/jobs/contacts_email_job.rb
     class ContactsEmailJob
@@ -94,7 +89,7 @@ Let's create the sucker punch job.
 
     end
 
-Now let's take a look at the controller.
+Ahora revisemos el controlador.
 
     # app/controllers/contacts_controller.rb
     class ContactsController < ApplicationController
@@ -117,15 +112,11 @@ Now let's take a look at the controller.
       end
     end
 
-When the user hits contact form and click the submit button of the form, they
-are triggering the controller which instantiates a *new* job that will *perform
-asynchronously* so the user will not be hold down waiting for the email to be
-send. In the end using background jobs for doing this things reflects in a
-better user experience.
+Cuando el usuario envía el formulario de contacto, dispara el controlador que
+instancia un nuevo job y se ejecuta de forma asíncrona. Así, el usuario no se
+queda esperando mientras se envía el correo, mejorando la experiencia.
 
 ---
 
-In conclusion doing complicated things like background jobs becomes really easy
-when using the right tools. In this case using sucker punch. We didn't have to
-figure out how to install and configure persistence or configuring the job
-queues. It just works.
+En conclusión, tareas como los background jobs se vuelven muy sencillas al usar
+las herramientas correctas. En este caso, sucker punch.

@@ -1,10 +1,10 @@
 ---
 date: 2013-07-13T00:00:00Z
-title: jQuery scrollTo with pushState
+title: jQuery scrollTo con pushState
 slug: /jQuery-scrollTo-with-pushState/
 translationKey: "jquery-scrollto-with-pushstate"
 description: |-
-  How to add scrollTo with pushState to your site using jQuery.
+  Cómo agregar scrollTo con pushState a tu sitio usando jQuery.
 categories:
   - Development
 tags:
@@ -12,6 +12,8 @@ tags:
   - jQuery
   - scroll
 ---
+
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
 
 pushState:
 
@@ -26,5 +28,5 @@ pushState:
       });
     });
 
-- Every navigation anchor element needs a unique class name.
-- The target elements needs the same unique class name but as id.
+- Cada elemento anchor de navegación necesita un nombre de clase único.
+- Los elementos destino deben tener ese mismo nombre de clase único, pero como `id`.

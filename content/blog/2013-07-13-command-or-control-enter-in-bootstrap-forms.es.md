@@ -1,11 +1,11 @@
 ---
 date: 2013-07-13T00:00:00Z
-title: Command or control enter in bootstrap forms
+title: Command o Control + Enter en formularios de Bootstrap
 slug: /command-or-control-enter-in-bootstrap-forms/
 translationKey: "command-or-control-enter-in-bootstrap-forms"
 description: |-
-  How to add command or control enter action to your forms using jQuery and
-  Twitter Bootstrap.
+  Cómo agregar la acción de command o control + enter a tus formularios usando
+  jQuery y Twitter Bootstrap.
 categories:
   - Development
 tags:
@@ -14,7 +14,9 @@ tags:
   - Twitter Bootstrap
 ---
 
-Using command enter to submit:
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
+
+Usando command + enter para enviar:
 
     $(document).on('keydown', '.controls > .text, .controls > .string', function(event) {
       if(event.keyCode == 13 && (event.metaKey || event.ctrlKey)) {
@@ -22,6 +24,6 @@ Using command enter to submit:
       }
     });
 
-- Add a helper class to your submit button to identify it.
-- If you want to target normal inputs use .text and to target textareas use
-  .string or use both.
+- Agrega una clase helper a tu botón de submit para identificarlo.
+- Si quieres apuntar a inputs normales usa `.text` y para `textareas` usa
+  `.string`, o usa ambos.

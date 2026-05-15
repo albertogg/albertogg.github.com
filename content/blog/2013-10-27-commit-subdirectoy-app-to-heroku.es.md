@@ -1,10 +1,10 @@
 ---
 date: 2013-10-27T00:00:00Z
-title: Commit subdirectoy application to Heroku
+title: Publicar una aplicación en subdirectorio en Heroku
 slug: /commit-subdirectoy-app-to-heroku/
 translationKey: "commit-subdirectoy-app-to-heroku"
 description: |-
-  How push a git subdirectory (subtree) application to Heroku.
+  Cómo hacer push de una aplicación en un subdirectorio de git (subtree) a Heroku.
 categories:
   - Development
 tags:
@@ -14,7 +14,9 @@ tags:
   - CLI
 ---
 
-Directory structure:
+> **Nota:** Esta publicación fue traducida al español con ayuda de IA.
+
+Estructura de directorios:
 
     .
     ├── LICENSE
@@ -34,7 +36,7 @@ Directory structure:
         ├── Procfile
     ...
 
-If you want to commit any of the projects `express` or `railsapi` to Heroku you
-can use this command:
+Si quieres publicar cualquiera de los proyectos `express` o `railsapi` en Heroku,
+puedes usar este comando:
 
     $ git subtree push --prefix railsapi heroku master
