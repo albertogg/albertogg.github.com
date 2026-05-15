@@ -73,6 +73,10 @@
   text-transform: uppercase;
 }
 
+.post .date p {
+  font-size: 1rem;
+}
+
 .language-switcher {
   font-family: sans-serif;
   margin-bottom: 1.5rem;
@@ -84,6 +88,11 @@
 }
 
 .post {
+  h1 {
+    margin: 0;
+    font-size: 1.8em;
+  }
+
   img {
     @include img-responsive();
     margin: 0 auto;
@@ -155,6 +164,11 @@
   background-color: var(--font-color);
 }
 
+.post-hero {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
 .home {
   text-align: left;
 
@@ -173,7 +187,7 @@
     width: 100%;
     gap: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .home-name {
