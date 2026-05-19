@@ -2,6 +2,7 @@
 date: 2014-06-09T00:00:00Z
 title: Delete stopped & untagged docker images
 slug: /delete-stopped-and-untagged-docker-images/
+translationKey: "delete-stopped-and-untagged-docker-images"
 description: |-
   Delete all stopped and untagged (none) Docker images generated from building
   multiple times images.

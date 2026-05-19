@@ -2,6 +2,7 @@
 date: 2014-03-23T00:00:00Z
 title: Rake tasks & Jekyll posts
 slug: /rake-tasks-and-jekyll-posts/
+translationKey: "rake-tasks-and-jekyll-posts"
 description: |-
   Creating posts in Jekyll can become painful sometimes, stop repeating yourself
   and use a custom Rake Task. Thanks Jim.

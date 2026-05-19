@@ -1,10 +1,12 @@
 {{- range .AllTranslations -}}
   <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
 {{- end -}}
+
+{{- $defaultLang := .Site.Home.Language.Lang -}}
 {{- $default := . -}}
-{{- if ne .Language.Lang hugo.Sites.Default.Language.Lang -}}
+{{- if ne .Language.Lang $defaultLang -}}
   {{- range .Translations -}}
-    {{- if eq .Language.Lang hugo.Sites.Default.Language.Lang -}}
+    {{- if eq .Language.Lang $defaultLang -}}
       {{- $default = . -}}
     {{- end -}}
   {{- end -}}

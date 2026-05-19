@@ -1,5 +1,6 @@
 {{ define "main" }}
   <div>
+    <h2 class="posts-title">{{ i18n "postsTitle" }}</h2>
     <ul class="posts-list">
       {{- range .Site.RegularPages -}}
       {{- if eq .Type "blog" -}}

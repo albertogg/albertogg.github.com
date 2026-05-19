@@ -2,6 +2,7 @@
 date: 2014-11-08T00:00:00Z
 title: 'Error: client and server don''t have same version'
 slug: /error-client-and-server-don't-have-same-version/
+translationKey: "error-client-and-server-dont-have-same-version"
 description: |-
   Fixing the Boot2docker error message that says that the client and the server
   don't have the same version.

@@ -2,6 +2,7 @@
 date: 2012-09-23T00:00:00Z
 title: The UNIX Operating System
 slug: /the-unix-operating-system/
+translationKey: "the-unix-operating-system"
 description: |-
   Video of the Unix System in 1982, recorded on the Bell Labs.
 categories:

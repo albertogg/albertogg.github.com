@@ -2,6 +2,7 @@
 date: 2014-03-07T00:00:00Z
 title: Heroku scheduler and Rails rake tasks
 slug: /heroku-scheduler-and-rails-rake-tasks/
+translationKey: "heroku-scheduler-and-rails-rake-tasks"
 description: |-
   Using the heroku scheduler with Rails and Rake to keep our dyno awake; this
   will also work for any custom short periodical task.

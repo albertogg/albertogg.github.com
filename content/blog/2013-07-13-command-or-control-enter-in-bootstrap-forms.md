@@ -2,6 +2,7 @@
 date: 2013-07-13T00:00:00Z
 title: Command or control enter in bootstrap forms
 slug: /command-or-control-enter-in-bootstrap-forms/
+translationKey: "command-or-control-enter-in-bootstrap-forms"
 description: |-
   How to add command or control enter action to your forms using jQuery and
   Twitter Bootstrap.

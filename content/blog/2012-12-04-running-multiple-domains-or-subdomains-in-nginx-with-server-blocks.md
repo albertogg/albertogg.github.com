@@ -3,6 +3,7 @@ date: 2012-12-04T00:00:00Z
 title: |-
   Running multiple domains or subdomains in NGINX using Server Blocks in Ubuntu
 slug: /running-multiple-domains-or-subdomains-in-nginx-with-server-blocks/
+translationKey: "running-multiple-domains-or-subdomains-in-nginx-with-server-blocks"
 description: |-
   Run multiple websites in NGINX using Server Blocks (Ubuntu tutorial).
 categories:
