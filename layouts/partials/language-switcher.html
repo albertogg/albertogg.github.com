@@ -1,8 +1,0 @@
-{{- with .Translations -}}
-  <nav class="language-switcher" aria-label="Translations">
-    {{- range . -}}
-      {{- $key := cond (eq .Language.Lang "es") "readInSpanish" "readInEnglish" -}}
-      <a href="{{ .RelPermalink }}">{{ i18n $key }}</a>
-    {{- end -}}
-  </nav>
-{{- end -}}
