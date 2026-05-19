@@ -100,10 +100,10 @@
   }
 
   blockquote {
-    border-left: 0.25em solid var(--link-color);
+    border-left: 0.25em solid var(--accent-color);
     padding: 0 1em;
     margin: 1em 0;
-    color: var(--link-color);
+    color: var(--accent-color);
     @extend .inline-code;
   }
 
@@ -115,6 +115,7 @@
   pre {
     font-size: 1.125rem;
     background-color: var(--bg-color-code);
+    border: 1px solid var(--border-color);
     border-radius: 0.18rem;
     color: var(--font-color-highlight);
     padding: 0.4em 0.6em;
@@ -134,7 +135,7 @@
     width: 16em;
     height: 9em;
     margin: 0 auto;
-    border: 0.0625em solid $light-gray;
+    border: 0.0625em solid var(--border-color);
     padding: 0.1875em 0.1875em;
   }
 
@@ -161,12 +162,7 @@
 }
 
 .toc {
-  background-color: var(--font-color);
-}
-
-.post-hero {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--border-color);
 }
 
 .home {
@@ -264,6 +260,7 @@
   .rss-icon,
   .contact-icons a {
     border-bottom: none;
+    color: var(--accent-color);
   }
 
   .contact-icons {

@@ -2,47 +2,52 @@
 $dark-theme: "dark-theme";
 $light-theme: "light-theme";
 
-// Color paletts
-$white: rgba(255, 255, 255, 1);
-$black: rgba(18, 18, 18, 1);
-$gray: rgba(85, 85, 85, 1);
-$light-gray: rgba(236, 236, 236, 1);
-$dark-gray: rgba(37, 37, 37, 1);
-$blue: rgba(53, 126, 252, 1);
-$light-blue: rgba(104, 177, 255, 1);
+// TokyoNight Day
+$day-bg: #eceef4;
+$day-bg-dark: #dde2ee;
+$day-bg-highlight: #e4e8f2;
+$day-fg: #6172b0;
+$day-fg-dark: #68709a;
+$day-link: #2e7de9;
+$day-accent: #007197;
+$day-border: #b4b5b9;
 
-// Light
-$light-background-color: $white;
-$light-background-color-code: rgba($black, 0.1);
-$light-font-color: rgba($gray, 0.87);
-$light-font-color-highlight: rgba($gray, 1);
-$light-link-color: $blue;
-
-// Dark
-$dark-background-color: $black;
-$dark-background-color-code: rgba($white, 0.1);
-$dark-font-color: rgba($white, 0.6);
-$dark-font-color-highlight: rgba($dark-font-color, 0.87);
-$dark-link-color: $light-blue;
+// TokyoNight Moon
+$moon-bg: #222436;
+$moon-bg-dark: #1e2030;
+$moon-bg-highlight: #2f334d;
+$moon-fg: #c8d3f5;
+$moon-fg-dark: #828bb8;
+$moon-link: #82aaff;
+$moon-accent: #86e1fc;
+$moon-border: #3b4261;
 
 // Resume variables
-$dark-font: $gray;
-$links-font: $blue;
-$print-font: $dark-gray;
+$dark-font: #555555;
+$links-font: $day-link;
+$print-font: #252525;
 
 $themes: (
   $light-theme: (
-    "bg-color": $light-background-color,
-    "bg-color-code": $light-background-color-code,
-    "font-color": $light-font-color,
-    "font-color-highlight": $light-font-color-highlight,
-    "link-color": $light-link-color,
+    "bg-color": $day-bg,
+    "bg-elevated": $day-bg-highlight,
+    "bg-color-code": $day-bg-dark,
+    "font-color": $day-fg,
+    "font-color-muted": $day-fg-dark,
+    "font-color-highlight": $day-fg,
+    "link-color": $day-link,
+    "accent-color": $day-accent,
+    "border-color": $day-border,
   ),
   $dark-theme: (
-    "bg-color": $dark-background-color,
-    "bg-color-code": $dark-background-color-code,
-    "font-color": $dark-font-color,
-    "font-color-highlight": $dark-font-color-highlight,
-    "link-color": $dark-link-color,
+    "bg-color": $moon-bg,
+    "bg-elevated": $moon-bg-highlight,
+    "bg-color-code": $moon-bg-dark,
+    "font-color": $moon-fg,
+    "font-color-muted": $moon-fg-dark,
+    "font-color-highlight": $moon-fg,
+    "link-color": $moon-link,
+    "accent-color": $moon-accent,
+    "border-color": $moon-border,
   )
 );
