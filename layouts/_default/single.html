@@ -2,21 +2,15 @@
   <div id="post" class="post">
     <h1>{{ .Title }}</h1>
     <div class="date">
-      <p>&mdash; {{ .Date.Format "January 2, 2006" }}</p>
+      <p>{{ partial "date.html" . }}</p>
     </div> <!-- class date -->
     {{ if .Params.toc }}
     <aside>
-      <h4>Table of Contents</h4>
+      <h4>{{ i18n "tableOfContents" }}</h4>
       {{ .TableOfContents }}
     </aside>
     <hr class="toc">
     {{ end }}
     {{ .Content }}
-    <div class="closing">
-      <div>
-       By <a href="{{ .Site.Params.Connect.Twitter.Url }}" class="twitter-follow-link">@{{ .Site.Params.Connect.Twitter.Handle }}</a>
-      </div>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="{{ .Permalink }}" data-text="{{ .Title }}" data-via="{{ .Site.Params.Connect.Twitter.Handle }}" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div> <!-- class closing -->
   </div> <!-- id class post -->
 {{ end }}

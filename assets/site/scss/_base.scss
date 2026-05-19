@@ -1,34 +1,68 @@
 :root {
   color-scheme: light dark;
   @include light(--bg-color, bg-color);
+  @include light(--bg-elevated, bg-elevated);
   @include light(--bg-color-code, bg-color-code);
   @include light(--font-color, font-color);
+  @include light(--font-color-muted, font-color-muted);
   @include light(--font-color-highlight, font-color-highlight);
   @include light(--link-color, link-color);
+  @include light(--accent-color, accent-color);
+  @include light(--border-color, border-color);
   --font-weight: 400;
 }
 
 /* switch to dark mode color */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     @include dark(--bg-color, bg-color);
+    @include dark(--bg-elevated, bg-elevated);
     @include dark(--bg-color-code, bg-color-code);
     @include dark(--font-color, font-color);
+    @include dark(--font-color-muted, font-color-muted);
     @include dark(--font-color-highlight, font-color-highlight);
     @include dark(--link-color, link-color);
+    @include dark(--accent-color, accent-color);
+    @include dark(--border-color, border-color);
     --font-weight: 300;
   }
 }
 
+:root[data-theme="light"] {
+  @include light(--bg-color, bg-color);
+  @include light(--bg-elevated, bg-elevated);
+  @include light(--bg-color-code, bg-color-code);
+  @include light(--font-color, font-color);
+  @include light(--font-color-muted, font-color-muted);
+  @include light(--font-color-highlight, font-color-highlight);
+  @include light(--link-color, link-color);
+  @include light(--accent-color, accent-color);
+  @include light(--border-color, border-color);
+  --font-weight: 400;
+}
+
+:root[data-theme="dark"] {
+  @include dark(--bg-color, bg-color);
+  @include dark(--bg-elevated, bg-elevated);
+  @include dark(--bg-color-code, bg-color-code);
+  @include dark(--font-color, font-color);
+  @include dark(--font-color-muted, font-color-muted);
+  @include dark(--font-color-highlight, font-color-highlight);
+  @include dark(--link-color, link-color);
+  @include dark(--accent-color, accent-color);
+  @include dark(--border-color, border-color);
+  --font-weight: 300;
+}
+
 body {
   background-color: var(--bg-color);
-  color: var(--font-color);
+  color: var(--font-color-muted);
   font-family: 'Merriweather', serif;
-  max-width: 36em;
+  max-width: 44rem;
   margin: 0 auto;
   padding: 1.25em;
-  line-height: 1.5;
-  font-size: 1.38rem;
+  line-height: 1.65;
+  font-size: 1.08rem;
   font-weight: var(--font-weight);
 }
 
@@ -74,11 +108,12 @@ hr {
   margin-bottom: 3rem;
   height: 2px;
   border: 0;
-  background-color: var(--link-color);
+  background-color: var(--accent-color);
 }
 
 strong {
   font-weight: 900;
+  color: var(--font-color-highlight);
 }
 
 figcaption {

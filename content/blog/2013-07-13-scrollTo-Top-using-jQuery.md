@@ -2,6 +2,7 @@
 date: 2013-07-13T00:00:00Z
 title: ScrollTo Top using jQuery and Font Awesome icon
 slug: /scrollTo-Top-using-jQuery/
+translationKey: "scrollto-top-using-jquery"
 description: |-
   Add a scrollTo Top with fixed button to your site using jQuery and Font
   Awesome.

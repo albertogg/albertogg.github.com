@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.Lang }}">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
@@ -13,16 +13,58 @@
     <meta name="twitter:creator" content="@{{ .Site.Params.Connect.Twitter.Handle }}">
     <meta name="twitter:image" content="{{ .Site.Params.Gravatar.Url }}?s=250">
     <title>{{ .Page.Title }} &ndash; {{ .Site.Params.Author }}</title>
+    {{ partial "hreflang.html" . }}
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900" rel="stylesheet">
     {{ $style := resources.Get "site/scss/style.scss" | css.Sass (dict "outputStyle" "compressed") }}
-    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
   </head>
   <body>
     <div id="content-wrapper">
-      {{ partial "header.html" . }}
+      {{ if not .IsHome }}
+        {{ partial "header.html" . }}
+      {{ end }}
       {{ block "main" . }}
       {{ end }}
     </div> <!-- id content-wrapper -->
     {{ partial "footer.html" . }}
+    <script>
+      (function () {
+        const key = 'theme';
+        const root = document.documentElement;
+        const button = document.querySelector('.theme-toggle');
+
+        function apply(theme) {
+          if (theme === 'light' || theme === 'dark') {
+            root.setAttribute('data-theme', theme);
+          } else {
+            root.removeAttribute('data-theme');
+          }
+          if (button) {
+            const current = root.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            button.dataset.theme = current;
+            button.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+            button.setAttribute('title', current === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+          }
+        }
+
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') {
+          apply(saved);
+        } else {
+          apply(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        }
+
+        if (button) {
+          button.addEventListener('click', function () {
+            const current = root.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            localStorage.setItem(key, next);
+            apply(next);
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

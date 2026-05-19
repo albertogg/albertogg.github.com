@@ -2,6 +2,7 @@
 date: 2015-03-30T00:00:00Z
 title: My most used git aliases
 slug: /my-most-used-git-aliases/
+translationKey: "my-most-used-git-aliases"
 description: |-
   My most used git aliases and a brief explanation of what do they do.
 categories:

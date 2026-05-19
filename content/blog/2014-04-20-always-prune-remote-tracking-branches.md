@@ -2,6 +2,7 @@
 date: 2014-04-20T00:00:00Z
 title: Always prune remote-tracking branches
 slug: /always-prune-remote-tracking-branches/
+translationKey: "always-prune-remote-tracking-branches"
 description: |-
   Always prune your remote-tracking branches with every fetch or pull with the
   correct configuration. You just need Git version 1.8.5 or newer.

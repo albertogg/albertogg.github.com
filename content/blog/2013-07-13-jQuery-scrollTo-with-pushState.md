@@ -2,6 +2,7 @@
 date: 2013-07-13T00:00:00Z
 title: jQuery scrollTo with pushState
 slug: /jQuery-scrollTo-with-pushState/
+translationKey: "jquery-scrollto-with-pushstate"
 description: |-
   How to add scrollTo with pushState to your site using jQuery.
 categories:

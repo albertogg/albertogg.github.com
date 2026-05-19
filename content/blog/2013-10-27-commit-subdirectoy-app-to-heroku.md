@@ -2,6 +2,7 @@
 date: 2013-10-27T00:00:00Z
 title: Commit subdirectoy application to Heroku
 slug: /commit-subdirectoy-app-to-heroku/
+translationKey: "commit-subdirectoy-app-to-heroku"
 description: |-
   How push a git subdirectory (subtree) application to Heroku.
 categories:

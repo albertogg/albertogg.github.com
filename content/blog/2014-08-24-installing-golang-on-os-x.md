@@ -2,6 +2,7 @@
 date: 2014-08-24T00:00:00Z
 title: Installing Go on OS X
 slug: /installing-golang-on-os-x/
+translationKey: "installing-golang-on-os-x"
 description: |-
   Installing Go (golang) on OS X using Homebrew and a single GOPATH.
 categories:

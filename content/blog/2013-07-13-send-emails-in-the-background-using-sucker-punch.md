@@ -2,6 +2,7 @@
 date: 2013-07-13T00:00:00Z
 title: Send emails in the background using sucker punch
 slug: /send-emails-in-the-background-using-sucker-punch/
+translationKey: "send-emails-in-the-background-using-sucker-punch"
 description: |-
   Send emails in the background using the sucker_punch gem in a Rails
   application.
